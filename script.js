@@ -1,15 +1,25 @@
-// Simple scroll animation for buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector(".site-nav");
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  if (menuToggle && siteNav) {
+    menuToggle.addEventListener("click", function () {
+      siteNav.classList.toggle("open");
 
-anchor.addEventListener('click', function (e) {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+    });
+  }
 
-e.preventDefault();
-
-document.querySelector(this.getAttribute('href')).scrollIntoView({
-behavior: 'smooth'
-});
-
-});
-
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
 });

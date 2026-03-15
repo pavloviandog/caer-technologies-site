@@ -153,3 +153,44 @@ text-decoration:none;
 footer p{
 color:#c8cbd2;
 }
+
+.page-hero{
+  padding:100px 0;
+}
+
+.eyebrow{
+  color:#2f80ed;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+
+.benefits-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.benefit-item{
+  background:#1b1f27;
+  padding:25px;
+  border-radius:8px;
+  text-align:left;
+}
+
+.benefit-item h3{
+  margin-bottom:10px;
+}
+
+.section-intro{
+  max-width:760px;
+  margin:0 auto 35px auto;
+  color:#c8cbd2;
+}
+
+.cta-band{
+  background:#0f1115;
+}

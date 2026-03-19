@@ -149,7 +149,11 @@ a{
   background:rgba(47,128,237,0.08);
   color:var(--primary);
 }
-
+@media (min-width:901px){
+  .nav-item:hover .dropdown,
+  .nav-item:focus-within .dropdown{
+    display:block;
+  }
 .nav-item:hover .dropdown,
 .nav-item:focus-within .dropdown{
   display:block;
@@ -400,8 +404,8 @@ section::after{
 }
 
 .service-icon{
-  width:60px;
-  height:60px;
+  width:120px;
+  height:120px;
   margin-bottom:20px;
   filter:drop-shadow(0 0 8px rgba(47,128,237,0.4));
 }

@@ -123,7 +123,7 @@ a{
 /* Dropdown menu */
 .dropdown{
   position:absolute;
-  top:calc(100% + 10px);
+  top:calc(100%);
   left:0;
   min-width:250px;
   background:var(--card);
@@ -131,6 +131,7 @@ a{
   border-radius:12px;
   box-shadow:var(--shadow);
   padding:8px 0;
+  padding-top: 10px; /* move the spacing inside the dropdown */
   display:none;
   z-index:1100;
 }
@@ -150,9 +151,17 @@ a{
   color:var(--primary);
 }
 @media (min-width: 901px) {
+  .nav-item .dropdown {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
   .nav-item:hover .dropdown,
   .nav-item:focus-within .dropdown {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

@@ -676,7 +676,89 @@
   box-shadow: var(--ep-shadow);
 }
 
-/* Blog section CSS omitted — add when blog launches */
+/* ── Blog / Resources ───────────────────────── */
+.ep-blog-section {
+  background: var(--ep-surface-soft);
+}
+
+.ep-blog-section h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  color: var(--ep-text-dark);
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.ep-blog-section .ep-section-heading p {
+  color: var(--ep-text-mid);
+}
+
+.ep-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.ep-blog-card {
+  background: #fff;
+  border: 1px solid var(--ep-line);
+  border-radius: var(--ep-radius);
+  padding: 1.6rem;
+  box-shadow: var(--ep-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.ep-blog-card:hover {
+  box-shadow: var(--ep-shadow);
+  transform: translateY(-3px);
+}
+
+.ep-blog-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ep-accent);
+}
+
+.ep-blog-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ep-text-dark);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.ep-blog-card p {
+  font-size: 0.875rem;
+  color: var(--ep-text-mid);
+  margin: 0;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.ep-blog-coming-soon {
+  opacity: 0.75;
+}
+
+.ep-coming-soon-badge {
+  display: inline-block;
+  background: var(--ep-surface-soft);
+  border: 1px solid var(--ep-line);
+  color: var(--ep-text-mid);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
 
 /* ═══════════════════════════════════════════════
    RESPONSIVE

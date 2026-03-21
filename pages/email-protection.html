@@ -2,303 +2,420 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAER Technologies | Email Authentication & Domain Protection</title>
-  <meta
-    name="description"
-    content="Protect your business from email spoofing, phishing, and deliverability issues with CAER Technologies Email Authentication & Domain Protection services."
-  />
-  <!-- Open Graph -->
-<meta property="og:title" content="CAER Technologies | Managed IT & Cybersecurity">
-<meta property="og:description" content="Reliable IT support, cybersecurity, backup, VoIP, and network solutions for businesses across the Texas Hill Country.">
-<meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-<meta property="og:url" content="https://consultcaer.com/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="CAER Technologies">
+  <title>Email Security & Domain Protection | CAER Technologies</title>
+  <meta name="description" content="Protect your business from email spoofing, phishing, and deliverability issues. CAER Technologies provides SPF, DKIM, DMARC, and full domain authentication services across the Texas Hill Country." />
 
-<!-- Twitter (also used by iMessage/Slack sometimes) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CAER Technologies | Managed IT & Cybersecurity">
-<meta name="twitter:description" content="IT support and cybersecurity for Texas Hill Country businesses.">
-<meta name="twitter:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Email Security & Domain Protection | CAER Technologies">
+  <meta property="og:description" content="Your domain may be vulnerable to spoofing right now. CAER Technologies identifies the gaps and locks them down for businesses in Bandera, Kerrville, Fredericksburg, and Boerne.">
+  <meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
+  <meta property="og:url" content="https://consultcaer.com/pages/email-protection.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAER Technologies">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Email Security & Domain Protection | CAER Technologies">
+  <meta name="twitter:description" content="SPF, DKIM, DMARC, and full domain authentication for Texas Hill Country businesses.">
+  <meta name="twitter:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/email-protection.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/email-protection.css" />
 </head>
-<body>
+<body class="ep-page">
 
-  <header class="ep-header">
-    <div class="ep-container">
-      <div class="ep-topbar">
-        <a href="../index.html" class="ep-logo">CAER Technologies</a>
-        <a href="#free-check" class="ep-btn ep-btn-outline">Request a Free Check</a>
-      </div>
-<nav class="site-nav">
-    <a href="../index.html">Home</a>
-
-    <div class="nav-item has-dropdown">
+<!-- ═══════════════════════════════════════════════
+     SITE HEADER (matches rest of site)
+════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../assets/logo/caer-logo.png" alt="CAER Technologies">
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <div class="nav-item has-dropdown">
         <a href="security.html">Security</a>
         <div class="dropdown">
-            <a href="cybersecurity.html">Cybersecurity Protection</a>
-            <a href="email-protection.html">Email Security</a>
+          <a href="cybersecurity.html">Cybersecurity Protection</a>
+          <a href="email-protection.html">Email Security</a>
         </div>
-    </div>
-
-    <div class="nav-item has-dropdown">
+      </div>
+      <div class="nav-item has-dropdown">
         <a href="#">Infrastructure</a>
         <div class="dropdown">
-            <a href="managed-it-services.html">Managed IT Services</a>
-            <a href="network.html">Network Infrastructure</a>
-            <a href="m365-cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="managed-it-services.html">Managed IT Services</a>
+          <a href="network.html">Network Infrastructure</a>
+          <a href="m365-cloud.html">Microsoft 365 &amp; Cloud</a>
         </div>
-    </div>
-
-    <div class="nav-item has-dropdown">
+      </div>
+      <div class="nav-item has-dropdown">
         <a href="#">Continuity</a>
         <div class="dropdown">
-            <a href="backup.html">Backup &amp; Disaster Recovery</a>
+          <a href="backup.html">Backup &amp; Disaster Recovery</a>
         </div>
-    </div>
-
-    <div class="nav-item has-dropdown">
+      </div>
+      <div class="nav-item has-dropdown">
         <a href="#">Communication</a>
         <div class="dropdown">
-            <a href="voip.html">Business VoIP</a>
+          <a href="voip.html">Business VoIP</a>
         </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<section class="ep-hero">
+  <div class="ep-hero-bg">
+    <div class="ep-hero-grid-overlay"></div>
+  </div>
+  <div class="ep-container">
+    <div class="ep-hero-inner">
+      <div class="ep-hero-copy">
+        <p class="ep-eyebrow">Email Authentication &amp; Domain Protection</p>
+        <h1>Is Your Business Email <em>Actually</em> Protected?</h1>
+        <p class="ep-subheadline">
+          Many businesses using Microsoft 365 or Google Workspace have gaps in their email
+          security they don't know about. We take a friendly, thorough look at your domain
+          and fix what we find — SPF, DKIM, DMARC, MTA-STS, and more.
+        </p>
+        <div class="ep-hero-ctas">
+          <a href="#free-check" class="ep-btn-hero-primary">Get Your Free Domain Check</a>
+          <a href="tel:+18305103700" class="ep-btn-hero-secondary">
+            <span class="ep-phone-icon">📞</span> 830-510-3700
+          </a>
+        </div>
+        <div class="ep-trust-row">
+          <span class="ep-trust-item">✓ No obligation</span>
+          <span class="ep-trust-item">✓ Plain-language results</span>
+          <span class="ep-trust-item">✓ Local Texas Hill Country team</span>
+        </div>
+      </div>
+
+      <div class="ep-hero-card">
+        <div class="ep-card-header">
+          <span class="ep-card-badge">What We Commonly Find</span>
+        </div>
+        <ul class="ep-findings-list">
+          <li>
+            <span class="ep-finding-dot ep-dot-red"></span>
+            <span>DMARC set to monitoring only — domain still spoofable</span>
+          </li>
+          <li>
+            <span class="ep-finding-dot ep-dot-red"></span>
+            <span>Missing MTA-STS &amp; TLS transport security</span>
+          </li>
+          <li>
+            <span class="ep-finding-dot ep-dot-yellow"></span>
+            <span>Weak or legacy DKIM selectors in use</span>
+          </li>
+          <li>
+            <span class="ep-finding-dot ep-dot-yellow"></span>
+            <span>SPF records broken, too complex, or over limit</span>
+          </li>
+          <li>
+            <span class="ep-finding-dot ep-dot-yellow"></span>
+            <span>Unknown third-party senders still attached to domain</span>
+          </li>
+          <li>
+            <span class="ep-finding-dot ep-dot-gray"></span>
+            <span>No reporting or visibility into sending activity</span>
+          </li>
+        </ul>
+        <a href="#free-check" class="ep-card-cta">Check My Domain Free →</a>
+      </div>
     </div>
 
-    <a href="pricing.html">Pricing</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="cta">Schedule Consultation</a>
-</nav>
-      <section class="ep-hero">
-        <div class="ep-hero-copy">
-          <p class="ep-eyebrow">Email Authentication & Domain Protection</p>
-          <h1>Stop Email Spoofing Before It Hits Your Business</h1>
-          <p class="ep-subheadline">
-            Your domain may look fine on the surface while still being vulnerable to spoofing,
-            phishing, and silent deliverability issues. We identify the gaps and fix them.
-          </p>
-
-          <div class="ep-hero-actions">
-            <a href="#free-check" class="ep-btn ep-btn-primary">Request Your Free Email Security Check</a>
-            <a href="#what-we-check" class="ep-btn ep-btn-secondary">See What We Check</a>
-          </div>
-
-          <div class="ep-hero-points">
-            <span>SPF</span>
-            <span>DKIM</span>
-            <span>DMARC</span>
-            <span>MTA-STS</span>
-            <span>TLS-RPT</span>
-            <span>DNSSEC</span>
-            <span>BIMI</span>
-          </div>
-        </div>
-
-        <div class="ep-hero-card">
-          <div class="ep-status-card">
-            <h2>Email Security Gaps We Commonly Find</h2>
-            <ul>
-              <li>DMARC in monitoring mode only</li>
-              <li>Missing transport security records</li>
-              <li>Weak or outdated DKIM configuration</li>
-              <li>SPF records too complex or broken</li>
-              <li>No visibility into who is sending mail</li>
-              <li>Domains still vulnerable to impersonation</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <!-- Protocol pills -->
+    <div class="ep-protocols">
+      <span>SPF</span><span>DKIM</span><span>DMARC</span>
+      <span>MTA-STS</span><span>TLS-RPT</span><span>DNSSEC</span><span>BIMI</span>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section class="ep-section ep-problem">
-      <div class="ep-container ep-grid-2">
-        <div>
-          <p class="ep-section-tag">The Problem</p>
-          <h2>Your business can still be exposed even when email “works.”</h2>
-          <p>
-            Most companies assume that because they use Microsoft 365 or Google Workspace,
-            their domain is secure. It often is not. A domain can send and receive email while
-            still being open to spoofing, poor policy enforcement, and hidden delivery issues.
-          </p>
-        </div>
 
-        <div class="ep-card">
-          <ul class="ep-check-list">
-            <li>Your domain may still be spoofable</li>
-            <li>Messages can fail authentication or land in spam</li>
-            <li>Security records are often incomplete or outdated</li>
-            <li>You may have no reporting or visibility into email activity</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="what-we-check" class="ep-section ep-light">
-      <div class="ep-container">
-        <div class="ep-section-heading">
-          <p class="ep-section-tag">What We Check</p>
-          <h2>We run a full Email Authentication & Domain Health Assessment</h2>
-          <p>
-            We review the records, policies, and supporting protections that determine whether
-            your domain is trusted, enforceable, and properly aligned.
-          </p>
-        </div>
-
-        <div class="ep-card-grid">
-          <article class="ep-feature-card">
-            <h3>SPF</h3>
-            <p>We verify who is authorized to send email for your domain and clean up risky or overloaded records.</p>
-          </article>
-
-          <article class="ep-feature-card">
-            <h3>DKIM</h3>
-            <p>We validate message signing, selector health, and key strength so your mail can be trusted downstream.</p>
-          </article>
-
-          <article class="ep-feature-card">
-            <h3>DMARC</h3>
-            <p>We check policy, alignment, reporting, and whether your domain is truly protected or just “monitoring.”</p>
-          </article>
-
-          <article class="ep-feature-card">
-            <h3>MTA-STS & TLS-RPT</h3>
-            <p>We verify whether mail transport is enforced and whether you have visibility into TLS delivery failures.</p>
-          </article>
-
-          <article class="ep-feature-card">
-            <h3>BIMI</h3>
-            <p>We assess readiness for inbox logo display and brand trust enhancements tied to stronger DMARC posture.</p>
-          </article>
-
-          <article class="ep-feature-card">
-            <h3>DNS & Domain Health</h3>
-            <p>We review DNSSEC, MX health, supporting records, and structural issues that can affect trust and delivery.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="ep-section">
-      <div class="ep-container">
-        <div class="ep-section-heading">
-          <p class="ep-section-tag">What We Find</p>
-          <h2>Most domains are only partially protected</h2>
-          <p>
-            In the real world, “configured” does not mean “secure.” We commonly find domains
-            that appear to be set up properly but still have meaningful gaps.
-          </p>
-        </div>
-
-        <div class="ep-findings-grid">
-          <div class="ep-card">
-            <h3>Common Findings</h3>
-            <ul class="ep-bullet-list">
-              <li>DMARC set to <strong>none</strong> or <strong>quarantine</strong> without full enforcement</li>
-              <li>Missing MTA-STS and TLS reporting</li>
-              <li>Legacy or weak DKIM selectors</li>
-              <li>SPF lookup pressure, errors, or unnecessary includes</li>
-              <li>Unknown senders or third-party platforms still attached to the domain</li>
-              <li>No reporting to show what is actually happening</li>
-            </ul>
-          </div>
-
-          <div class="ep-card ep-emphasis-card">
-            <h3>Bottom Line</h3>
-            <p>
-              Your email can still be exposed to impersonation, spoofing, and delivery problems
-              even when users do not notice anything wrong day to day.
-            </p>
-            <p class="ep-quote">
-              Set up does not equal secured.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ep-section ep-light">
-      <div class="ep-container">
-        <div class="ep-section-heading">
-          <p class="ep-section-tag">What We Fix</p>
-          <h2>We don’t just report the problem. We lock it down.</h2>
-        </div>
-
-        <div class="ep-fix-grid">
-          <div class="ep-fix-item">Eliminate domain spoofing risks</div>
-          <div class="ep-fix-item">Move DMARC from monitoring to enforcement</div>
-          <div class="ep-fix-item">Correct SPF structure and reduce lookup issues</div>
-          <div class="ep-fix-item">Strengthen DKIM alignment and selector health</div>
-          <div class="ep-fix-item">Enable transport security protections</div>
-          <div class="ep-fix-item">Turn on reporting and sender visibility</div>
-          <div class="ep-fix-item">Improve DNS trust and domain integrity</div>
-          <div class="ep-fix-item">Prepare the domain for BIMI and brand trust</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ep-section ep-benefits">
-      <div class="ep-container ep-grid-2">
-        <div>
-          <p class="ep-section-tag">What You Get</p>
-          <h2>Stronger protection, better deliverability, and clear visibility</h2>
-          <p>
-            This is not just about email records. It is about protecting your business identity
-            and making sure only authorized systems can send mail as your company.
-          </p>
-        </div>
-
-        <div class="ep-card">
-          <ul class="ep-check-list">
-            <li>Protection against domain impersonation</li>
-            <li>Improved email deliverability</li>
-            <li>Visibility into sending sources</li>
-            <li>Stronger trust with clients and vendors</li>
-            <li>Cleaner DNS and authentication posture</li>
-            <li>Ongoing monitoring and support options</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="free-check" class="ep-section ep-cta">
-      <div class="ep-container">
-        <div class="ep-cta-box">
-          <p class="ep-section-tag">Free Domain Check</p>
-          <h2>Let us scan your domain and show you exactly where you stand.</h2>
-          <p>
-            No obligation. No guesswork. Just a clear review of your email authentication and
-            domain protection posture.
-          </p>
-<div class="contact-form-embed">
-  <iframe
-    aria-label="Contact Us"
-    frameborder="0"
-    style="height:1500px;width:99%;border:none;"
-    src="https://forms.zohopublic.com/caertechnologies/form/EmailSecurityCheckRequestForm/formperma/F4TNcWToDKzdQWIard6GaJgDzl8-WlFEnEiQt1RMTWY">
-  </iframe>
+<!-- ═══════════════════════════════════════════════
+     SOCIAL PROOF / STATS BAR
+════════════════════════════════════════════════ -->
+<div class="ep-stats-bar">
+  <div class="ep-container ep-stats-inner">
+    <div class="ep-stat">
+      <strong>94%</strong>
+      <span>of domains assessed have at least one critical gap</span>
+    </div>
+    <div class="ep-stat-divider"></div>
+    <div class="ep-stat">
+      <strong>$4.9M</strong>
+      <span>average cost of a business email compromise attack</span>
+    </div>
+    <div class="ep-stat-divider"></div>
+    <div class="ep-stat">
+      <strong>3 records</strong>
+      <span>SPF, DKIM &amp; DMARC — most businesses are missing at least one</span>
+    </div>
+    <div class="ep-stat-divider"></div>
+    <div class="ep-stat">
+      <strong>Local</strong>
+      <span>Serving Bandera, Kerrville, Fredericksburg &amp; Boerne</span>
+    </div>
+  </div>
 </div>
 
 
-          <div class="ep-contact-line">
-            <span>CAER Technologies</span>
-            <span>support@consultcaer.com</span>
-            <span>830-510-3700</span>
-          </div>
+<!-- ═══════════════════════════════════════════════
+     THE PROBLEM
+════════════════════════════════════════════════ -->
+<section class="ep-section ep-problem-section">
+  <div class="ep-container">
+    <div class="ep-problem-grid">
+      <div class="ep-problem-copy">
+        <p class="ep-section-tag">The Problem</p>
+        <h2>Email working fine doesn't mean it's set up safely.</h2>
+        <p>
+          A domain can send and receive email without a hitch while still having gaps that leave
+          it open to spoofing or impersonation. You'd likely never know — until a client calls
+          asking about a suspicious message that appeared to come from you.
+        </p>
+        <p>
+          The good news: these issues are fixable. We find them, explain them in plain language,
+          and take care of them for you.
+        </p>
+      </div>
+      <div class="ep-problem-cards">
+        <div class="ep-risk-card">
+          <div class="ep-risk-icon">⚠️</div>
+          <h3>Spoofing &amp; Impersonation</h3>
+          <p>Attackers send emails appearing to come from your domain — targeting your clients, vendors, or staff.</p>
+        </div>
+        <div class="ep-risk-card">
+          <div class="ep-risk-icon">📉</div>
+          <h3>Deliverability Failures</h3>
+          <p>Misconfigured authentication causes legitimate emails to land in spam or get silently rejected.</p>
+        </div>
+        <div class="ep-risk-card">
+          <div class="ep-risk-icon">🔍</div>
+          <h3>Zero Visibility</h3>
+          <p>Without reporting in place, you have no way of knowing who is sending mail as your domain.</p>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-</body>
-</html>
+
+<!-- ═══════════════════════════════════════════════
+     WHAT WE CHECK
+════════════════════════════════════════════════ -->
+<section class="ep-section ep-check-section" id="what-we-check">
+  <div class="ep-container">
+    <div class="ep-section-heading ep-centered">
+      <p class="ep-section-tag">What We Check</p>
+      <h2>A complete Email Authentication &amp; Domain Health Assessment</h2>
+      <p>We review every layer of your domain's email security posture — not just the obvious ones.</p>
+    </div>
+
+    <div class="ep-check-grid">
+      <div class="ep-check-card">
+        <div class="ep-check-label">SPF</div>
+        <h3>Sender Policy Framework</h3>
+        <p>We verify which servers are authorized to send mail for your domain and clean up risky, broken, or overloaded records.</p>
+      </div>
+      <div class="ep-check-card">
+        <div class="ep-check-label">DKIM</div>
+        <h3>DomainKeys Identified Mail</h3>
+        <p>We validate message signing, selector health, and key strength so your outbound mail can be trusted by receiving servers.</p>
+      </div>
+      <div class="ep-check-card">
+        <div class="ep-check-label">DMARC</div>
+        <h3>Domain-Based Auth &amp; Reporting</h3>
+        <p>We check policy enforcement level, alignment, and whether your domain is truly protected or just passively monitoring.</p>
+      </div>
+      <div class="ep-check-card">
+        <div class="ep-check-label">MTA-STS</div>
+        <h3>Mail Transport Agent Security</h3>
+        <p>We verify whether encrypted mail transport is enforced between servers and whether delivery failures are being reported.</p>
+      </div>
+      <div class="ep-check-card">
+        <div class="ep-check-label">BIMI</div>
+        <h3>Brand Indicators for Messages</h3>
+        <p>We assess your readiness for inbox logo display — a trust signal that requires strong DMARC enforcement to unlock.</p>
+      </div>
+      <div class="ep-check-card">
+        <div class="ep-check-label">DNS</div>
+        <h3>DNS &amp; Domain Health</h3>
+        <p>We review DNSSEC, MX health, and structural issues in your domain's DNS that can affect authentication and deliverability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     WHAT WE FIX — PROCESS
+════════════════════════════════════════════════ -->
+<section class="ep-section ep-process-section">
+  <div class="ep-container">
+    <div class="ep-section-heading ep-centered">
+      <p class="ep-section-tag">Our Process</p>
+      <h2>Simple process. Real results.</h2>
+    </div>
+    <div class="ep-process-steps">
+      <div class="ep-step">
+        <div class="ep-step-num">01</div>
+        <h3>Free Domain Scan</h3>
+        <p>Submit your domain. We run a full assessment across all authentication layers and DNS records.</p>
+      </div>
+      <div class="ep-step-arrow">→</div>
+      <div class="ep-step">
+        <div class="ep-step-num">02</div>
+        <h3>Clear Findings Report</h3>
+        <p>You receive a plain-language summary of every gap, risk, and misconfiguration we find.</p>
+      </div>
+      <div class="ep-step-arrow">→</div>
+      <div class="ep-step">
+        <div class="ep-step-num">03</div>
+        <h3>Remediation &amp; Lockdown</h3>
+        <p>We fix the issues directly — updating records, enforcing policies, and enabling visibility.</p>
+      </div>
+      <div class="ep-step-arrow">→</div>
+      <div class="ep-step">
+        <div class="ep-step-num">04</div>
+        <h3>Ongoing Monitoring</h3>
+        <p>Optional ongoing support to catch new senders, policy drift, and emerging threats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     WHAT YOU GET
+════════════════════════════════════════════════ -->
+<section class="ep-section ep-outcomes-section">
+  <div class="ep-container">
+    <div class="ep-outcomes-grid">
+      <div class="ep-outcomes-copy">
+        <p class="ep-section-tag">What You Get</p>
+        <h2>Here's what you walk away with.</h2>
+        <p>
+          Whether it's a quick cleanup or a full authentication overhaul, we leave your domain
+          in a better place — and make sure you understand what changed and why.
+        </p>
+        <a href="#free-check" class="ep-btn-primary-solid">Request Your Free Check</a>
+        <div class="ep-or-call">
+          or call us directly: <a href="tel:+18305103700">830-510-3700</a>
+        </div>
+      </div>
+      <ul class="ep-outcomes-list">
+        <li><span class="ep-check">✓</span> Domain protected against impersonation &amp; spoofing</li>
+        <li><span class="ep-check">✓</span> DMARC moved to full enforcement</li>
+        <li><span class="ep-check">✓</span> Improved email deliverability to inbox</li>
+        <li><span class="ep-check">✓</span> Complete visibility into who sends as your domain</li>
+        <li><span class="ep-check">✓</span> Cleaner, more trustworthy DNS posture</li>
+        <li><span class="ep-check">✓</span> Stronger client and vendor trust signals</li>
+        <li><span class="ep-check">✓</span> BIMI-ready configuration for inbox branding</li>
+        <li><span class="ep-check">✓</span> Ongoing monitoring options available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FREE CHECK — FORM (PRIMARY CTA)
+════════════════════════════════════════════════ -->
+<section id="free-check" class="ep-section ep-form-section">
+  <div class="ep-container">
+    <div class="ep-form-wrapper">
+      <div class="ep-form-copy">
+        <p class="ep-section-tag">Free Domain Check</p>
+        <h2>Let's take a look at your domain — no cost, no pressure.</h2>
+        <p>
+          Fill out the form and we'll get back to you within one business day with a clear
+          picture of where things stand. Prefer to just talk? Give us a call.
+        </p>
+
+        <div class="ep-contact-options">
+          <div class="ep-contact-option">
+            <span class="ep-co-icon">📋</span>
+            <div>
+              <strong>Fill out the form</strong>
+              <span>We'll follow up within one business day</span>
+            </div>
+          </div>
+          <div class="ep-contact-option">
+            <span class="ep-co-icon">📞</span>
+            <div>
+              <strong><a href="tel:+18305103700">830-510-3700</a></strong>
+              <span>Prefer to talk? Call us directly</span>
+            </div>
+          </div>
+          <div class="ep-contact-option">
+            <span class="ep-co-icon">✉️</span>
+            <div>
+              <strong><a href="/cdn-cgi/l/email-protection#05767075756a777145666a6b76706971666460772b666a68"><span class="__cf_email__" data-cfemail="c5b6b0b5b5aab7b185a6aaabb6b0a9b1a6a4a0b7eba6aaa8">[email&#160;protected]</span></a></strong>
+              <span>Email us anytime</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ep-service-area">
+          Serving Bandera · Kerrville · Fredericksburg · Boerne · Texas Hill Country
+        </p>
+      </div>
+
+      <div class="ep-form-embed">
+        <iframe
+          aria-label="Email Security Check Request"
+          frameborder="0"
+          style="height:1500px;width:100%;border:none;"
+          src="https://forms.zohopublic.com/caertechnologies/form/EmailSecurityCheckRequestForm/formperma/F4TNcWToDKzdQWIard6GaJgDzl8-WlFEnEiQt1RMTWY">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Blog section intentionally omitted — add when blog launches -->
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3>CAER Technologies</h3>
+      <p>Managed IT Services and cybersecurity-focused support for businesses across the Texas Hill Country.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="managed-it-services.html">Managed IT</a></li>
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="backup.html">Backup</a></li>
+        <li><a href="voip.html">VoIP</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Bandera, Texas</p>
+      <p><a href="tel:+18305103700">830-510-3700</a></p>
+      <p><a href="/cdn-

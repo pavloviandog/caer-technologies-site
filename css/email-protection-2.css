@@ -1,0 +1,361 @@
+:root {
+  --ep-bg: #0b1220;
+  --ep-bg-soft: #111a2d;
+  --ep-surface: #ffffff;
+  --ep-surface-soft: #f5f8fc;
+  --ep-text: #102033;
+  --ep-text-light: #d9e3f0;
+  --ep-muted: #66758a;
+  --ep-line: #dfe7f0;
+  --ep-primary: #165dff;
+  --ep-primary-dark: #124acc;
+  --ep-accent: #ff7a1a;
+  --ep-shadow: 0 20px 50px rgba(16, 32, 51, 0.12);
+  --ep-radius: 18px;
+  --ep-max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--ep-text);
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.ep-container {
+  width: min(100% - 2rem, var(--ep-max));
+  margin: 0 auto;
+}
+
+.ep-header {
+  background:
+    radial-gradient(circle at top right, rgba(255, 122, 26, 0.16), transparent 25%),
+    linear-gradient(135deg, #09101b 0%, #10203a 55%, #13294d 100%);
+  color: #fff;
+  padding-bottom: 3.5rem;
+}
+
+.ep-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.ep-logo {
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+}
+
+.ep-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0 2rem;
+}
+
+.ep-eyebrow,
+.ep-section-tag {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ep-accent);
+}
+
+.ep-hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 4vw, 4.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.ep-subheadline {
+  margin: 0 0 1.5rem;
+  font-size: 1.08rem;
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.ep-hero-actions,
+.ep-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.ep-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.ep-btn-primary {
+  background: var(--ep-accent);
+  color: #fff;
+}
+
+.ep-btn-primary:hover {
+  background: #eb6d13;
+  transform: translateY(-1px);
+}
+
+.ep-btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ep-btn-secondary:hover,
+.ep-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ep-btn-outline {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+}
+
+.ep-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.ep-hero-points span {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.48rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.ep-status-card,
+.ep-card,
+.ep-feature-card,
+.ep-cta-box {
+  background: var(--ep-surface);
+  border-radius: var(--ep-radius);
+  box-shadow: var(--ep-shadow);
+}
+
+.ep-status-card {
+  padding: 1.6rem;
+  color: var(--ep-text);
+}
+
+.ep-status-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.ep-status-card ul,
+.ep-bullet-list,
+.ep-check-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.ep-status-card li,
+.ep-bullet-list li,
+.ep-check-list li {
+  margin-bottom: 0.75rem;
+}
+
+.ep-section {
+  padding: 5rem 0;
+}
+
+.ep-light {
+  background: var(--ep-surface-soft);
+}
+
+.ep-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ep-section-heading {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.ep-section h2,
+.ep-section-heading h2,
+.ep-cta-box h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.ep-section p,
+.ep-section-heading p,
+.ep-card p,
+.ep-feature-card p,
+.ep-cta-box p {
+  color: var(--ep-muted);
+}
+
+.ep-card {
+  padding: 1.6rem;
+  border: 1px solid var(--ep-line);
+}
+
+.ep-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.ep-feature-card {
+  padding: 1.4rem;
+  border: 1px solid var(--ep-line);
+}
+
+.ep-feature-card h3,
+.ep-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.ep-findings-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+}
+
+.ep-emphasis-card {
+  background: linear-gradient(160deg, #0f2342 0%, #16335e 100%);
+  color: #fff;
+  border: none;
+}
+
+.ep-emphasis-card p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ep-quote {
+  margin-top: 1.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ep-accent) !important;
+}
+
+.ep-fix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.ep-fix-item {
+  background: #fff;
+  border: 1px solid var(--ep-line);
+  border-radius: 16px;
+  padding: 1rem 1.05rem;
+  box-shadow: 0 10px 25px rgba(16, 32, 51, 0.06);
+  font-weight: 600;
+}
+
+.ep-cta {
+  background:
+    radial-gradient(circle at bottom left, rgba(255, 122, 26, 0.08), transparent 25%),
+    linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
+}
+
+.ep-cta-box {
+  padding: 2.25rem;
+  text-align: center;
+  border: 1px solid var(--ep-line);
+}
+
+.ep-contact-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+  color: var(--ep-text);
+  margin-top: 1rem;
+}
+
+@media (max-width: 1080px) {
+  .ep-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ep-fix-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .ep-hero,
+  .ep-grid-2,
+  .ep-findings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ep-topbar {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ep-hero {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ep-section {
+    padding: 3.5rem 0;
+  }
+
+  .ep-card-grid,
+  .ep-fix-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ep-btn,
+  .ep-hero-actions a,
+  .ep-cta-actions a {
+    width: 100%;
+  }
+
+  .ep-cta-box {
+    padding: 1.5rem;
+  }
+}

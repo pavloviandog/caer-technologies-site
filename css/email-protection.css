@@ -34,32 +34,18 @@ body {
 a {
   text-decoration: none;
 }
-
-.ep-container {
-  width: min(100% - 2rem, var(--ep-max));
-  margin: 0 auto;
-}
-
-.ep-header {
+.ep-header-shell{
   background:
     radial-gradient(circle at top right, rgba(255, 122, 26, 0.16), transparent 25%),
     linear-gradient(135deg, #09101b 0%, #10203a 55%, #13294d 100%);
-  color: #fff;
-  padding-bottom: 3.5rem;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+  padding:3rem 0 3.5rem;
 }
-
-.ep-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 0;
-}
-
-.ep-logo {
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  font-size: 1.05rem;
+.ep-container {
+  width: min(100% - 2rem, var(--ep-max));
+  margin: 0 auto;
 }
 
 .ep-hero {

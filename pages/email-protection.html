@@ -40,91 +40,110 @@
 
 <body>
 
-  <header class="ep-header">
-    <div class="ep-container">
-      <div class="ep-topbar">
-        <a href="../index.html" class="ep-logo">CAER Technologies</a>
-        <a href="#free-check" class="ep-btn ep-btn-outline">Request a Free Check</a>
-      </div>
-<nav class="site-nav">
-    <a href="../index.html">Home</a>
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../assets/logo/caer-logo.png" alt="CAER Technologies">
+      </a>
+    </div>
 
-    <div class="nav-item has-dropdown">
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+
+      <div class="nav-item has-dropdown">
         <a href="security.html">Security</a>
         <div class="dropdown">
-            <a href="cybersecurity.html">Cybersecurity Protection</a>
-            <a href="email-protection.html">Email Security</a>
+          <a href="cybersecurity.html">Cybersecurity Protection</a>
+          <a href="email-protection.html">Email Security</a>
         </div>
-    </div>
+      </div>
 
-    <div class="nav-item has-dropdown">
+      <div class="nav-item has-dropdown">
         <a href="#">Infrastructure</a>
         <div class="dropdown">
-            <a href="managed-it-services.html">Managed IT Services</a>
-            <a href="network.html">Network Infrastructure</a>
-            <a href="m365-cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="managed-it-services.html">Managed IT Services</a>
+          <a href="network.html">Network Infrastructure</a>
+          <a href="cloud.html">Microsoft 365 &amp; Cloud</a>
         </div>
-    </div>
+      </div>
 
-    <div class="nav-item has-dropdown">
+      <div class="nav-item has-dropdown">
         <a href="#">Continuity</a>
         <div class="dropdown">
-            <a href="backup.html">Backup &amp; Disaster Recovery</a>
+          <a href="backup.html">Backup &amp; Disaster Recovery</a>
         </div>
-    </div>
+      </div>
 
-    <div class="nav-item has-dropdown">
+      <div class="nav-item has-dropdown">
         <a href="#">Communication</a>
         <div class="dropdown">
-            <a href="voip.html">Business VoIP</a>
+          <a href="voip.html">Business VoIP</a>
         </div>
-    </div>
+      </div>
 
-    <a href="pricing.html">Pricing</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="cta">Schedule Consultation</a>
-</nav>
-      <section class="ep-hero">
-        <div class="ep-hero-copy">
-          <p class="ep-eyebrow">Email Authentication & Domain Protection</p>
-          <h1>Stop Email Spoofing Before It Hits Your Business</h1>
-          <p class="ep-subheadline">
-            Your domain may look fine on the surface while still being vulnerable to spoofing,
-            phishing, and silent deliverability issues. We identify the gaps and fix them.
-          </p>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
 
-          <div class="ep-hero-actions">
-            <a href="#free-check" class="ep-btn ep-btn-primary">Request Your Free Email Security Check</a>
-            <a href="#what-we-check" class="ep-btn ep-btn-secondary">See What We Check</a>
-          </div>
+<section class="ep-header-shell">
+  <div class="ep-container">
 
-          <div class="ep-hero-points">
-            <span>SPF</span>
-            <span>DKIM</span>
-            <span>DMARC</span>
-            <span>MTA-STS</span>
-            <span>TLS-RPT</span>
-            <span>DNSSEC</span>
-            <span>BIMI</span>
-          </div>
+    <section class="ep-hero">
+
+      <div class="ep-hero-copy">
+        <p class="ep-eyebrow">Email Authentication &amp; Domain Protection</p>
+
+        <h1>Stop Email Spoofing Before It Hits Your Business</h1>
+
+        <p class="ep-subheadline">
+          Your domain may look fine on the surface while still being vulnerable to spoofing,
+          phishing, and silent deliverability issues. We identify the gaps and fix them.
+        </p>
+
+        <div class="ep-hero-actions">
+          <a href="#free-check" class="ep-btn ep-btn-primary">
+            Request Your Free Email Security Check
+          </a>
+          <a href="#what-we-check" class="ep-btn ep-btn-secondary">
+            See What We Check
+          </a>
         </div>
 
-        <div class="ep-hero-card">
-          <div class="ep-status-card">
-            <h2>Email Security Gaps We Commonly Find</h2>
-            <ul>
-              <li>DMARC in monitoring mode only</li>
-              <li>Missing transport security records</li>
-              <li>Weak or outdated DKIM configuration</li>
-              <li>SPF records too complex or broken</li>
-              <li>No visibility into who is sending mail</li>
-              <li>Domains still vulnerable to impersonation</li>
-            </ul>
-          </div>
+        <div class="ep-hero-points">
+          <span>SPF</span>
+          <span>DKIM</span>
+          <span>DMARC</span>
+          <span>MTA-STS</span>
+          <span>TLS-RPT</span>
+          <span>DNSSEC</span>
+          <span>BIMI</span>
         </div>
-      </section>
-    </div>
-  </header>
+      </div>
+
+      <div class="ep-hero-card">
+        <div class="ep-status-card">
+          <h2>Email Security Gaps We Commonly Find</h2>
+          <ul>
+            <li>DMARC in monitoring mode only</li>
+            <li>Missing transport security records</li>
+            <li>Weak or outdated DKIM configuration</li>
+            <li>SPF records too complex or broken</li>
+            <li>No visibility into who is sending mail</li>
+            <li>Domains still vulnerable to impersonation</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</section>
 
   <main>
     <section class="ep-section ep-problem">

@@ -36,8 +36,10 @@ a {
 }
 .ep-header-shell{
   background:
-    radial-gradient(circle at top right, rgba(255, 122, 26, 0.16), transparent 25%),
+/*    radial-gradient(circle at top right, rgba(255, 122, 26, 0.16), transparent 25%),
     linear-gradient(135deg, #09101b 0%, #10203a 55%, #13294d 100%);
+*/
+  background: #0f1115; /* matches nav + site */
   position:relative;
   overflow:hidden;
   color:#fff;

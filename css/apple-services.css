@@ -1,0 +1,466 @@
+/* ============================================================
+   apple-services.css  —  CAER Technologies Apple Landing Page
+   ============================================================ */
+
+:root {
+  --ap-bg:           #0f1115;
+  --ap-bg-soft:      #161a21;
+  --ap-surface:      #1b1f27;
+  --ap-surface-light:#f5f7fa;
+  --ap-text:         #ffffff;
+  --ap-text-soft:    #c8cbd2;
+  --ap-text-muted:   #9aa3af;
+  --ap-line:         #2a2f3a;
+  --ap-primary:      #2f80ed;
+  --ap-primary-dark: #256fd1;
+  --ap-silver:       #a0aec0;
+  --ap-silver-light: #e2e8f0;
+  --ap-max:          1180px;
+  --ap-radius:       14px;
+  --ap-shadow:       0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* ── Hero Shell ─────────────────────────────────────────── */
+.ap-hero-shell {
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(160,174,192,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 100%, rgba(47,128,237,0.07) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0c10 0%, #0f1115 60%, #0f1115 100%);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 3.5rem 0 4rem;
+}
+
+.ap-hero-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+.ap-container {
+  width: min(100% - 2rem, var(--ap-max));
+  margin: 0 auto;
+}
+
+/* ── Hero Grid ──────────────────────────────────────────── */
+.ap-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.ap-eyebrow,
+.ap-section-tag {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ap-silver);
+}
+
+.ap-hero h1 {
+  margin: 0 0 1.1rem;
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.ap-hero h1 em {
+  font-style: normal;
+  color: var(--ap-silver);
+}
+
+.ap-subheadline {
+  margin: 0 0 1.6rem;
+  font-size: 1.05rem;
+  max-width: 640px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.65;
+}
+
+.ap-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.ap-btn-primary {
+  background: var(--ap-primary);
+  color: #fff;
+}
+.ap-btn-primary:hover {
+  background: var(--ap-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(47,128,237,0.35);
+}
+
+.ap-btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.ap-btn-secondary:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-1px);
+}
+
+/* ── Hero Chips ─────────────────────────────────────────── */
+.ap-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ap-hero-chips span {
+  background: rgba(255,255,255,0.06);
+  color: var(--ap-silver-light);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.87rem;
+  font-weight: 500;
+}
+
+/* ── Hero Card (right column) ───────────────────────────── */
+.ap-hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--ap-radius);
+  padding: 1.75rem;
+  backdrop-filter: blur(12px);
+}
+
+.ap-hero-card h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ap-check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ap-check-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.82);
+  font-size: 0.94rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.ap-check-list li:last-child { border-bottom: none; }
+
+.ap-check-list li::before {
+  content: "✓";
+  color: var(--ap-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Sections ───────────────────────────────────────────── */
+.ap-section {
+  padding: 5rem 0;
+}
+
+.ap-section-dark {
+  background: var(--ap-bg);
+}
+
+.ap-section-alt {
+  background: var(--ap-bg-soft);
+}
+
+.ap-section-light {
+  background: #f5f7fa;
+  color: #102033;
+}
+.ap-section-light .ap-section-tag { color: var(--ap-primary); }
+.ap-section-light h2              { color: #0d1a2b; }
+.ap-section-light p               { color: #4a5568; }
+
+/* ── Section heading ────────────────────────────────────── */
+.ap-section-heading {
+  max-width: 760px;
+  margin-bottom: 2.5rem;
+}
+
+.ap-section-heading h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.ap-section-heading p {
+  color: var(--ap-text-soft);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+/* ── 2-col grid ─────────────────────────────────────────── */
+.ap-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* ── Service card grid ──────────────────────────────────── */
+.ap-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── Cards ──────────────────────────────────────────────── */
+.ap-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-line);
+  border-radius: var(--ap-radius);
+  padding: 1.6rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ap-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(47,128,237,0.45);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.ap-card h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ap-text);
+}
+
+.ap-card p {
+  color: var(--ap-text-soft);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* light-section card override */
+.ap-section-light .ap-card {
+  background: #fff;
+  border-color: #dde3ec;
+  box-shadow: 0 8px 24px rgba(16,32,51,0.07);
+}
+.ap-section-light .ap-card h3 { color: #0d1a2b; }
+.ap-section-light .ap-card p  { color: #4a5568; }
+
+/* icon badge */
+.ap-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(47,128,237,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* ── Why CAER list card ─────────────────────────────────── */
+.ap-info-card {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-line);
+  border-radius: var(--ap-radius);
+  padding: 1.75rem;
+}
+
+.ap-info-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ap-info-card li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--ap-line);
+  color: var(--ap-text-soft);
+  font-size: 0.95rem;
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+.ap-info-card li:last-child { border-bottom: none; }
+.ap-info-card li::before {
+  content: "→";
+  color: var(--ap-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Emphasis card (dark callout) ───────────────────────── */
+.ap-emphasis-card {
+  background: linear-gradient(145deg, #0d2040 0%, #152e56 100%);
+  border: 1px solid rgba(47,128,237,0.25);
+  border-radius: var(--ap-radius);
+  padding: 1.75rem;
+  color: #fff;
+}
+
+.ap-emphasis-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+.ap-emphasis-card p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 0.85rem;
+}
+
+.ap-pullquote {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ap-silver-light) !important;
+  border-left: 3px solid var(--ap-primary);
+  padding-left: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* ── Feature fix grid (4-col) ───────────────────────────── */
+.ap-fix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.ap-fix-item {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-line);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ap-text-soft);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transition: border-color 0.2s ease;
+}
+.ap-fix-item:hover {
+  border-color: rgba(47,128,237,0.4);
+  color: var(--ap-text);
+}
+
+/* ── CTA box ────────────────────────────────────────────── */
+.ap-cta-section {
+  background:
+    radial-gradient(ellipse at bottom right, rgba(47,128,237,0.08), transparent 50%),
+    var(--ap-bg-soft);
+}
+
+.ap-cta-box {
+  background: var(--ap-surface);
+  border: 1px solid var(--ap-line);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--ap-shadow);
+}
+
+.ap-cta-box h2 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.ap-cta-box p {
+  color: var(--ap-text-soft);
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.65;
+}
+
+.ap-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ap-contact-line {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ap-text-muted);
+  margin-top: 1.25rem;
+}
+
+.ap-contact-line a {
+  color: var(--ap-primary);
+  text-decoration: none;
+}
+.ap-contact-line a:hover { text-decoration: underline; }
+
+/* ── Divider line ───────────────────────────────────────── */
+.ap-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(47,128,237,0.18), transparent);
+  border: none;
+  margin: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .ap-card-grid  { grid-template-columns: repeat(2, 1fr); }
+  .ap-fix-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .ap-hero,
+  .ap-grid-2 { grid-template-columns: 1fr; }
+  .ap-hero    { padding-top: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .ap-section       { padding: 3.5rem 0; }
+  .ap-card-grid,
+  .ap-fix-grid      { grid-template-columns: 1fr; }
+  .ap-btn           { width: 100%; }
+  .ap-hero-actions  { flex-direction: column; }
+  .ap-cta-box       { padding: 1.75rem 1.25rem; }
+}

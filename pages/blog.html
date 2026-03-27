@@ -6,14 +6,14 @@
   <title>Blog – Tech Help &amp; Tips</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css" />
   <style>
     .cat-pill { display:inline-block; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; }
     .pill-windows { background:rgba(0,120,215,.14); color:#3aa0f3; border:1px solid rgba(0,120,215,.3); }
     .pill-mac     { background:rgba(160,160,165,.14); color:#c0c0c5; border:1px solid rgba(160,160,165,.28); }
     .pill-both    { background:rgba(47,128,237,.12); color:var(--primary); border:1px solid rgba(47,128,237,.25); }
 
-    .blog-hero { padding:80px 0 56px; text-align:center; background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('assets/images/tech-bg.jpg') center/cover no-repeat; }
+    .blog-hero { padding:80px 0 56px; text-align:center; background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('../assets/images/tech-bg.jpg') center/cover no-repeat; }
     .blog-hero h1 { font-size:clamp(2rem,4vw,3rem); margin-bottom:12px; }
     .blog-hero p  { color:var(--text-soft); max-width:600px; margin:0 auto; }
 
@@ -94,12 +94,10 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a href="index.html" class="logo">
-          <img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies" />
-		</a>
+        <a href="../index.html" class="logo"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
         <button class="menu-toggle" onclick="this.closest('nav').querySelector('.site-nav').classList.toggle('open')">☰</button>
         <div class="site-nav">
-          <a href="index.html">Home</a>
+          <a href="../index.html">Home</a>
           <div class="nav-item has-dropdown"><a href="#">Services</a>
             <div class="dropdown"><a href="#">Managed IT</a><a href="#">Cybersecurity</a><a href="#">Cloud Solutions</a><a href="#">Help Desk</a></div>
           </div>
@@ -290,15 +288,15 @@
     <div class="container">
       <div class="footer-grid">
         <div><h4>Your Company</h4><p>Dependable IT support since 2010.</p></div>
-        <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
         <div><h4>By Platform</h4><ul><li><a href="#">Windows Guides</a></li><li><a href="#">Mac Guides</a></li></ul></div>
-        <div><h4>Contact</h4><p>support@yourcompany.com<br/>(555) 000-0000</p></div>
+        <div><h4>Contact</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6f696c6c736e685c6573696e7f73716c7d7265327f7371">[email&#160;protected]</a><br/>(555) 000-0000</p></div>
       </div>
       <p style="margin-top:40px;text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function filterOS(os, btn) {
       document.querySelectorAll('.os-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -307,12 +305,4 @@
         card.classList.toggle('hidden', !(os === 'all' || co === os || co === 'both'));
       });
     }
-    document.querySelectorAll('.cat-tab').forEach(t => {
-      t.addEventListener('click', () => {
-        document.querySelectorAll('.cat-tab').forEach(x => x.classList.remove('active'));
-        t.classList.add('active');
-      });
-    });
-  </script>
-</body>
-</html>
+    document.querySelectorAll('.cat-

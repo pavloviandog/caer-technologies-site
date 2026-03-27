@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Your Disk Is Almost Full" – Tech Help Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.9),rgba(15,17,21,.98)),url('../../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero h1{font-size:clamp(1.85rem,4vw,2.8rem);line-height:1.15;max-width:820px;margin:0 auto 16px;}
+    .post-meta{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:var(--text-muted);font-size:12px;margin-top:14px;}
+    .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
+    .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
+    .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
+    .os-switcher-bar{background:var(--bg-alt);border-bottom:1px solid var(--card-border);}
+    .os-switcher{display:flex;}
+    .os-tab{flex:1;max-width:200px;padding:14px 20px;border:none;background:transparent;color:var(--text-muted);font:600 14px 'Inter',sans-serif;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+    .os-tab.active-win{color:#3aa0f3;border-bottom-color:#0078d7;background:rgba(0,120,215,.06);}
+    .os-tab.active-mac{color:#c0c0c5;border-bottom-color:#888;background:rgba(160,160,165,.06);}
+    .os-panel{display:none;}
+    .os-panel.visible{display:block;}
+    .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:52px 0 90px;}
+    .post-body{color:var(--text-soft);line-height:1.75;font-size:1rem;}
+    .post-body h2{color:var(--text);font-size:1.3rem;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--card-border);}
+    .post-body p{margin-bottom:16px;}
+    .post-body ul{padding-left:1.4rem;margin-bottom:16px;}
+    .post-body li{margin-bottom:8px;}
+    .step-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start;}
+    .step-num{color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;margin-top:2px;}
+    .win-num{background:#0078d7;}
+    .mac-num{background:#555;}
+    .step-card h3{margin:0 0 5px;font-size:.98rem;color:var(--text);}
+    .step-card p{margin:0;font-size:.91rem;}
+    .tip-box{background:rgba(47,128,237,.08);border:1px solid rgba(47,128,237,.25);border-radius:10px;padding:16px 18px;margin:24px 0;}
+    .tip-box strong{color:var(--primary);}
+    .safe-box{background:rgba(47,200,100,.07);border:1px solid rgba(47,200,100,.25);border-radius:10px;padding:14px 16px;margin:16px 0;}
+    .safe-box strong{color:#3ec46d;}
+    .danger-box{background:rgba(220,60,60,.07);border:1px solid rgba(220,60,60,.25);border-radius:10px;padding:14px 16px;margin:16px 0;}
+    .danger-box strong{color:#e05555;}
+    .shared-box{background:var(--bg-alt);border:1px solid var(--card-border);border-radius:10px;padding:20px 22px;margin:0 0 28px;}
+    .shared-box h3{color:var(--text);font-size:1rem;margin-bottom:10px;}
+    .os-banner{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:8px;margin-bottom:24px;font-size:13px;font-weight:600;}
+    .os-banner.win{background:rgba(0,120,215,.1);border:1px solid rgba(0,120,215,.25);color:#3aa0f3;}
+    .os-banner.mac{background:rgba(160,160,165,.1);border:1px solid rgba(160,160,165,.22);color:#c0c0c5;}
+    .post-sidebar{position:sticky;top:90px;}
+    .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;margin-bottom:18px;}
+    .sidebar-widget h3{font-size:.92rem;margin-bottom:11px;color:var(--text);}
+    .sidebar-list{list-style:none;padding:0;margin:0;}
+    .sidebar-list li{border-bottom:1px solid var(--card-border);}
+    .sidebar-list li:last-child{border-bottom:none;}
+    .sidebar-list a{display:block;padding:8px 0;color:var(--text-soft);font-size:13px;transition:color .2s;}
+    .sidebar-list a:hover{color:var(--primary);}
+    .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
+    .sidebar-cta h3{color:#fff;}
+    .sidebar-cta p{color:rgba(255,255,255,.75);font-size:12px;margin-bottom:12px;}
+    .sidebar-os-switch{display:flex;gap:6px;margin-bottom:4px;}
+    .sidebar-os-btn{flex:1;padding:8px;border:1px solid var(--card-border);border-radius:8px;background:var(--bg);color:var(--text-muted);font:600 12px 'Inter',sans-serif;cursor:pointer;text-align:center;transition:all .2s;}
+    .sidebar-os-btn.active-win{background:#0078d7;border-color:#0078d7;color:#fff;}
+    .sidebar-os-btn.active-mac{background:#555;border-color:#555;color:#fff;}
+    @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.post-sidebar{position:static;}}
+
+    /* Post tag chips */
+    .post-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:6px; margin-top:14px; }
+    .post-tag { display:inline-block; padding:4px 12px; border-radius:999px; border:1px solid var(--card-border); background:rgba(255,255,255,0.06); color:var(--text-muted); font-size:11px; font-weight:600; text-decoration:none; letter-spacing:.04em; transition:all .2s; }
+    .post-tag:hover { border-color:var(--primary); color:var(--primary); background:rgba(47,128,237,.08); }
+  </style>
+</head>
+<body data-tags="windows mac storage performance troubleshooting beginner">
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../../index.html" class="logo"><img src="../../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
+        <button class="menu-toggle" onclick="this.closest('nav').querySelector('.site-nav').classList.toggle('open')">☰</button>
+        <div class="site-nav">
+          <a href="../../index.html">Home</a>
+          <div class="nav-item has-dropdown"><a href="#">Services</a>
+            <div class="dropdown"><a href="../../pages/managed-it.html">Managed IT</a><a href="../../pages/cybersecurity.html">Cybersecurity</a><a href="../../pages/cloud-solutions.html">Cloud Solutions</a><a href="../../pages/help-desk.html">Help Desk</a></div>
+          </div>
+          <a href="../index.html" style="color:var(--primary)">Blog</a>
+          <a href="../../pages/about.html">About</a>
+          <a href="../../pages/contact.html" class="cta">Get Support</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="post-hero">
+    <div class="container">
+      <p class="eyebrow">General Troubleshooting</p>
+      <h1>"Your Disk Is Almost Full" — What It Means and What to Delete Safely</h1>
+      <div class="post-meta">
+        <span class="cat-pill pill-windows">⊞ Windows</span>
+        <span class="cat-pill pill-mac"> Mac</span>
+        <span>June 16, 2025</span><span>🕐 5 min read</span>
+      </div>
+      <div class="post-tags">
+        <a href="../index.html?tag=storage" class="post-tag">💾 storage</a>
+        <a href="../index.html?tag=performance" class="post-tag">⚡ performance</a>
+        <a href="../index.html?tag=troubleshooting" class="post-tag">🔧 troubleshooting</a>
+        <a href="../index.html?tag=beginner" class="post-tag">⭐ beginner</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="os-switcher-bar">
+    <div class="container">
+      <div class="os-switcher">
+        <button class="os-tab active-win" id="tab-win" onclick="switchOS('windows')">⊞ Windows</button>
+        <button class="os-tab" id="tab-mac" onclick="switchOS('mac')"> Mac</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="post-layout">
+      <article class="post-body">
+
+        <div class="shared-box">
+          <h3>💾 Safe on any OS — do this first</h3>
+          <p><strong>Empty your Recycle Bin or Trash.</strong> Files you've deleted are still sitting on your drive until you empty it. Right-click the Recycle Bin (Windows) or Trash (Mac) and choose "Empty." This can instantly free gigabytes with zero risk.</p>
+        </div>
+
+        <!-- WINDOWS -->
+        <div class="os-panel visible" id="panel-windows">
+          <div class="os-banner win">⊞ Windows 10 &amp; 11 storage cleanup steps.</div>
+
+          <div class="safe-box"><strong>✅ Safe to delete on Windows:</strong> Recycle Bin, Downloads folder, temp files (%temp%), old Windows Update files, and apps you no longer use.</div>
+          <div class="danger-box"><strong>⛔ Never delete:</strong> Anything in C:\Windows, C:\Program Files, or files ending in .dll or .sys.</div>
+
+          <h2>Step 1 — Run Disk Cleanup</h2>
+          <div class="step-card">
+            <div class="step-num win-num">1</div>
+            <div>
+              <h3>Use the built-in Disk Cleanup tool</h3>
+              <p>Click Start, search <strong>Disk Cleanup</strong>, and select your C: drive. Check every box in the list. Then click <strong>"Clean up system files"</strong> and check those boxes too — this also removes old Windows Update files which can be several GB. Click OK and let it run.</p>
+            </div>
+          </div>
+
+          <h2>Step 2 — Clear Temporary Files</h2>
+          <div class="step-card">
+            <div class="step-num win-num">2</div>
+            <div>
+              <h3>Delete the temp folder manually</h3>
+              <p>Press <strong>Win + R</strong>, type <strong>%temp%</strong>, and press Enter. Select everything (<strong>Ctrl + A</strong>), then delete. Some files in use can't be deleted — skip those. Then go to <strong>Settings → System → Storage → Temporary files</strong> for additional cleanup options with checkboxes.</p>
+            </div>
+          </div>
+
+          <h2>Step 3 — Use Storage Sense</h2>
+          <div class="step-card">
+            <div class="step-num win-num">3</div>
+            <div>
+              <h3>Let Windows identify the biggest space users</h3>
+              <p>Go to <strong>Settings → System → Storage</strong>. Click each category to see what's taking up space: Apps &amp; features, Temporary files, Videos, etc. You can uninstall apps directly from here by clicking one and selecting <strong>Uninstall</strong>. Turn on <strong>Storage Sense</strong> to automate future cleanup.</p>
+            </div>
+          </div>
+
+          <h2>Step 4 — Clean Your Downloads Folder</h2>
+          <div class="step-card">
+            <div class="step-num win-num">4</div>
+            <div>
+              <h3>Delete old installers and downloads</h3>
+              <p>Press <strong>Win + E</strong> to open File Explorer and click <strong>Downloads</strong> in the left panel. Click <strong>Size</strong> at the top to sort largest to smallest. Old .exe and .zip installers are almost always safe to delete once you've already installed the software.</p>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <strong>💡 Windows tip:</strong> If you use OneDrive, enable <strong>Files On-Demand</strong> in OneDrive settings. This keeps files in the cloud and only downloads them when you open them, freeing up significant space without losing access to anything.
+          </div>
+        </div>
+
+        <!-- MAC -->
+        <div class="os-panel" id="panel-mac">
+          <div class="os-banner mac"> macOS storage cleanup steps.</div>
+
+          <div class="safe-box"><strong>✅ Safe to delete on Mac:</strong> Trash, Downloads folder, large old files, apps you don't use, and iCloud-backed photos already in the cloud.</div>
+          <div class="danger-box"><strong>⛔ Never delete:</strong> Anything in /System, /Library, or /usr — these are macOS system folders. Never use random "cleaner" apps from the internet.</div>
+
+          <h2>Step 1 — Use macOS Storage Recommendations</h2>
+          <div class="step-card">
+            <div class="step-num mac-num">1</div>
+            <div>
+              <h3>Let macOS find what to delete</h3>
+              <p>Go to <strong>Apple Menu () → About This Mac → More Info → Storage Settings</strong>. Click <strong>Recommendations</strong>. macOS will suggest: storing files in iCloud, optimizing storage for photos, emptying Trash automatically, and reducing clutter. Each recommendation has a direct action button.</p>
+            </div>
+          </div>
+
+          <h2>Step 2 — Remove Large Files</h2>
+          <div class="step-card">
+            <div class="step-num mac-num">2</div>
+            <div>
+              <h3>Find your biggest files</h3>
+              <p>In Storage Settings, click <strong>Documents → Large Files</strong>. macOS shows every file over a certain size, sorted by how big they are. Old video exports, disk images (.dmg files you've already installed), and downloaded movies are often the biggest culprits. Select and delete what you don't need.</p>
+            </div>
+          </div>
+
+          <h2>Step 3 — Remove Unused Apps</h2>
+          <div class="step-card">
+            <div class="step-num mac-num">3</div>
+            <div>
+              <h3>Uninstall apps you no longer use</h3>
+              <p>Open <strong>Finder → Applications</strong>. Drag any apps you don't use to the Trash, then empty it. For a more thorough removal that also deletes preference files and caches, use a free tool like <strong>AppCleaner</strong> (downloaded from freemacsoft.net — it's reputable and free).</p>
+            </div>
+          </div>
+
+          <h2>Step 4 — Clear App Caches</h2>
+          <div class="step-card">
+            <div class="step-num mac-num">4</div>
+            <div>
+              <h3>Delete cached data from apps</h3>
+              <p>In Finder, press <strong>Cmd + Shift + G</strong> and type <strong>~/Library/Caches</strong>. You'll see folders for each app. You can delete the contents of individual app cache folders (not the folders themselves). Browsers like Chrome and Firefox store large caches here — clearing them is always safe.</p>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <strong>💡 Mac tip:</strong> If you use iCloud Photos, turn on <strong>Optimize Mac Storage</strong> in Photos → Settings → iCloud. macOS will keep full-resolution photos in iCloud and only store smaller previews locally, potentially freeing tens of gigabytes.
+          </div>
+        </div>
+
+        <h2>Long-Term Solution</h2>
+        <p>If you've cleaned everything obvious and are still running tight on space, an external hard drive (~$50 for 1TB) or expanding your cloud storage subscription is the most reliable fix. We can also audit your drive remotely to identify hidden system files or software caches that aren't visible through normal cleanup tools.</p>
+        <a href="../../pages/contact.html" class="btn-primary" style="display:inline-block;margin-top:6px;">Request a Storage Audit</a>
+      </article>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-widget">
+          <h3>Switch Platform</h3>
+          <div class="sidebar-os-switch">
+            <button class="sidebar-os-btn active-win" id="sb-win" onclick="switchOS('windows')">⊞ Windows</button>
+            <button class="sidebar-os-btn" id="sb-mac" onclick="switchOS('mac')"> Mac</button>
+          </div>
+        </div>
+        <div class="sidebar-widget sidebar-cta">
+          <h3>Need Help Now?</h3>
+          <p>Remote support available Mon–Fri.</p>
+          <a href="../../pages/contact.html" class="btn-primary" style="display:block;text-align:center;">Contact Support</a>
+        </div>
+        <div class="sidebar-widget">
+          <h3>More Posts</h3>
+          <ul class="sidebar-list">
+            <li><a href="../general/slow-computer.html">My Computer Is Running Slow</a></li>
+            <li><a href="../general/forgot-password.html">Forgot Your Password?</a></li>
+            <li><a href="../networking/wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
+            <li><a href="../printers/printer-wont-print.html">Printer Won't Print?</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <a href="../index.html" class="btn-secondary" style="display:block;text-align:center;padding:10px;">← All Posts</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p style="text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company · <a href="../index.html">Back to Blog</a></p>
+    </div>
+  </footer>
+  <script>
+    function switchOS(os) {
+      const isWin = os === 'windows';
+      document.getElementById('panel-windows').classList.toggle('visible', isWin);
+      document.getElementById('panel-mac').classList.toggle('visible', !isWin);
+      document.getElementById('tab-win').className = 'os-tab' + (isWin ? ' active-win' : '');
+      document.getElementById('tab-mac').className = 'os-tab' + (!isWin ? ' active-mac' : '');
+      document.getElementById('sb-win').className = 'sidebar-os-btn' + (isWin ? ' active-win' : '');
+      document.getElementById('sb-mac').className = 'sidebar-os-btn' + (!isWin ? ' active-mac' : '');
+    }
+  </script>
+</body>
+</html>

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>"Your Disk Is Almost Full" – Tech Help Blog</title>
+  <title>Printer Won't Print? – Tech Help Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../../css/styles.css" />
   <style>
-    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.9),rgba(15,17,21,.98)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.9),rgba(15,17,21,.98)),url('../../assets/images/tech-bg.jpg') center/cover no-repeat;}
     .post-hero h1{font-size:clamp(1.85rem,4vw,2.8rem);line-height:1.15;max-width:820px;margin:0 auto 16px;}
     .post-meta{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:var(--text-muted);font-size:12px;margin-top:14px;}
     .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
@@ -34,10 +34,6 @@
     .step-card p{margin:0;font-size:.91rem;}
     .tip-box{background:rgba(47,128,237,.08);border:1px solid rgba(47,128,237,.25);border-radius:10px;padding:16px 18px;margin:24px 0;}
     .tip-box strong{color:var(--primary);}
-    .safe-box{background:rgba(47,200,100,.07);border:1px solid rgba(47,200,100,.25);border-radius:10px;padding:14px 16px;margin:16px 0;}
-    .safe-box strong{color:#3ec46d;}
-    .danger-box{background:rgba(220,60,60,.07);border:1px solid rgba(220,60,60,.25);border-radius:10px;padding:14px 16px;margin:16px 0;}
-    .danger-box strong{color:#e05555;}
     .shared-box{background:var(--bg-alt);border:1px solid var(--card-border);border-radius:10px;padding:20px 22px;margin:0 0 28px;}
     .shared-box h3{color:var(--text);font-size:1rem;margin-bottom:10px;}
     .os-banner{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:8px;margin-bottom:24px;font-size:13px;font-weight:600;}
@@ -59,22 +55,27 @@
     .sidebar-os-btn.active-win{background:#0078d7;border-color:#0078d7;color:#fff;}
     .sidebar-os-btn.active-mac{background:#555;border-color:#555;color:#fff;}
     @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.post-sidebar{position:static;}}
+
+    /* Post tag chips */
+    .post-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:6px; margin-top:14px; }
+    .post-tag { display:inline-block; padding:4px 12px; border-radius:999px; border:1px solid var(--card-border); background:rgba(255,255,255,0.06); color:var(--text-muted); font-size:11px; font-weight:600; text-decoration:none; letter-spacing:.04em; transition:all .2s; }
+    .post-tag:hover { border-color:var(--primary); color:var(--primary); background:rgba(47,128,237,.08); }
   </style>
 </head>
-<body>
+<body data-tags="windows mac printer hardware peripherals beginner">
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a href="../index.html" class="logo"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
+        <a href="../../index.html" class="logo"><img src="../../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
         <button class="menu-toggle" onclick="this.closest('nav').querySelector('.site-nav').classList.toggle('open')">☰</button>
         <div class="site-nav">
-          <a href="../index.html">Home</a>
+          <a href="../../index.html">Home</a>
           <div class="nav-item has-dropdown"><a href="#">Services</a>
-            <div class="dropdown"><a href="#">Managed IT</a><a href="#">Cybersecurity</a><a href="#">Cloud Solutions</a><a href="#">Help Desk</a></div>
+            <div class="dropdown"><a href="../../pages/managed-it.html">Managed IT</a><a href="../../pages/cybersecurity.html">Cybersecurity</a><a href="../../pages/cloud-solutions.html">Cloud Solutions</a><a href="../../pages/help-desk.html">Help Desk</a></div>
           </div>
-          <a href="blog.html" style="color:var(--primary)">Blog</a>
-          <a href="about.html">About</a>
-          <a href="contact.html" class="cta">Get Support</a>
+          <a href="../index.html" style="color:var(--primary)">Blog</a>
+          <a href="../../pages/about.html">About</a>
+          <a href="../../pages/contact.html" class="cta">Get Support</a>
         </div>
       </nav>
     </div>
@@ -82,12 +83,18 @@
 
   <section class="post-hero">
     <div class="container">
-      <p class="eyebrow">General Troubleshooting</p>
-      <h1>"Your Disk Is Almost Full" — What It Means and What to Delete Safely</h1>
+      <p class="eyebrow">Printers &amp; Peripherals</p>
+      <h1>Printer Won't Print? The Most Common Causes (and How to Fix Them Fast)</h1>
       <div class="post-meta">
         <span class="cat-pill pill-windows">⊞ Windows</span>
         <span class="cat-pill pill-mac"> Mac</span>
-        <span>June 16, 2025</span><span>🕐 5 min read</span>
+        <span>June 12, 2025</span><span>🕐 5 min read</span>
+      </div>
+      <div class="post-tags">
+        <a href="../index.html?tag=printer" class="post-tag">🖨️ printer</a>
+        <a href="../index.html?tag=hardware" class="post-tag">🖥️ hardware</a>
+        <a href="../index.html?tag=peripherals" class="post-tag">🔌 peripherals</a>
+        <a href="../index.html?tag=beginner" class="post-tag">⭐ beginner</a>
       </div>
     </div>
   </section>
@@ -106,109 +113,99 @@
       <article class="post-body">
 
         <div class="shared-box">
-          <h3>💾 Safe on any OS — do this first</h3>
-          <p><strong>Empty your Recycle Bin or Trash.</strong> Files you've deleted are still sitting on your drive until you empty it. Right-click the Recycle Bin (Windows) or Trash (Mac) and choose "Empty." This can instantly free gigabytes with zero risk.</p>
+          <h3>🖨️ Start here — applies to all printers on any OS</h3>
+          <p><strong>Power-cycle the printer.</strong> Turn it completely off with the power button. Unplug it from the wall. Wait 30 seconds. Plug back in and power on. Give it 60 seconds to fully initialize. This clears the printer's internal memory and solves a surprising number of issues before you even touch your computer.</p>
         </div>
 
         <!-- WINDOWS -->
         <div class="os-panel visible" id="panel-windows">
-          <div class="os-banner win">⊞ Windows 10 &amp; 11 storage cleanup steps.</div>
+          <div class="os-banner win">⊞ Windows 10 &amp; 11 printer troubleshooting.</div>
 
-          <div class="safe-box"><strong>✅ Safe to delete on Windows:</strong> Recycle Bin, Downloads folder, temp files (%temp%), old Windows Update files, and apps you no longer use.</div>
-          <div class="danger-box"><strong>⛔ Never delete:</strong> Anything in C:\Windows, C:\Program Files, or files ending in .dll or .sys.</div>
-
-          <h2>Step 1 — Run Disk Cleanup</h2>
+          <h2>Fix 1 — Clear the Stuck Print Queue</h2>
           <div class="step-card">
             <div class="step-num win-num">1</div>
             <div>
-              <h3>Use the built-in Disk Cleanup tool</h3>
-              <p>Click Start, search <strong>Disk Cleanup</strong>, and select your C: drive. Check every box in the list. Then click <strong>"Clean up system files"</strong> and check those boxes too — this also removes old Windows Update files which can be several GB. Click OK and let it run.</p>
+              <h3>Open the print queue and cancel all jobs</h3>
+              <p>Click Start, search <strong>Printers &amp; scanners</strong>, click your printer, then <strong>Open print queue</strong>. Right-click each item and select <strong>Cancel</strong>. If nothing cancels, right-click and try <strong>Cancel All Documents</strong>.</p>
             </div>
           </div>
-
-          <h2>Step 2 — Clear Temporary Files</h2>
           <div class="step-card">
             <div class="step-num win-num">2</div>
             <div>
-              <h3>Delete the temp folder manually</h3>
-              <p>Press <strong>Win + R</strong>, type <strong>%temp%</strong>, and press Enter. Select everything (<strong>Ctrl + A</strong>), then delete. Some files in use can't be deleted — skip those. Then go to <strong>Settings → System → Storage → Temporary files</strong> for additional cleanup options with checkboxes.</p>
+              <h3>Restart the Print Spooler service</h3>
+              <p>Press <strong>Win + R</strong>, type <strong>services.msc</strong> and press Enter. Scroll to <strong>Print Spooler</strong>, right-click it, and choose <strong>Restart</strong>. This forces Windows to clear all queued jobs and start fresh.</p>
             </div>
           </div>
 
-          <h2>Step 3 — Use Storage Sense</h2>
+          <h2>Fix 2 — Set the Right Default Printer</h2>
           <div class="step-card">
             <div class="step-num win-num">3</div>
             <div>
-              <h3>Let Windows identify the biggest space users</h3>
-              <p>Go to <strong>Settings → System → Storage</strong>. Click each category to see what's taking up space: Apps &amp; features, Temporary files, Videos, etc. You can uninstall apps directly from here by clicking one and selecting <strong>Uninstall</strong>. Turn on <strong>Storage Sense</strong> to automate future cleanup.</p>
+              <h3>Check which printer Windows is sending jobs to</h3>
+              <p>Go to <strong>Settings → Bluetooth &amp; devices → Printers &amp; scanners</strong>. Turn off <strong>"Let Windows manage my default printer"</strong> — this setting silently changes your default after every use. Then click your printer and select <strong>Set as default</strong>.</p>
             </div>
           </div>
 
-          <h2>Step 4 — Clean Your Downloads Folder</h2>
+          <h2>Fix 3 — Bring the Printer Back Online</h2>
           <div class="step-card">
             <div class="step-num win-num">4</div>
             <div>
-              <h3>Delete old installers and downloads</h3>
-              <p>Press <strong>Win + E</strong> to open File Explorer and click <strong>Downloads</strong> in the left panel. Click <strong>Size</strong> at the top to sort largest to smallest. Old .exe and .zip installers are almost always safe to delete once you've already installed the software.</p>
+              <h3>Take the printer out of "Offline" mode</h3>
+              <p>In <strong>Printers &amp; scanners</strong>, open the print queue. If you see "Offline" in the status bar, click <strong>Printer</strong> in the menu bar and uncheck <strong>"Use Printer Offline"</strong>. Then try printing again.</p>
             </div>
           </div>
 
           <div class="tip-box">
-            <strong>💡 Windows tip:</strong> If you use OneDrive, enable <strong>Files On-Demand</strong> in OneDrive settings. This keeps files in the cloud and only downloads them when you open them, freeing up significant space without losing access to anything.
+            <strong>💡 Windows tip:</strong> If the printer is wireless and keeps showing offline, make sure it's on the same Wi-Fi network as your PC — not a guest network. Also check the printer's IP hasn't changed by printing a configuration page directly from the printer's control panel.
           </div>
         </div>
 
         <!-- MAC -->
         <div class="os-panel" id="panel-mac">
-          <div class="os-banner mac"> macOS storage cleanup steps.</div>
+          <div class="os-banner mac"> macOS printer troubleshooting.</div>
 
-          <div class="safe-box"><strong>✅ Safe to delete on Mac:</strong> Trash, Downloads folder, large old files, apps you don't use, and iCloud-backed photos already in the cloud.</div>
-          <div class="danger-box"><strong>⛔ Never delete:</strong> Anything in /System, /Library, or /usr — these are macOS system folders. Never use random "cleaner" apps from the internet.</div>
-
-          <h2>Step 1 — Use macOS Storage Recommendations</h2>
+          <h2>Fix 1 — Clear the Stuck Print Queue</h2>
           <div class="step-card">
             <div class="step-num mac-num">1</div>
             <div>
-              <h3>Let macOS find what to delete</h3>
-              <p>Go to <strong>Apple Menu () → About This Mac → More Info → Storage Settings</strong>. Click <strong>Recommendations</strong>. macOS will suggest: storing files in iCloud, optimizing storage for photos, emptying Trash automatically, and reducing clutter. Each recommendation has a direct action button.</p>
+              <h3>Open the print queue and delete stuck jobs</h3>
+              <p>Go to <strong>System Settings → Printers &amp; Scanners</strong>, click your printer, then click <strong>Open Print Queue</strong>. Click the X next to each job to cancel it. If jobs won't cancel, hold <strong>Option</strong> while clicking the X to force-delete them.</p>
             </div>
           </div>
-
-          <h2>Step 2 — Remove Large Files</h2>
           <div class="step-card">
             <div class="step-num mac-num">2</div>
             <div>
-              <h3>Find your biggest files</h3>
-              <p>In Storage Settings, click <strong>Documents → Large Files</strong>. macOS shows every file over a certain size, sorted by how big they are. Old video exports, disk images (.dmg files you've already installed), and downloaded movies are often the biggest culprits. Select and delete what you don't need.</p>
+              <h3>Reset the printing system</h3>
+              <p>In <strong>System Settings → Printers &amp; Scanners</strong>, right-click (or Control-click) anywhere in the printer list and select <strong>"Reset printing system…"</strong> This removes all printers and clears all queued jobs. You'll need to re-add your printer afterward, but it's the most reliable fix for persistent queue issues.</p>
             </div>
           </div>
 
-          <h2>Step 3 — Remove Unused Apps</h2>
+          <h2>Fix 2 — Delete and Re-add the Printer</h2>
           <div class="step-card">
             <div class="step-num mac-num">3</div>
             <div>
-              <h3>Uninstall apps you no longer use</h3>
-              <p>Open <strong>Finder → Applications</strong>. Drag any apps you don't use to the Trash, then empty it. For a more thorough removal that also deletes preference files and caches, use a free tool like <strong>AppCleaner</strong> (downloaded from freemacsoft.net — it's reputable and free).</p>
+              <h3>Remove the printer and add it fresh</h3>
+              <p>In <strong>Printers &amp; Scanners</strong>, select your printer and click the minus (−) button to remove it. Then click the plus (+) button, wait for macOS to discover nearby printers, and select yours. macOS will automatically download the correct driver from Apple's servers.</p>
             </div>
           </div>
 
-          <h2>Step 4 — Clear App Caches</h2>
+          <h2>Fix 3 — Check AirPrint vs. Standard Driver</h2>
           <div class="step-card">
             <div class="step-num mac-num">4</div>
             <div>
-              <h3>Delete cached data from apps</h3>
-              <p>In Finder, press <strong>Cmd + Shift + G</strong> and type <strong>~/Library/Caches</strong>. You'll see folders for each app. You can delete the contents of individual app cache folders (not the folders themselves). Browsers like Chrome and Firefox store large caches here — clearing them is always safe.</p>
+              <h3>Make sure you're using the right connection method</h3>
+              <p>When re-adding the printer, macOS may offer two entries for the same device — one via AirPrint and one via the manufacturer's driver. For most modern printers, AirPrint works best. If AirPrint isn't available, visit the manufacturer's website (HP, Canon, Epson, etc.) to download the latest macOS driver.</p>
             </div>
           </div>
 
           <div class="tip-box">
-            <strong>💡 Mac tip:</strong> If you use iCloud Photos, turn on <strong>Optimize Mac Storage</strong> in Photos → Settings → iCloud. macOS will keep full-resolution photos in iCloud and only store smaller previews locally, potentially freeing tens of gigabytes.
+            <strong>💡 Mac tip:</strong> If you're printing to a shared office printer and it suddenly stops working after a macOS update, the driver may have been removed. Go to the printer manufacturer's website and download the driver specifically labeled for your macOS version.
           </div>
         </div>
 
-        <h2>Long-Term Solution</h2>
-        <p>If you've cleaned everything obvious and are still running tight on space, an external hard drive (~$50 for 1TB) or expanding your cloud storage subscription is the most reliable fix. We can also audit your drive remotely to identify hidden system files or software caches that aren't visible through normal cleanup tools.</p>
-        <a href="contact.html" class="btn-primary" style="display:inline-block;margin-top:6px;">Request a Storage Audit</a>
+        <h2>Still Not Printing?</h2>
+        <p>If the printer remains unresponsive after all of these steps, the issue may be a corrupted driver that needs a full reinstall, a network conflict, or a hardware problem with the printer itself. We can diagnose remotely and walk you through the solution.</p>
+        <a href="../../pages/contact.html" class="btn-primary" style="display:inline-block;margin-top:6px;">Get Printer Support</a>
       </article>
 
       <aside class="post-sidebar">
@@ -222,19 +219,19 @@
         <div class="sidebar-widget sidebar-cta">
           <h3>Need Help Now?</h3>
           <p>Remote support available Mon–Fri.</p>
-          <a href="contact.html" class="btn-primary" style="display:block;text-align:center;">Contact Support</a>
+          <a href="../../pages/contact.html" class="btn-primary" style="display:block;text-align:center;">Contact Support</a>
         </div>
         <div class="sidebar-widget">
           <h3>More Posts</h3>
           <ul class="sidebar-list">
-            <li><a href="post-slow-computer.html">My Computer Is Running Slow</a></li>
-            <li><a href="post-forgot-password.html">Forgot Your Password?</a></li>
-            <li><a href="post-wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
-            <li><a href="post-printer-wont-print.html">Printer Won't Print?</a></li>
+            <li><a href="../general/slow-computer.html">My Computer Is Running Slow</a></li>
+            <li><a href="../general/forgot-password.html">Forgot Your Password?</a></li>
+            <li><a href="../networking/wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
+            <li><a href="../general/disk-full.html">Disk Almost Full</a></li>
           </ul>
         </div>
         <div class="sidebar-widget">
-          <a href="blog.html" class="btn-secondary" style="display:block;text-align:center;padding:10px;">← All Posts</a>
+          <a href="../index.html" class="btn-secondary" style="display:block;text-align:center;padding:10px;">← All Posts</a>
         </div>
       </aside>
     </div>
@@ -242,7 +239,7 @@
 
   <footer>
     <div class="container">
-      <p style="text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company · <a href="blog.html">Back to Blog</a></p>
+      <p style="text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company · <a href="../index.html">Back to Blog</a></p>
     </div>
   </footer>
   <script>

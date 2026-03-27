@@ -28,9 +28,24 @@
     .os-btn.active.btn-win  { background:#0078d7; }
     .os-btn.active.btn-mac  { background:#555; }
 
-    .cat-tabs { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; }
-    .cat-tab { padding:7px 18px; border-radius:999px; border:1px solid var(--card-border); background:var(--card); color:var(--text-soft); font-size:13px; font-weight:600; cursor:pointer; transition:all .2s; }
-    .cat-tab.active,.cat-tab:hover { background:var(--primary); border-color:var(--primary); color:#fff; }
+    /* Tag cloud */
+    .tag-section { margin-top:18px; }
+    .tag-section-label { color:var(--text-muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px; text-align:center; }
+    .tag-cloud { display:flex; justify-content:center; flex-wrap:wrap; gap:7px; }
+    .tag-btn { padding:5px 14px; border-radius:999px; border:1px solid var(--card-border); background:var(--card); color:var(--text-soft); font-size:12px; font-weight:600; cursor:pointer; transition:all .2s; letter-spacing:.03em; }
+    .tag-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .tag-btn.active { background:var(--primary); border-color:var(--primary); color:#fff; }
+    .tag-btn.tag-clear { border-color:rgba(237,100,100,.4); color:#e07070; background:rgba(237,100,100,.07); }
+    .tag-btn.tag-clear:hover { background:rgba(237,100,100,.15); border-color:#e07070; }
+
+    /* No-results message */
+    .no-results { grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--text-muted); }
+    .no-results span { font-size:2.5rem; display:block; margin-bottom:12px; }
+
+    /* Active filter summary */
+    .filter-summary { display:none; align-items:center; justify-content:center; gap:8px; margin-top:14px; font-size:13px; color:var(--text-muted); flex-wrap:wrap; }
+    .filter-summary.visible { display:flex; }
+    .active-tag-badge { background:rgba(47,128,237,.12); border:1px solid rgba(47,128,237,.3); color:var(--primary); border-radius:999px; padding:2px 10px; font-size:12px; font-weight:700; }
 
     .blog-section { padding:48px 0 90px; background:var(--bg); }
     .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:28px; }
@@ -99,11 +114,11 @@
         <div class="site-nav">
           <a href="../index.html">Home</a>
           <div class="nav-item has-dropdown"><a href="#">Services</a>
-            <div class="dropdown"><a href="#">Managed IT</a><a href="#">Cybersecurity</a><a href="#">Cloud Solutions</a><a href="#">Help Desk</a></div>
+            <div class="dropdown"><a href="../pages/managed-it.html">Managed IT</a><a href="../pages/cybersecurity.html">Cybersecurity</a><a href="../pages/cloud-solutions.html">Cloud Solutions</a><a href="../pages/help-desk.html">Help Desk</a></div>
           </div>
-          <a href="blog.html" style="color:var(--primary)">Blog</a>
-          <a href="about.html">About</a>
-          <a href="contact.html" class="cta">Get Support</a>
+          <a href="index.html" style="color:var(--primary)">Blog</a>
+          <a href="../pages/about.html">About</a>
+          <a href="../pages/contact.html" class="cta">Get Support</a>
         </div>
       </nav>
     </div>
@@ -127,13 +142,30 @@
           <button class="os-btn btn-mac" onclick="filterOS('mac', this)"> Mac</button>
         </div>
       </div>
-      <div class="cat-tabs">
-        <button class="cat-tab active">All Topics</button>
-        <button class="cat-tab">General Troubleshooting</button>
-        <button class="cat-tab">Office Suite</button>
-        <button class="cat-tab">Email &amp; Communication</button>
-        <button class="cat-tab">Printers &amp; Peripherals</button>
-        <button class="cat-tab">Security</button>
+      <div class="tag-section">
+        <p class="tag-section-label">Filter by tag — select one or more</p>
+        <div class="tag-cloud" id="tag-cloud">
+          <button class="tag-btn" data-tag="troubleshooting">🔧 Troubleshooting</button>
+          <button class="tag-btn" data-tag="performance">⚡ Performance</button>
+          <button class="tag-btn" data-tag="startup">🚀 Startup</button>
+          <button class="tag-btn" data-tag="password">🔑 Password</button>
+          <button class="tag-btn" data-tag="security">🔒 Security</button>
+          <button class="tag-btn" data-tag="accounts">👤 Accounts</button>
+          <button class="tag-btn" data-tag="networking">📶 Networking</button>
+          <button class="tag-btn" data-tag="wifi">📡 Wi-Fi</button>
+          <button class="tag-btn" data-tag="internet">🌐 Internet</button>
+          <button class="tag-btn" data-tag="printer">🖨️ Printer</button>
+          <button class="tag-btn" data-tag="hardware">🖥️ Hardware</button>
+          <button class="tag-btn" data-tag="peripherals">🔌 Peripherals</button>
+          <button class="tag-btn" data-tag="storage">💾 Storage</button>
+          <button class="tag-btn" data-tag="beginner">⭐ Beginner</button>
+          <button class="tag-btn" data-tag="office">📂 Office Suite</button>
+        </div>
+        <div class="filter-summary" id="filter-summary">
+          <span>Showing posts tagged:</span>
+          <span id="active-tag-list"></span>
+          <button class="tag-btn tag-clear" onclick="clearTags()">✕ Clear filters</button>
+        </div>
       </div>
     </div>
   </div>
@@ -144,7 +176,7 @@
         <div>
           <div class="blog-grid" id="blog-grid">
 
-            <article class="blog-card featured" data-os="both" data-cat="general">
+            <article class="blog-card featured" data-os="both" data-cat="general" data-tags="windows mac performance startup troubleshooting beginner">
               <div class="blog-thumb-placeholder">🖥️</div>
               <div class="blog-card-body">
                 <div class="blog-meta">
@@ -154,12 +186,11 @@
                 </div>
                 <h2>My Computer Is Running Slow — Here's What to Do First</h2>
                 <p>The #1 support call we get, and almost always fixable without calling IT. Separate step-by-step guides for Windows and Mac so you follow exactly the right instructions for your machine.</p>
-                <a href="post-slow-computer.html" class="blog-read-more">Read the full guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="general/slow-computer.html" class="blog-read-more">Read the full guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               </div>
             </article>
 
-            <article class="blog-card" data-os="both" data-cat="general">
-              <div class="blog-thumb-placeholder">🔒</div>
+            <article class="blog-card" data-os="both" data-cat="general" data-tags="windows mac password security accounts troubleshooting beginner">
               <div class="blog-card-body">
                 <div class="blog-meta">
                   <span class="cat-pill pill-windows">⊞ Windows</span>
@@ -168,12 +199,11 @@
                 </div>
                 <h2>Forgot Your Password? How to Reset It Without Losing Everything</h2>
                 <p>Getting locked out is stressful. Pick your platform and follow exact reset steps for your Windows account, Mac login, or any major web app.</p>
-                <a href="post-forgot-password.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="general/forgot-password.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               </div>
             </article>
 
-            <article class="blog-card" data-os="both" data-cat="general">
-              <div class="blog-thumb-placeholder">📶</div>
+            <article class="blog-card" data-os="both" data-cat="general" data-tags="windows mac networking wifi internet beginner">
               <div class="blog-card-body">
                 <div class="blog-meta">
                   <span class="cat-pill pill-windows">⊞ Windows</span>
@@ -182,11 +212,11 @@
                 </div>
                 <h2>Wi-Fi Keeps Dropping? Try These Fixes Before Calling Your Provider</h2>
                 <p>Router-level fixes first, then OS-specific Wi-Fi settings for both Windows and Mac — nine times out of ten this resolves in under five minutes.</p>
-                <a href="post-wifi-dropping.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="networking/wifi-dropping.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               </div>
             </article>
 
-            <article class="blog-card" data-os="both" data-cat="printers">
+            <article class="blog-card" data-os="both" data-cat="printers" data-tags="windows mac printer hardware peripherals beginner">
               <div class="blog-thumb-placeholder">🖨️</div>
               <div class="blog-card-body">
                 <div class="blog-meta">
@@ -196,12 +226,11 @@
                 </div>
                 <h2>Printer Won't Print? The Most Common Causes Fixed Fast</h2>
                 <p>Stuck queue, offline status, wrong default — three fixes with separate instructions for Windows and Mac. Most solved in under five minutes.</p>
-                <a href="post-printer-wont-print.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="printers/printer-wont-print.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               </div>
             </article>
 
-            <article class="blog-card" data-os="both" data-cat="general">
-              <div class="blog-thumb-placeholder">💾</div>
+            <article class="blog-card" data-os="both" data-cat="general" data-tags="windows mac storage performance troubleshooting beginner">
               <div class="blog-card-body">
                 <div class="blog-meta">
                   <span class="cat-pill pill-windows">⊞ Windows</span>
@@ -210,11 +239,11 @@
                 </div>
                 <h2>"Your Disk Is Almost Full" — What to Delete Safely</h2>
                 <p>Exactly which files are safe to delete, using the built-in storage tools on both Windows and Mac to find the biggest space hogs fast.</p>
-                <a href="post-disk-full.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="general/disk-full.html" class="blog-read-more">Read the guide <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
               </div>
             </article>
 
-            <article class="blog-card" data-os="both" data-cat="office" style="opacity:.5;pointer-events:none;">
+            <article class="blog-card" data-os="both" data-cat="office" data-tags="office" style="opacity:.5;pointer-events:none;">
               <div class="blog-thumb-placeholder">📂</div>
               <div class="blog-card-body">
                 <div class="blog-meta">
@@ -239,7 +268,7 @@
           <div class="sidebar-widget sidebar-cta">
             <h3>Need Help Right Now?</h3>
             <p>Remote support available Mon–Fri for Windows and Mac.</p>
-            <a href="contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
+            <a href="../pages/contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
           </div>
           <div class="sidebar-widget">
             <h3>Filter by Platform</h3>
@@ -261,11 +290,11 @@
           <div class="sidebar-widget">
             <h3>Most Read</h3>
             <ul class="sidebar-cat-list">
-              <li><a href="post-slow-computer.html">Slow Computer Fix</a></li>
-              <li><a href="post-forgot-password.html">Forgot Your Password?</a></li>
-              <li><a href="post-wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
-              <li><a href="post-printer-wont-print.html">Printer Won't Print?</a></li>
-              <li><a href="post-disk-full.html">Disk Almost Full</a></li>
+              <li><a href="general/slow-computer.html">Slow Computer Fix</a></li>
+              <li><a href="general/forgot-password.html">Forgot Your Password?</a></li>
+              <li><a href="networking/wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
+              <li><a href="printers/printer-wont-print.html">Printer Won't Print?</a></li>
+              <li><a href="general/disk-full.html">Disk Almost Full</a></li>
             </ul>
           </div>
         </aside>
@@ -288,7 +317,7 @@
     <div class="container">
       <div class="footer-grid">
         <div><h4>Your Company</h4><p>Dependable IT support since 2010.</p></div>
-        <div><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Quick Links</h4><ul><li><a href="../index.html">Home</a></li><li><a href="index.html">Blog</a></li><li><a href="../pages/contact.html">Contact</a></li></ul></div>
         <div><h4>By Platform</h4><ul><li><a href="#">Windows Guides</a></li><li><a href="#">Mac Guides</a></li></ul></div>
         <div><h4>Contact</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6f696c6c736e685c6573696e7f73716c7d7265327f7371">[email&#160;protected]</a><br/>(555) 000-0000</p></div>
       </div>
@@ -296,13 +325,104 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    // ── State ────────────────────────────────────────────────────
+    let activeOS   = 'all';       // 'all' | 'windows' | 'mac'
+    let activeTags = new Set();   // selected tag strings
+
+    // ── Core filter function ─────────────────────────────────────
+    function applyFilters() {
+      const cards = document.querySelectorAll('#blog-grid .blog-card');
+
+      cards.forEach(card => {
+        const cardOS   = card.dataset.os   || '';
+        const cardTags = (card.dataset.tags || '').split(' ');
+
+        // OS match
+        const osMatch = activeOS === 'all' || cardOS === activeOS || cardOS === 'both';
+
+        // Tag match (OR logic — card must have at least one active tag)
+        const tagMatch = activeTags.size === 0 ||
+          [...activeTags].some(t => cardTags.includes(t));
+
+        card.classList.toggle('hidden', !(osMatch && tagMatch));
+      });
+
+      // Show/hide no-results message
+      const visible = [...cards].filter(c => !c.classList.contains('hidden'));
+      let noRes = document.getElementById('no-results');
+      if (!noRes) {
+        noRes = document.createElement('div');
+        noRes.id = 'no-results';
+        noRes.className = 'no-results';
+        noRes.innerHTML = '<span>🔍</span>No posts match those filters yet.<br>More content is on the way!';
+        document.getElementById('blog-grid').appendChild(noRes);
+      }
+      noRes.style.display = visible.length === 0 ? 'block' : 'none';
+
+      // Update filter summary bar
+      updateSummary();
+    }
+
+    // ── OS toggle ────────────────────────────────────────────────
     function filterOS(os, btn) {
+      activeOS = os;
       document.querySelectorAll('.os-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('#blog-grid .blog-card').forEach(card => {
-        const co = card.dataset.os;
-        card.classList.toggle('hidden', !(os === 'all' || co === os || co === 'both'));
-      });
+      applyFilters();
     }
-    document.querySelectorAll('.cat-
+
+    // ── Tag toggle ───────────────────────────────────────────────
+    document.querySelectorAll('.tag-btn[data-tag]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tag = btn.dataset.tag;
+        if (activeTags.has(tag)) {
+          activeTags.delete(tag);
+          btn.classList.remove('active');
+        } else {
+          activeTags.add(tag);
+          btn.classList.add('active');
+        }
+        applyFilters();
+      });
+    });
+
+    // ── Clear all tags ───────────────────────────────────────────
+    function clearTags() {
+      activeTags.clear();
+      document.querySelectorAll('.tag-btn[data-tag]').forEach(b => b.classList.remove('active'));
+      applyFilters();
+    }
+
+    // ── Auto-activate tag from URL param (?tag=security) ─────────
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const tag = params.get('tag');
+      if (tag) {
+        const btn = document.querySelector(`.tag-btn[data-tag="${tag}"]`);
+        if (btn) {
+          activeTags.add(tag);
+          btn.classList.add('active');
+          applyFilters();
+          // Scroll filter bar into view smoothly
+          document.querySelector('.filter-bar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    })();
+
+    // ── Active filter summary ────────────────────────────────────
+    function updateSummary() {
+      const summary  = document.getElementById('filter-summary');
+      const tagList  = document.getElementById('active-tag-list');
+      if (activeTags.size === 0) {
+        summary.classList.remove('visible');
+        return;
+      }
+      summary.classList.add('visible');
+      tagList.innerHTML = [...activeTags]
+        .map(t => `<span class="active-tag-badge">${t}</span>`)
+        .join(' ');
+    }
+  </script>
+</body>
+</html>

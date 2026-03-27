@@ -2,54 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Computer Is Running Slow – Tech Help Blog</title>
+  <title>Wi-Fi Keeps Dropping? – Tech Help Blog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../../css/styles.css" />
   <style>
-    /* ── Shared post page styles ── */
-    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.9),rgba(15,17,21,.98)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.9),rgba(15,17,21,.98)),url('../../assets/images/tech-bg.jpg') center/cover no-repeat;}
     .post-hero h1{font-size:clamp(1.85rem,4vw,2.8rem);line-height:1.15;max-width:820px;margin:0 auto 16px;}
     .post-meta{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:var(--text-muted);font-size:12px;margin-top:14px;}
     .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
     .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
     .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
-
-    /* OS Switcher */
-    .os-switcher-bar{background:var(--bg-alt);border-bottom:1px solid var(--card-border);padding:0;}
-    .os-switcher{display:flex;gap:0;}
+    .os-switcher-bar{background:var(--bg-alt);border-bottom:1px solid var(--card-border);}
+    .os-switcher{display:flex;}
     .os-tab{flex:1;max-width:200px;padding:14px 20px;border:none;background:transparent;color:var(--text-muted);font:600 14px 'Inter',sans-serif;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-    .os-tab:hover{color:var(--text);}
     .os-tab.active-win{color:#3aa0f3;border-bottom-color:#0078d7;background:rgba(0,120,215,.06);}
     .os-tab.active-mac{color:#c0c0c5;border-bottom-color:#888;background:rgba(160,160,165,.06);}
-
-    /* Content panels */
     .os-panel{display:none;}
     .os-panel.visible{display:block;}
-
     .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:52px 0 90px;}
     .post-body{color:var(--text-soft);line-height:1.75;font-size:1rem;}
     .post-body h2{color:var(--text);font-size:1.3rem;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--card-border);}
-    .post-body h3{color:var(--text);font-size:1.05rem;margin:24px 0 8px;}
     .post-body p{margin-bottom:16px;}
-    .post-body ul,.post-body ol{padding-left:1.4rem;margin-bottom:16px;}
+    .post-body ul{padding-left:1.4rem;margin-bottom:16px;}
     .post-body li{margin-bottom:8px;}
-
     .step-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px 22px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start;}
     .step-num{color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;margin-top:2px;}
     .win-num{background:#0078d7;}
     .mac-num{background:#555;}
     .step-card h3{margin:0 0 5px;font-size:.98rem;color:var(--text);}
     .step-card p{margin:0;font-size:.91rem;}
-
     .tip-box{background:rgba(47,128,237,.08);border:1px solid rgba(47,128,237,.25);border-radius:10px;padding:16px 18px;margin:24px 0;}
     .tip-box strong{color:var(--primary);}
-
-    /* OS banner inside content */
+    .shared-box{background:var(--bg-alt);border:1px solid var(--card-border);border-radius:10px;padding:20px 22px;margin:28px 0;}
+    .shared-box h3{color:var(--text);font-size:1rem;margin-bottom:10px;}
     .os-banner{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:8px;margin-bottom:24px;font-size:13px;font-weight:600;}
     .os-banner.win{background:rgba(0,120,215,.1);border:1px solid rgba(0,120,215,.25);color:#3aa0f3;}
     .os-banner.mac{background:rgba(160,160,165,.1);border:1px solid rgba(160,160,165,.22);color:#c0c0c5;}
-
     .post-sidebar{position:sticky;top:90px;}
     .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;margin-bottom:18px;}
     .sidebar-widget h3{font-size:.92rem;margin-bottom:11px;color:var(--text);}
@@ -61,31 +50,32 @@
     .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
     .sidebar-cta h3{color:#fff;}
     .sidebar-cta p{color:rgba(255,255,255,.75);font-size:12px;margin-bottom:12px;}
-
-    /* OS switcher in sidebar */
     .sidebar-os-switch{display:flex;gap:6px;margin-bottom:4px;}
     .sidebar-os-btn{flex:1;padding:8px;border:1px solid var(--card-border);border-radius:8px;background:var(--bg);color:var(--text-muted);font:600 12px 'Inter',sans-serif;cursor:pointer;text-align:center;transition:all .2s;}
     .sidebar-os-btn.active-win{background:#0078d7;border-color:#0078d7;color:#fff;}
     .sidebar-os-btn.active-mac{background:#555;border-color:#555;color:#fff;}
-
     @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.post-sidebar{position:static;}}
+
+    /* Post tag chips */
+    .post-tags { display:flex; justify-content:center; flex-wrap:wrap; gap:6px; margin-top:14px; }
+    .post-tag { display:inline-block; padding:4px 12px; border-radius:999px; border:1px solid var(--card-border); background:rgba(255,255,255,0.06); color:var(--text-muted); font-size:11px; font-weight:600; text-decoration:none; letter-spacing:.04em; transition:all .2s; }
+    .post-tag:hover { border-color:var(--primary); color:var(--primary); background:rgba(47,128,237,.08); }
   </style>
 </head>
-<body>
-
+<body data-tags="windows mac networking wifi internet beginner">
   <header class="site-header">
     <div class="container">
       <nav class="nav">
-        <a href="../index.html" class="logo"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
+        <a href="../../index.html" class="logo"><img src="../../assets/logo/CAER-PON.gif" alt="CAER Technologies" /></a>
         <button class="menu-toggle" onclick="this.closest('nav').querySelector('.site-nav').classList.toggle('open')">☰</button>
         <div class="site-nav">
-          <a href="../index.html">Home</a>
+          <a href="../../index.html">Home</a>
           <div class="nav-item has-dropdown"><a href="#">Services</a>
-            <div class="dropdown"><a href="#">Managed IT</a><a href="#">Cybersecurity</a><a href="#">Cloud Solutions</a><a href="#">Help Desk</a></div>
+            <div class="dropdown"><a href="../../pages/managed-it.html">Managed IT</a><a href="../../pages/cybersecurity.html">Cybersecurity</a><a href="../../pages/cloud-solutions.html">Cloud Solutions</a><a href="../../pages/help-desk.html">Help Desk</a></div>
           </div>
-          <a href="blog.html" style="color:var(--primary)">Blog</a>
-          <a href="about.html">About</a>
-          <a href="contact.html" class="cta">Get Support</a>
+          <a href="../index.html" style="color:var(--primary)">Blog</a>
+          <a href="../../pages/about.html">About</a>
+          <a href="../../pages/contact.html" class="cta">Get Support</a>
         </div>
       </nav>
     </div>
@@ -94,17 +84,21 @@
   <section class="post-hero">
     <div class="container">
       <p class="eyebrow">General Troubleshooting</p>
-      <h1>My Computer Is Running Slow — Here's What to Do First</h1>
+      <h1>Wi-Fi Keeps Dropping? Try These Fixes Before Calling Your Internet Provider</h1>
       <div class="post-meta">
         <span class="cat-pill pill-windows">⊞ Windows</span>
         <span class="cat-pill pill-mac"> Mac</span>
-        <span>June 2, 2025</span>
-        <span>🕐 4 min read</span>
+        <span>June 9, 2025</span><span>🕐 4 min read</span>
+      </div>
+      <div class="post-tags">
+        <a href="../index.html?tag=networking" class="post-tag">📶 networking</a>
+        <a href="../index.html?tag=wifi" class="post-tag">📡 wifi</a>
+        <a href="../index.html?tag=internet" class="post-tag">🌐 internet</a>
+        <a href="../index.html?tag=beginner" class="post-tag">⭐ beginner</a>
       </div>
     </div>
   </section>
 
-  <!-- OS SWITCHER BAR -->
   <div class="os-switcher-bar">
     <div class="container">
       <div class="os-switcher">
@@ -118,119 +112,103 @@
     <div class="post-layout">
       <article class="post-body">
 
-        <p>A slow computer is the #1 tech complaint — and most of the time it's completely fixable without calling IT. Choose your operating system above and follow the steps below.</p>
+        <!-- SHARED STEP: Router reboot -->
+        <div class="shared-box">
+          <h3>🔄 Start here — works for both Windows and Mac</h3>
+          <p><strong>Reboot your router and modem.</strong> Unplug both from power. Wait 60 full seconds. Plug the modem back in first, wait 30 seconds, then plug the router back in. Give it another minute before testing. This fixes the majority of drop issues on any device.</p>
+        </div>
 
-        <!-- ══ WINDOWS PANEL ══════════════════════════════════════ -->
+        <!-- WINDOWS -->
         <div class="os-panel visible" id="panel-windows">
-          <div class="os-banner win">⊞ These steps are for Windows 10 and Windows 11.</div>
+          <div class="os-banner win">⊞ Windows-specific Wi-Fi troubleshooting steps.</div>
 
-          <h2>Step 1 — Restart Properly</h2>
+          <h2>Check If It's Your Device or the Network</h2>
           <div class="step-card">
             <div class="step-num win-num">1</div>
             <div>
-              <h3>Do a full Shut Down, not Sleep</h3>
-              <p>Many Windows users put their PC to sleep instead of shutting it down. Sleep doesn't clear RAM or stop background processes. Click <strong>Start → Power → Shut Down</strong>. Wait 30 seconds, then power back on. This alone often fixes sluggishness.</p>
+              <h3>Test on a second device</h3>
+              <p>Connect a phone or tablet to the same Wi-Fi. If that device stays connected, the problem is with your Windows PC's Wi-Fi adapter or settings — not the router. If every device drops, it's a router or ISP issue.</p>
             </div>
           </div>
 
-          <h2>Step 2 — Check What's Eating Resources</h2>
+          <h2>Windows Network Troubleshooter</h2>
           <div class="step-card">
             <div class="step-num win-num">2</div>
             <div>
-              <h3>Open Task Manager</h3>
-              <p>Press <strong>Ctrl + Shift + Esc</strong>. Click "More details" if you see a simplified view. Click the <strong>CPU</strong> or <strong>Memory</strong> column header to sort by usage. Anything consistently above 30–40% CPU that you don't recognize is worth investigating.</p>
+              <h3>Run the built-in diagnostic</h3>
+              <p>Right-click the Wi-Fi icon in the taskbar (bottom right) and select <strong>"Troubleshoot problems."</strong> Windows will automatically scan for common issues — wrong IP address, DNS problems, adapter errors — and often fix them automatically.</p>
             </div>
           </div>
 
-          <h2>Step 3 — Cut Down Startup Programs</h2>
+          <h2>Reset the Network Adapter</h2>
           <div class="step-card">
             <div class="step-num win-num">3</div>
             <div>
-              <h3>Disable unnecessary startup apps</h3>
-              <p>In Task Manager, click the <strong>Startup</strong> tab. Right-click programs you don't need at login — Teams, Spotify, Discord, OneDrive, updaters — and choose <strong>Disable</strong>. They'll still work when you open them; they just won't launch automatically.</p>
+              <h3>Forget and reconnect to your Wi-Fi network</h3>
+              <p>Go to <strong>Settings → Network &amp; Internet → Wi-Fi → Manage known networks</strong>. Click your network name and select <strong>Forget</strong>. Then reconnect as if it's a new network and enter your Wi-Fi password. This clears any corrupted connection data.</p>
             </div>
           </div>
 
-          <h2>Step 4 — Free Up Disk Space</h2>
           <div class="step-card">
             <div class="step-num win-num">4</div>
             <div>
-              <h3>Run Disk Cleanup</h3>
-              <p>Click Start, search <strong>Disk Cleanup</strong>, and run it on your C: drive. Check all boxes, then also click <strong>"Clean up system files"</strong> for even more space. Also empty your Recycle Bin and clear your Downloads folder manually.</p>
-            </div>
-          </div>
-
-          <h2>Step 5 — Check for Pending Updates</h2>
-          <div class="step-card">
-            <div class="step-num win-num">5</div>
-            <div>
-              <h3>Install Windows updates</h3>
-              <p>Pending updates can cause slowdowns as Windows works in the background. Go to <strong>Settings → Windows Update → Check for updates</strong>. Install everything, then restart when prompted.</p>
+              <h3>Update your Wi-Fi driver</h3>
+              <p>Press <strong>Win + X → Device Manager</strong>. Expand <strong>Network adapters</strong>, right-click your Wi-Fi adapter, and choose <strong>"Update driver" → "Search automatically."</strong> An outdated driver is a common cause of intermittent drops on Windows.</p>
             </div>
           </div>
 
           <div class="tip-box">
-            <strong>💡 Windows tip:</strong> If your PC is 5+ years old and still slow after all this, it may be running an old spinning hard drive. Upgrading to an SSD is the single biggest speed improvement you can make — often under $80 and your data can be migrated.
+            <strong>💡 Windows tip:</strong> Open Command Prompt as administrator and run these two commands one at a time:<br/><code>netsh winsock reset</code><br/><code>netsh int ip reset</code><br/>Then restart. This resets your network stack and often fixes persistent Wi-Fi issues.
           </div>
         </div>
 
-        <!-- ══ MAC PANEL ══════════════════════════════════════════ -->
+        <!-- MAC -->
         <div class="os-panel" id="panel-mac">
-          <div class="os-banner mac"> These steps are for macOS Ventura, Sonoma, and Sequoia.</div>
+          <div class="os-banner mac"> Mac-specific Wi-Fi troubleshooting steps.</div>
 
-          <h2>Step 1 — Restart Properly</h2>
+          <h2>Check If It's Your Mac or the Network</h2>
           <div class="step-card">
             <div class="step-num mac-num">1</div>
             <div>
-              <h3>Do a full Restart, not just close the lid</h3>
-              <p>Closing your MacBook lid puts it to sleep but doesn't clear memory or background processes. Go to <strong>Apple Menu () → Restart</strong>. When prompted, leave "Reopen windows when logging back in" unchecked for a truly fresh start.</p>
+              <h3>Test on a second device</h3>
+              <p>Connect a phone or another device to the same Wi-Fi. If it stays connected, the problem is with your Mac's Wi-Fi settings — not the router. If every device drops, it's a router or ISP issue.</p>
             </div>
           </div>
 
-          <h2>Step 2 — Check What's Eating Resources</h2>
+          <h2>Forget and Rejoin the Network</h2>
           <div class="step-card">
             <div class="step-num mac-num">2</div>
             <div>
-              <h3>Open Activity Monitor</h3>
-              <p>Press <strong>Cmd + Space</strong>, type <strong>Activity Monitor</strong>, and press Enter. Click the <strong>CPU</strong> tab and sort by % CPU. If any process is consistently high and you don't recognize it, select it and click the X button at the top to quit it (you can always re-open the app).</p>
+              <h3>Remove the saved network and reconnect</h3>
+              <p>Go to <strong>System Settings → Wi-Fi</strong>. Click the (i) icon next to your network name and select <strong>Forget This Network</strong>. Click the Wi-Fi name again, enter your password, and reconnect fresh. This removes any corrupted saved network settings.</p>
             </div>
           </div>
 
-          <h2>Step 3 — Reduce Login Items</h2>
+          <h2>Renew Your IP Address</h2>
           <div class="step-card">
             <div class="step-num mac-num">3</div>
             <div>
-              <h3>Remove apps from startup</h3>
-              <p>Go to <strong>System Settings → General → Login Items & Extensions</strong>. Under "Open at Login," remove anything you don't need starting automatically — Spotify, Teams, Dropbox helpers, etc. Use the minus (−) button to remove each one.</p>
+              <h3>Force a new IP from the router</h3>
+              <p>Go to <strong>System Settings → Wi-Fi → Details</strong> (next to your network) → <strong>TCP/IP tab → Renew DHCP Lease</strong>. This requests a fresh IP address from your router, which can resolve connection drops caused by IP conflicts.</p>
             </div>
           </div>
 
-          <h2>Step 4 — Free Up Disk Space</h2>
           <div class="step-card">
             <div class="step-num mac-num">4</div>
             <div>
-              <h3>Use Storage Management</h3>
-              <p>Go to <strong>Apple Menu → About This Mac → More Info → Storage Settings</strong>. Click <strong>Recommendations</strong> — macOS will suggest specific items to delete or move. Also empty the Trash: right-click the Trash icon in your Dock and choose <strong>Empty Trash</strong>.</p>
-            </div>
-          </div>
-
-          <h2>Step 5 — Install macOS Updates</h2>
-          <div class="step-card">
-            <div class="step-num mac-num">5</div>
-            <div>
-              <h3>Check for software updates</h3>
-              <p>Go to <strong>System Settings → General → Software Update</strong>. Install any available updates and restart. Also open the App Store and update all your apps — outdated apps can cause slowdowns and compatibility issues.</p>
+              <h3>Delete Wi-Fi preferences files</h3>
+              <p>Open <strong>Finder → Go → Go to Folder</strong> and type: <code>/Library/Preferences/SystemConfiguration/</code>. Delete these files if present: <code>com.apple.airport.preferences.plist</code>, <code>NetworkInterfaces.plist</code>, and <code>preferences.plist</code>. Restart your Mac — macOS will recreate them fresh.</p>
             </div>
           </div>
 
           <div class="tip-box">
-            <strong>💡 Mac tip:</strong> If your Mac is older and running especially slow, check if it's still receiving macOS updates. Apple drops support for older hardware — if your model can't upgrade, some features will be slower over time. We can run a free compatibility check remotely.
+            <strong>💡 Mac tip:</strong> If your Mac keeps defaulting to 2.4 GHz instead of the faster 5 GHz band, go to <strong>Wi-Fi → Details → TCP/IP</strong> and check if both bands appear as separate networks. Connect specifically to the 5 GHz network (often listed as "YourNetwork-5G") for a more stable connection.
           </div>
         </div>
 
-        <h2>Still Slow After All That?</h2>
-        <p>If you've worked through the steps and your machine is still sluggish, the problem may be hardware-related — aging RAM, a failing drive, or overheating. We can run a remote diagnostic in about 20 minutes.</p>
-        <a href="contact.html" class="btn-primary" style="display:inline-block;margin-top:6px;">Schedule a Remote Diagnostic</a>
+        <h2>When to Call Your Internet Provider</h2>
+        <p>Only escalate to your ISP if: your wired Ethernet connection also drops, the router lights are blinking erratically or showing a "no signal" state, or rebooting the modem doesn't help. At that point there may be a line issue on their end.</p>
+        <a href="../../pages/contact.html" class="btn-primary" style="display:inline-block;margin-top:6px;">Still Need Help? Contact Us</a>
       </article>
 
       <aside class="post-sidebar">
@@ -243,20 +221,20 @@
         </div>
         <div class="sidebar-widget sidebar-cta">
           <h3>Need Help Now?</h3>
-          <p>Remote support available Mon–Fri for Windows and Mac.</p>
-          <a href="contact.html" class="btn-primary" style="display:block;text-align:center;">Contact Support</a>
+          <p>Remote support available Mon–Fri.</p>
+          <a href="../../pages/contact.html" class="btn-primary" style="display:block;text-align:center;">Contact Support</a>
         </div>
         <div class="sidebar-widget">
           <h3>More Posts</h3>
           <ul class="sidebar-list">
-            <li><a href="post-forgot-password.html">Forgot Your Password?</a></li>
-            <li><a href="post-wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
-            <li><a href="post-printer-wont-print.html">Printer Won't Print?</a></li>
-            <li><a href="post-disk-full.html">Disk Almost Full</a></li>
+            <li><a href="../general/slow-computer.html">My Computer Is Running Slow</a></li>
+            <li><a href="../general/forgot-password.html">Forgot Your Password?</a></li>
+            <li><a href="../printers/printer-wont-print.html">Printer Won't Print?</a></li>
+            <li><a href="../general/disk-full.html">Disk Almost Full</a></li>
           </ul>
         </div>
         <div class="sidebar-widget">
-          <a href="blog.html" class="btn-secondary" style="display:block;text-align:center;padding:10px;">← All Posts</a>
+          <a href="../index.html" class="btn-secondary" style="display:block;text-align:center;padding:10px;">← All Posts</a>
         </div>
       </aside>
     </div>
@@ -264,20 +242,16 @@
 
   <footer>
     <div class="container">
-      <p style="text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company · <a href="blog.html">Back to Blog</a></p>
+      <p style="text-align:center;color:var(--text-muted);font-size:13px;">&copy; 2025 Your Company · <a href="../index.html">Back to Blog</a></p>
     </div>
   </footer>
-
   <script>
     function switchOS(os) {
       const isWin = os === 'windows';
-      // panels
       document.getElementById('panel-windows').classList.toggle('visible', isWin);
       document.getElementById('panel-mac').classList.toggle('visible', !isWin);
-      // top tabs
       document.getElementById('tab-win').className = 'os-tab' + (isWin ? ' active-win' : '');
       document.getElementById('tab-mac').className = 'os-tab' + (!isWin ? ' active-mac' : '');
-      // sidebar buttons
       document.getElementById('sb-win').className = 'sidebar-os-btn' + (isWin ? ' active-win' : '');
       document.getElementById('sb-mac').className = 'sidebar-os-btn' + (!isWin ? ' active-mac' : '');
     }

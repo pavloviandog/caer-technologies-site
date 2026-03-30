@@ -51,7 +51,7 @@
     .blog-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:28px; }
 
     .blog-card { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; transition:all .25s ease; position:relative; }
-    .blog-card::before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,transparent,rgba(47,128,237,.12),transparent); opacity:0; transition:opacity .25s; }
+    .blog-card::before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,transparent,rgba(47,128,237,.12),transparent); opacity:0; transition:opacity .25s; pointer-events:none;}
     .blog-card:hover { transform:translateY(-6px); border-color:rgba(47,128,237,.55); box-shadow:var(--shadow-hover); }
     .blog-card:hover::before { opacity:1; }
     .blog-card[data-os="windows"] { border-top:3px solid #0078d7; }

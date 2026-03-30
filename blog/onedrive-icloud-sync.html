@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneDrive / iCloud Not Syncing — How to Fix It | CAER Technologies</title>
+  <meta name="description" content="OneDrive or iCloud Drive stuck syncing, showing errors, or files not updating? Step-by-step fixes for Windows and Mac." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
+    .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
+    .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero .eyebrow{color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+    .post-hero h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:16px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .post-hero .post-meta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;color:var(--text-muted);font-size:13px;margin-top:16px;}
+    .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:56px 0 90px;}
+    .post-body h2{font-size:1.35rem;margin:2rem 0 .75rem;padding-top:.5rem;}
+    .post-body h3{font-size:1.1rem;margin:1.5rem 0 .6rem;color:var(--primary);}
+    .post-body p{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;}
+    .post-body ul,.post-body ol{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;padding-left:1.4rem;}
+    .post-body li{margin-bottom:.5rem;}
+    .post-body strong{color:var(--text);}
+    .post-body a{color:var(--primary);text-decoration:underline;}
+    .os-block{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;margin:1.5rem 0;}
+    .os-block.win{border-left:4px solid #0078d7;}
+    .os-block.mac{border-left:4px solid #888;}
+    .os-block.both{border-left:4px solid var(--primary);}
+    .os-block-title{font-weight:700;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .tip-box{background:rgba(47,128,237,.07);border:1px solid rgba(47,128,237,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .tip-box strong{color:var(--primary);}
+    .warn-box{background:rgba(237,100,80,.07);border:1px solid rgba(237,100,80,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .warn-box strong{color:#e07060;}
+    .step-list{list-style:none;padding:0;counter-reset:steps;}
+    .step-list li{counter-increment:steps;display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;}
+    .step-list li::before{content:counter(steps);background:var(--primary);color:#fff;font-weight:700;font-size:13px;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+    .sidebar{position:sticky;top:90px;}
+    .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px;margin-bottom:20px;}
+    .sidebar-widget h3{font-size:.95rem;margin-bottom:12px;}
+    .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
+    .sidebar-cta h3{color:#fff;}
+    .sidebar-cta p{color:rgba(255,255,255,.75);font-size:13px;margin-bottom:14px;}
+    .related-list{list-style:none;padding:0;margin:0;}
+    .related-list li{border-bottom:1px solid var(--card-border);padding:9px 0;}
+    .related-list li:last-child{border-bottom:none;}
+    .related-list a{color:var(--text-soft);font-size:13px;transition:color .2s;}
+    .related-list a:hover{color:var(--primary);}
+    .post-footer-nav{display:flex;justify-content:space-between;gap:16px;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--card-border);flex-wrap:wrap;}
+    .post-footer-nav a{color:var(--primary);font-size:14px;font-weight:600;}
+    @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo"><a href="../index.html"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies"></a></div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <div class="nav-item has-dropdown"><a href="../pages/security.html">Security</a>
+        <div class="dropdown">
+          <a href="../pages/cybersecurity.html">Cybersecurity Protection</a>
+          <a href="../pages/email-protection.html">Email Security</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Infrastructure</a>
+        <div class="dropdown">
+          <a href="../pages/managed-it-services.html">Managed IT Services</a>
+          <a href="../pages/network.html">Network Infrastructure</a>
+          <a href="../pages/cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="../pages/apple-services.html">Apple Device Management</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Continuity</a>
+        <div class="dropdown"><a href="../pages/backup.html">Backup &amp; Disaster Recovery</a></div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Communication</a>
+        <div class="dropdown"><a href="../pages/voip.html">Business VoIP</a></div>
+      </div>
+      <a href="index.html" style="color:var(--primary)">Blog</a>
+      <a href="../pages/about.html">About</a>
+      <a href="../pages/contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-hero">
+  <div class="container">
+    <p class="eyebrow">Cloud Storage &amp; Sync</p>
+    <h1>OneDrive / iCloud Not Syncing — How to Fix It</h1>
+    <div class="post-meta">
+      <span class="cat-pill pill-windows">⊞ Windows</span>
+      <span class="cat-pill pill-mac"> Mac</span>
+      <span>June 25, 2025 · 5 min read</span>
+      <span>By CAER Technologies</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="post-layout">
+    <article class="post-body">
+
+      <p>That little cloud icon in your taskbar or menu bar is supposed to stay quiet. When it starts spinning forever, showing error badges, or files stop appearing on your other devices, something has broken in the sync process. The good news is that most sync problems are fixable in a few minutes without losing any data.</p>
+
+      <h2>Before You Do Anything — Check the Service Status</h2>
+      <p>Sometimes the problem isn't your computer at all. Microsoft and Apple occasionally have service outages that affect syncing. Before you start troubleshooting, check:</p>
+      <ul>
+        <li><strong>OneDrive:</strong> visit <strong>portal.office.com/servicestatus</strong> or search "Microsoft 365 service status"</li>
+        <li><strong>iCloud:</strong> visit <strong>apple.com/support/systemstatus</strong></li>
+      </ul>
+      <p>If there's an active incident, the only fix is to wait. Come back in an hour.</p>
+
+      <h2>Fix OneDrive Sync Issues on Windows</h2>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Step 1 — Restart OneDrive</div>
+        <ol class="step-list">
+          <li>Click the <strong>OneDrive cloud icon</strong> in your system tray (bottom right, may be hidden — click the arrow to show all icons).</li>
+          <li>Click the <strong>gear icon → Quit OneDrive</strong>.</li>
+          <li>Press <strong>Windows + R</strong>, type <code>%localappdata%\Microsoft\OneDrive\OneDrive.exe</code> and press Enter to relaunch it.</li>
+          <li>Watch the icon — it should start syncing again within 30 seconds.</li>
+        </ol>
+      </div>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Step 2 — Check Storage Space</div>
+        <ol class="step-list">
+          <li>Click the OneDrive icon → <strong>gear → Settings → Account</strong>.</li>
+          <li>Check your storage usage. If you're at or near your limit, OneDrive stops syncing new files.</li>
+          <li>Free up space by deleting old files from OneDrive, or upgrade your Microsoft 365 storage.</li>
+        </ol>
+      </div>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Step 3 — Reset OneDrive (Last Resort)</div>
+        <ol class="step-list">
+          <li>Press <strong>Windows + R</strong> and type: <code>%localappdata%\Microsoft\OneDrive\onedrive.exe /reset</code> then press Enter.</li>
+          <li>The OneDrive icon will disappear for a minute — this is normal.</li>
+          <li>If it doesn't reappear after 2 minutes, relaunch it using the path in Step 1 above.</li>
+          <li>OneDrive will re-sync everything from scratch. Your files are safe — this does not delete anything.</li>
+        </ol>
+      </div>
+
+      <h2>Fix iCloud Drive Sync Issues on Mac</h2>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Step 1 — Pause and Resume Sync</div>
+        <ol class="step-list">
+          <li>Click the <strong>iCloud icon</strong> in your menu bar.</li>
+          <li>Click <strong>Pause Sync</strong>, wait 10 seconds, then click <strong>Resume Sync</strong>.</li>
+          <li>Sometimes a stuck sync just needs a nudge to restart.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Step 2 — Sign Out and Back In to iCloud</div>
+        <ol class="step-list">
+          <li>Go to <strong>System Settings → [Your Name] → Sign Out</strong>.</li>
+          <li>Choose to <strong>keep a copy</strong> of your iCloud data on the Mac when prompted.</li>
+          <li>Sign back in with your Apple ID.</li>
+          <li>iCloud Drive will re-establish sync — allow a few minutes for it to complete.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Step 3 — Check iCloud Storage</div>
+        <ol class="step-list">
+          <li>Go to <strong>System Settings → [Your Name] → iCloud</strong>.</li>
+          <li>Check the storage bar at the top. If it's full or nearly full, syncing will stop.</li>
+          <li>Click <strong>Manage</strong> to see what's using space and delete what you don't need.</li>
+        </ol>
+      </div>
+
+      <h2>Fix OneDrive Sync Issues on Mac</h2>
+      <p>Using OneDrive on a Mac (common with Microsoft 365 business accounts)? The fix is slightly different.</p>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> OneDrive on Mac</div>
+        <ol class="step-list">
+          <li>Click the <strong>OneDrive cloud icon</strong> in your menu bar → <strong>gear → Quit OneDrive</strong>.</li>
+          <li>Reopen OneDrive from your Applications folder.</li>
+          <li>If it still won't sync, go to <strong>gear → Preferences → Account → Unlink this Mac</strong>, then sign back in. This resets the sync connection without deleting your files.</li>
+        </ol>
+      </div>
+
+      <h2>Common Error Messages and What They Mean</h2>
+      <ul>
+        <li><strong>"File name too long" or "Invalid characters"</strong> — OneDrive doesn't support file names over 400 characters or names containing symbols like <code>* : ? " &lt; &gt; |</code>. Rename the file.</li>
+        <li><strong>"Upload blocked — sign in"</strong> — Your session expired. Click the icon and sign in again.</li>
+        <li><strong>"Processing changes"</strong> that never finishes — Use the Reset OneDrive step above.</li>
+        <li><strong>Files with a cloud icon that won't download</strong> — Right-click the file and choose <strong>Always keep on this device</strong> to force a local download.</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 CAER tip:</strong> For businesses using Microsoft 365, OneDrive sync issues are often tied to licensing or tenant configuration — not the individual computer. If multiple users are having the same problem, <a href="../pages/contact.html">let us take a look at your M365 setup</a>.
+      </div>
+
+      <div class="post-footer-nav">
+        <a href="screen-sharing.html">← Screen Sharing &amp; Meeting Problems</a>
+        <a href="two-factor-auth.html">Next: Two-Factor Authentication →</a>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget sidebar-cta">
+        <h3>Need Help Right Now?</h3>
+        <p>Remote support available Mon–Fri for Windows and Mac.</p>
+        <a href="../pages/contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Related Guides</h3>
+        <ul class="related-list">
+          <li><a href="deleted-files.html">Files Accidentally Deleted</a></li>
+          <li><a href="screen-sharing.html">Screen Sharing &amp; Meeting Problems</a></li>
+          <li><a href="two-factor-auth.html">Two-Factor Authentication Setup</a></li>
+          <li><a href="browser-slow.html">Browser Running Slow or Crashing</a></li>
+          <li><a href="slow-computer.html">My Computer Is Running Slow</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3>About CAER Technologies</h3>
+        <p style="color:var(--text-soft);font-size:13px;line-height:1.6;">Managed IT and cybersecurity for businesses across the Texas Hill Country — Bandera, Kerrville, Fredericksburg, and Boerne.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>CAER Technologies</h3><p>Reliable IT Services and Cybersecurity for businesses across the Texas Hill Country.</p></div>
+    <div><h4>Services</h4><ul><li><a href="../pages/managed-it-services.html">Managed IT</a></li><li><a href="../pages/cybersecurity.html">Cybersecurity</a></li><li><a href="../pages/backup.html">Backup</a></li><li><a href="../pages/voip.html">VoIP</a></li><li><a href="../pages/apple-services.html">Apple Services</a></li></ul></div>
+    <div><h4>Contact</h4><p>Bandera, Texas</p><a href="tel:+18305103700">830-510-3700</a><p>support@consultcaer.com</p></div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

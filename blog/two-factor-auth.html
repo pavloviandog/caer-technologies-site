@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two-Factor Authentication — Setup & Troubleshooting | CAER Technologies</title>
+  <meta name="description" content="What is two-factor authentication, how to set it up on your accounts, and what to do when your 2FA code stops working. Guide for Windows and Mac users." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
+    .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
+    .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
+    .pill-both{background:rgba(47,128,237,.12);color:var(--primary);border:1px solid rgba(47,128,237,.25);}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero .eyebrow{color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+    .post-hero h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:16px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .post-hero .post-meta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;color:var(--text-muted);font-size:13px;margin-top:16px;}
+    .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:56px 0 90px;}
+    .post-body h2{font-size:1.35rem;margin:2rem 0 .75rem;padding-top:.5rem;}
+    .post-body h3{font-size:1.1rem;margin:1.5rem 0 .6rem;color:var(--primary);}
+    .post-body p{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;}
+    .post-body ul,.post-body ol{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;padding-left:1.4rem;}
+    .post-body li{margin-bottom:.5rem;}
+    .post-body strong{color:var(--text);}
+    .post-body a{color:var(--primary);text-decoration:underline;}
+    .os-block{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;margin:1.5rem 0;}
+    .os-block.win{border-left:4px solid #0078d7;}
+    .os-block.mac{border-left:4px solid #888;}
+    .os-block.both{border-left:4px solid var(--primary);}
+    .os-block.security{border-left:4px solid #22c55e;}
+    .os-block-title{font-weight:700;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .tip-box{background:rgba(47,128,237,.07);border:1px solid rgba(47,128,237,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .tip-box strong{color:var(--primary);}
+    .warn-box{background:rgba(237,100,80,.07);border:1px solid rgba(237,100,80,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .warn-box strong{color:#e07060;}
+    .step-list{list-style:none;padding:0;counter-reset:steps;}
+    .step-list li{counter-increment:steps;display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;}
+    .step-list li::before{content:counter(steps);background:var(--primary);color:#fff;font-weight:700;font-size:13px;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+    .sidebar{position:sticky;top:90px;}
+    .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px;margin-bottom:20px;}
+    .sidebar-widget h3{font-size:.95rem;margin-bottom:12px;}
+    .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
+    .sidebar-cta h3{color:#fff;}
+    .sidebar-cta p{color:rgba(255,255,255,.75);font-size:13px;margin-bottom:14px;}
+    .related-list{list-style:none;padding:0;margin:0;}
+    .related-list li{border-bottom:1px solid var(--card-border);padding:9px 0;}
+    .related-list li:last-child{border-bottom:none;}
+    .related-list a{color:var(--text-soft);font-size:13px;transition:color .2s;}
+    .related-list a:hover{color:var(--primary);}
+    .post-footer-nav{display:flex;justify-content:space-between;gap:16px;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--card-border);flex-wrap:wrap;}
+    .post-footer-nav a{color:var(--primary);font-size:14px;font-weight:600;}
+    @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo"><a href="../index.html"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies"></a></div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <div class="nav-item has-dropdown"><a href="../pages/security.html">Security</a>
+        <div class="dropdown">
+          <a href="../pages/cybersecurity.html">Cybersecurity Protection</a>
+          <a href="../pages/email-protection.html">Email Security</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Infrastructure</a>
+        <div class="dropdown">
+          <a href="../pages/managed-it-services.html">Managed IT Services</a>
+          <a href="../pages/network.html">Network Infrastructure</a>
+          <a href="../pages/cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="../pages/apple-services.html">Apple Device Management</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Continuity</a>
+        <div class="dropdown"><a href="../pages/backup.html">Backup &amp; Disaster Recovery</a></div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Communication</a>
+        <div class="dropdown"><a href="../pages/voip.html">Business VoIP</a></div>
+      </div>
+      <a href="index.html" style="color:var(--primary)">Blog</a>
+      <a href="../pages/about.html">About</a>
+      <a href="../pages/contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-hero">
+  <div class="container">
+    <p class="eyebrow">Security &amp; Accounts</p>
+    <h1>Two-Factor Authentication — Setup &amp; Troubleshooting</h1>
+    <div class="post-meta">
+      <span class="cat-pill pill-windows">⊞ Windows</span>
+      <span class="cat-pill pill-mac"> Mac</span>
+      <span>June 28, 2025 · 6 min read</span>
+      <span>By CAER Technologies</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="post-layout">
+    <article class="post-body">
+
+      <p>Two-factor authentication (2FA) is one of the most effective things you can do to protect your accounts — yet it's also one of the most confusing when something goes wrong. This guide explains what it is, how to set it up on your most important accounts, and exactly what to do when your codes stop working.</p>
+
+      <h2>What Is Two-Factor Authentication?</h2>
+      <p>When you log in to an account normally, you use something you <strong>know</strong> — your password. Two-factor authentication adds a second check: something you <strong>have</strong>, like your phone. Even if someone steals your password, they still can't get in without that second factor.</p>
+
+      <div class="os-block security">
+        <div class="os-block-title">🔒 The three most common types of 2FA</div>
+        <ul style="margin:0;padding-left:1.2rem;color:var(--text-soft);">
+          <li><strong>Text message (SMS)</strong> — A code is texted to your phone. Easy but least secure.</li>
+          <li><strong>Authenticator app</strong> — An app like Microsoft Authenticator or Google Authenticator generates a fresh 6-digit code every 30 seconds. More secure than SMS.</li>
+          <li><strong>Push notification</strong> — The app asks "was this you?" and you approve with a tap. Easiest to use day-to-day.</li>
+        </ul>
+      </div>
+
+      <h2>How to Set Up 2FA on Your Most Important Accounts</h2>
+
+      <div class="os-block both">
+        <div class="os-block-title">📧 Microsoft 365 / Work Email</div>
+        <ol class="step-list">
+          <li>Go to <strong>mysignins.microsoft.com</strong> and sign in.</li>
+          <li>Click <strong>Security info → Add sign-in method</strong>.</li>
+          <li>Choose <strong>Authenticator app</strong> and follow the setup prompts.</li>
+          <li>Download <strong>Microsoft Authenticator</strong> on your phone, scan the QR code shown on screen, and your account is protected.</li>
+        </ol>
+      </div>
+
+      <div class="os-block both">
+        <div class="os-block-title"> Apple ID (iCloud, App Store, everything Apple)</div>
+        <ol class="step-list">
+          <li><strong>On iPhone/iPad:</strong> Settings → [Your Name] → Sign-In &amp; Security → Two-Factor Authentication → Turn On.</li>
+          <li><strong>On Mac:</strong> System Settings → [Your Name] → Sign-In &amp; Security → Two-Factor Authentication → Turn On.</li>
+          <li>Apple will send a 6-digit code to your trusted devices whenever you sign in on a new device.</li>
+        </ol>
+      </div>
+
+      <div class="os-block both">
+        <div class="os-block-title">📨 Google / Gmail</div>
+        <ol class="step-list">
+          <li>Go to <strong>myaccount.google.com/security</strong>.</li>
+          <li>Under "How you sign in to Google," click <strong>2-Step Verification → Get started</strong>.</li>
+          <li>Choose your preferred method — Google Prompt (easiest), Authenticator app, or SMS.</li>
+          <li>Complete the setup and save your backup codes somewhere safe.</li>
+        </ol>
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 Best practice:</strong> Use an authenticator app instead of SMS whenever possible. SIM-swapping attacks can intercept text messages — an authenticator app on your phone is significantly harder to compromise.
+      </div>
+
+      <h2>Troubleshooting — When 2FA Codes Stop Working</h2>
+      <p>The most common 2FA problem: you enter the correct-looking code and it says "invalid." Here's why that happens and how to fix it.</p>
+
+      <div class="os-block both">
+        <div class="os-block-title">⏱️ Fix 1 — Sync Your Authenticator App's Time</div>
+        <p style="margin-bottom:10px;color:var(--text-soft);">Authenticator codes are time-based — if your phone's clock is off by even a minute, the codes won't match. This is the most common cause of "invalid code" errors.</p>
+        <ul style="margin:0;padding-left:1.2rem;color:var(--text-soft);">
+          <li><strong>Google Authenticator:</strong> Open the app → three-dot menu → Time correction for codes → Sync now.</li>
+          <li><strong>Microsoft Authenticator:</strong> This syncs automatically, but make sure your phone's date/time is set to automatic in Settings.</li>
+          <li><strong>iPhone/Android:</strong> Go to Settings → General (or Date &amp; Time) → Set Automatically → make sure this is ON.</li>
+        </ul>
+      </div>
+
+      <div class="os-block both">
+        <div class="os-block-title">📱 Fix 2 — You're Using the Wrong Code</div>
+        <ol class="step-list">
+          <li>Open your authenticator app and make sure you're looking at the right account — if you have multiple accounts listed, it's easy to use the wrong one.</li>
+          <li>Wait for the code to refresh (the timer bar resets every 30 seconds) and enter the fresh code immediately.</li>
+          <li>Don't copy and paste — type it directly, as clipboard timing can cause you to submit an expired code.</li>
+        </ol>
+      </div>
+
+      <div class="os-block both">
+        <div class="os-block-title">🔑 Fix 3 — Use a Backup Code</div>
+        <p style="margin-bottom:10px;color:var(--text-soft);">When you set up 2FA, most services gave you a set of single-use backup codes. If your authenticator app isn't working, look for a "Try another method" or "Use backup code" link on the login screen and use one of those codes.</p>
+        <p style="color:var(--text-muted);font-size:.88rem;margin:0;">If you saved those backup codes — great. If not, proceed to Fix 4.</p>
+      </div>
+
+      <div class="os-block both">
+        <div class="os-block-title">🆘 Fix 4 — Account Recovery</div>
+        <ol class="step-list">
+          <li>On the login screen, look for <strong>"Can't access your account?"</strong> or <strong>"More ways to sign in"</strong>.</li>
+          <li>Most services will send a recovery code to a backup email or phone number you set up when you created the account.</li>
+          <li>For Microsoft accounts: <strong>account.live.com/acsr</strong> starts the recovery process.</li>
+          <li>For Google: <strong>accounts.google.com/signin/recovery</strong>.</li>
+          <li>Recovery can take 24–72 hours if the automated process can't verify your identity — this is intentional security, not a bug.</li>
+        </ol>
+      </div>
+
+      <div class="warn-box">
+        <strong>⚠️ Getting a 2FA code you didn't request?</strong> Someone is trying to log in to your account with your password. Don't approve the request. Change your password immediately and check if your email address has appeared in a data breach at <strong>haveibeenpwned.com</strong>.
+      </div>
+
+      <h2>Save Your Backup Codes — Right Now</h2>
+      <p>Every major service gives you backup codes when you enable 2FA. Most people dismiss that screen without saving them. Don't. Here's what to do:</p>
+      <ul>
+        <li>Download or print the codes and store them somewhere physically secure (not just on your computer).</li>
+        <li>Save them in a password manager like Bitwarden, 1Password, or the built-in Keychain on Mac.</li>
+        <li>Never store them in the same place as your password — that defeats the purpose.</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 CAER tip:</strong> For businesses, we recommend enforcing 2FA across all Microsoft 365 accounts through Conditional Access policies — so it's not optional and can't be bypassed. <a href="../pages/contact.html">Ask us about setting this up for your team.</a>
+      </div>
+
+      <div class="post-footer-nav">
+        <a href="onedrive-icloud-sync.html">← OneDrive / iCloud Not Syncing</a>
+        <a href="browser-slow.html">Next: Browser Running Slow or Crashing →</a>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget sidebar-cta">
+        <h3>Need Help Right Now?</h3>
+        <p>Remote support available Mon–Fri for Windows and Mac.</p>
+        <a href="../pages/contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Related Guides</h3>
+        <ul class="related-list">
+          <li><a href="forgot-password.html">Forgot Your Password?</a></li>
+          <li><a href="deleted-files.html">Files Accidentally Deleted</a></li>
+          <li><a href="screen-sharing.html">Screen Sharing &amp; Meeting Problems</a></li>
+          <li><a href="onedrive-icloud-sync.html">OneDrive / iCloud Not Syncing</a></li>
+          <li><a href="browser-slow.html">Browser Running Slow or Crashing</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3>About CAER Technologies</h3>
+        <p style="color:var(--text-soft);font-size:13px;line-height:1.6;">Managed IT and cybersecurity for businesses across the Texas Hill Country — Bandera, Kerrville, Fredericksburg, and Boerne.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>CAER Technologies</h3><p>Reliable IT Services and Cybersecurity for businesses across the Texas Hill Country.</p></div>
+    <div><h4>Services</h4><ul><li><a href="../pages/managed-it-services.html">Managed IT</a></li><li><a href="../pages/cybersecurity.html">Cybersecurity</a></li><li><a href="../pages/backup.html">Backup</a></li><li><a href="../pages/voip.html">VoIP</a></li><li><a href="../pages/apple-services.html">Apple Services</a></li></ul></div>
+    <div><h4>Contact</h4><p>Bandera, Texas</p><a href="tel:+18305103700">830-510-3700</a><p>support@consultcaer.com</p></div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

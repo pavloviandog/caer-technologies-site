@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser Running Slow or Crashing — How to Fix It | CAER Technologies</title>
+  <meta name="description" content="Chrome, Edge, Safari, or Firefox running slow, freezing, or crashing? Step-by-step fixes for Windows and Mac that work in under five minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
+    .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
+    .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero .eyebrow{color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+    .post-hero h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:16px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .post-hero .post-meta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;color:var(--text-muted);font-size:13px;margin-top:16px;}
+    .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:56px 0 90px;}
+    .post-body h2{font-size:1.35rem;margin:2rem 0 .75rem;padding-top:.5rem;}
+    .post-body h3{font-size:1.1rem;margin:1.5rem 0 .6rem;color:var(--primary);}
+    .post-body p{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;}
+    .post-body ul,.post-body ol{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;padding-left:1.4rem;}
+    .post-body li{margin-bottom:.5rem;}
+    .post-body strong{color:var(--text);}
+    .post-body a{color:var(--primary);text-decoration:underline;}
+    .os-block{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;margin:1.5rem 0;}
+    .os-block.win{border-left:4px solid #0078d7;}
+    .os-block.mac{border-left:4px solid #888;}
+    .os-block.both{border-left:4px solid var(--primary);}
+    .os-block-title{font-weight:700;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .tip-box{background:rgba(47,128,237,.07);border:1px solid rgba(47,128,237,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .tip-box strong{color:var(--primary);}
+    .warn-box{background:rgba(237,100,80,.07);border:1px solid rgba(237,100,80,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .warn-box strong{color:#e07060;}
+    .step-list{list-style:none;padding:0;counter-reset:steps;}
+    .step-list li{counter-increment:steps;display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;}
+    .step-list li::before{content:counter(steps);background:var(--primary);color:#fff;font-weight:700;font-size:13px;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+    .sidebar{position:sticky;top:90px;}
+    .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px;margin-bottom:20px;}
+    .sidebar-widget h3{font-size:.95rem;margin-bottom:12px;}
+    .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
+    .sidebar-cta h3{color:#fff;}
+    .sidebar-cta p{color:rgba(255,255,255,.75);font-size:13px;margin-bottom:14px;}
+    .related-list{list-style:none;padding:0;margin:0;}
+    .related-list li{border-bottom:1px solid var(--card-border);padding:9px 0;}
+    .related-list li:last-child{border-bottom:none;}
+    .related-list a{color:var(--text-soft);font-size:13px;transition:color .2s;}
+    .related-list a:hover{color:var(--primary);}
+    .post-footer-nav{display:flex;justify-content:space-between;gap:16px;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--card-border);flex-wrap:wrap;}
+    .post-footer-nav a{color:var(--primary);font-size:14px;font-weight:600;}
+    @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo"><a href="../index.html"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies"></a></div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <div class="nav-item has-dropdown"><a href="../pages/security.html">Security</a>
+        <div class="dropdown">
+          <a href="../pages/cybersecurity.html">Cybersecurity Protection</a>
+          <a href="../pages/email-protection.html">Email Security</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Infrastructure</a>
+        <div class="dropdown">
+          <a href="../pages/managed-it-services.html">Managed IT Services</a>
+          <a href="../pages/network.html">Network Infrastructure</a>
+          <a href="../pages/cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="../pages/apple-services.html">Apple Device Management</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Continuity</a>
+        <div class="dropdown"><a href="../pages/backup.html">Backup &amp; Disaster Recovery</a></div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Communication</a>
+        <div class="dropdown"><a href="../pages/voip.html">Business VoIP</a></div>
+      </div>
+      <a href="index.html" style="color:var(--primary)">Blog</a>
+      <a href="../pages/about.html">About</a>
+      <a href="../pages/contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-hero">
+  <div class="container">
+    <p class="eyebrow">Performance &amp; Troubleshooting</p>
+    <h1>Browser Running Slow or Crashing — How to Fix It</h1>
+    <div class="post-meta">
+      <span class="cat-pill pill-windows">⊞ Windows</span>
+      <span class="cat-pill pill-mac"> Mac</span>
+      <span>July 1, 2025 · 5 min read</span>
+      <span>By CAER Technologies</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="post-layout">
+    <article class="post-body">
+
+      <p>A slow browser is one of the most common and most annoying everyday tech problems — especially when everything else on your computer seems fine. Pages take forever to load, tabs crash, the whole browser freezes up. In most cases this is fixable in under five minutes. Here's exactly what to do, in order.</p>
+
+      <h2>Fix 1 — Close Tabs You Don't Need</h2>
+      <p>Every open tab uses memory. Twenty tabs open in Chrome or Edge can consume more RAM than most other applications combined. Before doing anything else, close every tab you don't actively need right now.</p>
+
+      <div class="tip-box">
+        <strong>💡 Better habit:</strong> Bookmark tabs you want to come back to instead of leaving them open. Your browser will thank you — and so will your computer's fans.
+      </div>
+
+      <h2>Fix 2 — Clear Your Cache and Cookies</h2>
+      <p>Your browser stores temporary files (cache) to load sites faster, but over time this cache gets bloated and actually causes slowdowns and errors. Clearing it is safe — you won't lose saved passwords, but you will need to log back in to websites.</p>
+
+      <div class="os-block both">
+        <div class="os-block-title">🌐 Chrome &amp; Edge (Windows and Mac)</div>
+        <ol class="step-list">
+          <li>Press <strong>Ctrl + Shift + Delete</strong> (Windows) or <strong>Cmd + Shift + Delete</strong> (Mac).</li>
+          <li>Set the time range to <strong>All time</strong>.</li>
+          <li>Check <strong>Cached images and files</strong> and <strong>Cookies and other site data</strong>.</li>
+          <li>Click <strong>Clear data</strong>. Restart the browser.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Safari (Mac only)</div>
+        <ol class="step-list">
+          <li>In the menu bar, click <strong>Safari → Settings → Privacy</strong>.</li>
+          <li>Click <strong>Manage Website Data → Remove All</strong>.</li>
+          <li>Also go to <strong>Safari → Settings → Advanced</strong> and check <strong>Show Develop menu in menu bar</strong>.</li>
+          <li>Then click <strong>Develop → Empty Caches</strong> from the menu bar.</li>
+        </ol>
+      </div>
+
+      <h2>Fix 3 — Disable or Remove Extensions</h2>
+      <p>Browser extensions are one of the most overlooked causes of slowdowns and crashes. Some legitimate extensions are just poorly coded and consume excessive resources. Others are outright malicious — installed without your knowledge through software bundles.</p>
+
+      <div class="os-block both">
+        <div class="os-block-title">🧩 How to Check and Disable Extensions</div>
+        <ol class="step-list">
+          <li><strong>Chrome:</strong> Type <code>chrome://extensions</code> in your address bar.</li>
+          <li><strong>Edge:</strong> Type <code>edge://extensions</code> in your address bar.</li>
+          <li><strong>Safari:</strong> Safari → Settings → Extensions.</li>
+          <li>Disable everything except extensions you actively use and recognize. Toggle them off one at a time and test if the browser gets faster.</li>
+          <li>Remove any extension you don't recognize — these are often adware.</li>
+        </ol>
+      </div>
+
+      <div class="warn-box">
+        <strong>⚠️ Watch for fake extensions.</strong> If you see extensions for "coupon finders," "PDF converters," or "search enhancers" that you didn't intentionally install, remove them immediately. These are very commonly adware that slow your browser and track your activity.
+      </div>
+
+      <h2>Fix 4 — Update Your Browser</h2>
+      <p>Running an outdated browser version causes performance problems and security vulnerabilities. Updates are free and take less than two minutes.</p>
+
+      <div class="os-block both">
+        <div class="os-block-title">🔄 How to Update</div>
+        <ul style="margin:0;padding-left:1.2rem;color:var(--text-soft);">
+          <li><strong>Chrome:</strong> Three-dot menu → Help → About Google Chrome. It checks and updates automatically.</li>
+          <li><strong>Edge:</strong> Three-dot menu → Help and feedback → About Microsoft Edge.</li>
+          <li><strong>Safari:</strong> Updates through System Settings → General → Software Update on Mac.</li>
+          <li><strong>Firefox:</strong> Three-line menu → Help → About Firefox.</li>
+        </ul>
+      </div>
+
+      <h2>Fix 5 — Check What's Using Your Memory</h2>
+      <p>If the browser is still slow after the above steps, something else on your computer may be starving it of memory.</p>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Windows — Task Manager</div>
+        <ol class="step-list">
+          <li>Press <strong>Ctrl + Shift + Esc</strong> to open Task Manager.</li>
+          <li>Click the <strong>Memory</strong> column header to sort by usage.</li>
+          <li>If your browser (Chrome, Edge) is at the top using 2–4GB or more, that's the culprit — close unused tabs.</li>
+          <li>Also look for other high-memory processes. Anything unfamiliar using significant memory is worth investigating.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Mac — Activity Monitor</div>
+        <ol class="step-list">
+          <li>Open <strong>Spotlight</strong> (Cmd + Space) and search for <strong>Activity Monitor</strong>.</li>
+          <li>Click the <strong>Memory</strong> tab and sort by memory usage.</li>
+          <li>Check if your browser or browser helper processes are at the top.</li>
+          <li>Look at the <strong>Memory Pressure</strong> graph at the bottom — if it's consistently red or yellow, your Mac needs more RAM or fewer apps running.</li>
+        </ol>
+      </div>
+
+      <h2>Fix 6 — Reset or Reinstall the Browser</h2>
+      <p>If none of the above helped, resetting the browser to its default state clears out corrupted settings without affecting your bookmarks and saved passwords.</p>
+
+      <div class="os-block both">
+        <div class="os-block-title">🔁 Reset Chrome or Edge</div>
+        <ol class="step-list">
+          <li><strong>Chrome:</strong> Type <code>chrome://settings/reset</code> → Restore settings to their original defaults → Reset settings.</li>
+          <li><strong>Edge:</strong> Type <code>edge://settings/reset</code> → Restore settings to their default values → Reset.</li>
+          <li>Your bookmarks, history, and saved passwords are preserved. Extensions are disabled and settings are cleared.</li>
+        </ol>
+      </div>
+
+      <h2>Still Slow After All of This?</h2>
+      <p>If your browser is slow even after completing every step above, the browser itself may not be the problem. A slow browser on a computer that feels generally sluggish usually points to one of three things: not enough RAM, a nearly full hard drive, or malware. Check out our guide on <a href="slow-computer.html">fixing a slow computer</a> for the next steps.</p>
+
+      <div class="tip-box">
+        <strong>💡 CAER tip:</strong> For businesses where employees spend most of their day in a browser, a slow browser is a real productivity drain. If this is affecting multiple machines, it's often a sign of a deeper issue — aging hardware, insufficient RAM, or a network problem. <a href="../pages/contact.html">We can assess and fix this remotely.</a>
+      </div>
+
+      <div class="post-footer-nav">
+        <a href="two-factor-auth.html">← Two-Factor Authentication</a>
+        <a href="index.html">← Back to all guides</a>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget sidebar-cta">
+        <h3>Need Help Right Now?</h3>
+        <p>Remote support available Mon–Fri for Windows and Mac.</p>
+        <a href="../pages/contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Related Guides</h3>
+        <ul class="related-list">
+          <li><a href="slow-computer.html">My Computer Is Running Slow</a></li>
+          <li><a href="deleted-files.html">Files Accidentally Deleted</a></li>
+          <li><a href="screen-sharing.html">Screen Sharing &amp; Meeting Problems</a></li>
+          <li><a href="onedrive-icloud-sync.html">OneDrive / iCloud Not Syncing</a></li>
+          <li><a href="two-factor-auth.html">Two-Factor Authentication Setup</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3>About CAER Technologies</h3>
+        <p style="color:var(--text-soft);font-size:13px;line-height:1.6;">Managed IT and cybersecurity for businesses across the Texas Hill Country — Bandera, Kerrville, Fredericksburg, and Boerne.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>CAER Technologies</h3><p>Reliable IT Services and Cybersecurity for businesses across the Texas Hill Country.</p></div>
+    <div><h4>Services</h4><ul><li><a href="../pages/managed-it-services.html">Managed IT</a></li><li><a href="../pages/cybersecurity.html">Cybersecurity</a></li><li><a href="../pages/backup.html">Backup</a></li><li><a href="../pages/voip.html">VoIP</a></li><li><a href="../pages/apple-services.html">Apple Services</a></li></ul></div>
+    <div><h4>Contact</h4><p>Bandera, Texas</p><a href="tel:+18305103700">830-510-3700</a><p>support@consultcaer.com</p></div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

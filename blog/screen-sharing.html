@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screen Sharing & Remote Meeting Problems — Fixed | CAER Technologies</title>
+  <meta name="description" content="Can't share your screen on Zoom, Teams, or Google Meet? Audio not working in meetings? Step-by-step fixes for Windows and Mac." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .cat-pill{display:inline-block;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;}
+    .pill-windows{background:rgba(0,120,215,.14);color:#3aa0f3;border:1px solid rgba(0,120,215,.3);}
+    .pill-mac{background:rgba(160,160,165,.14);color:#c0c0c5;border:1px solid rgba(160,160,165,.28);}
+    .pill-both{background:rgba(47,128,237,.12);color:var(--primary);border:1px solid rgba(47,128,237,.25);}
+    .post-hero{padding:80px 0 52px;text-align:center;background:linear-gradient(rgba(15,17,21,.88),rgba(15,17,21,.97)),url('../assets/images/tech-bg.jpg') center/cover no-repeat;}
+    .post-hero .eyebrow{color:var(--primary);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+    .post-hero h1{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:16px;max-width:820px;margin-left:auto;margin-right:auto;}
+    .post-hero .post-meta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;color:var(--text-muted);font-size:13px;margin-top:16px;}
+    .post-layout{display:grid;grid-template-columns:1fr 270px;gap:48px;align-items:start;padding:56px 0 90px;}
+    .post-body h2{font-size:1.35rem;margin:2rem 0 .75rem;padding-top:.5rem;}
+    .post-body h3{font-size:1.1rem;margin:1.5rem 0 .6rem;color:var(--primary);}
+    .post-body p{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;}
+    .post-body ul,.post-body ol{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;padding-left:1.4rem;}
+    .post-body li{margin-bottom:.5rem;}
+    .post-body strong{color:var(--text);}
+    .post-body a{color:var(--primary);text-decoration:underline;}
+    .os-block{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px 28px;margin:1.5rem 0;}
+    .os-block.win{border-left:4px solid #0078d7;}
+    .os-block.mac{border-left:4px solid #888;}
+    .os-block.both{border-left:4px solid var(--primary);}
+    .os-block-title{font-weight:700;font-size:.95rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+    .tip-box{background:rgba(47,128,237,.07);border:1px solid rgba(47,128,237,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .tip-box strong{color:var(--primary);}
+    .warn-box{background:rgba(237,100,80,.07);border:1px solid rgba(237,100,80,.22);border-radius:var(--radius);padding:18px 22px;margin:1.5rem 0;}
+    .warn-box strong{color:#e07060;}
+    .step-list{list-style:none;padding:0;counter-reset:steps;}
+    .step-list li{counter-increment:steps;display:flex;gap:14px;margin-bottom:14px;align-items:flex-start;}
+    .step-list li::before{content:counter(steps);background:var(--primary);color:#fff;font-weight:700;font-size:13px;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+    .sidebar{position:sticky;top:90px;}
+    .sidebar-widget{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:22px;margin-bottom:20px;}
+    .sidebar-widget h3{font-size:.95rem;margin-bottom:12px;}
+    .sidebar-cta{background:linear-gradient(135deg,var(--primary),#1a5fc5);border:none;}
+    .sidebar-cta h3{color:#fff;}
+    .sidebar-cta p{color:rgba(255,255,255,.75);font-size:13px;margin-bottom:14px;}
+    .related-list{list-style:none;padding:0;margin:0;}
+    .related-list li{border-bottom:1px solid var(--card-border);padding:9px 0;}
+    .related-list li:last-child{border-bottom:none;}
+    .related-list a{color:var(--text-soft);font-size:13px;transition:color .2s;}
+    .related-list a:hover{color:var(--primary);}
+    .post-footer-nav{display:flex;justify-content:space-between;gap:16px;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--card-border);flex-wrap:wrap;}
+    .post-footer-nav a{color:var(--primary);font-size:14px;font-weight:600;}
+    @media(max-width:900px){.post-layout{grid-template-columns:1fr;}.sidebar{position:static;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo"><a href="../index.html"><img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies"></a></div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <div class="nav-item has-dropdown"><a href="../pages/security.html">Security</a>
+        <div class="dropdown">
+          <a href="../pages/cybersecurity.html">Cybersecurity Protection</a>
+          <a href="../pages/email-protection.html">Email Security</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Infrastructure</a>
+        <div class="dropdown">
+          <a href="../pages/managed-it-services.html">Managed IT Services</a>
+          <a href="../pages/network.html">Network Infrastructure</a>
+          <a href="../pages/cloud.html">Microsoft 365 &amp; Cloud</a>
+          <a href="../pages/apple-services.html">Apple Device Management</a>
+        </div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Continuity</a>
+        <div class="dropdown"><a href="../pages/backup.html">Backup &amp; Disaster Recovery</a></div>
+      </div>
+      <div class="nav-item has-dropdown"><a href="#">Communication</a>
+        <div class="dropdown"><a href="../pages/voip.html">Business VoIP</a></div>
+      </div>
+      <a href="index.html" style="color:var(--primary)">Blog</a>
+      <a href="../pages/about.html">About</a>
+      <a href="../pages/contact.html" class="cta">Schedule Consultation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-hero">
+  <div class="container">
+    <p class="eyebrow">Remote Meetings &amp; Collaboration</p>
+    <h1>Screen Sharing &amp; Remote Meeting Problems — Fixed</h1>
+    <div class="post-meta">
+      <span class="cat-pill pill-windows">⊞ Windows</span>
+      <span class="cat-pill pill-mac"> Mac</span>
+      <span>June 22, 2025 · 5 min read</span>
+      <span>By CAER Technologies</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="post-layout">
+    <article class="post-body">
+
+      <p>Nothing derails a meeting faster than a screen that won't share, a camera that won't turn on, or audio that cuts in and out. These problems are incredibly common — and almost always fixable in under two minutes if you know where to look. This guide covers Zoom, Microsoft Teams, and Google Meet on both Windows and Mac.</p>
+
+      <h2>Problem 1 — Screen Won't Share</h2>
+      <p>This is the most common meeting complaint. The share button works, but the other participants see a black screen or get an error.</p>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Windows — Black Screen When Sharing</div>
+        <ol class="step-list">
+          <li>Right-click the meeting app icon in your taskbar and choose <strong>Run as administrator</strong> — this alone fixes it most of the time.</li>
+          <li>If using a laptop with a dedicated GPU, open <strong>Settings → Display → Graphics</strong> and set your meeting app to use the <strong>integrated GPU</strong> (not the high-performance one).</li>
+          <li>In Zoom: go to <strong>Settings → Share Screen → Advanced</strong> and enable <strong>Hardware Acceleration</strong> — or disable it if it's currently on. Toggle it the opposite way from what it currently is.</li>
+          <li>Restart the app completely — right-click the taskbar icon and choose <strong>Quit</strong>, then reopen it.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Mac — Screen Recording Permission Not Granted</div>
+        <ol class="step-list">
+          <li>Go to <strong>System Settings → Privacy &amp; Security → Screen Recording</strong>.</li>
+          <li>Make sure your meeting app (Zoom, Teams, Google Meet browser) has a checkmark. If it's there but still not working, toggle it off, wait 5 seconds, and toggle it back on.</li>
+          <li>You will be prompted to quit and reopen the app — do this.</li>
+          <li>If the app isn't listed at all, try sharing your screen once inside the meeting — macOS will prompt you to grant permission for the first time.</li>
+        </ol>
+      </div>
+
+      <h2>Problem 2 — Camera Not Working</h2>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Windows — Camera Blocked or Unavailable</div>
+        <ol class="step-list">
+          <li>Go to <strong>Settings → Privacy &amp; Security → Camera</strong>.</li>
+          <li>Make sure <strong>Camera access</strong> is toggled on at the top.</li>
+          <li>Scroll down and confirm your specific meeting app has permission enabled.</li>
+          <li>Check that no other app is using the camera at the same time — Teams running in the background while joining a Zoom call is a very common culprit.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Mac — Camera Permission or Conflict</div>
+        <ol class="step-list">
+          <li>Go to <strong>System Settings → Privacy &amp; Security → Camera</strong>.</li>
+          <li>Confirm your meeting app is listed and enabled.</li>
+          <li>If another app is using the camera (FaceTime left open, for example), quit it.</li>
+          <li>Still not working? Restart your Mac — macOS occasionally holds a lock on the camera that only clears on reboot.</li>
+        </ol>
+      </div>
+
+      <h2>Problem 3 — Audio Not Working (Can't Hear or Be Heard)</h2>
+
+      <div class="os-block both">
+        <div class="os-block-title">🔊 Windows &amp; Mac — Check In-App Audio Settings First</div>
+        <ol class="step-list">
+          <li>Inside your meeting app, look for an <strong>audio settings</strong> or <strong>speaker/microphone icon</strong> — usually a small arrow next to the mute button.</li>
+          <li>Confirm the correct microphone and speaker are selected. Meeting apps often default to a wrong device — especially after plugging in headphones or a USB adapter.</li>
+          <li>Click <strong>Test Speaker</strong> and <strong>Test Mic</strong> if available.</li>
+          <li>If you joined via browser (Google Meet), check that your browser has microphone and camera permission — look for the camera/lock icon in your address bar.</li>
+        </ol>
+      </div>
+
+      <div class="os-block win">
+        <div class="os-block-title">⊞ Windows — Microphone Access</div>
+        <ol class="step-list">
+          <li>Go to <strong>Settings → Privacy &amp; Security → Microphone</strong>.</li>
+          <li>Confirm microphone access is on and your app has permission.</li>
+          <li>Right-click the speaker icon in your taskbar → <strong>Sound settings</strong> → confirm the correct input device is set as default.</li>
+        </ol>
+      </div>
+
+      <div class="os-block mac">
+        <div class="os-block-title"> Mac — Microphone Access</div>
+        <ol class="step-list">
+          <li>Go to <strong>System Settings → Privacy &amp; Security → Microphone</strong>.</li>
+          <li>Make sure your meeting app is enabled.</li>
+          <li>Go to <strong>System Settings → Sound → Input</strong> and confirm the right microphone is selected and the input volume is not at zero.</li>
+        </ol>
+      </div>
+
+      <h2>Problem 4 — Meeting App Keeps Crashing or Freezing</h2>
+      <p>If the app itself becomes unstable during meetings, try these in order:</p>
+      <ul>
+        <li><strong>Update the app</strong> — outdated versions of Zoom and Teams in particular are notorious for instability. Check for updates before your next call.</li>
+        <li><strong>Clear the app cache</strong> — in Zoom, go to Settings → General → Clear Cache. In Teams, sign out, close fully, and sign back in.</li>
+        <li><strong>Use the browser version as a backup</strong> — meet.google.com and teams.microsoft.com both work in Chrome or Edge without installing anything.</li>
+        <li><strong>Check your internet connection</strong> — video calls need at least 3–5 Mbps upload. Run a speed test at fast.com during a call issue to rule out bandwidth problems.</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 Pro tip:</strong> Keep the browser version of your meeting platform bookmarked as a fallback. If the desktop app fails right before a call, you can join in under 30 seconds through the browser without reinstalling anything.
+      </div>
+
+      <div class="tip-box">
+        <strong>💡 CAER tip:</strong> If your team is having recurring meeting problems across multiple computers, the issue is often network-level — firewall rules, VPN interference, or bandwidth. <a href="../pages/contact.html">We can diagnose and fix this remotely.</a>
+      </div>
+
+      <div class="post-footer-nav">
+        <a href="deleted-files.html">← Files Accidentally Deleted</a>
+        <a href="onedrive-icloud-sync.html">Next: OneDrive / iCloud Not Syncing →</a>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="sidebar-widget sidebar-cta">
+        <h3>Need Help Right Now?</h3>
+        <p>Remote support available Mon–Fri for Windows and Mac.</p>
+        <a href="../pages/contact.html" class="btn-primary" style="display:block;text-align:center;border-radius:8px;">Contact Support</a>
+      </div>
+      <div class="sidebar-widget">
+        <h3>Related Guides</h3>
+        <ul class="related-list">
+          <li><a href="deleted-files.html">Files Accidentally Deleted</a></li>
+          <li><a href="onedrive-icloud-sync.html">OneDrive / iCloud Not Syncing</a></li>
+          <li><a href="two-factor-auth.html">Two-Factor Authentication Setup</a></li>
+          <li><a href="browser-slow.html">Browser Running Slow or Crashing</a></li>
+          <li><a href="wifi-dropping.html">Wi-Fi Keeps Dropping?</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3>About CAER Technologies</h3>
+        <p style="color:var(--text-soft);font-size:13px;line-height:1.6;">Managed IT and cybersecurity for businesses across the Texas Hill Country — Bandera, Kerrville, Fredericksburg, and Boerne.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>CAER Technologies</h3><p>Reliable IT Services and Cybersecurity for businesses across the Texas Hill Country.</p></div>
+    <div><h4>Services</h4><ul><li><a href="../pages/managed-it-services.html">Managed IT</a></li><li><a href="../pages/cybersecurity.html">Cybersecurity</a></li><li><a href="../pages/backup.html">Backup</a></li><li><a href="../pages/voip.html">VoIP</a></li><li><a href="../pages/apple-services.html">Apple Services</a></li></ul></div>
+    <div><h4>Contact</h4><p>Bandera, Texas</p><a href="tel:+18305103700">830-510-3700</a><p>support@consultcaer.com</p></div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

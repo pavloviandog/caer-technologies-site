@@ -110,13 +110,16 @@ img { max-width: 100%; display: block; }
   transform: translateY(-1px);
   background: var(--brand-dark);
 }
+
+
+
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
     <div class="logo">
-      <a href="index.html">
+      <a href="/">
         <img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies">
       </a>
     </div>
@@ -422,8 +425,55 @@ img { max-width: 100%; display: block; }
           <div class="form-card">
             <h3>Request a Free IT Assessment</h3>
             <p>Keep this tied to your form handler, Zoho form embed, or CRM capture.</p>
+			
+			<form
+  action="https://forms.zohopublic.com/caertechnologies/form/RequestaFreeITAssessment/formperma/WBiaCOU1pND9eVKsJuPF4DHwgW_5YwHn1tK3GHFfoZI/htmlRecords/submit"
+  method="POST"
+  accept-charset="UTF-8"
+  enctype="multipart/form-data"
+  class="caer-form"
+>
+  <input type="hidden" name="zf_referrer_name" value="">
+  <input type="hidden" name="zf_redirect_url" value="https://consultcaer.com/thank-you.html">
+  <input type="hidden" name="zc_gad" value="">
 
-            <form>
+  <div class="form-grid">
+    <div class="field">
+      <label for="business-name">Business Name <span aria-hidden="true">*</span></label>
+      <input id="business-name" name="SingleLine" type="text" required>
+    </div>
+
+    <div class="field">
+      <label for="first-name">First Name</label>
+      <input id="first-name" name="SingleLine2" type="text">
+    </div>
+
+    <div class="field">
+      <label for="last-name">Last Name <span aria-hidden="true">*</span></label>
+      <input id="last-name" name="SingleLine1" type="text" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input id="email" name="Email" type="email" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="PhoneNumber_countrycode" type="tel">
+    </div>
+
+    <div class="field full">
+      <label for="issues">What issues are you experiencing?</label>
+      <textarea id="issues" name="MultiLine" maxlength="65535" placeholder="Tell us a little about your current setup or the problems you want to solve."></textarea>
+    </div>
+  </div>
+
+  <button class="btn submit" type="submit">Get My Free Assessment</button>
+  <div class="microcopy">By submitting this form, you agree to be contacted about your IT needs.</div>
+</form>
+
+         <!--   <form>
               <div class="form-grid">
                 <div class="field">
                   <label for="name">Name</label>
@@ -449,7 +499,7 @@ img { max-width: 100%; display: block; }
 
               <button class="btn submit" type="submit">Get My Free Assessment</button>
               <div class="microcopy">By submitting this form, you agree to be contacted about your IT needs.</div>
-            </form>
+            </form>  -->
           </div>
         </div>
       </div>

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Managed IT Services | CAER Technologies</title>
+  <meta name="description" content="Managed IT services for Texas Hill Country businesses. Local IT support, cybersecurity, backup, Microsoft 365, and network management from CAER Technologies." />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #111827;
+      --panel-2: #182230;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-light: #e5e7eb;
+      --muted: #94a3b8;
+      --line: rgba(255,255,255,0.08);
+      --brand: #de6126;
+      --brand-dark: #b94d1d;
+      --accent: #1f2937;
+      --success: #16a34a;
+      --radius: 18px;
+      --shadow: 0 20px 45px rgba(2, 6, 23, 0.2);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: #0b1220;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), #ff8752);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 12px 24px rgba(222, 97, 38, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: #cbd5e1;
+      font-size: 0.96rem;
+    }
+
+    .nav a:hover { color: #fff; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.15rem;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(222, 97, 38, 0.28);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-cta:hover,
+    .btn:hover,
+    .btn-outline:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(222,97,38,0.22), transparent 30%),
+        linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      color: #fff;
+      padding: 4.5rem 0 3.75rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      color: #dbeafe;
+      font-size: 0.86rem;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.04);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.03;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p.lead {
+      max-width: 60ch;
+      font-size: 1.08rem;
+      color: #d1d5db;
+      margin: 0 0 1.4rem;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 1rem;
+      margin: 1.5rem 0 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 600;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(34,197,94,0.16);
+      color: #86efac;
+      font-size: 0.9rem;
+      flex: 0 0 auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 50px;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(222,97,38,0.28);
+    }
+
+    .btn:hover { background: var(--brand-dark); }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.32);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero-note {
+      color: #94a3b8;
+      font-size: 0.93rem;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 26px;
+      padding: 1.5rem;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.24);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    .stat strong {
+      display: block;
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat span { color: #cbd5e1; font-size: 0.92rem; }
+
+    .trust-strip {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .trust-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1rem 0;
+      text-align: center;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.85rem, 3vw, 2.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.8rem;
+      color: #0f172a;
+    }
+
+    .section-head p {
+      color: #475569;
+      margin: 0;
+      font-size: 1.02rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .pain-list,
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pain-list li,
+    .check-list li {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 1rem 1rem 1rem 1.1rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .pain-list li strong,
+    .check-list li strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #0f172a;
+    }
+
+    .pain-list li span,
+    .check-list li span {
+      color: #475569;
+      font-size: 0.96rem;
+    }
+
+    .solution-box {
+      background: linear-gradient(180deg, #fff, #f8fafc);
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .solution-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.45rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 1.4rem;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      background: rgba(222,97,38,0.1);
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.18rem;
+    }
+
+    .service-card ul {
+      margin: 0.75rem 0 0;
+      padding-left: 1.05rem;
+      color: #475569;
+    }
+
+    .local-band {
+      background: linear-gradient(180deg, #111827, #0f172a);
+      color: #fff;
+    }
+
+    .local-band .section-head h2,
+    .local-band .section-head p { color: #fff; }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .local-box,
+    .quote-box {
+      border-radius: 24px;
+      padding: 1.6rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .towns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .towns span {
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    .pricing-panel {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .pricing-panel .price {
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    .pricing-panel .price small {
+      font-size: 1rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 1.3rem;
+    }
+
+    .why-card h3 { margin-top: 0; margin-bottom: 0.4rem; }
+    .why-card p { margin: 0; color: #475569; }
+
+    .cta-band {
+      padding-top: 0;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #de6126, #f97316);
+      color: #fff;
+      border-radius: 28px;
+      padding: 2.2rem;
+      box-shadow: 0 24px 80px rgba(222, 97, 38, 0.25);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: rgba(255,255,255,0.92);
+      font-size: 1.02rem;
+    }
+
+    .form-card {
+      background: #fff;
+      color: #0f172a;
+      border-radius: 22px;
+      padding: 1.25rem;
+    }
+
+    .form-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+
+    .form-card p {
+      margin-top: 0;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 0.88rem 0.95rem;
+      font: inherit;
+      color: #0f172a;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid rgba(222,97,38,0.18);
+      border-color: var(--brand);
+    }
+
+    .submit {
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      margin-top: 0.75rem;
+    }
+
+    .microcopy {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-top: 0.65rem;
+    }
+
+    footer {
+      background: #0b1220;
+      color: #cbd5e1;
+      padding: 2.25rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .footer-grid h4 {
+      color: #fff;
+      margin: 0 0 0.5rem;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      margin: 0.2rem 0;
+      color: #cbd5e1;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .local-grid,
+      .cta-box,
+      .footer-grid,
+      .pricing-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .why-grid,
+      .trust-strip-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero,
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .hero-points,
+      .stats,
+      .services-grid,
+      .why-grid,
+      .trust-strip-inner,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        min-height: 68px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      .btn,
+      .btn-outline,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">C</span>
+        <span>CAER Technologies</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/cybersecurity.html">Cybersecurity</a>
+        <a href="/pages/managed-it">Managed IT</a>
+        <a href="/backup.html">Backup</a>
+        <a href="/voip.html">VoIP</a>
+        <a href="/about.html">About</a>
+      </nav>
+
+      <a class="nav-cta" href="#quote">Get a Free IT Assessment</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Managed IT Services • Texas Hill Country</div>
+          <h1>Managed IT Services for Texas Hill Country Businesses</h1>
+          <p class="lead">
+            Reliable IT support, modern cybersecurity, backup protection, and local guidance for businesses that need technology to work without the constant headaches.
+          </p>
+
+          <ul class="hero-points">
+            <li><span class="check">✓</span> 24/7 Monitoring &amp; Support</li>
+            <li><span class="check">✓</span> Security Built In</li>
+            <li><span class="check">✓</span> Flat Monthly Pricing</li>
+            <li><span class="check">✓</span> Local Texas-Based Support</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="btn" href="#quote">Get a Free IT Assessment</a>
+            <a class="btn-outline" href="tel:18305103700">Call 830-510-3700</a>
+          </div>
+
+          <div class="hero-note">Serving Bandera, Kerrville, Fredericksburg, Boerne, and surrounding communities.</div>
+        </div>
+
+        <aside class="hero-card" aria-label="Managed IT overview">
+          <h2 style="margin-top:0; font-size:1.5rem;">What CAER handles for you</h2>
+          <p style="color:#d1d5db; margin-bottom:0;">
+            From day-to-day support to security, backup, Microsoft 365, and network management, CAER gives small businesses a dependable IT partner instead of a break-fix scramble.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Managed IT</strong>
+              <span>Helpdesk, patching, monitoring, maintenance</span>
+            </div>
+            <div class="stat">
+              <strong>Security</strong>
+              <span>Endpoint protection, identity security, phishing defense</span>
+            </div>
+            <div class="stat">
+              <strong>Backup</strong>
+              <span>Workstation, server, and Microsoft 365 data protection</span>
+            </div>
+            <div class="stat">
+              <strong>Infrastructure</strong>
+              <span>WiFi, firewall, switching, and cloud support</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-strip-inner">
+        <div>Local Texas Support</div>
+        <div>Security-First Approach</div>
+        <div>Proactive IT Management</div>
+        <div>Business-Focused Solutions</div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <h2>Is Your IT Holding Your Business Back?</h2>
+            <p>
+              Most small businesses get stuck reacting to problems instead of preventing them. That costs time, money, and momentum.
+            </p>
+          </div>
+
+          <ul class="pain-list">
+            <li>
+              <strong>Constant IT interruptions</strong>
+              <span>Slow computers, login issues, printer problems, and recurring support headaches.</span>
+            </li>
+            <li>
+              <strong>Security risks you can’t ignore</strong>
+              <span>Phishing, ransomware, weak passwords, and unprotected cloud accounts create real exposure.</span>
+            </li>
+            <li>
+              <strong>Unreliable network or WiFi</strong>
+              <span>Dead zones, dropped connections, and aging equipment frustrate your staff and clients.</span>
+            </li>
+            <li>
+              <strong>No clear IT strategy</strong>
+              <span>Without a plan, upgrades get delayed, costs rise, and small issues turn into expensive ones.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="solution-box">
+          <h3>CAER Technologies gives your business a better way to handle IT.</h3>
+          <p>
+            We combine proactive support, practical cybersecurity, backup protection, and modern network management into one clear service model. That means fewer surprises, less downtime, and a more secure business.
+          </p>
+
+          <ul class="check-list" style="margin-top:1rem;">
+            <li>
+              <strong>Proactive support</strong>
+              <span>We work to prevent issues before they interrupt your team.</span>
+            </li>
+            <li>
+              <strong>Clear communication</strong>
+              <span>No tech jargon and no guessing about what’s happening.</span>
+            </li>
+            <li>
+              <strong>Security built into the service</strong>
+              <span>Protection should not be an afterthought.</span>
+            </li>
+            <li>
+              <strong>Scalable guidance</strong>
+              <span>Solutions that fit your business now and still make sense later.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="section-head">
+          <h2>Everything Your Business Needs—Handled</h2>
+          <p>
+            Built for organizations that want one dependable IT partner for support, security, continuity, and growth.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="icon">IT</div>
+            <h3>Managed IT Support</h3>
+            <p>Reliable day-to-day support and proactive maintenance to keep your team productive.</p>
+            <ul>
+              <li>Helpdesk and remote support</li>
+              <li>Monitoring, updates, and patching</li>
+              <li>Endpoint management</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="icon">🔐</div>
+            <h3>Cybersecurity Protection</h3>
+            <p>Practical layered protection against phishing, ransomware, and account compromise.</p>
+            <ul>
+              <li>Endpoint protection</li>
+              <li>Identity and Microsoft 365 security</li>
+              <li>Phishing and threat defense</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="icon">☁</div>
+            <h3>Backup &amp; Disaster Recovery</h3>
+            <p>Protect critical business data so a bad day does not become a disaster.</p>
+            <ul>
+              <li>Workstation and server backup</li>
+              <li>Cloud backup for Microsoft 365</li>
+              <li>Recovery planning</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="icon">🌐</div>
+            <h3>Network &amp; Infrastructure</h3>
+            <p>Secure WiFi, firewalls, switching, and business-ready network design.</p>
+            <ul>
+              <li>Firewall and network management</li>
+              <li>Business WiFi optimization</li>
+              <li>Cloud and Microsoft 365 guidance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="local-band">
+      <div class="container local-grid">
+        <div>
+          <div class="section-head">
+            <h2>Local IT Support You Can Count On</h2>
+            <p>
+              CAER Technologies supports businesses across the Texas Hill Country with responsive, business-focused IT and cybersecurity services.
+            </p>
+          </div>
+
+          <div class="local-box">
+            <p style="margin-top:0; color:#e2e8f0;">
+              No giant call center. No outsourced confusion. Just direct support from a local provider that understands the pace and needs of businesses in this region.
+            </p>
+            <div class="towns">
+              <span>Bandera</span>
+              <span>Kerrville</span>
+              <span>Fredericksburg</span>
+              <span>Boerne</span>
+              <span>Texas Hill Country</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          <h3 style="margin-top:0; color:#fff;">Built for small business reality</h3>
+          <p style="color:#d1d5db;">
+            Whether you run a healthcare office, nonprofit, professional services firm, or local business with a small team, CAER helps keep your systems secure, stable, and easier to manage.
+          </p>
+          <p style="color:#fff; font-weight:700; margin-bottom:0;">Straightforward support. Practical security. Better uptime.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Simple, Predictable Monthly IT</h2>
+          <p>
+            Flexible service tiers based on your size, needs, and level of security. Enough structure to keep things clear, without boxing you into a one-size-fits-all plan.
+          </p>
+        </div>
+
+        <div class="pricing-panel">
+          <div>
+            <div class="price">From $200 <small>/ month for small environments</small></div>
+            <p style="margin:0.5rem 0 0; color:#475569;">
+              Ask for a custom quote based on your users, devices, locations, security goals, and Microsoft 365 needs.
+            </p>
+          </div>
+          <div>
+            <a class="btn" href="#quote">Request Your Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why Businesses Choose CAER</h2>
+          <p>
+            A better fit for businesses that want real support, practical security, and a plan that grows with them.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Proactive, not reactive</h3>
+            <p>Prevention and maintenance come first, so you spend less time dealing with avoidable problems.</p>
+          </article>
+          <article class="why-card">
+            <h3>Security-first mindset</h3>
+            <p>Protection is built into the service instead of added later as an afterthought.</p>
+          </article>
+          <article class="why-card">
+            <h3>Microsoft 365 &amp; Apple experience</h3>
+            <p>Strong fit for modern small businesses using cloud tools, Macs, PCs, and mobile devices.</p>
+          </article>
+          <article class="why-card">
+            <h3>Local business focus</h3>
+            <p>Support designed for the Texas Hill Country market, not a generic national script.</p>
+          </article>
+          <article class="why-card">
+            <h3>Clear communication</h3>
+            <p>You get direct answers, practical recommendations, and fewer surprises.</p>
+          </article>
+          <article class="why-card">
+            <h3>Scalable service model</h3>
+            <p>Start where you need to and build upward as your business, team, and risks evolve.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" id="quote">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Let’s Fix Your IT—For Good</h2>
+            <p>
+              Stop living with recurring tech problems and security risks. Let’s build a cleaner, more reliable, more secure IT setup for your business.
+            </p>
+            <div class="hero-actions" style="margin-top:1.25rem; margin-bottom:0;">
+              <a class="btn" href="tel:18305103700" style="background:#fff; color:#de6126;">Call 830-510-3700</a>
+              <a class="btn-outline" href="mailto:support@consultcaer.com" style="border-color:rgba(255,255,255,0.28);">Email CAER</a>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h3>Request a Free IT Assessment</h3>
+            <p>Keep this tied to your form handler, Zoho form embed, or CRM capture.</p>
+
+            <form>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="business">Business Name</label>
+                  <input id="business" name="business" type="text" placeholder="Company name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@company.com" />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="(830) 555-1234" />
+                </div>
+                <div class="field full">
+                  <label for="issues">What issues are you experiencing?</label>
+                  <textarea id="issues" name="issues" placeholder="Tell us a little about your current setup or the problems you want to solve."></textarea>
+                </div>
+              </div>
+
+              <button class="btn submit" type="submit">Get My Free Assessment</button>
+              <div class="microcopy">By submitting this form, you agree to be contacted about your IT needs.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>CAER Technologies</h4>
+        <p>Managed IT, cybersecurity, backup, and network support for Texas Hill Country businesses.</p>
+      </div>
+      <div>
+        <h4>Coverage Area</h4>
+        <p>Bandera</p>
+        <p>Kerrville</p>
+        <p>Fredericksburg</p>
+        <p>Boerne</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:18305103700">830-510-3700</a></p>
+        <p><a href="mailto:support@consultcaer.com">support@consultcaer.com</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

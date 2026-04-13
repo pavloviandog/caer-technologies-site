@@ -7,7 +7,7 @@
   <meta name="description" content="Managed IT services for Texas Hill Country businesses. Local IT support, cybersecurity, backup, Microsoft 365, and network management from CAER Technologies." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -197,7 +197,7 @@
     }
 
     .hero h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: clamp(2.6rem, 4.5vw, 4rem);
       font-weight: 800;
       line-height: 1.02;
@@ -324,7 +324,7 @@
     }
 
     .hero-card-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
@@ -353,7 +353,7 @@
 
     .stat-pill strong {
       display: block;
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
       color: #fff;
@@ -417,7 +417,7 @@
     }
 
     .section-h {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: clamp(1.9rem, 3vw, 2.75rem);
       font-weight: 800;
       line-height: 1.07;
@@ -435,94 +435,146 @@
     }
 
     /* ─── PAIN / SOLUTION SPLIT ─── */
-    .split {
+    .split-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .split-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ember) 30%, var(--ember-light) 50%, var(--ember) 70%, transparent);
+      z-index: 1;
+    }
+
+    .split-left {
+      padding: 3rem 3.25rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .split-right {
+      padding: 3rem 3.25rem;
+      background: var(--surface-2);
     }
 
     .pain-list, .sol-list {
       list-style: none;
       display: grid;
       gap: 0.9rem;
+      margin-top: 1.75rem;
     }
 
     .pain-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid #ef4444;
-      border-radius: 0 14px 14px 0;
-      padding: 1rem 1.1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.2rem;
+      background: rgba(239,68,68,0.04);
+      border: 1px solid rgba(239,68,68,0.12);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .pain-item:hover {
+      background: rgba(239,68,68,0.07);
+      border-color: rgba(239,68,68,0.25);
+    }
+
+    .pain-num {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #f87171;
+      margin-top: 2px;
     }
 
     .pain-item strong {
       display: block;
-      font-size: 0.97rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #fff;
       margin-bottom: 0.3rem;
     }
 
     .pain-item span {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-dim);
       font-weight: 300;
-    }
-
-    .sol-box {
-      background: var(--surface);
-      border: 1px solid var(--border-strong);
-      border-radius: 20px;
-      padding: 1.75rem;
-      position: relative;
-    }
-
-    .sol-box::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--ember), transparent);
-      border-radius: 20px 20px 0 0;
+      line-height: 1.55;
     }
 
     .sol-box h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.25rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.45rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
     }
 
     .sol-box > p {
       color: var(--text-mid);
-      font-size: 0.95rem;
+      font-size: 0.97rem;
       font-weight: 300;
-      margin-bottom: 1.25rem;
-      line-height: 1.65;
+      margin-bottom: 0;
+      line-height: 1.7;
     }
 
     .sol-item {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-left: 3px solid #4ade80;
-      border-radius: 0 12px 12px 0;
-      padding: 0.9rem 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.2rem;
+      background: rgba(74,222,128,0.04);
+      border: 1px solid rgba(74,222,128,0.12);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .sol-item:hover {
+      background: rgba(74,222,128,0.07);
+      border-color: rgba(74,222,128,0.25);
+    }
+
+    .sol-check {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      color: #4ade80;
+      margin-top: 2px;
     }
 
     .sol-item strong {
       display: block;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #fff;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
     }
 
     .sol-item span {
-      font-size: 0.87rem;
+      font-size: 0.9rem;
       color: var(--text-dim);
       font-weight: 300;
+      line-height: 1.55;
     }
 
     /* ─── SERVICES GRID ─── */
@@ -574,7 +626,7 @@
     }
 
     .svc-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
@@ -693,7 +745,7 @@
     }
 
     .quote-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
@@ -739,7 +791,7 @@
     }
 
     .price-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: clamp(2.2rem, 4vw, 3.2rem);
       font-weight: 800;
       color: #fff;
@@ -783,7 +835,7 @@
     }
 
     .why-num {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1.6rem;
       font-weight: 800;
       color: rgba(224,90,27,0.22);
@@ -792,7 +844,7 @@
     }
 
     .why-card h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: #fff;
@@ -838,7 +890,7 @@
     }
 
     .cta-left h2 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: clamp(1.8rem, 3vw, 2.5rem);
       font-weight: 800;
       line-height: 1.06;
@@ -897,7 +949,7 @@
     }
 
     .form-panel h3 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 1.2rem;
       font-weight: 800;
       color: #0f172a;
@@ -1003,7 +1055,7 @@
     }
 
     .footer-col h4 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -1044,8 +1096,11 @@
       .footer-inner,
       .pricing-row { grid-template-columns: 1fr; }
 
+      .split-wrap,
       .services-grid,
-      .why-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .split-left, .split-right { padding: 2rem; }
+      .split-left { border-right: none; border-bottom: 1px solid var(--border); }
 
       .site-nav { display: none; }
 
@@ -1174,52 +1229,80 @@
 
     <!-- ─── PAIN / SOLUTION ─── -->
     <section class="section">
-      <div class="wrap split">
-        <div>
-          <div class="label">The Problem</div>
-          <h2 class="section-h">Is Your IT Holding Your Business Back?</h2>
-          <p class="section-sub" style="margin-bottom:1.75rem;">Most small businesses get stuck reacting to problems instead of preventing them. That costs time, money, and momentum.</p>
-          <ul class="pain-list">
-            <li class="pain-item">
-              <strong>Constant IT interruptions</strong>
-              <span>Slow computers, login issues, printer problems, and recurring support headaches.</span>
-            </li>
-            <li class="pain-item">
-              <strong>Security risks you can't ignore</strong>
-              <span>Phishing, ransomware, weak passwords, and unprotected cloud accounts create real exposure.</span>
-            </li>
-            <li class="pain-item">
-              <strong>Unreliable network or WiFi</strong>
-              <span>Dead zones, dropped connections, and aging equipment frustrate staff and clients.</span>
-            </li>
-            <li class="pain-item">
-              <strong>No clear IT strategy</strong>
-              <span>Without a plan, upgrades get delayed, costs rise, and small issues become expensive ones.</span>
-            </li>
-          </ul>
-        </div>
+      <div class="wrap">
+        <div class="label" style="margin-bottom:1rem;">The Problem vs. The Fix</div>
+        <div class="split-wrap">
+          <div class="split-left">
+            <h2 class="section-h" style="font-size:clamp(1.6rem,2.4vw,2.1rem); margin-bottom:0.5rem;">Is Your IT Holding Your Business Back?</h2>
+            <p class="section-sub" style="margin-bottom:0;">Most small businesses get stuck reacting to problems instead of preventing them. That costs time, money, and momentum.</p>
+            <ul class="pain-list">
+              <li class="pain-item">
+                <span class="pain-num">01</span>
+                <div>
+                  <strong>Constant IT interruptions</strong>
+                  <span>Slow computers, login issues, printer problems, and recurring support headaches.</span>
+                </div>
+              </li>
+              <li class="pain-item">
+                <span class="pain-num">02</span>
+                <div>
+                  <strong>Security risks you can't ignore</strong>
+                  <span>Phishing, ransomware, weak passwords, and unprotected cloud accounts create real exposure.</span>
+                </div>
+              </li>
+              <li class="pain-item">
+                <span class="pain-num">03</span>
+                <div>
+                  <strong>Unreliable network or WiFi</strong>
+                  <span>Dead zones, dropped connections, and aging equipment frustrate staff and clients.</span>
+                </div>
+              </li>
+              <li class="pain-item">
+                <span class="pain-num">04</span>
+                <div>
+                  <strong>No clear IT strategy</strong>
+                  <span>Without a plan, upgrades get delayed, costs rise, and small issues become expensive ones.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-        <div class="sol-box">
-          <h3>CAER Technologies gives your business a better way to handle IT.</h3>
-          <p>Proactive support, practical cybersecurity, backup protection, and network management rolled into one clear service. Fewer surprises, less downtime, a more secure business.</p>
-          <ul class="sol-list">
-            <li class="sol-item">
-              <strong>Proactive support</strong>
-              <span>We prevent issues before they interrupt your team.</span>
-            </li>
-            <li class="sol-item">
-              <strong>Clear communication</strong>
-              <span>No tech jargon. No guessing about what's happening.</span>
-            </li>
-            <li class="sol-item">
-              <strong>Security built into the service</strong>
-              <span>Protection should not be an afterthought.</span>
-            </li>
-            <li class="sol-item">
-              <strong>Scalable guidance</strong>
-              <span>Solutions that fit now and still make sense later.</span>
-            </li>
-          </ul>
+          <div class="split-right">
+            <div class="sol-box">
+              <h3>CAER Technologies gives your business a better way to handle IT.</h3>
+              <p>Proactive support, practical cybersecurity, backup protection, and network management rolled into one clear service. Fewer surprises, less downtime, a more secure business.</p>
+              <ul class="sol-list">
+                <li class="sol-item">
+                  <span class="sol-check">✓</span>
+                  <div>
+                    <strong>Proactive support</strong>
+                    <span>We prevent issues before they interrupt your team.</span>
+                  </div>
+                </li>
+                <li class="sol-item">
+                  <span class="sol-check">✓</span>
+                  <div>
+                    <strong>Clear communication</strong>
+                    <span>No tech jargon. No guessing about what's happening.</span>
+                  </div>
+                </li>
+                <li class="sol-item">
+                  <span class="sol-check">✓</span>
+                  <div>
+                    <strong>Security built into the service</strong>
+                    <span>Protection should not be an afterthought.</span>
+                  </div>
+                </li>
+                <li class="sol-item">
+                  <span class="sol-check">✓</span>
+                  <div>
+                    <strong>Scalable guidance</strong>
+                    <span>Solutions that fit now and still make sense later.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1384,13 +1467,13 @@
               enctype="multipart/form-data"
             >
               <input type="hidden" name="zf_referrer_name" value="">
-              <input type="hidden" name="zf_redirect_url" value="https://consultcaer.com">
+              <input type="hidden" name="zf_redirect_url" value="https://consultcaer.com/thank-you.html">
               <input type="hidden" name="zc_gad" value="">
 
               <div class="form-grid">
                 <div class="field">
                   <label for="business-name">Business Name <span>*</span></label>
-                  <input id="business-name" name="SingleLine" type="text"  required>
+                  <input id="business-name" name="SingleLine" type="text" required>
                 </div>
                 <div class="field">
                   <label for="first-name">First Name</label>
@@ -1398,11 +1481,11 @@
                 </div>
                 <div class="field">
                   <label for="last-name">Last Name <span>*</span></label>
-                  <input id="last-name" name="SingleLine1" type="text"  required>
+                  <input id="last-name" name="SingleLine1" type="text" required>
                 </div>
                 <div class="field">
                   <label for="email-address">Email <span>*</span></label>
-                  <input id="email-address" name="Email" type="email"  required>
+                  <input id="email-address" name="Email" type="email" required>
                 </div>
                 <div class="field">
                   <label for="phone-number">Phone</label>
@@ -1410,7 +1493,7 @@
                 </div>
                 <div class="field full">
                   <label for="issues">What issues are you experiencing?</label>
-                  <textarea id="issues" name="MultiLine" maxlength="65535" ></textarea>
+                  <textarea id="issues" name="MultiLine" maxlength="255" ></textarea>
                 </div>
               </div>
               <button class="form-submit" type="submit">Get My Free Assessment →</button>

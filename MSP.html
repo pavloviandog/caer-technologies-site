@@ -5,162 +5,1234 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Managed IT Services | CAER Technologies</title>
   <meta name="description" content="Managed IT services for Texas Hill Country businesses. Local IT support, cybersecurity, backup, Microsoft 365, and network management from CAER Technologies." />
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/landing.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #06090f;
+      --ink-2: #0c1220;
+      --surface: #111827;
+      --surface-2: #19202e;
+      --border: rgba(255,255,255,0.07);
+      --border-strong: rgba(255,255,255,0.13);
+      --text: #f0f4fa;
+      --text-dim: #8b95a7;
+      --text-mid: #b8c4d4;
+      --ember: #e05a1b;
+      --ember-light: #f97316;
+      --ember-glow: rgba(224,90,27,0.18);
+      --steel: #2563eb;
+      --max: 1160px;
+      --r: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,9,15,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 68px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .site-nav a {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .site-nav a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
+      background: var(--ember);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: 0 6px 20px rgba(224,90,27,0.32);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: var(--ember-light);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(249,115,22,0.38);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5.5rem 0 4.5rem;
+      background: var(--ink);
+    }
+
+    /* Diagonal ember accent */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(224,90,27,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Grid lines bg */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 80%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(224,90,27,0.35);
+      border-radius: 999px;
+      background: rgba(224,90,27,0.08);
+      color: #fba16c;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    .eyebrow-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ember);
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--ember), var(--ember-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .lead {
+      font-size: 1.08rem;
+      color: var(--text-mid);
+      max-width: 52ch;
+      margin-bottom: 1.75rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-points {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-points li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.14);
+      border: 1px solid rgba(34,197,94,0.25);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: #4ade80;
+      font-size: 0.72rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.97rem;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--ember);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(224,90,27,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--ember-light);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(249,115,22,0.38);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.09);
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── HERO CARD ─── */
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ember), transparent);
+    }
+
+    .hero-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .hero-card-sub {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+
+    .stat-pill {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-pill span {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      line-height: 1.35;
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      background: var(--ink-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 1rem 2.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      border-right: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    .trust-item:last-child { border-right: none; }
+    .trust-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--ember);
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--ink-2); }
+
+    .label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ember);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-h {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-sub {
+      color: var(--text-mid);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 58ch;
+      line-height: 1.7;
+    }
+
+    /* ─── PAIN / SOLUTION SPLIT ─── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .pain-list, .sol-list {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .pain-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid #ef4444;
+      border-radius: 0 14px 14px 0;
+      padding: 1rem 1.1rem;
+    }
+
+    .pain-item strong {
+      display: block;
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .pain-item span {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .sol-box {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .sol-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ember), transparent);
+      border-radius: 20px 20px 0 0;
+    }
+
+    .sol-box h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .sol-box > p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      line-height: 1.65;
+    }
+
+    .sol-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-left: 3px solid #4ade80;
+      border-radius: 0 12px 12px 0;
+      padding: 0.9rem 1rem;
+    }
+
+    .sol-item strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .sol-item span {
+      font-size: 0.87rem;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    /* ─── SERVICES GRID ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .svc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.6rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ember), var(--ember-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .svc-card:hover {
+      border-color: rgba(224,90,27,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .svc-card:hover::after { transform: scaleX(1); }
+
+    .svc-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--ember-glow);
+      border: 1px solid rgba(224,90,27,0.2);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .svc-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .svc-card p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 0.9rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .svc-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .svc-card ul li {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .svc-card ul li::before {
+      content: "—";
+      color: var(--ember);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── LOCAL BAND ─── */
+    .local-band {
+      background: linear-gradient(160deg, #0f1624 0%, var(--ink) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .local-band::before {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.08), transparent 65%);
+      pointer-events: none;
+    }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .towns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .town-chip {
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-strong);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .town-chip:hover {
+      border-color: rgba(224,90,27,0.4);
+      color: #fba16c;
+    }
+
+    .local-desc {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .quote-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .quote-card::before {
+      content: """;
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-size: 5rem;
+      font-family: Georgia, serif;
+      color: var(--ember);
+      line-height: 1;
+      opacity: 0.5;
+    }
+
+    .quote-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .quote-card p {
+      color: var(--text-mid);
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .quote-tagline {
+      font-weight: 600;
+      color: #fba16c;
+      font-size: 0.92rem;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 2rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+
+    .pricing-row::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(224,90,27,0.06), transparent 60%);
+      pointer-events: none;
+    }
+
+    .price-num {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .price-num small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-dim);
+      letter-spacing: 0;
+    }
+
+    .price-note {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-top: 0.5rem;
+    }
+
+    /* ─── WHY GRID ─── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      margin-top: 2.25rem;
+    }
+
+    .why-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .why-card:hover {
+      border-color: rgba(224,90,27,0.25);
+      transform: translateY(-3px);
+    }
+
+    .why-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: rgba(224,90,27,0.22);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .why-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .why-card p {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── CTA BAND ─── */
+    .cta-section {
+      padding: 5rem 0;
+    }
+
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 28px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      position: relative;
+    }
+
+    .cta-left {
+      padding: 2.75rem;
+      background: linear-gradient(135deg, #1a0d06, #0c1220);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-left::before {
+      content: "";
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(224,90,27,0.2), transparent 65%);
+    }
+
+    .cta-left h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 0.85rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-left p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.97rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      max-width: 44ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--ember);
+      font-weight: 700;
+    }
+
+    .btn-white:hover {
+      background: #f8f8f8;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ─── FORM ─── */
+    .form-panel {
+      padding: 2.25rem;
+      background: #fff;
+    }
+
+    .form-panel h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-panel > p {
+      color: #64748b;
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .field label {
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .field label span { color: var(--ember); }
+
+    .field input,
+    .field textarea {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      font: inherit;
+      font-size: 0.93rem;
+      color: #0f172a;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field textarea { min-height: 100px; resize: vertical; }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--ember);
+      box-shadow: 0 0 0 3px rgba(224,90,27,0.12);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 0.75rem;
+      background: var(--ember);
+      color: #fff;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 10px;
+      font: inherit;
+      font-size: 0.97rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .form-submit:hover {
+      background: var(--ember-light);
+      transform: translateY(-1px);
+    }
+
+    .microcopy {
+      font-size: 0.79rem;
+      color: #94a3b8;
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #050709;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-brand p {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      font-weight: 300;
+      margin-top: 0.65rem;
+      max-width: 36ch;
+    }
+
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-col a,
+    .footer-col p {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+      font-weight: 300;
+    }
+
+    .footer-col a:hover { color: #fba16c; }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .split,
+      .local-grid,
+      .cta-box,
+      .footer-inner,
+      .pricing-row { grid-template-columns: 1fr; }
+
+      .services-grid,
+      .why-grid { grid-template-columns: 1fr 1fr; }
+
+      .site-nav { display: none; }
+
+      .trust-bar-inner {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        width: 50%;
+      }
+
+      .hero-card { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 4rem 0 3.5rem; }
+      .section { padding: 3.5rem 0; }
+
+      .hero-points,
+      .services-grid,
+      .why-grid,
+      .form-grid { grid-template-columns: 1fr; }
+
+      .hero h1 { font-size: 2.35rem; }
+
+      .trust-item { width: 100%; }
+
+      .cta-left,
+      .form-panel { padding: 1.75rem; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 1.75rem; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner > * { animation: fadeUp 0.6s ease both; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.1s; }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-    <div class="logo">
-      <a href="/">
-        <img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies">
-      </a>
-    </div>
 
-      <nav class="nav" aria-label="Primary">
+  <!-- ─── HEADER ─── -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="logo">
+        <a href="/">
+          <img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies">
+        </a>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
         <a href="/cybersecurity.html">Cybersecurity</a>
         <a href="/pages/managed-it">Managed IT</a>
         <a href="/backup.html">Backup</a>
         <a href="/voip.html">VoIP</a>
         <a href="/about.html">About</a>
       </nav>
-
       <a class="nav-cta" href="#quote">Get a Free IT Assessment</a>
     </div>
   </header>
 
   <main>
+
+    <!-- ─── HERO ─── -->
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="wrap hero-inner">
         <div>
-          <div class="eyebrow">Managed IT Services • Texas Hill Country</div>
-          <h1>Managed IT Services for Texas Hill Country Businesses</h1>
+          <div class="eyebrow-tag">Managed IT Services &bull; Texas Hill Country</div>
+          <h1>IT That Works.<br><em>Without the Headaches.</em></h1>
           <p class="lead">
-            Reliable IT support, modern cybersecurity, backup protection, and local guidance for businesses that need technology to work without the constant headaches.
+            Reliable support, modern cybersecurity, backup protection, and local guidance for Texas Hill Country businesses that need their technology to just work.
           </p>
-
           <ul class="hero-points">
-            <li><span class="check">✓</span> 24/7 Monitoring &amp; Support</li>
-            <li><span class="check">✓</span> Security Built In</li>
-            <li><span class="check">✓</span> Flat Monthly Pricing</li>
-            <li><span class="check">✓</span> Local Texas-Based Support</li>
+            <li><span class="check-icon">✓</span> 24/7 Monitoring &amp; Support</li>
+            <li><span class="check-icon">✓</span> Security Built In</li>
+            <li><span class="check-icon">✓</span> Flat Monthly Pricing</li>
+            <li><span class="check-icon">✓</span> Local Texas-Based Support</li>
           </ul>
-
           <div class="hero-actions">
-            <a class="btn" href="#quote">Get a Free IT Assessment</a>
-            <a class="btn-outline" href="tel:18305103700">Call 830-510-3700</a>
+            <a class="btn btn-primary" href="#quote">Get a Free IT Assessment</a>
+            <a class="btn btn-ghost" href="tel:18305103700">📞 Call 830-510-3700</a>
           </div>
-
-          <div class="hero-note">Serving Bandera, Kerrville, Fredericksburg, Boerne, and surrounding communities.</div>
+          <p class="hero-note">Serving Bandera, Kerrville, Fredericksburg, Boerne, and surrounding communities.</p>
         </div>
 
         <aside class="hero-card" aria-label="Managed IT overview">
-          <h2 style="margin-top:0; font-size:1.5rem;">What CAER handles for you</h2>
-          <p style="color:#d1d5db; margin-bottom:0;">
-            From day-to-day support to security, backup, Microsoft 365, and network management, CAER gives small businesses a dependable IT partner instead of a break-fix scramble.
-          </p>
-
-          <div class="stats">
-            <div class="stat">
+          <div class="hero-card-title">What CAER handles for you</div>
+          <div class="hero-card-sub">One partner for all of your business IT needs.</div>
+          <div class="stat-grid">
+            <div class="stat-pill">
               <strong>Managed IT</strong>
               <span>Helpdesk, patching, monitoring, maintenance</span>
             </div>
-            <div class="stat">
+            <div class="stat-pill">
               <strong>Security</strong>
-              <span>Endpoint protection, identity security, phishing defense</span>
+              <span>Endpoint protection, identity, phishing defense</span>
             </div>
-            <div class="stat">
+            <div class="stat-pill">
               <strong>Backup</strong>
-              <span>Workstation, server, and Microsoft 365 data protection</span>
+              <span>Workstation, server, and M365 protection</span>
             </div>
-            <div class="stat">
+            <div class="stat-pill">
               <strong>Infrastructure</strong>
-              <span>WiFi, firewall, switching, and cloud support</span>
+              <span>WiFi, firewall, switching, cloud support</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <div class="trust-strip">
-      <div class="container trust-strip-inner">
-        <div>Local Texas Support</div>
-        <div>Security-First Approach</div>
-        <div>Proactive IT Management</div>
-        <div>Business-Focused Solutions</div>
+    <!-- ─── TRUST BAR ─── -->
+    <div class="trust-bar">
+      <div class="wrap trust-bar-inner">
+        <div class="trust-item"><span class="trust-dot"></span>Local Texas Support</div>
+        <div class="trust-item"><span class="trust-dot"></span>Security-First Approach</div>
+        <div class="trust-item"><span class="trust-dot"></span>Proactive IT Management</div>
+        <div class="trust-item"><span class="trust-dot"></span>Business-Focused Solutions</div>
       </div>
     </div>
 
-    <section>
-      <div class="container split">
+    <!-- ─── PAIN / SOLUTION ─── -->
+    <section class="section">
+      <div class="wrap split">
         <div>
-          <div class="section-head">
-            <h2>Is Your IT Holding Your Business Back?</h2>
-            <p>
-              Most small businesses get stuck reacting to problems instead of preventing them. That costs time, money, and momentum.
-            </p>
-          </div>
-
+          <div class="label">The Problem</div>
+          <h2 class="section-h">Is Your IT Holding Your Business Back?</h2>
+          <p class="section-sub" style="margin-bottom:1.75rem;">Most small businesses get stuck reacting to problems instead of preventing them. That costs time, money, and momentum.</p>
           <ul class="pain-list">
-            <li>
+            <li class="pain-item">
               <strong>Constant IT interruptions</strong>
               <span>Slow computers, login issues, printer problems, and recurring support headaches.</span>
             </li>
-            <li>
-              <strong>Security risks you can’t ignore</strong>
+            <li class="pain-item">
+              <strong>Security risks you can't ignore</strong>
               <span>Phishing, ransomware, weak passwords, and unprotected cloud accounts create real exposure.</span>
             </li>
-            <li>
+            <li class="pain-item">
               <strong>Unreliable network or WiFi</strong>
-              <span>Dead zones, dropped connections, and aging equipment frustrate your staff and clients.</span>
+              <span>Dead zones, dropped connections, and aging equipment frustrate staff and clients.</span>
             </li>
-            <li>
+            <li class="pain-item">
               <strong>No clear IT strategy</strong>
-              <span>Without a plan, upgrades get delayed, costs rise, and small issues turn into expensive ones.</span>
+              <span>Without a plan, upgrades get delayed, costs rise, and small issues become expensive ones.</span>
             </li>
           </ul>
         </div>
 
-        <div class="solution-box">
+        <div class="sol-box">
           <h3>CAER Technologies gives your business a better way to handle IT.</h3>
-          <p>
-            We combine proactive support, practical cybersecurity, backup protection, and modern network management into one clear service model. That means fewer surprises, less downtime, and a more secure business.
-          </p>
-
-          <ul class="check-list" style="margin-top:1rem;">
-            <li>
+          <p>Proactive support, practical cybersecurity, backup protection, and network management rolled into one clear service. Fewer surprises, less downtime, a more secure business.</p>
+          <ul class="sol-list">
+            <li class="sol-item">
               <strong>Proactive support</strong>
-              <span>We work to prevent issues before they interrupt your team.</span>
+              <span>We prevent issues before they interrupt your team.</span>
             </li>
-            <li>
+            <li class="sol-item">
               <strong>Clear communication</strong>
-              <span>No tech jargon and no guessing about what’s happening.</span>
+              <span>No tech jargon. No guessing about what's happening.</span>
             </li>
-            <li>
+            <li class="sol-item">
               <strong>Security built into the service</strong>
               <span>Protection should not be an afterthought.</span>
             </li>
-            <li>
+            <li class="sol-item">
               <strong>Scalable guidance</strong>
-              <span>Solutions that fit your business now and still make sense later.</span>
+              <span>Solutions that fit now and still make sense later.</span>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section style="padding-top:0;">
-      <div class="container">
-        <div class="section-head">
-          <h2>Everything Your Business Needs—Handled</h2>
-          <p>
-            Built for organizations that want one dependable IT partner for support, security, continuity, and growth.
-          </p>
-        </div>
-
+    <!-- ─── SERVICES ─── -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="label">What We Do</div>
+        <h2 class="section-h">Everything Your Business Needs—Handled</h2>
+        <p class="section-sub">Built for organizations that want one dependable IT partner for support, security, continuity, and growth.</p>
         <div class="services-grid">
-          <article class="service-card">
-            <div class="icon">IT</div>
+          <article class="svc-card">
+            <div class="svc-icon">🖥️</div>
             <h3>Managed IT Support</h3>
             <p>Reliable day-to-day support and proactive maintenance to keep your team productive.</p>
             <ul>
@@ -169,9 +1241,8 @@
               <li>Endpoint management</li>
             </ul>
           </article>
-
-          <article class="service-card">
-            <div class="icon">🔐</div>
+          <article class="svc-card">
+            <div class="svc-icon">🔐</div>
             <h3>Cybersecurity Protection</h3>
             <p>Practical layered protection against phishing, ransomware, and account compromise.</p>
             <ul>
@@ -180,20 +1251,18 @@
               <li>Phishing and threat defense</li>
             </ul>
           </article>
-
-          <article class="service-card">
-            <div class="icon">☁</div>
+          <article class="svc-card">
+            <div class="svc-icon">☁️</div>
             <h3>Backup &amp; Disaster Recovery</h3>
-            <p>Protect critical business data so a bad day does not become a disaster.</p>
+            <p>Protect critical business data so a bad day doesn't become a disaster.</p>
             <ul>
               <li>Workstation and server backup</li>
               <li>Cloud backup for Microsoft 365</li>
               <li>Recovery planning</li>
             </ul>
           </article>
-
-          <article class="service-card">
-            <div class="icon">🌐</div>
+          <article class="svc-card">
+            <div class="svc-icon">🌐</div>
             <h3>Network &amp; Infrastructure</h3>
             <p>Secure WiFi, firewalls, switching, and business-ready network design.</p>
             <ul>
@@ -206,218 +1275,181 @@
       </div>
     </section>
 
+    <!-- ─── LOCAL BAND ─── -->
     <section class="local-band">
-      <div class="container local-grid">
+      <div class="wrap local-grid">
         <div>
-          <div class="section-head">
-            <h2>Local IT Support You Can Count On</h2>
-            <p>
-              CAER Technologies supports businesses across the Texas Hill Country with responsive, business-focused IT and cybersecurity services.
-            </p>
-          </div>
-
-          <div class="local-box">
-            <p style="margin-top:0; color:#e2e8f0;">
-              No giant call center. No outsourced confusion. Just direct support from a local provider that understands the pace and needs of businesses in this region.
-            </p>
+          <div class="label">Where We Serve</div>
+          <h2 class="section-h">Local IT Support You Can Count On</h2>
+          <p class="section-sub" style="margin-bottom:1.5rem;">CAER Technologies supports businesses across the Texas Hill Country with responsive, business-focused IT and cybersecurity services.</p>
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:1.5rem;">
+            <p class="local-desc">No giant call center. No outsourced confusion. Just direct support from a local provider that understands the pace and needs of businesses in this region.</p>
             <div class="towns">
-              <span>Bandera</span>
-              <span>Kerrville</span>
-              <span>Fredericksburg</span>
-              <span>Boerne</span>
-              <span>Texas Hill Country</span>
+              <span class="town-chip">Bandera</span>
+              <span class="town-chip">Kerrville</span>
+              <span class="town-chip">Fredericksburg</span>
+              <span class="town-chip">Boerne</span>
+              <span class="town-chip">Texas Hill Country</span>
             </div>
           </div>
         </div>
-
-        <div class="quote-box">
-          <h3 style="margin-top:0; color:#fff;">Built for small business reality</h3>
-          <p style="color:#d1d5db;">
-            Whether you run a healthcare office, nonprofit, professional services firm, or local business with a small team, CAER helps keep your systems secure, stable, and easier to manage.
-          </p>
-          <p style="color:#fff; font-weight:700; margin-bottom:0;">Straightforward support. Practical security. Better uptime.</p>
+        <div class="quote-card">
+          <h3>Built for small business reality</h3>
+          <p>Whether you run a healthcare office, nonprofit, professional services firm, or local business with a small team, CAER helps keep your systems secure, stable, and easier to manage.</p>
+          <div class="quote-tagline">Straightforward support. Practical security. Better uptime.</div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>Simple, Predictable Monthly IT</h2>
-          <p>
-            Flexible service tiers based on your size, needs, and level of security. Enough structure to keep things clear, without boxing you into a one-size-fits-all plan.
-          </p>
-        </div>
-
-        <div class="pricing-panel">
+    <!-- ─── PRICING ─── -->
+    <section class="section">
+      <div class="wrap">
+        <div class="label">Pricing</div>
+        <h2 class="section-h">Simple, Predictable Monthly IT</h2>
+        <p class="section-sub">Flexible service tiers based on your size, needs, and security level—without boxing you into a one-size-fits-all plan.</p>
+        <div class="pricing-row">
           <div>
-            <div class="price">From $200 <small>/ month for small environments</small></div>
-            <p style="margin:0.5rem 0 0; color:#475569;">
-              Ask for a custom quote based on your users, devices, locations, security goals, and Microsoft 365 needs.
-            </p>
+            <div class="price-num">From $200 <small>/ month for small environments</small></div>
+            <div class="price-note">Ask for a custom quote based on your users, devices, locations, security goals, and Microsoft 365 needs.</div>
           </div>
           <div>
-            <a class="btn" href="#quote">Request Your Quote</a>
+            <a class="btn btn-primary" href="#quote">Request Your Quote</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section style="padding-top:0;">
-      <div class="container">
-        <div class="section-head">
-          <h2>Why Businesses Choose CAER</h2>
-          <p>
-            A better fit for businesses that want real support, practical security, and a plan that grows with them.
-          </p>
-        </div>
-
+    <!-- ─── WHY CAER ─── -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="label">Why CAER</div>
+        <h2 class="section-h">Why Businesses Choose CAER</h2>
+        <p class="section-sub">A better fit for businesses that want real support, practical security, and a plan that grows with them.</p>
         <div class="why-grid">
           <article class="why-card">
+            <div class="why-num">01</div>
             <h3>Proactive, not reactive</h3>
-            <p>Prevention and maintenance come first, so you spend less time dealing with avoidable problems.</p>
+            <p>Prevention and maintenance come first, so you spend less time on avoidable problems.</p>
           </article>
           <article class="why-card">
+            <div class="why-num">02</div>
             <h3>Security-first mindset</h3>
             <p>Protection is built into the service instead of added later as an afterthought.</p>
           </article>
           <article class="why-card">
+            <div class="why-num">03</div>
             <h3>Microsoft 365 &amp; Apple experience</h3>
             <p>Strong fit for modern small businesses using cloud tools, Macs, PCs, and mobile devices.</p>
           </article>
           <article class="why-card">
+            <div class="why-num">04</div>
             <h3>Local business focus</h3>
-            <p>Support designed for the Texas Hill Country market, not a generic national script.</p>
+            <p>Support designed for the Texas Hill Country market—not a generic national script.</p>
           </article>
           <article class="why-card">
+            <div class="why-num">05</div>
             <h3>Clear communication</h3>
-            <p>You get direct answers, practical recommendations, and fewer surprises.</p>
+            <p>Direct answers, practical recommendations, and fewer surprises.</p>
           </article>
           <article class="why-card">
+            <div class="why-num">06</div>
             <h3>Scalable service model</h3>
-            <p>Start where you need to and build upward as your business, team, and risks evolve.</p>
+            <p>Start where you need to and build upward as your business and risks evolve.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="cta-band" id="quote">
-      <div class="container">
+    <!-- ─── CTA + FORM ─── -->
+    <section class="cta-section" id="quote">
+      <div class="wrap">
         <div class="cta-box">
-          <div>
-            <h2>Let’s Fix Your IT—For Good</h2>
-            <p>
-              Stop living with recurring tech problems and security risks. Let’s build a cleaner, more reliable, more secure IT setup for your business.
-            </p>
-            <div class="hero-actions" style="margin-top:1.25rem; margin-bottom:0;">
-              <a class="btn" href="tel:18305103700" style="background:#fff; color:#de6126;">Call 830-510-3700</a>
-              <a class="btn-outline" href="mailto:support@consultcaer.com" style="border-color:rgba(255,255,255,0.28);">Email CAER</a>
+          <div class="cta-left">
+            <h2>Let's Fix Your IT—For Good</h2>
+            <p>Stop living with recurring tech problems and security risks. Let's build a cleaner, more reliable, more secure IT setup for your business.</p>
+            <div class="cta-actions">
+              <a class="btn btn-white" href="tel:18305103700">📞 Call 830-510-3700</a>
+              <a class="btn btn-outline-light" href="/cdn-cgi/l/email-protection#94e7e1e4e4fbe6e0d4f7fbfae7e1f8e0f7f5f1e6baf7fbf9">Email CAER</a>
             </div>
           </div>
 
-          <div class="form-card">
+          <div class="form-panel">
             <h3>Request a Free IT Assessment</h3>
-            <p>Keep this tied to your form handler, Zoho form embed, or CRM capture.</p>
-			
-			<form
-  action="https://forms.zohopublic.com/caertechnologies/form/RequestaFreeITAssessment/formperma/WBiaCOU1pND9eVKsJuPF4DHwgW_5YwHn1tK3GHFfoZI/htmlRecords/submit"
-  method="POST"
-  accept-charset="UTF-8"
-  enctype="multipart/form-data"
-  class="caer-form"
->
-  <input type="hidden" name="zf_referrer_name" value="">
-  <input type="hidden" name="zf_redirect_url" value="https://consultcaer.com/thank-you.html">
-  <input type="hidden" name="zc_gad" value="">
+            <p>We'll review your setup and share honest recommendations.</p>
 
-  <div class="form-grid">
-    <div class="field">
-      <label for="business-name">Business Name <span aria-hidden="true">*</span></label>
-      <input id="business-name" name="SingleLine" type="text" required>
-    </div>
+            <form
+              action="https://forms.zohopublic.com/caertechnologies/form/RequestaFreeITAssessment/formperma/WBiaCOU1pND9eVKsJuPF4DHwgW_5YwHn1tK3GHFfoZI/htmlRecords/submit"
+              method="POST"
+              accept-charset="UTF-8"
+              enctype="multipart/form-data"
+            >
+              <input type="hidden" name="zf_referrer_name" value="">
+              <input type="hidden" name="zf_redirect_url" value="https://consultcaer.com/thank-you.html">
+              <input type="hidden" name="zc_gad" value="">
 
-    <div class="field">
-      <label for="first-name">First Name</label>
-      <input id="first-name" name="SingleLine2" type="text">
-    </div>
-
-    <div class="field">
-      <label for="last-name">Last Name <span aria-hidden="true">*</span></label>
-      <input id="last-name" name="SingleLine1" type="text" required>
-    </div>
-
-    <div class="field">
-      <label for="email-address">Email <span aria-hidden="true">*</span></label>
-      <input id="email-address" name="Email" type="email" required>
-    </div>
-
-    <div class="field">
-      <label for="phone-number">Phone</label>
-      <input id="phone-number" name="PhoneNumber_countrycode" type="tel">
-    </div>
-
-    <div class="field full">
-      <label for="issues">What issues are you experiencing?</label>
-      <textarea id="issues" name="MultiLine" maxlength="65535" placeholder="Tell us a little about your current setup or the problems you want to solve."></textarea>
-    </div>
-  </div>
-
-  <button class="btn submit" type="submit">Get My Free Assessment</button>
-  <div class="microcopy">By submitting this form, you agree to be contacted about your IT needs.</div>
-</form>
-
-         <!--   <form>
               <div class="form-grid">
                 <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" />
+                  <label for="business-name">Business Name <span>*</span></label>
+                  <input id="business-name" name="SingleLine" type="text" placeholder="Acme Co." required>
                 </div>
                 <div class="field">
-                  <label for="business">Business Name</label>
-                  <input id="business" name="business" type="text" placeholder="Company name" />
+                  <label for="first-name">First Name</label>
+                  <input id="first-name" name="SingleLine2" type="text" placeholder="Jane">
                 </div>
                 <div class="field">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="you@company.com" />
+                  <label for="last-name">Last Name <span>*</span></label>
+                  <input id="last-name" name="SingleLine1" type="text" placeholder="Doe" required>
                 </div>
                 <div class="field">
-                  <label for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" placeholder="(830) 555-1234" />
+                  <label for="email-address">Email <span>*</span></label>
+                  <input id="email-address" name="Email" type="email" placeholder="you@company.com" required>
+                </div>
+                <div class="field">
+                  <label for="phone-number">Phone</label>
+                  <input id="phone-number" name="PhoneNumber_countrycode" type="tel" placeholder="(830) 555-1234">
                 </div>
                 <div class="field full">
                   <label for="issues">What issues are you experiencing?</label>
-                  <textarea id="issues" name="issues" placeholder="Tell us a little about your current setup or the problems you want to solve."></textarea>
+                  <textarea id="issues" name="MultiLine" maxlength="65535" placeholder="Tell us about your current setup or problems you want solved."></textarea>
                 </div>
               </div>
-
-              <button class="btn submit" type="submit">Get My Free Assessment</button>
-              <div class="microcopy">By submitting this form, you agree to be contacted about your IT needs.</div>
-            </form>  -->
+              <button class="form-submit" type="submit">Get My Free Assessment →</button>
+              <div class="microcopy">By submitting, you agree to be contacted about your IT needs.</div>
+            </form>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- ─── FOOTER ─── -->
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>CAER Technologies</h4>
-        <p>Managed IT, cybersecurity, backup, and network support for Texas Hill Country businesses.</p>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="../assets/logo/CAER-PON.gif" alt="CAER Technologies" style="height:42px; border-radius:50%; margin-bottom:0.75rem;">
+          <p>Managed IT, cybersecurity, backup, and network support for Texas Hill Country businesses.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coverage Area</h4>
+          <p>Bandera</p>
+          <p>Kerrville</p>
+          <p>Fredericksburg</p>
+          <p>Boerne</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:18305103700">830-510-3700</a>
+          <a href="/cdn-cgi/l/email-protection#94e7e1e4e4fbe6e0d4f7fbfae7e1f8e0f7f5f1e6baf7fbf9">Email Us</a>
+        </div>
       </div>
-      <div>
-        <h4>Coverage Area</h4>
-        <p>Bandera</p>
-        <p>Kerrville</p>
-        <p>Fredericksburg</p>
-        <p>Boerne</p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p><a href="tel:18305103700">830-510-3700</a></p>
-        <p><a href="mailto:support@consultcaer.com">support@consultcaer.com</a></p>
+      <div class="footer-bottom">
+        <span>© 2025 CAER Technologies. All rights reserved.</span>
+        <span>Texas Hill Country IT &amp; Cybersecurity</span>
       </div>
     </div>
   </footer>
+
 </body>
 </html>

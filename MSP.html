@@ -111,7 +111,93 @@ img { max-width: 100%; display: block; }
   background: var(--brand-dark);
 }
 
+.caer-form {
+  margin-top: 0;
+}
 
+.caer-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.caer-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.caer-form .field.full {
+  grid-column: 1 / -1;
+}
+
+.caer-form label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 0;
+}
+
+.caer-form label span {
+  color: var(--brand);
+}
+
+.caer-form input,
+.caer-form textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 0.88rem 0.95rem;
+  font: inherit;
+  line-height: 1.4;
+  color: #0f172a;
+  background: #fff;
+  appearance: none;
+}
+
+.caer-form input {
+  min-height: 50px;
+}
+
+.caer-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.caer-form input::placeholder,
+.caer-form textarea::placeholder {
+  color: #94a3b8;
+}
+
+.caer-form input:focus,
+.caer-form textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(222, 97, 38, 0.15);
+}
+
+.caer-form .submit {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  margin-top: 0.75rem;
+}
+
+.caer-form .microcopy {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 0.65rem;
+}
+
+@media (max-width: 640px) {
+  .caer-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .caer-form .field.full {
+    grid-column: auto;
+  }
+}
 
   </style>
 </head>
@@ -454,13 +540,13 @@ img { max-width: 100%; display: block; }
     </div>
 
     <div class="field">
-      <label for="email">Email <span aria-hidden="true">*</span></label>
-      <input id="email" name="Email" type="email" required>
+      <label for="email-address">Email <span aria-hidden="true">*</span></label>
+      <input id="email-address" name="Email" type="email" required>
     </div>
 
     <div class="field">
-      <label for="phone">Phone</label>
-      <input id="phone" name="PhoneNumber_countrycode" type="tel">
+      <label for="phone-number">Phone</label>
+      <input id="phone-number" name="PhoneNumber_countrycode" type="tel">
     </div>
 
     <div class="field full">

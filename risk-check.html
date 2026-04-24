@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Risk Assessment | CAER Technologies</title>
+  <meta name="description" content="Answer a few quick questions to understand your business risk level and whether your organization may require enhanced security and compliance safeguards." />
+  <style>
+    :root {
+      --bg: #0f1115;
+      --bg-alt: #161a21;
+      --card: #1b1f27;
+      --card-border: #2a2f3a;
+      --text: #f5f7fb;
+      --text-soft: #c8cbd2;
+      --primary: #2f80ed;
+      --primary-hover: #1f6fd6;
+      --success: #27ae60;
+      --warning: #f2c94c;
+      --danger: #eb5757;
+      --radius: 18px;
+      --shadow: 0 18px 40px rgba(0,0,0,0.35);
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0d1015 0%, #121720 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 17, 21, 0.88);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.1rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .header-cta:hover,
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 0 3rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(47,128,237,0.20), transparent 35%),
+                  radial-gradient(circle at left center, rgba(47,128,237,0.12), transparent 30%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(47,128,237,0.12);
+      border: 1px solid rgba(47,128,237,0.28);
+      border-radius: 999px;
+      color: #dce9ff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+      font-size: 1.06rem;
+      max-width: 60ch;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .hero-point {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .hero-card,
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.4rem;
+    }
+
+    .hero-card h2,
+    .card h2,
+    .card h3 {
+      margin-top: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .score-note {
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    .status-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .status-item {
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .status-low { background: rgba(39,174,96,0.12); color: #b8f0cb; }
+    .status-mid { background: rgba(242,201,76,0.12); color: #f9e49a; }
+    .status-high { background: rgba(235,87,87,0.12); color: #ffc5c5; }
+
+    .section {
+      padding: 1.75rem 0 4rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+      max-width: 70ch;
+    }
+
+    .section-header p {
+      color: var(--text-soft);
+      margin: 0.5rem 0 0;
+    }
+
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .card {
+      padding: 1.5rem;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .question-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .question-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 0.25rem;
+      accent-color: var(--primary);
+    }
+
+    .question-item label {
+      cursor: pointer;
+      color: var(--text-soft);
+    }
+
+    .results-box {
+      position: sticky;
+      top: 88px;
+    }
+
+    .results-score {
+      display: flex;
+      align-items: end;
+      gap: 0.35rem;
+      margin: 0.4rem 0 0.75rem;
+    }
+
+    .results-score strong {
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .results-caption,
+    .microcopy,
+    .list-soft li,
+    .note {
+      color: var(--text-soft);
+    }
+
+    .recommendation {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .recommendation strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    ul.list-soft {
+      padding-left: 1.1rem;
+      margin: 0.85rem 0 0;
+    }
+
+    .cta-band {
+      margin-top: 2rem;
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(47,128,237,0.30);
+      background: linear-gradient(135deg, rgba(47,128,237,0.18), rgba(47,128,237,0.07));
+    }
+
+    .cta-band h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-band p {
+      margin-top: 0;
+      color: #dbe6f7;
+    }
+
+    .form-note {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.4rem 0 2.5rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .assessment-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .results-box {
+        position: static;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary,
+      .header-cta {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/">CAER Technologies</a>
+      <a class="header-cta" href="#assessment">Start Assessment</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Business Risk Assessment</span>
+          <h1>Is Your Business Properly Protected?</h1>
+          <p>
+            Answer a few quick questions to understand whether your business may require standard protection or
+            enhanced security and compliance safeguards.
+          </p>
+          <p>
+            Most businesses assume they are covered until something goes wrong. This assessment helps identify where
+            your risk level may be higher than expected.
+          </p>
+
+          <div class="hero-points">
+            <div class="hero-point">Designed for healthcare, finance, retail, hospitality, professional services, and growing small businesses.</div>
+            <div class="hero-point">Useful for insurance reviews, vendor requirements, internal security planning, and onboarding.</div>
+            <div class="hero-point">No technical knowledge required. Clear questions. Practical outcomes.</div>
+            <div class="hero-point">Review the results with CAER and get a right-sized recommendation.</div>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn-primary" href="#assessment">Take the Assessment</a>
+            <a class="btn-secondary" href="#review">Request a Guided Review</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>What this page does</h2>
+          <p class="score-note">This is not a legal opinion or certification tool. It is a practical screening step to help identify when a business may require a stronger security posture.</p>
+          <div class="status-list">
+            <div class="status-item status-low">Basic Risk Profile — suitable for smaller, lower-risk environments</div>
+            <div class="status-item status-mid">Elevated Risk Profile — stronger controls and management likely needed</div>
+            <div class="status-item status-high">Advanced / Compliance Profile — enhanced security, documentation, and oversight recommended</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="assessment">
+      <div class="container">
+        <div class="section-header">
+          <h2>Quick Risk Assessment</h2>
+          <p>
+            Check every statement that applies to your business. The more boxes you check, the more likely your
+            organization requires enhanced security controls, documentation, and compliance-ready practices.
+          </p>
+        </div>
+
+        <div class="assessment-grid">
+          <div class="card">
+            <form id="riskForm">
+              <div class="question-list">
+                <div class="question-item">
+                  <input type="checkbox" id="q1" class="risk-question" />
+                  <label for="q1">We store or access sensitive customer, client, patient, employee, or financial information.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q2" class="risk-question" />
+                  <label for="q2">A data breach or cyber incident would impact our customers, operations, reputation, or revenue.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q3" class="risk-question" />
+                  <label for="q3">We are required to meet legal, insurance, contractual, industry, or internal data protection requirements.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q4" class="risk-question" />
+                  <label for="q4">Employees access business systems remotely, on mobile devices, or from home.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q5" class="risk-question" />
+                  <label for="q5">Multiple users access shared files, software, business systems, or cloud platforms.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q6" class="risk-question" />
+                  <label for="q6">Our business depends on software, systems, email, or connected devices to operate daily.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q7" class="risk-question" />
+                  <label for="q7">We send, receive, or store important or sensitive information by email or in cloud applications.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q8" class="risk-question" />
+                  <label for="q8">Losing access to our systems or data, even temporarily, would significantly disrupt business.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q9" class="risk-question" />
+                  <label for="q9">We need to limit, track, or manage who has access to certain systems, data, or devices.</label>
+                </div>
+                <div class="question-item">
+                  <input type="checkbox" id="q10" class="risk-question" />
+                  <label for="q10">We have been asked about our security practices by an insurer, vendor, customer, auditor, or partner.</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card results-box">
+            <h3>Your Risk Snapshot</h3>
+            <div class="results-score">
+              <strong id="yesCount">0</strong>
+              <span class="results-caption">Yes answers</span>
+            </div>
+            <p class="microcopy">This score is a screening tool only. Final recommendations should be reviewed with CAER Technologies.</p>
+
+            <div class="recommendation" id="recommendationBox">
+              <strong>Likely fit: Basic Risk Profile</strong>
+              <span id="recommendationText">A proactive support and security baseline may be appropriate, depending on your systems and data.</span>
+            </div>
+
+            <ul class="list-soft">
+              <li><strong>0 Yes:</strong> Basic / lower-risk environment</li>
+              <li><strong>1–2 Yes:</strong> Managed / elevated-risk environment</li>
+              <li><strong>3+ Yes:</strong> Advanced security and compliance-focused environment</li>
+            </ul>
+
+            <div class="cta-band" id="review">
+              <h3>Request a Guided Review</h3>
+              <p>
+                Based on your answers, we can review your environment and recommend the right level of protection for your business.
+              </p>
+              <a class="btn-primary" href="#contact-form">Request My Review</a>
+              <p class="form-note">Replace this button with your Zoho Form embed or contact form anchor.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+		<div class="form-container">
+
+		<iframe aria-label='CAER Risk Review Request' frameborder="0" style="height:1900px;width:99%;border:none;" src='https://forms.zohopublic.com/caertechnologies/form/CAERRiskReviewRequest/formperma/bTFKyr3XReKkVCwhDqxwe8h6c0n_NzDwR5Q8ooBz9DQ'></iframe>
+		 
+		 </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      CAER Technologies • Security, compliance-minded IT, and practical guidance for growing businesses.
+    </div>
+  </footer>
+
+  <script>
+    const questions = document.querySelectorAll('.risk-question');
+    const yesCount = document.getElementById('yesCount');
+    const recommendationBox = document.getElementById('recommendationBox');
+    const recommendationText = document.getElementById('recommendationText');
+
+    function updateScore() {
+      const total = [...questions].filter(q => q.checked).length;
+      yesCount.textContent = total;
+
+      recommendationBox.className = 'recommendation';
+
+      if (total === 0) {
+        recommendationBox.innerHTML = '<strong>Likely fit: Basic Risk Profile</strong><span id="recommendationText">A proactive support and security baseline may be appropriate, depending on your systems and data.</span>';
+        recommendationBox.style.background = 'rgba(39,174,96,0.10)';
+        recommendationBox.style.borderColor = 'rgba(39,174,96,0.25)';
+      } else if (total <= 2) {
+        recommendationBox.innerHTML = '<strong>Likely fit: Managed / Elevated Risk Profile</strong><span id="recommendationText">Your business likely needs stronger operational controls, ongoing management, and a more mature security baseline.</span>';
+        recommendationBox.style.background = 'rgba(242,201,76,0.10)';
+        recommendationBox.style.borderColor = 'rgba(242,201,76,0.25)';
+      } else {
+        recommendationBox.innerHTML = '<strong>Likely fit: Advanced / Compliance Risk Profile</strong><span id="recommendationText">Your environment likely requires enhanced safeguards, documentation, accountability, and a security-first service model.</span>';
+        recommendationBox.style.background = 'rgba(235,87,87,0.10)';
+        recommendationBox.style.borderColor = 'rgba(235,87,87,0.25)';
+      }
+    }
+
+    questions.forEach(q => q.addEventListener('change', updateScore));
+    updateScore();
+  </script>
+</body>
+</html>

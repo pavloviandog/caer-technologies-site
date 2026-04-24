@@ -3,309 +3,611 @@
 <head>
 	<title>Cybersecurity Services | CAER Technologies</title>
 	<meta name="description" content="Cybersecurity services for small businesses, healthcare offices, nonprofits, and professional services across Bandera, Kerrville, Fredericksburg, Boerne, and the Texas Hill Country.">
-	  
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Open Graph -->
-	<meta property="og:title" content="CAER Technologies | Managed IT & Cybersecurity">
+	<meta property="og:title" content="Cybersecurity Services | CAER Technologies">
 	<meta property="og:description" content="Reliable IT support, cybersecurity, backup, VoIP, and network solutions for businesses across the Texas Hill Country.">
 	<meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-	<meta property="og:url" content="https://consultcaer.com/">
+	<meta property="og:url" content="https://consultcaer.com/cybersec.html">
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="CAER Technologies">
-
-	<!-- Twitter (also used by iMessage/Slack sometimes) -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="CAER Technologies | Managed IT & Cybersecurity">
+	<meta name="twitter:title" content="Cybersecurity Services | CAER Technologies">
 	<meta name="twitter:description" content="IT support and cybersecurity for Texas Hill Country businesses.">
 	<meta name="twitter:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-
-	<!-- Favicons -->
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-	<!-- preload fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-	<!-- Style sheets -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/css/styles.css">
-	
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17684048791"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17684048791"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'AW-17684048791');
+	</script>
 
-  gtag('config', 'AW-17684048791');
-</script>
+<style>
+  /* ── Cybersec Page Enhancements ── */
+
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 75% 40%, rgba(235,87,87,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(47,128,237,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    background: linear-gradient(135deg, #0d1117, #111827);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #f87171, #eb5757);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .stat-divider {
+    border-left: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ── Section eyebrow ── */
+  .section-eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    background: rgba(235,87,87,0.1);
+    border: 1px solid rgba(235,87,87,0.22);
+    border-radius: 999px;
+    color: #fca5a5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Service cards ── */
+  .cyber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .cyber-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+  }
+
+  .cyber-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #eb5757, #f87171);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .cyber-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(235,87,87,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(235,87,87,0.12);
+  }
+
+  .cyber-card:hover::before {
+    opacity: 1;
+  }
+
+  .cyber-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(235,87,87,0.1);
+    border: 1px solid rgba(235,87,87,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: background 0.25s ease;
+  }
+
+  .cyber-card:hover .cyber-card-icon {
+    background: rgba(235,87,87,0.18);
+  }
+
+  .cyber-card-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #f87171;
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .cyber-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .cyber-card p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: #9ca3af;
+  }
+
+  /* ── Threats grid ── */
+  .threat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .threat-card {
+    background: rgba(235,87,87,0.05);
+    border: 1px solid rgba(235,87,87,0.15);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .threat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(235,87,87,0.3);
+  }
+
+  .threat-emoji {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .threat-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+  }
+
+  .threat-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.55;
+  }
+
+  /* ── Why section ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: border-color 0.2s ease;
+  }
+
+  .why-card:hover {
+    border-color: rgba(235,87,87,0.25);
+  }
+
+  .why-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(235,87,87,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #f87171;
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+  }
+
+  .why-card p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cyber-cta {
+    background: linear-gradient(135deg, #0d1117 0%, #111827 100%);
+    border-top: 1px solid rgba(235,87,87,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cyber-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(235,87,87,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cyber-cta .container {
+    position: relative;
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  .cyber-cta p {
+    max-width: 55ch;
+    margin: 0 auto 2rem;
+    color: #9ca3af;
+  }
+
+  /* ── Fade-up animation ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 
 <body>
 
 <header class="site-header">
   <div class="container nav">
-    
     <div class="logo">
-      <a href="/">
-        <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies">
-      </a>
+      <a href="/"><img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies"></a>
     </div>
-
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
     <nav class="site-nav">
-
       <div class="nav-item has-dropdown">
         <a href="/security.html">Security</a>
         <div class="dropdown">
-          <a href="/cybersecurity.html">Cybersecurity Protection</a>
+          <a href="/cybersec.html">Cybersecurity Protection</a>
           <a href="/email-protection.html">Email Security</a>
         </div>
       </div>
-
       <div class="nav-item has-dropdown">
         <a href="#">Infrastructure</a>
         <div class="dropdown">
-          <a href="/managed-it-services.html">Managed IT Services</a>
+          <a href="/MITS.html">Managed IT Services</a>
           <a href="/network.html">Network Infrastructure</a>
           <a href="/cloud.html">Microsoft 365 &amp; Cloud</a>
         </div>
       </div>
-
       <div class="nav-item has-dropdown">
         <a href="#">Continuity</a>
         <div class="dropdown">
           <a href="/backup.html">Backup &amp; Disaster Recovery</a>
         </div>
       </div>
-
       <div class="nav-item has-dropdown">
         <a href="#">Communication</a>
         <div class="dropdown">
           <a href="/voip.html">Business VoIP</a>
         </div>
       </div>
-
       <a href="/blog/" style="color:var(--primary)">Blog</a>
       <a href="/about.html">About</a>
       <a href="/contact.html" class="cta">Schedule Consultation</a>
-
     </nav>
   </div>
 </header>
 
-  <section class="hero page-hero">
-    <div class="container hero-content">
-      <p class="eyebrow">Cybersecurity Services</p>
-      <h1>Cybersecurity Protection for Texas Hill Country Businesses</h1>
-      <p>
-        CAER Technologies helps businesses reduce risk with practical,
-        layered cybersecurity services designed to protect against phishing,
-        ransomware, credential theft, business email compromise, and other common threats.
-      </p>
+<!-- ── HERO ── -->
+<section class="hero page-hero">
+  <div class="container hero-content">
+    <p class="eyebrow">Cybersecurity Services</p>
+    <h1>Cybersecurity Protection for Texas Hill Country Businesses</h1>
+    <p>
+      CAER Technologies helps businesses reduce risk with practical,
+      layered cybersecurity services designed to protect against phishing,
+      ransomware, credential theft, business email compromise, and other common threats.
+    </p>
+    <div class="hero-buttons">
+      <a href="/contact.html" class="btn-primary">Request a Security Review</a>
+      <a href="/risk-check.html" class="btn-secondary">Take the Risk Assessment</a>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-buttons">
-        <a href="/contact.html" class="btn-primary">Request a Security Review</a>
-  <!--      <a href="pricing.html" class="btn-secondary">Compare Service Plans</a> -->
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <span class="stat-number">43%</span>
+        <span class="stat-label">of cyberattacks target small business</span>
+      </div>
+      <div class="stat-item stat-divider fade-up" style="transition-delay:0.1s">
+        <span class="stat-number">$4.9M</span>
+        <span class="stat-label">avg. cost of a data breach in 2024</span>
+      </div>
+      <div class="stat-item stat-divider fade-up" style="transition-delay:0.2s">
+        <span class="stat-number">300+</span>
+        <span class="stat-label">days avg. to detect a breach</span>
+      </div>
+      <div class="stat-item stat-divider fade-up" style="transition-delay:0.3s">
+        <span class="stat-number">91%</span>
+        <span class="stat-label">of attacks start with a phishing email</span>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="services">
-    <div class="container">
-      <h2>What Cybersecurity Services Can Include</h2>
+<!-- ── SERVICES GRID ── -->
+<section class="services">
+  <div class="container">
+    <span class="section-eyebrow">What's Included</span>
+    <h2>What Cybersecurity Services Can Include</h2>
+    <p style="color:#9ca3af; max-width:60ch; margin-bottom:0">Practical, layered protection built around the threats your business actually faces — not one-size-fits-all checklists.</p>
 
-      <div class="service-grid">
-        <div class="card">
-          <h3>Endpoint Protection</h3>
-          <p>
-            Protect laptops, desktops, and other business devices with layered
-            security tools, monitoring, and threat detection.
-          </p>
+    <div class="cyber-grid">
+
+      <!-- Card 1 -->
+      <div class="cyber-card fade-up">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-
-        <div class="card">
-          <h3>Identity Protection</h3>
-          <p>
-            Reduce risk from stolen passwords, risky logins, rogue applications,
-            and compromised user accounts.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Email & Phishing Defense</h3>
-          <p>
-            Help defend users from malicious links, credential harvesting,
-            impersonation attempts, and dangerous attachments.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Security Hardening</h3>
-          <p>
-            Improve security settings across endpoints, Microsoft 365, and
-            business systems to reduce unnecessary exposure.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Backup Readiness</h3>
-          <p>
-            Support business continuity by ensuring backup strategy aligns
-            with ransomware recovery and data protection needs.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Risk Assessments</h3>
-          <p>
-            Identify weak points, prioritize improvements, and build a clearer
-            understanding of where your business may be exposed.
-          </p>
-        </div>
+        <h3>Endpoint Protection</h3>
+        <p>Protect laptops, desktops, and other business devices with layered security tools, monitoring, and threat detection.</p>
       </div>
+
+      <!-- Card 2 -->
+      <div class="cyber-card fade-up" style="transition-delay:0.05s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <h3>Identity Protection</h3>
+        <p>Reduce risk from stolen passwords, risky logins, rogue applications, and compromised user accounts.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="cyber-card fade-up" style="transition-delay:0.1s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>Email &amp; Phishing Defense</h3>
+        <p>Help defend users from malicious links, credential harvesting, impersonation attempts, and dangerous attachments.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="cyber-card fade-up" style="transition-delay:0.15s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3>Security Hardening</h3>
+        <p>Improve security settings across endpoints, Microsoft 365, and business systems to reduce unnecessary exposure.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="cyber-card fade-up" style="transition-delay:0.2s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        </div>
+        <h3>Backup Readiness</h3>
+        <p>Support business continuity by ensuring your backup strategy aligns with ransomware recovery and data protection needs.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="cyber-card fade-up" style="transition-delay:0.25s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3>Risk Assessments</h3>
+        <p>Identify weak points, prioritize improvements, and build a clearer understanding of where your business may be exposed.</p>
+      </div>
+
+      <!-- Card 7 — NEW -->
+      <div class="cyber-card fade-up" style="transition-delay:0.3s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </div>
+        <h3>Threat Monitoring &amp; Detection</h3>
+        <p>Continuous visibility into your environment to detect suspicious activity, unauthorized access, and early signs of compromise before they escalate.</p>
+      </div>
+
+      <!-- Card 8 — NEW -->
+      <div class="cyber-card fade-up" style="transition-delay:0.35s">
+        <div class="cyber-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h3>Security Awareness Training</h3>
+        <p>Equip employees to recognize phishing, handle sensitive data safely, and build security-conscious habits that reduce your organization's human risk.</p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="security">
-    <div class="container">
-      <h2>Why Cybersecurity Matters More Than Ever</h2>
-      <p>
-        Small businesses, nonprofits, healthcare offices, and professional firms
-        are frequent targets because attackers know many organizations lack
-        strong protection, visibility, and response planning.
-      </p>
+<!-- ── WHY IT MATTERS ── -->
+<section class="security">
+  <div class="container">
+    <span class="section-eyebrow">Why It Matters</span>
+    <h2>Why Cybersecurity Matters More Than Ever</h2>
+    <p style="color:#9ca3af; max-width:58ch">
+      Small businesses, nonprofits, healthcare offices, and professional firms
+      are frequent targets because attackers know many organizations lack
+      strong protection, visibility, and response planning.
+    </p>
 
-      <div class="benefits-grid">
-        <div class="benefit-item">
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        </div>
+        <div>
           <h3>Reduce Ransomware Risk</h3>
-          <p>
-            Layered protection and stronger recovery planning help limit the
-            damage from one of today’s most disruptive threats.
-          </p>
+          <p>Layered protection and stronger recovery planning help limit the damage from one of today's most disruptive threats.</p>
         </div>
-
-        <div class="benefit-item">
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.1s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <div>
           <h3>Protect Accounts</h3>
-          <p>
-            Secure identities and logins to reduce the chance of account takeover,
-            privilege abuse, and unauthorized access.
-          </p>
+          <p>Secure identities and logins to reduce the chance of account takeover, privilege abuse, and unauthorized access.</p>
         </div>
-
-        <div class="benefit-item">
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.15s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </div>
+        <div>
           <h3>Improve User Safety</h3>
-          <p>
-            Better email and endpoint protection helps reduce successful phishing
-            attacks and risky user behavior.
-          </p>
+          <p>Better email and endpoint protection helps reduce successful phishing attacks and risky user behavior.</p>
         </div>
-
-        <div class="benefit-item">
+      </div>
+      <div class="why-card fade-up" style="transition-delay:0.2s">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div>
           <h3>Strengthen Business Resilience</h3>
-          <p>
-            Security is not just about blocking threats — it is about helping
-            your business recover and keep operating.
-          </p>
+          <p>Security is not just about blocking threats — it is about helping your business recover and keep operating.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="service-area">
-    <div class="container">
-      <h2>Common Threats We Help Address</h2>
-      <p class="section-intro">
-        Cybersecurity is most effective when it focuses on the attacks businesses
-        actually face in the real world.
-      </p>
+<!-- ── COMMON THREATS ── -->
+<section class="service-area">
+  <div class="container">
+    <span class="section-eyebrow">Real-World Threats</span>
+    <h2>Common Threats We Help Address</h2>
+    <p class="section-intro" style="color:#9ca3af">Cybersecurity is most effective when it focuses on the attacks businesses actually face in the real world.</p>
 
-      <div class="service-grid">
-        <div class="card">
-          <h3>Phishing Emails</h3>
-          <p>
-            Fraudulent messages designed to trick users into clicking, signing in,
-            or disclosing sensitive information.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Credential Theft</h3>
-          <p>
-            Stolen usernames, passwords, tokens, and login sessions that can lead
-            to account compromise.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Ransomware</h3>
-          <p>
-            Malware that encrypts systems and data, disrupts operations, and
-            often results in costly downtime.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Business Email Compromise</h3>
-          <p>
-            Attacks that impersonate executives, vendors, or staff to trick
-            organizations into sending money or information.
-          </p>
-        </div>
+    <div class="threat-grid">
+      <div class="threat-card fade-up">
+        <span class="threat-emoji">🎣</span>
+        <h3>Phishing Emails</h3>
+        <p>Fraudulent messages designed to trick users into clicking, signing in, or disclosing sensitive information.</p>
+      </div>
+      <div class="threat-card fade-up" style="transition-delay:0.1s">
+        <span class="threat-emoji">🔑</span>
+        <h3>Credential Theft</h3>
+        <p>Stolen usernames, passwords, tokens, and login sessions that can lead to account compromise.</p>
+      </div>
+      <div class="threat-card fade-up" style="transition-delay:0.15s">
+        <span class="threat-emoji">🔒</span>
+        <h3>Ransomware</h3>
+        <p>Malware that encrypts systems and data, disrupts operations, and often results in costly downtime.</p>
+      </div>
+      <div class="threat-card fade-up" style="transition-delay:0.2s">
+        <span class="threat-emoji">📧</span>
+        <h3>Business Email Compromise</h3>
+        <p>Attacks that impersonate executives, vendors, or staff to trick organizations into sending money or information.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="security cta-band">
-    <div class="container">
-      <h2>Not Sure Where Your Security Gaps Are?</h2>
-      <p>
-        CAER Technologies can help you evaluate your current environment,
-        identify weak points, and prioritize the protections that matter most.
-      </p>
-      <a href="/contact.html" class="btn-primary">Schedule a Cybersecurity Review</a>
-    </div>
-  </section>
+<!-- ── CTA ── -->
+<section class="cyber-cta">
+  <div class="container">
+    <h2>Not Sure Where Your Security Gaps Are?</h2>
+    <p>
+      CAER Technologies can help you evaluate your current environment,
+      identify weak points, and prioritize the protections that matter most.
+    </p>
+    <a href="/contact.html" class="btn-primary">Schedule a Cybersecurity Review</a>
+  </div>
+</section>
 
-<!-- replaces your <footer>...</footer> block -->
 <div id="site-footer"></div>
 
-  <!-- <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3>CAER Technologies</h3>
-        <p>
-          Managed IT Services and cybersecurity-focused support for businesses
-          across the Texas Hill Country.
-        </p>
-      </div>
+<script src="/script.js"></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="managed-it-services.html">Managed IT</a></li>
-          <li><a href="cybersecurity.html">Cybersecurity</a></li>
-          <li><a href="backup.html">Backup</a></li>
-          <li><a href="voip.html">VoIP</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <p>Bandera, Texas</p>
-        <p>830-510-3700</p>
-        <p>support@consultcaer.com</p>
-      </div>
-    </div>
-  </footer>  -->
-
-  <script src="/script.js"></script>
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

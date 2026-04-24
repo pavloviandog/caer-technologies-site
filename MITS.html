@@ -8,7 +8,7 @@
 <meta property="og:title" content="Managed IT Services | CAER Technologies">
 <meta property="og:description" content="Reliable IT support, cybersecurity, backup, VoIP, and network solutions for businesses across the Texas Hill Country.">
 <meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-<meta property="og:url" content="https://consultcaer.com/managed-it-services.html">
+<meta property="og:url" content="https://consultcaer.com/MITS.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CAER Technologies">
 <meta name="twitter:card" content="summary_large_image">
@@ -32,11 +32,320 @@ gtag('config', 'AW-17684048791');
 </script>
 <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
 <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq048c677e2940371131fad7a83985adcde9ee85521ed22a78bb23abcd4c44c0cc" defer></script>
+
+<style>
+  /* ── MITS Page Enhancements ── */
+
+  /* Hero glow accent */
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(47,128,237,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(47,128,237,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* ── Enhanced service cards ── */
+  .mits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .mits-card {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+  }
+
+  .mits-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2f80ed, #56ccf2);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .mits-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(47,128,237,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(47,128,237,0.15);
+  }
+
+  .mits-card:hover::before {
+    opacity: 1;
+  }
+
+  .mits-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(47,128,237,0.12);
+    border: 1px solid rgba(47,128,237,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: background 0.25s ease;
+  }
+
+  .mits-card:hover .mits-card-icon {
+    background: rgba(47,128,237,0.2);
+  }
+
+  .mits-card-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: #56ccf2;
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .mits-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .mits-card p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: #9ca3af;
+  }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    background: linear-gradient(135deg, #0d1117, #111827);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #56ccf2, #2f80ed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .stat-divider {
+    border-left: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ── Why section enhancements ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: border-color 0.2s ease;
+  }
+
+  .why-card:hover {
+    border-color: rgba(47,128,237,0.25);
+  }
+
+  .why-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(47,128,237,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #56ccf2;
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+  }
+
+  .why-card p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+
+  /* ── Who We Support - industry cards ── */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .industry-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .industry-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(47,128,237,0.25);
+  }
+
+  .industry-emoji {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .industry-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+  }
+
+  .industry-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.55;
+  }
+
+  /* ── Section heading style ── */
+  .section-eyebrow {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    background: rgba(47,128,237,0.1);
+    border: 1px solid rgba(47,128,237,0.2);
+    border-radius: 999px;
+    color: #93c5fd;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── CTA band ── */
+  .mits-cta {
+    background: linear-gradient(135deg, #0d1117 0%, #111827 100%);
+    border-top: 1px solid rgba(47,128,237,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mits-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(47,128,237,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .mits-cta .container {
+    position: relative;
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  .mits-cta h2 {
+    margin-bottom: 1rem;
+  }
+
+  .mits-cta p {
+    max-width: 55ch;
+    margin: 0 auto 2rem;
+    color: #9ca3af;
+  }
+
+  /* ── Scroll-in animation ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .stat-divider:nth-child(3) { border-left: none; }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <div id="site-header"></div>
 
+<!-- ── HERO ── -->
 <section class="hero page-hero">
 <div class="container hero-content">
 <p class="eyebrow">Managed IT Services</p>
@@ -47,96 +356,205 @@ oversight so your team stays productive and your systems stay secure.
 </p>
 <div class="hero-buttons">
 <a href="/contact.html" class="btn-primary">Schedule a Consultation</a>
+<a href="/risk-check.html" class="btn-secondary">Take the Risk Assessment</a>
 </div>
 </div>
 </section>
 
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+<div class="container">
+<div class="stats-grid">
+  <div class="stat-item fade-up">
+    <span class="stat-number">24/7</span>
+    <span class="stat-label">System Monitoring</span>
+  </div>
+  <div class="stat-item stat-divider fade-up" style="transition-delay:0.1s">
+    <span class="stat-number">&lt;1hr</span>
+    <span class="stat-label">Avg. Response Time</span>
+  </div>
+  <div class="stat-item stat-divider fade-up" style="transition-delay:0.2s">
+    <span class="stat-number">100%</span>
+    <span class="stat-label">Texas Hill Country Focused</span>
+  </div>
+  <div class="stat-item stat-divider fade-up" style="transition-delay:0.3s">
+    <span class="stat-number">Flat</span>
+    <span class="stat-label">Rate Pricing — No Surprises</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ── SERVICES GRID ── -->
 <section class="services">
 <div class="container">
+<span class="section-eyebrow">What's Included</span>
 <h2>What Managed IT Services Can Include</h2>
-<div class="service-grid">
-<div class="card">
-<h3>Helpdesk Support</h3>
-<p>Responsive support for your team when technology issues arise — remote and on-site assistance for day-to-day problems.</p>
-</div>
-<div class="card">
-<h3>Proactive Monitoring</h3>
-<p>Ongoing monitoring of your systems, devices, and network to catch issues before they become outages.</p>
-</div>
-<div class="card">
-<h3>Patch Management</h3>
-<p>Keep operating systems, software, and firmware up to date to reduce security vulnerabilities and improve stability.</p>
-</div>
-<div class="card">
-<h3>Device Management</h3>
-<p>Manage and secure laptops, desktops, and mobile devices across your organization from a centralized platform.</p>
-</div>
-<div class="card">
-<h3>Vendor Coordination</h3>
-<p>Act as your technology point of contact with software vendors, ISPs, and hardware providers so you don't have to.</p>
-</div>
-<div class="card">
-<h3>IT Planning &amp; Budgeting</h3>
-<p>Help you make smarter technology decisions with planning support, lifecycle management, and budget guidance.</p>
-</div>
+<p style="color:#9ca3af; max-width:60ch; margin-bottom:0">A comprehensive layer of support, monitoring, and management — so technology works for your business, not against it.</p>
+
+<div class="mits-grid">
+
+  <!-- Card 1 -->
+  <div class="mits-card fade-up">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+    </div>
+    <h3>Helpdesk Support</h3>
+    <p>Responsive support for your team when technology issues arise — remote and on-site assistance for day-to-day problems.</p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="mits-card fade-up" style="transition-delay:0.05s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+    </div>
+    <h3>Proactive Monitoring</h3>
+    <p>Ongoing monitoring of your systems, devices, and network to catch issues before they become outages.</p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="mits-card fade-up" style="transition-delay:0.1s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+    </div>
+    <h3>Patch Management</h3>
+    <p>Keep operating systems, software, and firmware up to date to reduce security vulnerabilities and improve stability.</p>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="mits-card fade-up" style="transition-delay:0.15s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    </div>
+    <h3>Device Management</h3>
+    <p>Manage and secure laptops, desktops, and mobile devices across your organization from a centralized platform.</p>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="mits-card fade-up" style="transition-delay:0.2s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <h3>Vendor Coordination</h3>
+    <p>Act as your technology point of contact with software vendors, ISPs, and hardware providers so you don't have to.</p>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="mits-card fade-up" style="transition-delay:0.25s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+    </div>
+    <h3>IT Planning &amp; Budgeting</h3>
+    <p>Help you make smarter technology decisions with planning support, lifecycle management, and budget guidance.</p>
+  </div>
+
+  <!-- Card 7 — NEW -->
+  <div class="mits-card fade-up" style="transition-delay:0.3s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+    </div>
+    <h3>Cloud &amp; Microsoft 365 Management</h3>
+    <p>Keep your cloud environment running smoothly — user accounts, licensing, email, Teams, and SharePoint managed and secured.</p>
+  </div>
+
+  <!-- Card 8 — NEW -->
+  <div class="mits-card fade-up" style="transition-delay:0.35s">
+    <div class="mits-card-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    </div>
+    <h3>Security Awareness &amp; Training</h3>
+    <p>Equip your team to recognize phishing, handle sensitive data properly, and follow safe practices that reduce your organization's risk.</p>
+  </div>
+
 </div>
 </div>
 </section>
 
+<!-- ── WHY MANAGED IT ── -->
 <section class="security">
 <div class="container">
+<span class="section-eyebrow">Why It Matters</span>
 <h2>Why Managed IT Makes Sense for Small Business</h2>
-<p>
+<p style="color:#9ca3af; max-width:58ch">
 Most small businesses don't need a full-time IT department — they need reliable,
 experienced support that scales with them. CAER Technologies fills that role.
 </p>
-<div class="benefits-grid">
-<div class="benefit-item">
-<h3>Predictable Costs</h3>
-<p>Flat-rate managed services mean no surprise bills when something breaks — support is included.</p>
-</div>
-<div class="benefit-item">
-<h3>Faster Response</h3>
-<p>When issues happen, you have a team that knows your environment and can act quickly.</p>
-</div>
-<div class="benefit-item">
-<h3>Reduced Downtime</h3>
-<p>Proactive monitoring and maintenance catches problems before they interrupt your business.</p>
-</div>
-<div class="benefit-item">
-<h3>Security Built In</h3>
-<p>Managed IT from CAER includes a security-first approach — not security as an afterthought.</p>
-</div>
+
+<div class="why-grid">
+  <div class="why-card fade-up">
+    <div class="why-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <div>
+      <h3>Predictable Costs</h3>
+      <p>Flat-rate managed services mean no surprise bills when something breaks — support is included.</p>
+    </div>
+  </div>
+  <div class="why-card fade-up" style="transition-delay:0.1s">
+    <div class="why-icon">
+      <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+    </div>
+    <div>
+      <h3>Faster Response</h3>
+      <p>When issues happen, you have a team that knows your environment and can act quickly.</p>
+    </div>
+  </div>
+  <div class="why-card fade-up" style="transition-delay:0.15s">
+    <div class="why-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    </div>
+    <div>
+      <h3>Reduced Downtime</h3>
+      <p>Proactive monitoring and maintenance catches problems before they interrupt your business.</p>
+    </div>
+  </div>
+  <div class="why-card fade-up" style="transition-delay:0.2s">
+    <div class="why-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    </div>
+    <div>
+      <h3>Security Built In</h3>
+      <p>Managed IT from CAER includes a security-first approach — not security as an afterthought.</p>
+    </div>
+  </div>
 </div>
 </div>
 </section>
 
+<!-- ── WHO WE SUPPORT ── -->
 <section class="service-area">
 <div class="container">
+<span class="section-eyebrow">Who We Serve</span>
 <h2>Who We Support</h2>
-<p class="section-intro">CAER Technologies works with a range of organizations across the Texas Hill Country.</p>
-<div class="service-grid">
-<div class="card">
-<h3>Small Businesses</h3>
-<p>Retail, professional services, hospitality, and growing companies that need reliable IT without a full-time hire.</p>
-</div>
-<div class="card">
-<h3>Healthcare Offices</h3>
-<p>Medical, dental, and behavioral health practices that need HIPAA-aware IT support and secure systems.</p>
-</div>
-<div class="card">
-<h3>Nonprofits</h3>
-<p>Mission-driven organizations that need cost-effective IT support and modern tools to serve their communities.</p>
-</div>
-<div class="card">
-<h3>Professional Services</h3>
-<p>Law firms, accounting offices, consultancies, and agencies that depend on reliable systems and data security.</p>
-</div>
+<p class="section-intro" style="color:#9ca3af">CAER Technologies works with a range of organizations across the Texas Hill Country.</p>
+
+<div class="industry-grid">
+  <div class="industry-card fade-up">
+    <span class="industry-emoji">🏪</span>
+    <h3>Small Businesses</h3>
+    <p>Retail, professional services, hospitality, and growing companies that need reliable IT without a full-time hire.</p>
+  </div>
+  <div class="industry-card fade-up" style="transition-delay:0.1s">
+    <span class="industry-emoji">🏥</span>
+    <h3>Healthcare Offices</h3>
+    <p>Medical, dental, and behavioral health practices that need HIPAA-aware IT support and secure systems.</p>
+  </div>
+  <div class="industry-card fade-up" style="transition-delay:0.15s">
+    <span class="industry-emoji">🤝</span>
+    <h3>Nonprofits</h3>
+    <p>Mission-driven organizations that need cost-effective IT support and modern tools to serve their communities.</p>
+  </div>
+  <div class="industry-card fade-up" style="transition-delay:0.2s">
+    <span class="industry-emoji">⚖️</span>
+    <h3>Professional Services</h3>
+    <p>Law firms, accounting offices, consultancies, and agencies that depend on reliable systems and data security.</p>
+  </div>
 </div>
 </div>
 </section>
 
-<section class="security cta-band">
+<!-- ── CTA ── -->
+<section class="mits-cta">
 <div class="container">
 <h2>Ready to Stop Reacting to IT Problems?</h2>
 <p>
@@ -150,5 +568,18 @@ Let's talk about what managed support would look like for your organization.
 <div id="site-footer"></div>
 
 <script src="/script.js"></script>
+<script>
+  // Scroll-triggered fade-up animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

@@ -1,33 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://consultcaer.com/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/managed-it-services</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/cybersecurity</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/backup-disaster-recovery</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/voip-phone-systems</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/network-infrastructure</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://consultcaer.com/consulting</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://consultcaer.com/cloud</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://consultcaer.com/compliance</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://consultcaer.com/security</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://consultcaer.com/email-protection</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://consultcaer.com/pricing</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/industries-served</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/about</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://consultcaer.com/contact</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://consultcaer.com/blog/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

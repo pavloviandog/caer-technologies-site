@@ -617,6 +617,102 @@ footer p{
   color:var(--text-soft);
 }
 
+/* ── Risk Assessment Section ── */
+
+.risk-check{
+  background:linear-gradient(135deg, #0d1117 0%, #111827 100%);
+  border-top:1px solid rgba(255,255,255,0.07);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:4rem 0;
+  color:#f5f7fb;
+}
+
+.risk-check-inner{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.risk-check-eyebrow{
+  display:inline-block;
+  margin-bottom:0.85rem;
+  padding:0.3rem 0.8rem;
+  background:rgba(47,128,237,0.12);
+  border:1px solid rgba(47,128,237,0.3);
+  border-radius:999px;
+  color:#c8deff;
+  font-size:0.82rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+.risk-check h2{
+  margin:0 0 1rem;
+  font-size:clamp(1.5rem, 3vw, 2.2rem);
+  line-height:1.15;
+  letter-spacing:-0.02em;
+}
+
+.risk-check p{
+  color:#9ca3af;
+  margin:0 0 1.25rem;
+  line-height:1.65;
+}
+
+.risk-check-points{
+  list-style:none;
+  padding:0;
+  margin:0 0 1.75rem;
+  display:grid;
+  gap:0.5rem;
+}
+
+.risk-check-points li{
+  color:#c8cbd2;
+  font-size:0.95rem;
+  padding-left:1.4rem;
+  position:relative;
+}
+
+.risk-check-points li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:#2f80ed;
+  font-weight:700;
+}
+
+.risk-check-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:1.75rem;
+  display:flex;
+  flex-direction:column;
+  gap:0.75rem;
+}
+
+.risk-tier{
+  padding:0.85rem 1.1rem;
+  border-radius:12px;
+  font-weight:700;
+  font-size:0.95rem;
+  border:1px solid transparent;
+}
+
+.risk-tier--low  { background:rgba(39,174,96,0.12);  border-color:rgba(39,174,96,0.25);  color:#b8f0cb; }
+.risk-tier--mid  { background:rgba(242,201,76,0.12); border-color:rgba(242,201,76,0.25); color:#f9e49a; }
+.risk-tier--high { background:rgba(235,87,87,0.12);  border-color:rgba(235,87,87,0.25);  color:#ffc5c5; }
+
+.risk-check-note{
+  font-size:0.85rem;
+  color:#6b7280;
+  margin:0.25rem 0 0;
+  text-align:center;
+}
+
 /* Responsive */
 @media (max-width:900px){
   .menu-toggle{

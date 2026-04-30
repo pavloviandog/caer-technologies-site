@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100" width="100" height="100">
+  <title>BIMI Logo</title>
+  <defs>
+    <radialGradient id="coinGrad" cx="38%" cy="32%" r="70%">
+      <stop offset="0%"   stop-color="#f4f4f4"/>
+      <stop offset="25%"  stop-color="#d8d8d8"/>
+      <stop offset="65%"  stop-color="#8a8a8a"/>
+      <stop offset="100%" stop-color="#505050"/>
+    </radialGradient>
+    <radialGradient id="faceGrad" cx="42%" cy="36%" r="62%">
+      <stop offset="0%"   stop-color="#eaeaea"/>
+      <stop offset="45%"  stop-color="#b0b0b0"/>
+      <stop offset="100%" stop-color="#707070"/>
+    </radialGradient>
+    <linearGradient id="iconGrad" x1="30%" y1="20%" x2="70%" y2="80%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="50%"  stop-color="#cccccc"/>
+      <stop offset="100%" stop-color="#888888"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer coin body -->
+  <circle cx="50" cy="50" r="49" fill="url(#coinGrad)"/>
+
+  <!-- Rim highlight top-left -->
+  <circle cx="50" cy="50" r="48" fill="none"
+          stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.55"
+          stroke-dasharray="150 151" stroke-dashoffset="75"/>
+
+  <!-- Rim shadow bottom-right -->
+  <circle cx="50" cy="50" r="48" fill="none"
+          stroke="#222222" stroke-width="1" stroke-opacity="0.25"
+          stroke-dasharray="150 151" stroke-dashoffset="-75"/>
+
+  <!-- Inner coin face -->
+  <circle cx="50" cy="50" r="42" fill="url(#faceGrad)"/>
+
+  <!-- Inner bevel highlight -->
+  <circle cx="50" cy="50" r="42" fill="none"
+          stroke="#ffffff" stroke-width="1" stroke-opacity="0.5"
+          stroke-dasharray="132 132" stroke-dashoffset="66"/>
+
+  <!--
+    Power button rotated 90° CW: line at 3-o'clock (right), arc opens right (C shape).
+    Arc runs from 30° to 330° (SVG coords, clockwise), radius 17, centered at 50,50.
+    30°:  x=64.72, y=58.5
+    330°: x=64.72, y=41.5
+    Large arc flag=1, sweep=1
+  -->
+
+  <!-- The C-shaped arc -->
+  <path d="M 64.72 58.5 A 17 17 0 1 1 64.72 41.5"
+        fill="none"
+        stroke="url(#iconGrad)"
+        stroke-width="6.5"
+        stroke-linecap="round"/>
+
+  <!-- The power line: horizontal, pointing left from the gap into center -->
+  <line x1="67" y1="50" x2="50" y2="50"
+        stroke="url(#iconGrad)"
+        stroke-width="6.5"
+        stroke-linecap="round"/>
+
+</svg>

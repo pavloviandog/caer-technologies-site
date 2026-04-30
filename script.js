@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Inject star field into any .hero section
   const hero = document.querySelector(".hero");
   if (hero) {
-    fetch("/assets/hero-stars.svg")
+    fetch("assets/hero-stars.svg")
       .then(r => r.text())
       .then(svg => hero.insertAdjacentHTML("afterbegin", svg))
       .catch(err => console.error("Could not load hero stars:", err));

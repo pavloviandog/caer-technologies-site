@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ransomware: What It Is & How It Can Shut Down Your Business | CAER Technologies</title>
+  <meta name="description" content="Understand how ransomware works, why Texas small businesses are targeted, and how CAER Technologies keeps your data safe and recoverable." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    :root { --gold:#c9972c; --gold-light:#e8b84b; --gold-dim:rgba(201,151,44,0.12); --gold-border:rgba(201,151,44,0.3); }
+    .post-hero { position:relative; padding:90px 0 70px; text-align:center; background:#0a1628; overflow:hidden; }
+    .post-hero-content { position:relative; z-index:1; }
+    .post-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--gold-dim); border:1px solid var(--gold-border); border-radius:999px; color:var(--gold-light); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; margin-bottom:18px; }
+    .post-hero h1 { font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2; margin-bottom:16px; max-width:780px; margin-left:auto; margin-right:auto; }
+    .post-hero h1 span { color:var(--gold-light); }
+    .post-meta { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; color:var(--text-muted); font-size:13px; margin-top:16px; }
+    .post-layout { display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start; padding:56px 0 90px; }
+    .post-body { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:40px 44px; line-height:1.75; font-size:1rem; color:var(--text-soft); }
+    .post-body h2 { font-size:1.4rem; color:var(--text); margin:36px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--gold-border); }
+    .post-body h2:first-child { margin-top:0; }
+    .post-body h3 { font-size:1.1rem; color:var(--text); margin:24px 0 10px; }
+    .post-body p { margin-bottom:18px; }
+    .post-body a { color:var(--gold-light); text-decoration:underline; text-underline-offset:3px; }
+    .post-body a:hover { color:var(--gold); }
+    .post-body ul, .post-body ol { margin:0 0 18px 0; padding-left:22px; }
+    .post-body li { margin-bottom:8px; }
+    .callout { background:var(--gold-dim); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text); font-size:.95rem; }
+    .callout strong { color:var(--gold-light); }
+    .warning-box { background:rgba(235,87,87,0.08); border-left:4px solid #eb5757; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text-soft); font-size:.95rem; }
+    .caer-box { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); border-radius:var(--radius); padding:28px 32px; margin:36px 0 0; }
+    .caer-box h2 { color:var(--gold-light) !important; border-bottom-color:var(--gold-border) !important; }
+    .caer-box ul { list-style:none; padding:0; }
+    .caer-box li { padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); color:var(--text-soft); padding-left:24px; position:relative; }
+    .caer-box li::before { content:"✓"; position:absolute; left:0; color:var(--gold-light); font-weight:700; }
+    .caer-box li:last-child { border-bottom:none; }
+    .post-cta { margin-top:28px; text-align:center; }
+    .btn-gold { display:inline-block; padding:13px 28px; border-radius:8px; font-weight:700; background:var(--gold); color:#0a0a0a; transition:all .2s ease; text-decoration:none !important; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); color:#0a0a0a !important; }
+    .post-sidebar { position:sticky; top:90px; }
+    .sidebar-widget { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:22px; margin-bottom:20px; }
+    .sidebar-widget h3 { font-size:.95rem; margin-bottom:14px; color:var(--text); display:flex; align-items:center; gap:8px; }
+    .sidebar-widget h3::before { content:""; display:inline-block; width:3px; height:14px; background:var(--gold); border-radius:2px; }
+    .sidebar-cat-list { list-style:none; padding:0; margin:0; }
+    .sidebar-cat-list li { border-bottom:1px solid var(--card-border); }
+    .sidebar-cat-list li:last-child { border-bottom:none; }
+    .sidebar-cat-list a { display:block; padding:9px 0; color:var(--text-soft); font-size:13px; transition:color .2s; text-decoration:none; }
+    .sidebar-cat-list a:hover { color:var(--gold-light); }
+    .sidebar-cat-list a.current { color:var(--gold-light); font-weight:700; }
+    .sidebar-cta { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta h3::before { background:var(--gold-light); }
+    .sidebar-cta p { color:rgba(255,255,255,.7); font-size:13px; margin-bottom:14px; }
+    .references { margin-top:48px; padding-top:24px; border-top:1px solid var(--card-border); font-size:.82rem; color:var(--text-muted); }
+    .references h4 { margin-bottom:10px; font-size:.85rem; }
+    .references ol { padding-left:18px; }
+    .references li { margin-bottom:5px; }
+    .references a { color:var(--text-muted); }
+    .references a:hover { color:var(--gold-light); }
+    @media(max-width:900px){ .post-layout{grid-template-columns:1fr;} .post-sidebar{position:static;} .post-body{padding:28px 22px;} }
+  </style>
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <section class="post-hero">
+    <div class="post-hero-content container">
+      <div class="post-eyebrow">🔒 Cybersecurity Threat Series</div>
+      <h1>Ransomware: <span>The Attack That Locks You Out of Your Own Business</span></h1>
+      <div class="post-meta">
+        <span>📅 May 2025</span>
+        <span>⏱ 6 min read</span>
+        <span>🔒 Security</span>
+        <span>👤 Beginner Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <article class="post-body">
+
+        <h2>What Is Ransomware?</h2>
+        <p>Ransomware is malicious software that breaks into your computer or network, encrypts all of your files — making them completely unreadable — and then demands a ransom payment (usually in cryptocurrency) in exchange for the key to unlock them.</p>
+
+        <p>It's not subtle. One morning you come in, turn on your computer, and instead of your desktop you see a message telling you your files are locked and you have 48–72 hours to pay or they're gone forever. Sometimes the attackers also threaten to publish your sensitive data publicly if you don't pay.</p>
+
+        <div class="callout">
+          <strong>By the numbers:</strong> The average ransomware payment from small businesses is over $200,000 — and that doesn't include downtime, lost productivity, or recovery costs, which often exceed the ransom itself. (<a href="https://www.coveware.com/ransomware-report" target="_blank" rel="noopener">Coveware Q4 2023 Report</a>)
+        </div>
+
+        <h2>How Does Ransomware Get In?</h2>
+        <p>Ransomware rarely appears out of nowhere. It almost always enters through a door that was left open — usually one of these:</p>
+
+        <h3>Phishing Emails</h3>
+        <p>The most common entry point. An employee opens an attachment or clicks a link, a small piece of malware installs silently, and the ransomware spreads across your network over the following hours or days before it activates.</p>
+
+        <h3>Weak or Stolen Passwords</h3>
+        <p>Attackers log in to your Remote Desktop Protocol (RDP) or VPN using brute-forced or stolen credentials, then manually install ransomware once inside. This is especially common for businesses with employees who work remotely.</p>
+
+        <h3>Unpatched Software</h3>
+        <p>Outdated Windows systems, old versions of software, or unpatched network equipment have known vulnerabilities that ransomware groups actively scan for and exploit. If your systems aren't updated, you're a target.</p>
+
+        <h3>Malicious Downloads</h3>
+        <p>An employee downloads what looks like a legitimate piece of software — a cracked program, a fake update notification, or a file from an unofficial source — that's actually ransomware in disguise.</p>
+
+        <h2>What Happens During an Attack?</h2>
+        <p>Modern ransomware attacks follow a predictable pattern:</p>
+        <ol>
+          <li><strong>Entry:</strong> The malware gets onto one machine through one of the methods above</li>
+          <li><strong>Spread:</strong> It quietly moves through your network, mapping out connected drives, servers, and backups</li>
+          <li><strong>Disable defenses:</strong> It attempts to disable antivirus and delete backup copies it can reach</li>
+          <li><strong>Encrypt:</strong> Everything gets locked — customer files, QuickBooks data, employee records, emails</li>
+          <li><strong>Ransom note:</strong> A message appears demanding payment with a countdown timer</li>
+        </ol>
+
+        <div class="warning-box">
+          <strong>Important:</strong> Paying the ransom does not guarantee you get your files back. The <a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/ransomware" target="_blank" rel="noopener">FBI recommends against paying</a>, as it funds criminal organizations and doesn't guarantee data recovery.
+        </div>
+
+        <h2>How Does This Hurt Your Hill Country Business?</h2>
+        <p>Ransomware doesn't just cost money — it stops your business cold:</p>
+        <ul>
+          <li>You can't access customer records, invoices, or operational files</li>
+          <li>Staff can't work — every hour of downtime costs you in lost productivity and revenue</li>
+          <li>If patient or customer data is encrypted or stolen, you may face HIPAA or PCI compliance violations</li>
+          <li>Recovery without a clean backup can take days to weeks</li>
+          <li>Reputation damage when clients learn their data may have been exposed</li>
+        </ul>
+
+        <p>The <a href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener">CISA's StopRansomware.gov</a> resource is one of the best free references for understanding the current threat landscape.</p>
+
+        <div class="caer-box">
+          <h2>How CAER Technologies Protects You</h2>
+          <p style="color:rgba(255,255,255,.7);margin-bottom:16px;">Our approach to ransomware is built around one principle: if it gets in, we make sure it can't stay — and if data is lost, we make sure it can be recovered fast.</p>
+          <ul>
+            <li>Managed backups with offsite and cloud copies that ransomware can't reach or delete</li>
+            <li>Endpoint Detection & Response (EDR) — advanced tools that catch ransomware behavior before it spreads</li>
+            <li>Patch management to keep Windows, software, and firmware up to date and free of known vulnerabilities</li>
+            <li>Network segmentation so ransomware on one machine can't easily jump to your entire network</li>
+            <li>Email filtering to block the phishing emails that deliver most ransomware payloads</li>
+            <li>Disaster recovery planning and tested restore procedures so we know exactly what to do if the worst happens</li>
+          </ul>
+          <div class="post-cta">
+            <a href="../../contact.html" class="btn-gold">Schedule a Ransomware Readiness Review</a>
+          </div>
+        </div>
+
+        <div class="references">
+          <h4>References</h4>
+          <ol>
+            <li><a href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener">CISA — StopRansomware.gov</a></li>
+            <li><a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-scams-and-crimes/ransomware" target="_blank" rel="noopener">FBI — Ransomware Guidance</a></li>
+            <li><a href="https://www.coveware.com/ransomware-report" target="_blank" rel="noopener">Coveware — Quarterly Ransomware Report</a></li>
+            <li><a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener">FBI IC3 — 2023 Internet Crime Report</a></li>
+          </ol>
+        </div>
+
+      </article>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-widget sidebar-cta">
+          <h3>Think You've Been Hit?</h3>
+          <p>Do not turn off your computer. Call us immediately — fast action limits the damage.</p>
+          <a href="../../contact.html" class="btn-gold" style="display:block;text-align:center;">Call CAER Now</a>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Threat Series</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="phishing-emails.html">🎣 Phishing Emails</a></li>
+            <li><a href="credential-theft.html">🔑 Credential Theft</a></li>
+            <li><a href="ransomware.html" class="current">🔒 Ransomware</a></li>
+            <li><a href="business-email-compromise.html">📧 Business Email Compromise</a></li>
+            <li><a href="power-outage-disaster-recovery.html">⚡ Power Outage & Disaster Recovery</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+  <script src="../../script.js" defer></script>
+</body>
+</html>

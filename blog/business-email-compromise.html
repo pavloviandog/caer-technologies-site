@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Email Compromise: The Scam That Costs Businesses Billions | CAER Technologies</title>
+  <meta name="description" content="Learn how Business Email Compromise (BEC) works, how it targets Texas small businesses, and how CAER Technologies helps you avoid it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    :root { --gold:#c9972c; --gold-light:#e8b84b; --gold-dim:rgba(201,151,44,0.12); --gold-border:rgba(201,151,44,0.3); }
+    .post-hero { position:relative; padding:90px 0 70px; text-align:center; background:#0a1628; overflow:hidden; }
+    .post-hero-content { position:relative; z-index:1; }
+    .post-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--gold-dim); border:1px solid var(--gold-border); border-radius:999px; color:var(--gold-light); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; margin-bottom:18px; }
+    .post-hero h1 { font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2; margin-bottom:16px; max-width:780px; margin-left:auto; margin-right:auto; }
+    .post-hero h1 span { color:var(--gold-light); }
+    .post-meta { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; color:var(--text-muted); font-size:13px; margin-top:16px; }
+    .post-layout { display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start; padding:56px 0 90px; }
+    .post-body { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:40px 44px; line-height:1.75; font-size:1rem; color:var(--text-soft); }
+    .post-body h2 { font-size:1.4rem; color:var(--text); margin:36px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--gold-border); }
+    .post-body h2:first-child { margin-top:0; }
+    .post-body h3 { font-size:1.1rem; color:var(--text); margin:24px 0 10px; }
+    .post-body p { margin-bottom:18px; }
+    .post-body a { color:var(--gold-light); text-decoration:underline; text-underline-offset:3px; }
+    .post-body a:hover { color:var(--gold); }
+    .post-body ul, .post-body ol { margin:0 0 18px 0; padding-left:22px; }
+    .post-body li { margin-bottom:8px; }
+    .callout { background:var(--gold-dim); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text); font-size:.95rem; }
+    .callout strong { color:var(--gold-light); }
+    .warning-box { background:rgba(235,87,87,0.08); border-left:4px solid #eb5757; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text-soft); font-size:.95rem; }
+    .example-email { background:#12181f; border:1px solid var(--card-border); border-radius:8px; padding:20px 24px; margin:24px 0; font-size:.9rem; }
+    .example-email .email-header { border-bottom:1px solid var(--card-border); padding-bottom:12px; margin-bottom:12px; color:var(--text-muted); font-size:.85rem; }
+    .example-email .email-header span { color:var(--text-soft); }
+    .example-email .email-body { color:var(--text-soft); line-height:1.7; }
+    .email-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#eb5757; background:rgba(235,87,87,0.1); border:1px solid rgba(235,87,87,0.25); border-radius:4px; padding:2px 8px; margin-bottom:12px; display:inline-block; }
+    .caer-box { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); border-radius:var(--radius); padding:28px 32px; margin:36px 0 0; }
+    .caer-box h2 { color:var(--gold-light) !important; border-bottom-color:var(--gold-border) !important; }
+    .caer-box ul { list-style:none; padding:0; }
+    .caer-box li { padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); color:var(--text-soft); padding-left:24px; position:relative; }
+    .caer-box li::before { content:"✓"; position:absolute; left:0; color:var(--gold-light); font-weight:700; }
+    .caer-box li:last-child { border-bottom:none; }
+    .post-cta { margin-top:28px; text-align:center; }
+    .btn-gold { display:inline-block; padding:13px 28px; border-radius:8px; font-weight:700; background:var(--gold); color:#0a0a0a; transition:all .2s ease; text-decoration:none !important; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); color:#0a0a0a !important; }
+    .post-sidebar { position:sticky; top:90px; }
+    .sidebar-widget { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:22px; margin-bottom:20px; }
+    .sidebar-widget h3 { font-size:.95rem; margin-bottom:14px; color:var(--text); display:flex; align-items:center; gap:8px; }
+    .sidebar-widget h3::before { content:""; display:inline-block; width:3px; height:14px; background:var(--gold); border-radius:2px; }
+    .sidebar-cat-list { list-style:none; padding:0; margin:0; }
+    .sidebar-cat-list li { border-bottom:1px solid var(--card-border); }
+    .sidebar-cat-list li:last-child { border-bottom:none; }
+    .sidebar-cat-list a { display:block; padding:9px 0; color:var(--text-soft); font-size:13px; transition:color .2s; text-decoration:none; }
+    .sidebar-cat-list a:hover { color:var(--gold-light); }
+    .sidebar-cat-list a.current { color:var(--gold-light); font-weight:700; }
+    .sidebar-cta { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta h3::before { background:var(--gold-light); }
+    .sidebar-cta p { color:rgba(255,255,255,.7); font-size:13px; margin-bottom:14px; }
+    .references { margin-top:48px; padding-top:24px; border-top:1px solid var(--card-border); font-size:.82rem; color:var(--text-muted); }
+    .references h4 { margin-bottom:10px; font-size:.85rem; }
+    .references ol { padding-left:18px; }
+    .references li { margin-bottom:5px; }
+    .references a { color:var(--text-muted); }
+    .references a:hover { color:var(--gold-light); }
+    @media(max-width:900px){ .post-layout{grid-template-columns:1fr;} .post-sidebar{position:static;} .post-body{padding:28px 22px;} }
+  </style>
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <section class="post-hero">
+    <div class="post-hero-content container">
+      <div class="post-eyebrow">📧 Cybersecurity Threat Series</div>
+      <h1>Business Email Compromise: <span>The Scam That Costs Billions Every Year</span></h1>
+      <div class="post-meta">
+        <span>📅 May 2025</span>
+        <span>⏱ 6 min read</span>
+        <span>🔒 Security</span>
+        <span>👤 Beginner Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <article class="post-body">
+
+        <h2>What Is Business Email Compromise?</h2>
+        <p>Business Email Compromise — BEC for short — is a scam where an attacker impersonates someone you trust (your boss, a vendor, a lawyer, or a bank) and manipulates you or your staff into sending money or sensitive information to the wrong place.</p>
+
+        <p>What makes BEC so dangerous is that there's often no malware involved, no virus to detect, and no obvious red flag. It's pure social engineering — and it works.</p>
+
+        <div class="callout">
+          <strong>Staggering numbers:</strong> The FBI reported BEC caused over <strong>$2.9 billion</strong> in losses in 2023 alone — making it the single costliest cybercrime category in the United States. (<a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener">FBI IC3 2023 Report</a>)
+        </div>
+
+        <h2>How Does It Work?</h2>
+        <p>Attackers invest real time researching your business before striking. They look at your website, LinkedIn, public records, and sometimes get into your email first to watch how you communicate. Then they strike at exactly the right moment.</p>
+
+        <h3>Common BEC Scenarios</h3>
+
+        <h3>The Fake CEO Wire Transfer</h3>
+        <p>An employee in accounting gets an email that appears to be from the owner or CEO asking for an urgent wire transfer to close a deal or handle an emergency. The email looks legitimate. The request feels real. The money leaves the account before anyone catches on.</p>
+
+        <div class="example-email">
+          <div class="email-label">⚠ Example of a BEC Email</div>
+          <div class="email-header">
+            <div><strong>From:</strong> <span>Chris Anderson &lt;chris.anderson@consultcaer-llc.com&gt;</span> <em style="color:#eb5757;font-size:.8rem;">(notice the fake domain)</em></div>
+            <div><strong>To:</strong> <span>Office Manager</span></div>
+            <div><strong>Subject:</strong> <span>Urgent — Wire Transfer Needed Today</span></div>
+          </div>
+          <div class="email-body">
+            Hey — I'm in a meeting and can't talk. I need you to wire $14,500 to a new vendor to close a deal before end of day. I'll explain everything later. Please handle this quietly, I don't want the whole office knowing yet. Send me the confirmation when it's done.<br><br>
+            Thanks,<br>Chris
+          </div>
+        </div>
+
+        <h3>The Vendor Payment Redirect</h3>
+        <p>An attacker compromises your vendor's email or spoofs it, then sends you a message saying their banking information has changed. You update your records and start sending payments to the attacker's account. Sometimes this goes undetected for months.</p>
+
+        <h3>The Lawyer or Closing Agent Scam</h3>
+        <p>Especially common during real estate closings. An attacker intercepts communication between you and a title company or attorney and sends fake wiring instructions at the last minute. Victims wire their entire down payment or closing funds to a criminal.</p>
+
+        <h3>W-2 and Payroll Fraud</h3>
+        <p>An attacker poses as an executive and requests all employee W-2 data from HR — then uses that information for identity theft or fraudulent tax filings.</p>
+
+        <h2>How Does This Hurt Your Business?</h2>
+
+        <div class="warning-box">
+          <strong>Wire transfers are almost impossible to reverse.</strong> Once the money is gone, recovering it requires fast action with your bank and law enforcement — and even then, recovery is rare. Most victims never get their money back.
+        </div>
+
+        <ul>
+          <li>Direct financial loss — often tens of thousands of dollars in a single transaction</li>
+          <li>Exposure of employee personal data (Social Security numbers, payroll information)</li>
+          <li>Damaged relationships with vendors and clients when payment fraud is discovered</li>
+          <li>Legal liability if customer funds or sensitive data are involved</li>
+          <li>Reputational harm to your business in the community</li>
+        </ul>
+
+        <h2>How to Protect Yourself</h2>
+        <ul>
+          <li><strong>Always verify payment changes by phone</strong> — Call a known number (not one in the email) before changing banking information or sending any wire</li>
+          <li><strong>Require dual approval for wire transfers</strong> — Any transfer over a certain amount should need two people to sign off</li>
+          <li><strong>Slow down on urgent requests</strong> — Urgency and secrecy are the two biggest warning signs of BEC</li>
+          <li><strong>Check the sender's email address carefully</strong> — Look for subtle changes like an extra letter or a different domain</li>
+        </ul>
+
+        <p>The <a href="https://www.ic3.gov/Home/BEC" target="_blank" rel="noopener">FBI's BEC resource page</a> has current guidance and a place to report incidents if you've been targeted.</p>
+
+        <div class="caer-box">
+          <h2>How CAER Technologies Protects You</h2>
+          <p style="color:rgba(255,255,255,.7);margin-bottom:16px;">BEC is hard to stop with technology alone — it targets people. So we combine technical controls with training to build a human firewall around your business.</p>
+          <ul>
+            <li>Email authentication setup (DMARC, DKIM, SPF) to prevent attackers from spoofing your domain</li>
+            <li>Microsoft 365 configuration to flag emails from outside your organization that impersonate internal senders</li>
+            <li>Security awareness training so your team knows the warning signs and verification steps</li>
+            <li>BEC-specific phishing simulations to test and reinforce good judgment</li>
+            <li>Account monitoring to detect if an email account is compromised and being used to conduct BEC</li>
+            <li>Incident response — if BEC occurs, we help you act fast to report it and attempt fund recovery</li>
+          </ul>
+          <div class="post-cta">
+            <a href="../../contact.html" class="btn-gold">Protect Your Business Today</a>
+          </div>
+        </div>
+
+        <div class="references">
+          <h4>References</h4>
+          <ol>
+            <li><a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener">FBI IC3 — 2023 Internet Crime Report</a></li>
+            <li><a href="https://www.ic3.gov/Home/BEC" target="_blank" rel="noopener">FBI — Business Email Compromise Resource Page</a></li>
+            <li><a href="https://www.cisa.gov/topics/cybersecurity-best-practices/business-email-compromise" target="_blank" rel="noopener">CISA — Business Email Compromise Guidance</a></li>
+            <li><a href="https://www.ftc.gov/business-guidance/blog/2024/01/business-email-compromise" target="_blank" rel="noopener">FTC — BEC Business Guidance</a></li>
+          </ol>
+        </div>
+
+      </article>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-widget sidebar-cta">
+          <h3>Got a Suspicious Email?</h3>
+          <p>Don't act on it yet. Forward it to us and we'll help you verify if it's legitimate.</p>
+          <a href="../../contact.html" class="btn-gold" style="display:block;text-align:center;">Talk to Chris</a>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Threat Series</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="phishing-emails.html">🎣 Phishing Emails</a></li>
+            <li><a href="credential-theft.html">🔑 Credential Theft</a></li>
+            <li><a href="ransomware.html">🔒 Ransomware</a></li>
+            <li><a href="business-email-compromise.html" class="current">📧 Business Email Compromise</a></li>
+            <li><a href="power-outage-disaster-recovery.html">⚡ Power Outage & Disaster Recovery</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+  <script src="../../script.js" defer></script>
+</body>
+</html>

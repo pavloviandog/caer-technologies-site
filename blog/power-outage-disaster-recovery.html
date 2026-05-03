@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Outages & Disaster Recovery: Is Your Business Ready? | CAER Technologies</title>
+  <meta name="description" content="Texas weather and grid failures can shut your business down in hours. Learn how CAER Technologies helps Hill Country businesses prepare, protect, and recover fast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    :root { --gold:#c9972c; --gold-light:#e8b84b; --gold-dim:rgba(201,151,44,0.12); --gold-border:rgba(201,151,44,0.3); }
+    .post-hero { position:relative; padding:90px 0 70px; text-align:center; background:#0a1628; overflow:hidden; }
+    .post-hero-content { position:relative; z-index:1; }
+    .post-eyebrow { display:inline-flex; align-items:center; gap:8px; background:var(--gold-dim); border:1px solid var(--gold-border); border-radius:999px; color:var(--gold-light); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 14px; margin-bottom:18px; }
+    .post-hero h1 { font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.2; margin-bottom:16px; max-width:780px; margin-left:auto; margin-right:auto; }
+    .post-hero h1 span { color:var(--gold-light); }
+    .post-meta { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; color:var(--text-muted); font-size:13px; margin-top:16px; }
+    .post-layout { display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start; padding:56px 0 90px; }
+    .post-body { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:40px 44px; line-height:1.75; font-size:1rem; color:var(--text-soft); }
+    .post-body h2 { font-size:1.4rem; color:var(--text); margin:36px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--gold-border); }
+    .post-body h2:first-child { margin-top:0; }
+    .post-body h3 { font-size:1.1rem; color:var(--text); margin:24px 0 10px; }
+    .post-body p { margin-bottom:18px; }
+    .post-body a { color:var(--gold-light); text-decoration:underline; text-underline-offset:3px; }
+    .post-body a:hover { color:var(--gold); }
+    .post-body ul, .post-body ol { margin:0 0 18px 0; padding-left:22px; }
+    .post-body li { margin-bottom:8px; }
+    .callout { background:var(--gold-dim); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text); font-size:.95rem; }
+    .callout strong { color:var(--gold-light); }
+    .warning-box { background:rgba(235,87,87,0.08); border-left:4px solid #eb5757; border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; color:var(--text-soft); font-size:.95rem; }
+    .texas-box { background:rgba(201,151,44,0.06); border:1px solid var(--gold-border); border-radius:var(--radius); padding:22px 26px; margin:28px 0; }
+    .texas-box h3 { color:var(--gold-light); margin-top:0; margin-bottom:12px; }
+    .caer-box { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); border-radius:var(--radius); padding:28px 32px; margin:36px 0 0; }
+    .caer-box h2 { color:var(--gold-light) !important; border-bottom-color:var(--gold-border) !important; }
+    .caer-box ul { list-style:none; padding:0; }
+    .caer-box li { padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.06); color:var(--text-soft); padding-left:24px; position:relative; }
+    .caer-box li::before { content:"✓"; position:absolute; left:0; color:var(--gold-light); font-weight:700; }
+    .caer-box li:last-child { border-bottom:none; }
+    .post-cta { margin-top:28px; text-align:center; }
+    .btn-gold { display:inline-block; padding:13px 28px; border-radius:8px; font-weight:700; background:var(--gold); color:#0a0a0a; transition:all .2s ease; text-decoration:none !important; }
+    .btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); color:#0a0a0a !important; }
+    .post-sidebar { position:sticky; top:90px; }
+    .sidebar-widget { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius); padding:22px; margin-bottom:20px; }
+    .sidebar-widget h3 { font-size:.95rem; margin-bottom:14px; color:var(--text); display:flex; align-items:center; gap:8px; }
+    .sidebar-widget h3::before { content:""; display:inline-block; width:3px; height:14px; background:var(--gold); border-radius:2px; }
+    .sidebar-cat-list { list-style:none; padding:0; margin:0; }
+    .sidebar-cat-list li { border-bottom:1px solid var(--card-border); }
+    .sidebar-cat-list li:last-child { border-bottom:none; }
+    .sidebar-cat-list a { display:block; padding:9px 0; color:var(--text-soft); font-size:13px; transition:color .2s; text-decoration:none; }
+    .sidebar-cat-list a:hover { color:var(--gold-light); }
+    .sidebar-cat-list a.current { color:var(--gold-light); font-weight:700; }
+    .sidebar-cta { background:linear-gradient(135deg,#0d1f3a,#112244); border:1px solid var(--gold-border); }
+    .sidebar-cta h3 { color:#fff; }
+    .sidebar-cta h3::before { background:var(--gold-light); }
+    .sidebar-cta p { color:rgba(255,255,255,.7); font-size:13px; margin-bottom:14px; }
+    .references { margin-top:48px; padding-top:24px; border-top:1px solid var(--card-border); font-size:.82rem; color:var(--text-muted); }
+    .references h4 { margin-bottom:10px; font-size:.85rem; }
+    .references ol { padding-left:18px; }
+    .references li { margin-bottom:5px; }
+    .references a { color:var(--text-muted); }
+    .references a:hover { color:var(--gold-light); }
+    @media(max-width:900px){ .post-layout{grid-template-columns:1fr;} .post-sidebar{position:static;} .post-body{padding:28px 22px;} }
+  </style>
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <section class="post-hero">
+    <div class="post-hero-content container">
+      <div class="post-eyebrow">⚡ Cybersecurity Threat Series</div>
+      <h1>Power Outages & Disaster Recovery: <span>Is Your Hill Country Business Ready?</span></h1>
+      <div class="post-meta">
+        <span>📅 May 2025</span>
+        <span>⏱ 6 min read</span>
+        <span>⚡ Continuity</span>
+        <span>👤 Beginner Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <article class="post-body">
+
+        <h2>A Threat That Hits Close to Home</h2>
+        <p>When most people think about cybersecurity threats, they picture hackers in dark rooms. But for businesses in the Texas Hill Country, one of the most real and immediate threats to your operations isn't digital at all — it's the weather.</p>
+
+        <p>Texas has a well-documented history of power grid vulnerability. From ice storms to summer heat waves to severe thunderstorms, outages happen — and when they do, unprepared businesses don't just lose power. They lose data, lose customers, and sometimes lose weeks of productivity trying to recover.</p>
+
+        <div class="texas-box">
+          <h3>⚡ Texas-Specific Reality</h3>
+          <p style="margin:0;color:var(--text-soft);">Winter Storm Uri in February 2021 left millions of Texans without power for days and caused an estimated $195 billion in damage statewide. Many small businesses that lacked proper IT backup and recovery plans took weeks to get back to normal — some never recovered. (<a href="https://www.bep.utexas.edu/winterstorm2021/" target="_blank" rel="noopener">UT Austin Bureau of Economic Policy</a>)</p>
+        </div>
+
+        <h2>What Happens to Your Data During an Outage?</h2>
+        <p>A sudden power loss isn't just an inconvenience — it can cause real, lasting damage to your systems and data:</p>
+
+        <h3>Corrupt Files and Databases</h3>
+        <p>When power cuts out mid-operation, files that were open and being written to can become corrupt. Accounting databases, client records, and operational files can be partially written and unreadable when you come back online.</p>
+
+        <h3>Hardware Damage</h3>
+        <p>Power surges — which often accompany outages — can physically damage computers, servers, and networking equipment. A single surge can fry a hard drive and take all your data with it if it wasn't backed up.</p>
+
+        <h3>No Backups = No Recovery</h3>
+        <p>Many small businesses rely on a single on-site backup — a drive sitting in the office. If that office is the one that lost power, flooded, or experienced a surge, that backup is gone too. Recovery becomes a question of "what do we still have?" rather than "how fast can we get back up?"</p>
+
+        <div class="callout">
+          <strong>The 3-2-1 backup rule:</strong> Keep <strong>3</strong> copies of your data, on <strong>2</strong> different types of media, with <strong>1</strong> stored offsite (or in the cloud). This means a local disaster can never wipe out all your backups.
+        </div>
+
+        <h2>What Is Disaster Recovery Planning?</h2>
+        <p>Disaster Recovery (DR) planning is the process of documenting exactly what happens when something goes wrong — whether that's a power outage, a flood, a fire, a ransomware attack, or any other event that disrupts your operations.</p>
+
+        <p>A good disaster recovery plan answers these questions before disaster strikes:</p>
+        <ul>
+          <li>Where is our data backed up, and how do we access it?</li>
+          <li>How long can we operate without our systems? (This is called your Recovery Time Objective, or RTO)</li>
+          <li>How much data can we afford to lose if backups are a day old? (Recovery Point Objective, or RPO)</li>
+          <li>Who is responsible for what during a recovery situation?</li>
+          <li>Can employees work remotely if the office is inaccessible?</li>
+          <li>Who do we call — and in what order?</li>
+        </ul>
+
+        <p>The <a href="https://www.fema.gov/business" target="_blank" rel="noopener">FEMA Ready Business program</a> offers free planning resources specifically for small businesses facing natural disasters.</p>
+
+        <h2>How Does This Hurt Your Business?</h2>
+
+        <div class="warning-box">
+          <strong>FEMA estimates that 40% of small businesses never reopen after a major disaster</strong> — and another 25% close within a year. The businesses that survive are almost always the ones with a tested recovery plan. (<a href="https://www.fema.gov/sites/default/files/2020-08/fema_natural_hazards_and_human_impacts.pdf" target="_blank" rel="noopener">FEMA</a>)
+        </div>
+
+        <p>For a Hill Country business, an extended outage or data loss event can mean:</p>
+        <ul>
+          <li>Inability to access customer records, schedules, or financial data</li>
+          <li>Missed appointments, unfulfilled orders, and lost revenue every day you're down</li>
+          <li>Payroll disruptions if HR and accounting systems are offline</li>
+          <li>Lost data that took years to build — customer history, vendor contacts, operational documents</li>
+          <li>HIPAA violations for healthcare offices if patient records are inaccessible or destroyed</li>
+          <li>Breach of contract if you're unable to deliver services during the outage period</li>
+        </ul>
+
+        <h2>Simple Steps You Can Take Right Now</h2>
+        <ul>
+          <li><strong>Get a UPS (Uninterruptible Power Supply)</strong> for your computers and server — it gives you time to shut down safely during an outage and protects against surges</li>
+          <li><strong>Move critical data to the cloud</strong> — Microsoft 365 and cloud file storage means your documents are accessible even if your office equipment is damaged</li>
+          <li><strong>Test your backups</strong> — A backup you've never tested is a backup you can't trust. Restore a file from backup at least once a quarter</li>
+          <li><strong>Know your recovery contacts</strong> — Have your IT provider's emergency number written down somewhere that doesn't require electricity to access</li>
+        </ul>
+
+        <div class="caer-box">
+          <h2>How CAER Technologies Protects You</h2>
+          <p style="color:rgba(255,255,255,.7);margin-bottom:16px;">We help Hill Country businesses prepare before disaster strikes — and recover fast when it does. We've seen what happens to businesses without a plan, and we make sure our clients aren't in that position.</p>
+          <ul>
+            <li>Managed cloud backup with offsite replication — your data is safe even if your building isn't</li>
+            <li>Business Continuity planning tailored to your specific business operations and recovery priorities</li>
+            <li>Tested disaster recovery procedures — we don't just set up backups, we verify they actually work</li>
+            <li>UPS and surge protection recommendations and setup for your critical hardware</li>
+            <li>Microsoft 365 and cloud migration so your team can work from anywhere during an outage</li>
+            <li>Rapid response support — when the power comes back on, we help you get back up fast and confirm your data is intact</li>
+          </ul>
+          <div class="post-cta">
+            <a href="../../contact.html" class="btn-gold">Build Your Recovery Plan Today</a>
+          </div>
+        </div>
+
+        <div class="references">
+          <h4>References</h4>
+          <ol>
+            <li><a href="https://www.bep.utexas.edu/winterstorm2021/" target="_blank" rel="noopener">UT Austin Bureau of Economic Policy — Winter Storm Uri Impact Report</a></li>
+            <li><a href="https://www.fema.gov/business" target="_blank" rel="noopener">FEMA — Ready Business Program</a></li>
+            <li><a href="https://www.fema.gov/sites/default/files/2020-08/fema_natural_hazards_and_human_impacts.pdf" target="_blank" rel="noopener">FEMA — Natural Hazards and Human Impacts</a></li>
+            <li><a href="https://www.sba.gov/business-guide/manage-your-business/prepare-emergencies" target="_blank" rel="noopener">SBA — Prepare Your Business for Emergencies</a></li>
+            <li><a href="https://www.ercot.com/news/release" target="_blank" rel="noopener">ERCOT — Texas Grid News & Releases</a></li>
+          </ol>
+        </div>
+
+      </article>
+
+      <aside class="post-sidebar">
+        <div class="sidebar-widget sidebar-cta">
+          <h3>Don't Wait for a Storm</h3>
+          <p>Let's review your backup and recovery setup before the next outage hits.</p>
+          <a href="../../contact.html" class="btn-gold" style="display:block;text-align:center;">Talk to Chris</a>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Threat Series</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="phishing-emails.html">🎣 Phishing Emails</a></li>
+            <li><a href="credential-theft.html">🔑 Credential Theft</a></li>
+            <li><a href="ransomware.html">🔒 Ransomware</a></li>
+            <li><a href="business-email-compromise.html">📧 Business Email Compromise</a></li>
+            <li><a href="power-outage-disaster-recovery.html" class="current">⚡ Power Outage & Disaster Recovery</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Quick Checklist</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="#">Do you have offsite backups?</a></li>
+            <li><a href="#">Have you tested a restore recently?</a></li>
+            <li><a href="#">Can staff work remotely if needed?</a></li>
+            <li><a href="#">Do you have surge protection?</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+  <script src="../../script.js" defer></script>
+</body>
+</html>

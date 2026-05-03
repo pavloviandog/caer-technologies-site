@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Emails: What They Are & How CAER Protects Your Business | CAER Technologies</title>
+  <meta name="description" content="Learn how phishing emails target Texas Hill Country businesses, how they work, and how CAER Technologies keeps you protected." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    :root {
+      --gold: #c9972c;
+      --gold-light: #e8b84b;
+      --gold-dim: rgba(201,151,44,0.12);
+      --gold-border: rgba(201,151,44,0.3);
+    }
+
+    .post-hero {
+      position: relative;
+      padding: 90px 0 70px;
+      text-align: center;
+      background: #0a1628;
+      overflow: hidden;
+    }
+
+    .post-hero-content { position: relative; z-index: 1; }
+
+    .post-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 18px;
+    }
+
+    .post-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .post-hero h1 span { color: var(--gold-light); }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    .post-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* Article layout */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      align-items: start;
+      padding: 56px 0 90px;
+    }
+
+    .post-body {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 40px 44px;
+      line-height: 1.75;
+      font-size: 1rem;
+      color: var(--text-soft);
+    }
+
+    .post-body h2 {
+      font-size: 1.4rem;
+      color: var(--text);
+      margin: 36px 0 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold-border);
+    }
+
+    .post-body h2:first-child { margin-top: 0; }
+
+    .post-body h3 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 24px 0 10px;
+    }
+
+    .post-body p { margin-bottom: 18px; }
+
+    .post-body a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .post-body a:hover { color: var(--gold); }
+
+    .post-body ul, .post-body ol {
+      margin: 0 0 18px 0;
+      padding-left: 22px;
+    }
+
+    .post-body li { margin-bottom: 8px; }
+
+    .callout {
+      background: var(--gold-dim);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .callout strong { color: var(--gold-light); }
+
+    .warning-box {
+      background: rgba(235,87,87,0.08);
+      border-left: 4px solid #eb5757;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      color: var(--text-soft);
+      font-size: .95rem;
+    }
+
+    .caer-box {
+      background: linear-gradient(135deg, #0d1f3a, #112244);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin: 36px 0 0;
+    }
+
+    .caer-box h2 {
+      color: var(--gold-light) !important;
+      border-bottom-color: var(--gold-border) !important;
+    }
+
+    .caer-box ul { list-style: none; padding: 0; }
+
+    .caer-box li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-soft);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .caer-box li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .caer-box li:last-child { border-bottom: none; }
+
+    .post-cta {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      background: var(--gold);
+      color: #0a0a0a;
+      transition: all .2s ease;
+      text-decoration: none !important;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      color: #0a0a0a !important;
+    }
+
+    /* Sidebar */
+    .post-sidebar { position: sticky; top: 90px; }
+
+    .sidebar-widget {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-widget h3 {
+      font-size: .95rem;
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-widget h3::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .sidebar-cat-list { list-style: none; padding: 0; margin: 0; }
+
+    .sidebar-cat-list li { border-bottom: 1px solid var(--card-border); }
+    .sidebar-cat-list li:last-child { border-bottom: none; }
+
+    .sidebar-cat-list a {
+      display: block;
+      padding: 9px 0;
+      color: var(--text-soft);
+      font-size: 13px;
+      transition: color .2s;
+      text-decoration: none;
+    }
+
+    .sidebar-cat-list a:hover { color: var(--gold-light); }
+    .sidebar-cat-list a.current { color: var(--gold-light); font-weight: 700; }
+
+    .sidebar-cta {
+      background: linear-gradient(135deg, #0d1f3a, #112244);
+      border: 1px solid var(--gold-border);
+    }
+
+    .sidebar-cta h3 { color: #fff; }
+    .sidebar-cta h3::before { background: var(--gold-light); }
+    .sidebar-cta p { color: rgba(255,255,255,.7); font-size: 13px; margin-bottom: 14px; }
+
+    .references {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      font-size: .82rem;
+      color: var(--text-muted);
+    }
+
+    .references h4 { margin-bottom: 10px; color: var(--text-muted); font-size: .85rem; }
+    .references ol { padding-left: 18px; }
+    .references li { margin-bottom: 5px; }
+    .references a { color: var(--text-muted); }
+    .references a:hover { color: var(--gold-light); }
+
+    @media (max-width: 900px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .post-sidebar { position: static; }
+      .post-body { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <section class="post-hero">
+    <div class="post-hero-content container">
+      <div class="post-eyebrow">🎣 Cybersecurity Threat Series</div>
+      <h1>Phishing Emails: The <span>#1 Way Hackers Get In</span></h1>
+      <div class="post-meta">
+        <span>📅 May 2025</span>
+        <span>⏱ 5 min read</span>
+        <span>🔒 Security</span>
+        <span>👤 Beginner Friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <article class="post-body">
+
+        <h2>What Is a Phishing Email?</h2>
+        <p>A phishing email is a fake message designed to look real — like it came from your bank, Microsoft, the IRS, or even a coworker. The goal is simple: trick you into clicking a link, entering a password, or opening an attachment that hands over access to your accounts or computer.</p>
+
+        <p>The name comes from "fishing" — hackers cast a wide net and wait for someone to bite. And it works. According to the <a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener">FBI's Internet Crime Report</a>, phishing is the most common cybercrime reported in the United States, affecting hundreds of thousands of businesses every year.</p>
+
+        <div class="callout">
+          <strong>Hill Country Reality:</strong> Small businesses are targeted just as often as large corporations — sometimes more, because hackers assume smaller operations have fewer defenses.
+        </div>
+
+        <h2>How Does It Work?</h2>
+        <p>Here's how a typical phishing attack plays out for a small business owner:</p>
+
+        <ol>
+          <li><strong>You get an email</strong> that looks like it's from Microsoft, QuickBooks, your bank, or even a vendor you know. The logo looks right. The sender name looks right.</li>
+          <li><strong>The email creates urgency</strong> — "Your account will be suspended," "Unusual sign-in detected," or "Invoice attached for your review."</li>
+          <li><strong>You click the link</strong> and land on a fake website that looks identical to the real one. You type in your username and password.</li>
+          <li><strong>The hacker now has your credentials</strong> and can log in to your real account — email, banking, payroll, whatever the fake site was impersonating.</li>
+        </ol>
+
+        <p>Some phishing emails skip the fake website entirely and just contain a malicious attachment — a Word doc or PDF that installs malware the moment you open it.</p>
+
+        <h2>How Does This Hurt Your Business?</h2>
+
+        <div class="warning-box">
+          <strong>Real damage phishing causes:</strong> unauthorized wire transfers, stolen customer data, ransomware infections, locked email accounts, and HIPAA violations for healthcare businesses — all from one employee clicking one link.
+        </div>
+
+        <p>Beyond the immediate financial hit, a successful phishing attack can:</p>
+        <ul>
+          <li>Lock you out of your own email or Microsoft 365 account</li>
+          <li>Give attackers access to your entire contact list — which they use to phish your customers and vendors</li>
+          <li>Lead to a ransomware infection that shuts your whole operation down</li>
+          <li>Trigger regulatory fines if customer or patient data is exposed</li>
+          <li>Damage your reputation with clients who trusted you with their information</li>
+        </ul>
+
+        <p>The <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener">IBM Cost of a Data Breach Report</a> found the average cost of a breach caused by phishing is over $4.9 million — but even at a fraction of that scale, it can be devastating for a small Hill Country business.</p>
+
+        <h2>How Do You Spot One?</h2>
+        <p>Phishing emails have gotten very convincing, but these red flags still show up:</p>
+        <ul>
+          <li><strong>Urgent or threatening language</strong> — "Act now," "Your account will be closed," "Immediate action required"</li>
+          <li><strong>Mismatched sender address</strong> — The name says "Microsoft Support" but the email is from a random Gmail address</li>
+          <li><strong>Hover before you click</strong> — Hover your mouse over any link and look at where it actually goes in the bottom of your browser</li>
+          <li><strong>Unexpected attachments</strong> — Especially .zip, .exe, or Office files you weren't expecting</li>
+          <li><strong>Requests for login credentials or payment</strong> — Legitimate companies never ask for your password by email</li>
+        </ul>
+
+        <p>For a deeper look at current phishing tactics, the <a href="https://www.cisa.gov/topics/cybersecurity-best-practices/phishing" target="_blank" rel="noopener">Cybersecurity and Infrastructure Security Agency (CISA)</a> maintains an up-to-date phishing guidance page.</p>
+
+        <div class="caer-box">
+          <h2>How CAER Technologies Protects You</h2>
+          <p style="color:rgba(255,255,255,.7);margin-bottom:16px;">We layer multiple defenses so that even if a phishing email reaches your inbox, the chances of it doing real damage are drastically reduced.</p>
+          <ul>
+            <li>Email filtering that blocks known phishing domains and suspicious senders before they reach your inbox</li>
+            <li>Multi-Factor Authentication (MFA) setup on all accounts — so stolen passwords alone aren't enough to get in</li>
+            <li>Microsoft 365 security configuration including Safe Links and Safe Attachments that scan links and files in real time</li>
+            <li>Security awareness training so your team knows what to look for and what to do if something looks off</li>
+            <li>Simulated phishing tests to identify who needs more training before a real attack happens</li>
+            <li>24/7 monitoring that alerts us if a compromised account starts behaving unusually</li>
+          </ul>
+          <div class="post-cta">
+            <a href="../../contact.html" class="btn-gold">Schedule a Free Security Review</a>
+          </div>
+        </div>
+
+        <div class="references">
+          <h4>References</h4>
+          <ol>
+            <li><a href="https://www.ic3.gov/Media/PDF/AnnualReport/2023_IC3Report.pdf" target="_blank" rel="noopener">FBI Internet Crime Complaint Center (IC3) — 2023 Annual Report</a></li>
+            <li><a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener">IBM Cost of a Data Breach Report 2024</a></li>
+            <li><a href="https://www.cisa.gov/topics/cybersecurity-best-practices/phishing" target="_blank" rel="noopener">CISA — Phishing Guidance</a></li>
+            <li><a href="https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams" target="_blank" rel="noopener">FTC — How to Recognize and Avoid Phishing Scams</a></li>
+          </ol>
+        </div>
+
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="post-sidebar">
+        <div class="sidebar-widget sidebar-cta">
+          <h3>Need Help Now?</h3>
+          <p>Think you clicked something suspicious? Call us — fast response is everything.</p>
+          <a href="../../contact.html" class="btn-gold" style="display:block;text-align:center;">Talk to Chris</a>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Threat Series</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="phishing-emails.html" class="current">🎣 Phishing Emails</a></li>
+            <li><a href="credential-theft.html">🔑 Credential Theft</a></li>
+            <li><a href="ransomware.html">🔒 Ransomware</a></li>
+            <li><a href="business-email-compromise.html">📧 Business Email Compromise</a></li>
+            <li><a href="power-outage-disaster-recovery.html">⚡ Power Outage & Disaster Recovery</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Quick Tips</h3>
+          <ul class="sidebar-cat-list">
+            <li><a href="#">Never click links in urgent emails</a></li>
+            <li><a href="#">Always verify requests by phone</a></li>
+            <li><a href="#">Enable MFA on every account</a></li>
+            <li><a href="#">Report suspicious emails to IT</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+  <script src="../../script.js" defer></script>
+</body>
+</html>

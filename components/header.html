@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="container nav">
-    
+
     <div class="logo">
       <a href="/">
         <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies">
@@ -11,41 +11,136 @@
 
     <nav class="site-nav">
 
+      <!-- SERVICES — what we do -->
       <div class="nav-item has-dropdown">
-        <a href="/security">Security</a>
+        <a href="#">Services</a>
         <div class="dropdown">
-          <a href="/cybersec.html">Cybersecurity Protection</a>
-          <a href="/email-protection.html">Email Security</a>
+          <a href="/MITS.html">
+            <span class="dd-label">Managed IT</span>
+            <span class="dd-sub">Flat-rate support &amp; monitoring</span>
+          </a>
+          <a href="/cybersec.html">
+            <span class="dd-label">Cybersecurity</span>
+            <span class="dd-sub">Ransomware &amp; threat protection</span>
+          </a>
+          <a href="/email-protection.html">
+            <span class="dd-label">Email Security</span>
+            <span class="dd-sub">Stop phishing before it starts</span>
+          </a>
+          <a href="/network.html">
+            <span class="dd-label">Network &amp; Firewall</span>
+            <span class="dd-sub">WiFi, switching &amp; secure design</span>
+          </a>
+          <a href="/cloud.html">
+            <span class="dd-label">Microsoft 365 &amp; Cloud</span>
+            <span class="dd-sub">Email, Teams &amp; SharePoint done right</span>
+          </a>
+          <a href="/voip.html">
+            <span class="dd-label">VoIP Phone Systems</span>
+            <span class="dd-sub">Modern cloud phones for business</span>
+          </a>
+          <a href="/backup.html">
+            <span class="dd-label">Backup &amp; Disaster Recovery</span>
+            <span class="dd-sub">Recover fast when things go wrong</span>
+          </a>
+          <a href="/compliance.html">
+            <span class="dd-label">Compliance &amp; Risk</span>
+            <span class="dd-sub">HIPAA, security posture &amp; audits</span>
+          </a>
+          <a href="/consulting.html">
+            <span class="dd-label">IT Consulting</span>
+            <span class="dd-sub">Strategy &amp; vendor guidance</span>
+          </a>
         </div>
       </div>
 
+      <!-- SOLUTIONS — by outcome / who you are -->
       <div class="nav-item has-dropdown">
-        <a href="#">Infrastructure</a>
+        <a href="#">Solutions</a>
         <div class="dropdown">
-          <a href="/MITS.html">Managed IT Services</a>
-          <a href="/network">Network Infrastructure</a>
-          <a href="/cloud">Microsoft 365 &amp; Cloud</a>
+          <a href="/forward.html">
+            <span class="dd-label">Service Plans &amp; Pricing</span>
+            <span class="dd-sub">Compare all 5 tiers — starts at $100</span>
+          </a>
+          <a href="/risk-check.html">
+            <span class="dd-label">Free Risk Assessment</span>
+            <span class="dd-sub">Find your security gaps in 2 minutes</span>
+          </a>
+          <a href="/industries.html">
+            <span class="dd-label">Industries We Serve</span>
+            <span class="dd-sub">Healthcare, nonprofits, professional services</span>
+          </a>
+          <a href="/MSP.html">
+            <span class="dd-label">Why a Managed IT Provider?</span>
+            <span class="dd-sub">Break-fix vs. managed — what's right for you</span>
+          </a>
         </div>
       </div>
 
+      <!-- RESOURCES -->
       <div class="nav-item has-dropdown">
-        <a href="#">Continuity</a>
+        <a href="#">Resources</a>
         <div class="dropdown">
-          <a href="/backup-disaster-recovery">Backup &amp; Disaster Recovery</a>
+          <a href="/blog/">
+            <span class="dd-label">Blog</span>
+            <span class="dd-sub">IT tips for Hill Country businesses</span>
+          </a>
+          <a href="/kerrville-it-support.html">
+            <span class="dd-label">Kerrville IT Support</span>
+            <span class="dd-sub">Local on-site &amp; remote services</span>
+          </a>
+          <a href="/about.html">
+            <span class="dd-label">About CAER</span>
+            <span class="dd-sub">Who we are &amp; how we work</span>
+          </a>
         </div>
       </div>
 
-      <div class="nav-item has-dropdown">
-        <a href="#">Communication</a>
-        <div class="dropdown">
-          <a href="/voip-phone-systems">Business VoIP</a>
-        </div>
-      </div>
-
-      <a href="/blog/" style="color:var(--primary)">Blog</a>
-      <a href="/about">About</a>
-      <a href="/contact" class="cta">Schedule Consultation</a>
+      <a href="/contact.html" class="cta">Get a Free Consultation</a>
 
     </nav>
   </div>
 </header>
+
+<style>
+/* ── Rich dropdown labels ── */
+.dropdown a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 11px 18px;
+}
+
+.dd-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.15s;
+}
+
+.dd-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(255,255,255,0.42);
+  transition: color 0.15s;
+}
+
+.dropdown a:hover .dd-label { color: var(--gold-light); }
+.dropdown a:hover .dd-sub   { color: rgba(232,184,75,0.6); }
+
+/* Wider dropdown to fit two-line items */
+.nav-item .dropdown {
+  min-width: 290px;
+}
+
+/* Divider between dropdown groups (optional visual break) */
+.dropdown a + a {
+  border-top: 1px solid rgba(200,146,42,0.07);
+}
+</style>

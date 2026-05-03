@@ -331,46 +331,8 @@
 
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <div class="logo">
-      <a href="/"><img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies"></a>
-    </div>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="site-nav">
-      <div class="nav-item has-dropdown">
-        <a href="/security.html">Security</a>
-        <div class="dropdown">
-          <a href="/cybersec.html">Cybersecurity Protection</a>
-          <a href="/email-protection.html">Email Security</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">Infrastructure</a>
-        <div class="dropdown">
-          <a href="/MITS.html">Managed IT Services</a>
-          <a href="/network.html">Network Infrastructure</a>
-          <a href="/cloud.html">Microsoft 365 &amp; Cloud</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">Continuity</a>
-        <div class="dropdown">
-          <a href="/backup.html">Backup &amp; Disaster Recovery</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">Communication</a>
-        <div class="dropdown">
-          <a href="/voip.html">Business VoIP</a>
-        </div>
-      </div>
-      <a href="/blog/" style="color:var(--primary)">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html" class="cta">Schedule Consultation</a>
-    </nav>
-  </div>
-</header>
+<!-- replaces your <header>...</header> block -->
+<div id="site-header"></div>
 
 <!-- ── HERO ── -->
 <section class="hero page-hero">
@@ -578,6 +540,11 @@
         <h3>Business Email Compromise</h3>
         <p>Attacks that impersonate executives, vendors, or staff to trick organizations into sending money or information.</p>
       </div>
+	  <div class="threat-card fade-up" style="transition-delay:0.25s">
+		<span class="threat-emoji">⚡</span>
+		<h3>Power Outage & Disaster Recovery</h3>
+		<p>Texas grid failures and severe weather can knock out systems for days. Without a tested recovery plan, your data and operations are at risk.</p>
+	  </div>
     </div>
   </div>
 </section>

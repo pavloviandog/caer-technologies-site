@@ -1,274 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contact CAER Technologies | Texas Hill Country IT Services</title>
-	<meta name="description" content="Contact CAER Technologies for managed IT services, cybersecurity, backup solutions, VoIP systems, and network support across the Texas Hill Country.">
+  <title>Contact CAER Technologies | Texas Hill Country IT Services</title>
+  <meta name="description" content="Contact CAER Technologies for managed IT services, cybersecurity, backup solutions, VoIP systems, and network support across the Texas Hill Country.">
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Open Graph -->
-	<meta property="og:title" content="CAER Technologies | Managed IT & Cybersecurity">
-	<meta property="og:description" content="Reliable IT support, cybersecurity, backup, VoIP, and network solutions for businesses across the Texas Hill Country.">
-	<meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
-	<meta property="og:url" content="https://consultcaer.com/">
-	<meta property="og:type" content="website">
-	<meta property="og:site_name" content="CAER Technologies">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact CAER Technologies | Texas Hill Country IT">
+  <meta property="og:description" content="Reach out to CAER Technologies — managed IT, cybersecurity, and support for Texas Hill Country businesses.">
+  <meta property="og:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
+  <meta property="og:url" content="https://consultcaer.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CAER Technologies">
 
-	<!-- Twitter (also used by iMessage/Slack sometimes) -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="CAER Technologies | Managed IT & Cybersecurity">
-	<meta name="twitter:description" content="IT support and cybersecurity for Texas Hill Country businesses.">
-	<meta name="twitter:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact CAER Technologies | Texas Hill Country IT">
+  <meta name="twitter:description" content="IT support and cybersecurity for Texas Hill Country businesses.">
+  <meta name="twitter:image" content="https://consultcaer.com/assets/images/og-preview.jpg">
 
-	<!-- Favicons -->
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
 
-	<!-- preload fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-	<!-- Style sheetes -->
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="/css/styles.css">
-	
-	<!-- Zoho SalesIQ -->
-<script>
-  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq048c677e2940371131fad7a83985adcde9ee85521ed22a78bb23abcd4c44c0cc" defer></script>
-</script>
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17684048791"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css">
 
-  gtag('config', 'AW-17684048791');
-</script>
+  <style>
+    /* ── Contact page layout ── */
+    .contact-section {
+      padding: 90px 0;
+      background: var(--navy-mid);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 0;
+    }
+
+    /* Zoho wrapper */
+    .zoho-wrap {
+      border: 1px solid rgba(200,146,42,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .zoho-header { background: #0d1e38; }
+
+    .zoho-flag { display: flex; height: 6px; }
+    .zf-red   { background: #bf1a2f; flex: 1; }
+    .zf-white { background: #ffffff; flex: 2; }
+    .zf-gold  { background: #c8922a; flex: 1; }
+
+    .zoho-header-body {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 32px;
+    }
+
+    .zoho-star {
+      font-size: 52px;
+      color: #e8b84b;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .zoho-eyebrow {
+      font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e8b84b;
+      margin-bottom: 4px;
+    }
+
+    .zoho-title {
+      font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .zoho-sub {
+      font-family: 'Barlow', Arial, sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── Right column ── */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,146,42,0.15);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .contact-block-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-block-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(200,146,42,0.2);
+    }
+
+    .contact-detail {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail:last-child { margin-bottom: 0; }
+
+    .contact-detail-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-value {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+
+    .contact-detail-value a {
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail-value a:hover { color: #fff; }
+
+    /* Hours table */
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(200,146,42,0.08);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+
+    .hours-row span:last-child {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    .hours-row.emergency span:last-child { color: var(--gold-light); }
+
+    /* What happens next */
+    .next-steps { list-style: none; padding: 0; margin: 0; }
+
+    .next-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(200,146,42,0.08);
+    }
+
+    .next-step:last-child { border-bottom: none; }
+
+    .next-step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 20px;
+    }
+
+    .next-step-text {
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Zoho SalesIQ -->
+  <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
+  <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq048c677e2940371131fad7a83985adcde9ee85521ed22a78bb23abcd4c44c0cc" defer></script>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17684048791"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17684048791');
+  </script>
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    
-    <div class="logo">
-      <a href="/">
-        <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies">
-      </a>
-    </div>
+<div id="site-header"></div>
 
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-    <nav class="site-nav">
-
-      <div class="nav-item has-dropdown">
-        <a href="/security.html">Security</a>
-        <div class="dropdown">
-          <a href="/cybersecurity.html">Cybersecurity Protection</a>
-          <a href="/email-protection.html">Email Security</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-dropdown">
-        <a href="#">Infrastructure</a>
-        <div class="dropdown">
-          <a href="/managed-it-services.html">Managed IT Services</a>
-          <a href="/network.html">Network Infrastructure</a>
-          <a href="/cloud.html">Microsoft 365 &amp; Cloud</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-dropdown">
-        <a href="#">Continuity</a>
-        <div class="dropdown">
-          <a href="/backup.html">Backup &amp; Disaster Recovery</a>
-        </div>
-      </div>
-
-      <div class="nav-item has-dropdown">
-        <a href="#">Communication</a>
-        <div class="dropdown">
-          <a href="/voip.html">Business VoIP</a>
-        </div>
-      </div>
-
-      <a href="/blog/" style="color:var(--primary)">Blog</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html" class="cta">Schedule Consultation</a>
-
-    </nav>
-  </div>
-</header>
-
-<section class="ep-hero">
-  <div class="container ep-hero-grid">
-    <div class="ep-hero-copy">
-      <p class="eyebrow">Email Authentication &amp; Domain Protection</p>
-      <h1>Stop Email Spoofing Before It Hits Your Business</h1>
-      <p class="ep-subheadline">
-        Your domain may look fine on the surface while still being vulnerable to spoofing,
-        phishing, and silent deliverability issues. We identify the gaps and fix them.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#free-check" class="btn-primary">Request Your Free Email Security Check</a>
-        <a href="#what-we-check" class="btn-secondary">See What We Check</a>
-      </div>
-
-      <div class="ep-hero-points">
-        <span>SPF</span>
-        <span>DKIM</span>
-        <span>DMARC</span>
-        <span>MTA-STS</span>
-        <span>TLS-RPT</span>
-        <span>DNSSEC</span>
-        <span>BIMI</span>
-      </div>
-    </div>
-
-    <div class="ep-hero-card">
-      <div class="ep-status-card">
-        <h2>Email Security Gaps We Commonly Find</h2>
-        <ul>
-          <li>DMARC in monitoring mode only</li>
-          <li>Missing transport security records</li>
-          <li>Weak or outdated DKIM configuration</li>
-          <li>SPF records too complex or broken</li>
-          <li>No visibility into who is sending mail</li>
-          <li>Domains still vulnerable to impersonation</li>
-        </ul>
-      </div>
-    </div>
+<!-- ── Hero ── -->
+<section class="hero page-hero">
+  <div class="container hero-content">
+    <span class="eyebrow">Texas Hill Country IT Support</span>
+    <h1>Let's Talk About<br>Your Business</h1>
+    <p>No jargon. No pressure. Just an honest conversation about your technology and how we can make it work better for you.</p>
   </div>
 </section>
 
-<section class="services">
+<!-- ── Contact Form + Sidebar ── -->
+<section class="contact-section">
   <div class="container">
     <div class="contact-grid">
 
-      <div class="contact-form-embed">
-        <div class="zoho-wrap">
-          <div class="zoho-header">
-            <div class="zoho-flag">
-              <div class="zf-red"></div>
-              <div class="zf-white"></div>
-              <div class="zf-gold"></div>
-            </div>
-            <div class="zoho-header-body">
-              <div class="zoho-star">★</div>
-              <div class="zoho-text">
-                <div class="zoho-eyebrow">CAER Technologies · Texas Hill Country</div>
-                <div class="zoho-title">Connect with US</div>
-                <div class="zoho-sub">No pressure. Just an honest conversation about your IT.</div>
-              </div>
+      <!-- Zoho Form -->
+      <div class="zoho-wrap">
+        <div class="zoho-header">
+          <div class="zoho-flag">
+            <div class="zf-red"></div>
+            <div class="zf-white"></div>
+            <div class="zf-gold"></div>
+          </div>
+          <div class="zoho-header-body">
+            <div class="zoho-star">★</div>
+            <div class="zoho-text">
+              <div class="zoho-eyebrow">CAER Technologies · Texas Hill Country</div>
+              <div class="zoho-title">Get in Touch</div>
+              <div class="zoho-sub">No pressure. Just an honest conversation about your IT.</div>
             </div>
           </div>
-          <iframe
-            aria-label="Contact Us"
-            frameborder="0"
-            style="height:1200px;width:100%;border:none;display:block;"
-            src="https://forms.zohopublic.com/caertechnologies/form/ContactUs/formperma/O1fFimYd1l0Rs1wgublLqYm5KO1Tz49oAmMrIIpIDH0">
-          </iframe>
         </div>
+        <iframe
+          aria-label="Contact Us"
+          frameborder="0"
+          style="height:1200px;width:100%;border:none;display:block;"
+          src="https://forms.zohopublic.com/caertechnologies/form/ContactUs/formperma/O1fFimYd1l0Rs1wgublLqYm5KO1Tz49oAmMrIIpIDH0">
+        </iframe>
       </div>
 
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p><strong>Phone</strong><br>830-510-3700</p>
-        <p><strong>Email</strong><br>support@consultcaer.com</p>
-        <p><strong>Location</strong><br>Bandera, Texas</p>
-        <p><strong>Service Area</strong><br>
-          Texas Hill Country<br>
-          Bandera • Kerrville • Fredericksburg • Boerne
-        </p>
-      </div>
+      <!-- Sidebar -->
+      <div class="contact-sidebar">
 
+        <!-- Contact Info -->
+        <div class="contact-block">
+          <div class="contact-block-title">Reach Us Directly</div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">
+              <a href="tel:8305103700">(830) 510-3700</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">
+              <a href="mailto:support@consultcaer.com">support@consultcaer.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Bandera, Texas</div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-label">Service Area</div>
+            <div class="contact-detail-value">
+              Texas Hill Country<br>
+              Bandera · Kerrville · Fredericksburg · Boerne
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="contact-block">
+          <div class="contact-block-title">Business Hours</div>
+          <div class="hours-row"><span>Monday – Friday</span><span>8:00 AM – 5:00 PM CT</span></div>
+          <div class="hours-row"><span>Saturday</span><span>By Appointment</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+          <div class="hours-row emergency"><span>Emergency Support</span><span>24 / 7</span></div>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="contact-block">
+          <div class="contact-block-title">What Happens Next</div>
+          <ul class="next-steps">
+            <li class="next-step">
+              <span class="next-step-num">1</span>
+              <span class="next-step-text">We review your message within one business day — usually faster.</span>
+            </li>
+            <li class="next-step">
+              <span class="next-step-num">2</span>
+              <span class="next-step-text">A CAER engineer calls you directly — no sales scripts, no runaround.</span>
+            </li>
+            <li class="next-step">
+              <span class="next-step-num">3</span>
+              <span class="next-step-text">We answer your questions and assess your needs at no charge.</span>
+            </li>
+            <li class="next-step">
+              <span class="next-step-num">4</span>
+              <span class="next-step-text">You decide if we're the right fit. Zero pressure, ever.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
 
-<section class="security">
+<!-- ── CTA Band ── -->
+<section class="cta-band">
   <div class="container">
-    <h2>How CAER Technologies Helps Businesses</h2>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <h3>Managed IT Services</h3>
-        <p>Reliable support and proactive maintenance for business technology.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>Cybersecurity Protection</h3>
-        <p>Reduce risk from ransomware, phishing, and account compromise.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>Backup & Recovery</h3>
-        <p>Protect critical data and ensure recovery when something goes wrong.</p>
-      </div>
-      <div class="benefit-item">
-        <h3>Network Infrastructure</h3>
-        <p>Secure and reliable networking for modern business operations.</p>
-      </div>
-    </div>
+    <h2>Prefer to Call?</h2>
+    <p>We pick up the phone. Talk to a real engineer, not a call center.</p>
+    <a href="tel:8305103700" class="btn-primary">Call (830) 510-3700</a>
   </div>
 </section>
 
-<section class="security cta-band">
-
-<div class="container">
-
-<h2>Ready for Better IT Support?</h2>
-
-<p>
-CAER Technologies helps organizations across the Texas Hill Country
-improve reliability, strengthen cybersecurity, and simplify technology.
-</p>
-
-<a href="tel:8305103700" class="btn-primary">
-Call Now
-</a>
-
-</div>
-
-</section>
-
-
-<!-- replaces your <footer>...</footer> block -->
 <div id="site-footer"></div>
 
-  <!-- <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3>CAER Technologies</h3>
-        <p>
-          Managed IT Services and cybersecurity-focused support for businesses
-          across the Texas Hill Country.
-        </p>
-      </div>
-
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="managed-it-services.html">Managed IT</a></li>
-          <li><a href="cybersecurity.html">Cybersecurity</a></li>
-          <li><a href="backup.html">Backup</a></li>
-          <li><a href="voip.html">VoIP</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Contact</h4>
-        <p>Bandera, Texas</p>
-        <p>830-510-3700</p>
-        <p>support@consultcaer.com</p>
-      </div>
-    </div>
-  </footer>  -->
-
-<script src="/script.js"></script>
+<script src="/script.js" defer></script>
 
 </body>
 </html>

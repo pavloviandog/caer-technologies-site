@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- apple body -->
+  <path d="M60 40 C40 25 18 42 18 70 
+       C18 105 45 125 60 110 
+       C75 125 102 105 102 70 
+       C102 42 80 25 60 40 Z" fill="#d83a2e"></path>
+
+  <!-- stem -->
+  <path d="M60 40 C62 22 70 14 84 12" fill="none" stroke="#2a2a2a" stroke-width="4" stroke-linecap="round"></path>
+
+  <!-- leaf -->
+  <path d="M78 18 C95 16 105 26 108 40 
+       C90 42 80 34 78 18 Z" fill="#4b9b45"></path>
+</svg>

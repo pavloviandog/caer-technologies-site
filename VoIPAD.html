@@ -29,6 +29,107 @@
   <link rel="stylesheet" href="/css/styles.css" />
 
   <style>
+    /* ── SCOPE RESET: beat styles.css specificity ── */
+    body.lp-page {
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #0b1120 !important;
+      color: #f1f5f9 !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+
+    /* Kill uppercase from styles.css .hero h1 and .site-nav */
+    body.lp-page h1,
+    body.lp-page h2,
+    body.lp-page h3,
+    body.lp-page h4,
+    body.lp-page .hero h1,
+    body.lp-page .page-hero h1 {
+      text-transform: none !important;
+      letter-spacing: -0.025em !important;
+      font-family: 'Sora', sans-serif !important;
+    }
+
+    /* Kill hero padding/centering from styles.css */
+    body.lp-page .hero {
+      text-align: left !important;
+      padding: 5rem 0 4rem !important;
+    }
+    body.lp-page .hero::before,
+    body.lp-page .hero::after { display: none !important; }
+
+    /* Kill nav uppercase + gold color from styles.css */
+    body.lp-page .site-nav > a,
+    body.lp-page .site-nav > .nav-item > a {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 0.93rem !important;
+      color: #94a3b8 !important;
+      min-height: unset !important;
+    }
+    body.lp-page .site-nav > a:hover { color: #fff !important; }
+
+    /* Kill gold CTA style, use our orange */
+    body.lp-page .site-nav .nav-cta,
+    body.lp-page .site-nav a.nav-cta {
+      background: #de6126 !important;
+      color: #fff !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-family: 'Sora', sans-serif !important;
+      border-radius: 999px !important;
+      padding: 0.7rem 1.15rem !important;
+    }
+
+    /* Kill trust-inner padding override from styles.css */
+    body.lp-page .trust-inner {
+      max-width: none !important;
+      padding: 0 !important;
+      text-align: left !important;
+    }
+
+    /* Kill eyebrow gold overrides */
+    body.lp-page .eyebrow {
+      background: rgba(222,97,38,0.08) !important;
+      border-color: rgba(222,97,38,0.28) !important;
+      color: #fdba74 !important;
+      font-family: 'Inter', sans-serif !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+      font-size: 0.82rem !important;
+    }
+
+    /* Kill btn-primary gold override */
+    body.lp-page .btn.btn-primary {
+      background: #de6126 !important;
+      color: #fff !important;
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-family: 'Sora', sans-serif !important;
+      border-radius: 999px !important;
+      padding: 0.85rem 1.4rem !important;
+    }
+    body.lp-page .btn.btn-primary:hover { background: #b94d1d !important; }
+
+    /* Fix logo size — styles.css sets 62px */
+    body.lp-page .topbar .logo img {
+      height: 50px !important;
+      border-radius: 50% !important;
+    }
+
+    /* Kill footer uppercase */
+    body.lp-page footer h3,
+    body.lp-page footer h4 {
+      text-transform: none !important;
+      letter-spacing: normal !important;
+      font-family: 'Sora', sans-serif !important;
+      color: #fff !important;
+      font-size: 0.9rem !important;
+    }
+
+    body.lp-page footer a:hover { color: #cbd5e1 !important; }
+
     :root {
       --brand:       #de6126;
       --brand-dark:  #b94d1d;
@@ -312,7 +413,7 @@
       gap: 1rem;
     }
 
-    .pricing-badge .price-label { font-size: 0.78rem; font-weight: 600; color: #0c1324; text-transform: uppercase; letter-spacing: 0.06em; }
+    .pricing-badge .price-label { font-size: 0.78rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; }
 
     .pricing-badge .price-value {
       font-family: 'Sora', sans-serif;
@@ -321,7 +422,7 @@
       color: #fff;
     }
 
-    .pricing-badge .price-sub { font-size: 0.78rem; color: #0c1425; font-weight: 500; }
+    .pricing-badge .price-sub { font-size: 0.78rem; color: #94a3b8; font-weight: 500; }
 
     /* ── TRUST STRIP ── */
     .trust-strip {
@@ -908,7 +1009,7 @@
   </script>
   <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq048c677e2940371131fad7a83985adcde9ee85521ed22a78bb23abcd4c44c0cc" defer></script>
 </head>
-<body>
+<body class="lp-page">
 
   <!-- TOPBAR -->
   <header class="topbar">

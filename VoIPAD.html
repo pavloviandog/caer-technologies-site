@@ -3,429 +3,822 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Business VoIP Phone Systems | CAER Technologies Texas Hill Country</title>
-  <meta name="description" content="Reliable business VoIP phone systems for small businesses in Bandera, Kerrville, Fredericksburg, and Boerne. Keep your number, work from anywhere, and get local support from CAER Technologies." />
-  <link rel="canonical" href="https://consultcaer.com/VoIPAD.html" />
+  <meta name="description" content="Business VoIP for the Texas Hill Country — local support in Bandera, Kerrville, Fredericksburg, and Boerne. Keep your number, work from anywhere. CAER Technologies." />
+  <link rel="canonical" href="https://consultcaer.com/VoIPAD" />
 
   <meta property="og:title" content="Business VoIP Phone Systems | CAER Technologies" />
-  <meta property="og:description" content="Modern VoIP phone systems for small businesses in the Texas Hill Country. Keep your number, work from anywhere, and get reliable local support." />
+  <meta property="og:description" content="Local VoIP support for Texas Hill Country small businesses. Keep your number, work from anywhere, no call centers." />
   <meta property="og:image" content="https://consultcaer.com/assets/images/voip-og.jpg" />
-  <meta property="og:url" content="https://consultcaer.com/VoIPAD.html" />
+  <meta property="og:url" content="https://consultcaer.com/VoIPAD" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CAER Technologies" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Business VoIP Phone Systems | CAER Technologies" />
-  <meta name="twitter:description" content="Modern VoIP phone systems for small businesses in the Texas Hill Country with local support." />
+  <meta name="twitter:description" content="Local VoIP support for Texas Hill Country businesses. No call centers, no headaches." />
   <meta name="twitter:image" content="https://consultcaer.com/assets/images/voip-og.jpg" />
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
 
   <style>
     :root {
-      --lp-bg: #0f1115;
-      --lp-bg-alt: #161a21;
-      --lp-card: #1b1f27;
-      --lp-border: #2a2f3a;
-      --lp-text: #ffffff;
-      --lp-text-soft: #c8cbd2;
-      --lp-text-muted: #9aa3af;
-      --lp-primary: #2f80ed;
-      --lp-primary-hover: #256fd1;
-      --lp-radius: 14px;
-      --lp-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
-      --lp-max: 1180px;
+      --brand:       #de6126;
+      --brand-dark:  #b94d1d;
+      --brand-glow:  rgba(222, 97, 38, 0.22);
+      --bg:          #0b1120;
+      --bg-alt:      #101828;
+      --bg-card:     #141d2e;
+      --border:      rgba(255,255,255,0.09);
+      --border-warm: rgba(222,97,38,0.28);
+      --text:        #f1f5f9;
+      --text-soft:   #94a3b8;
+      --text-muted:  #64748b;
+      --success:     #4ade80;
+      --radius-sm:   10px;
+      --radius-md:   16px;
+      --radius-lg:   22px;
+      --radius-xl:   28px;
+      --max:         1160px;
+      --shadow-card: 0 8px 32px rgba(0,0,0,0.28);
     }
 
-    * { box-sizing: border-box; }
-
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      color: var(--lp-text);
-      background: var(--lp-bg);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .lp-shell,
-    .lp-section {
-      padding: 72px 20px;
+    h1, h2, h3, h4 {
+      font-family: 'Sora', sans-serif;
+      line-height: 1.1;
+      margin-top: 0;
     }
 
-    .lp-shell {
-      background:
-        radial-gradient(circle at top right, rgba(47, 128, 237, 0.18), transparent 28%),
-        linear-gradient(180deg, #11151d 0%, #0f1115 100%);
-      padding-top: 46px;
-      padding-bottom: 46px;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    p { margin-top: 0; }
 
-    .lp-container {
-      width: 100%;
-      max-width: var(--lp-max);
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
       margin: 0 auto;
     }
 
-    .lp-grid-2 {
+    /* ── TOPBAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11,17,32,0.88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 68px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.93rem;
+      color: #94a3b8;
+    }
+
+    .site-nav a:hover { color: #fff; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1.15rem;
+      background: var(--brand);
+      color: #fff !important;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 30%, var(--brand-glow), transparent),
+        linear-gradient(180deg, #0c1425 0%, var(--bg) 100%);
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-grid {
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      gap: 2.5rem;
       align-items: center;
     }
 
-    .lp-grid-features,
-    .lp-grid-steps {
-      display: grid;
-      gap: 20px;
-    }
-
-    .lp-grid-features {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .lp-grid-steps {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .lp-accordion {
-      display: grid;
-      gap: 14px;
-    }
-
-    .lp-eyebrow,
-    .lp-section-tag {
-      color: #9fc3ff;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border-warm);
+      border-radius: 999px;
+      color: #fdba74;
       font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin-top: 0;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(222,97,38,0.08);
+      margin-bottom: 1.2rem;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      margin-bottom: 18px;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-top: 0;
-      color: var(--lp-text-soft);
-    }
-
-    .lp-subheadline,
-    .lp-section-heading p {
-      font-size: 1.08rem;
-      max-width: 800px;
-    }
-
-    .lp-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin: 28px 0;
-    }
-
-    .lp-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .lp-btn-primary {
-      background: var(--lp-primary);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
       color: #fff;
     }
 
-    .lp-btn-primary:hover {
-      background: var(--lp-primary-hover);
+    h1 em {
+      font-style: normal;
+      color: var(--brand);
     }
 
-    .lp-btn-secondary {
-      border: 1px solid var(--lp-border);
-      color: #fff;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .lp-btn-secondary:hover {
-      border-color: #4e5c72;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .lp-points,
-    .lp-contact-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .lp-points span,
-    .lp-contact-line span {
-      padding: 8px 12px;
-      border: 1px solid var(--lp-border);
-      border-radius: 999px;
-      color: var(--lp-text-soft);
-      background: rgba(255,255,255,0.03);
-      font-size: 0.95rem;
-    }
-
-    .lp-card,
-    .lp-status-card,
-    .lp-feature-card,
-    .lp-step-card,
-    .lp-cta-box,
-    .lp-accordion-item {
-      background: var(--lp-card);
-      border: 1px solid var(--lp-border);
-      border-radius: var(--lp-radius);
-      box-shadow: var(--lp-shadow);
-    }
-
-    .lp-card,
-    .lp-status-card,
-    .lp-feature-card,
-    .lp-step-card {
-      padding: 26px;
-    }
-
-    .lp-status-card h2,
-    .lp-cta-box h2 {
-      font-size: 1.5rem;
-    }
-
-    .lp-check-list,
-    .lp-bullet-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .lp-check-list li,
-    .lp-bullet-list li {
-      position: relative;
-      margin-bottom: 12px;
-      padding-left: 26px;
-      color: var(--lp-text-soft);
-    }
-
-    .lp-check-list li::before,
-    .lp-bullet-list li::before {
-      content: '•';
-      position: absolute;
-      left: 8px;
-      color: #9fc3ff;
-      font-weight: 700;
-    }
-
-    .lp-light {
-      background: var(--lp-bg-alt);
-    }
-
-    .lp-section-heading {
-      margin-bottom: 28px;
-      max-width: 850px;
-    }
-
-    .lp-emphasis {
-      border-color: rgba(47,128,237,0.45);
-      background: linear-gradient(180deg, rgba(47,128,237,0.12), rgba(255,255,255,0.02));
-    }
-
-    .lp-quote {
+    .hero-lead {
       font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 16px;
+      color: #cbd5e1;
+      max-width: 55ch;
+      margin-bottom: 1.8rem;
     }
 
-    .lp-step-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(47,128,237,0.18);
-      color: #9fc3ff;
+      gap: 0.5rem;
+      min-height: 52px;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
       font-weight: 700;
-      margin-bottom: 14px;
+      font-family: 'Sora', sans-serif;
+      font-size: 0.97rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
     }
 
-    .lp-cta-box {
-      padding: 36px;
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(222,97,38,0.32);
+    }
+
+    .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.08); }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pill-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .pill-list li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero-card-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.97rem;
+      color: #e2e8f0;
+    }
+
+    .check-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(74,222,128,0.14);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      color: var(--success);
+    }
+
+    .pricing-badge {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .pricing-badge .price-label { font-size: 0.82rem; color: var(--text-soft); }
+
+    .pricing-badge .price-value {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .pricing-badge .price-sub { font-size: 0.82rem; color: var(--text-soft); font-weight: 400; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 0;
+    }
+
+    .trust-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
       text-align: center;
     }
 
-    .lp-form-wrap {
-      margin-top: 28px;
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #cbd5e1;
     }
 
-    .lp-form-wrap iframe {
-      width: 100%;
-      min-height: 900px;
-      border: 0;
-      border-radius: 12px;
-      background: #fff;
+    .trust-item span.dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+      flex-shrink: 0;
     }
 
-    .lp-accordion-item {
-      overflow: hidden;
-    }
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; }
+    section.alt { background: var(--bg-alt); }
 
-    .lp-accordion-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 22px 26px;
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-head { max-width: 700px; margin-bottom: 2.5rem; }
+    .section-head h2 { font-size: clamp(1.9rem, 3vw, 2.75rem); font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 0.75rem; }
+    .section-head p { color: #94a3b8; font-size: 1.05rem; margin: 0; }
+
+    /* ── PROBLEM/SOLUTION SPLIT ── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card h3 { font-size: 1.15rem; color: #fff; margin-bottom: 1rem; }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .item-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.97rem;
+      color: #cbd5e1;
+    }
+
+    .item-list li .icon-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+
+    .icon-dot.red { background: rgba(248,113,113,0.12); color: #f87171; }
+    .icon-dot.green { background: rgba(74,222,128,0.12); color: #4ade80; }
+
+    /* ── FEATURE GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-warm);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(222,97,38,0.12);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .feature-card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.93rem; color: #94a3b8; margin: 0; }
+
+    /* ── STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
       position: relative;
     }
 
-    .lp-accordion-item summary::-webkit-details-marker {
-      display: none;
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      position: relative;
     }
 
-    .lp-accordion-item summary::after {
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(222,97,38,0.15);
+      border: 1px solid var(--border-warm);
+      display: grid;
+      place-items: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--brand);
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 { font-size: 1rem; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.9rem; color: #94a3b8; margin: 0; }
+
+    /* ── WHO IT'S FOR ── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .who-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .who-tags span {
+      padding: 0.6rem 1.1rem;
+      background: rgba(222,97,38,0.1);
+      border: 1px solid var(--border-warm);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fdba74;
+    }
+
+    .pull-quote {
+      border-left: 3px solid var(--brand);
+      padding-left: 1.25rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      font-family: 'Sora', sans-serif;
+      color: #fff;
+      margin-top: 1.5rem;
+    }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      background: linear-gradient(135deg, var(--bg-card), rgba(20,29,46,0.8));
+      border: 1px solid var(--border-warm);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .price-big {
+      font-family: 'Sora', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price-range-label { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 0.5rem; }
+    .price-sub-note { font-size: 0.88rem; color: var(--text-soft); margin-top: 0.35rem; }
+
+    .pricing-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .pricing-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.93rem;
+      color: #e2e8f0;
+    }
+
+    .pricing-bullets li::before { content: '✓'; color: var(--success); font-weight: 700; }
+
+    /* ── FAQ ── */
+    .faq-list { display: grid; gap: 0.85rem; }
+
+    details.faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details.faq-item[open] { border-color: var(--border-warm); }
+
+    details.faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.2rem 1.5rem;
+      font-weight: 600;
+      font-family: 'Sora', sans-serif;
+      color: #fff;
+      font-size: 1rem;
+      position: relative;
+      user-select: none;
+    }
+
+    details.faq-item summary::-webkit-details-marker { display: none; }
+
+    details.faq-item summary::after {
       content: '+';
       position: absolute;
-      right: 24px;
+      right: 1.5rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #9fc3ff;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--brand);
+    }
+
+    details.faq-item[open] summary::after { content: '−'; }
+
+    .faq-body {
+      padding: 0 1.5rem 1.25rem;
+      color: #94a3b8;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+
+    /* ── LOCAL SECTION ── */
+    .local-band {
+      background:
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(222,97,38,0.12), transparent),
+        var(--bg-alt);
+    }
+
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .towns-wrap { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .town-pill {
+      padding: 0.55rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-box {
+      background: linear-gradient(135deg, #b94d1d 0%, #de6126 60%, #f97316 100%);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      box-shadow: 0 32px 80px rgba(222,97,38,0.28);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      color: #fff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.025em;
+    }
+
+    .cta-box p { color: rgba(255,255,255,0.88); font-size: 1.05rem; margin: 0 0 1.75rem; }
+
+    .cta-box .btn-white {
+      background: #fff;
+      color: var(--brand-dark);
+      font-family: 'Sora', sans-serif;
       font-weight: 700;
     }
 
-    .lp-accordion-item[open] summary::after {
-      content: '−';
+    .cta-box .btn-white:hover { background: #f1f5f9; transform: translateY(-2px); }
+
+    .cta-box .btn-outline-white {
+      border: 2px solid rgba(255,255,255,0.5);
+      color: #fff;
+      background: transparent;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
     }
 
-    .lp-accordion-content {
-      padding: 0 26px 22px;
+    .cta-box .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    /* Form card */
+    .form-card {
+      background: #fff;
+      color: #0f172a;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
     }
 
-    .lp-sticky-mobile-cta {
+    .form-card h3 { font-family: 'Sora', sans-serif; font-size: 1.15rem; margin-bottom: 0.35rem; color: #0f172a; }
+    .form-card .sub { font-size: 0.9rem; color: #64748b; margin-bottom: 1.25rem; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field.full { grid-column: 1 / -1; }
+
+    label { font-size: 0.83rem; font-weight: 700; color: #334155; }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #0f172a;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(222,97,38,0.15);
+    }
+
+    textarea { min-height: 90px; resize: vertical; }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      margin-top: 0.75rem;
+      background: var(--brand);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      padding: 0.9rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .submit-btn:hover { background: var(--brand-dark); transform: translateY(-1px); }
+
+    .microcopy { font-size: 0.8rem; color: #94a3b8; margin-top: 0.6rem; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070d18;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-grid h4 { font-family: 'Sora', sans-serif; font-size: 0.9rem; color: #fff; margin-bottom: 0.75rem; }
+    .footer-grid p, .footer-grid a { display: block; font-size: 0.9rem; color: #64748b; margin-bottom: 0.4rem; }
+    .footer-grid a:hover { color: #cbd5e1; }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: #475569; }
+
+    /* ── MOBILE STICKY CTA ── */
+    .sticky-cta {
       display: none;
+      position: sticky;
+      bottom: 0;
+      z-index: 200;
+      background: rgba(11,17,32,0.96);
+      border-top: 1px solid var(--border);
+      padding: 0.85rem 1.25rem;
+      backdrop-filter: blur(12px);
     }
 
-    .site-header + .lp-shell {
-      padding-top: 34px;
+    .sticky-cta .cta-row {
+      display: flex;
+      gap: 0.75rem;
     }
 
+    .sticky-cta .btn { flex: 1; font-size: 0.92rem; min-height: 46px; }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 980px) {
-      .lp-grid-2,
-      .lp-grid-features,
-      .lp-grid-steps {
+      .hero-grid,
+      .split,
+      .who-grid,
+      .local-grid,
+      .cta-box,
+      .pricing-card,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
+
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .site-nav { display: none; }
+      .menu-toggle { display: block; }
     }
 
     @media (max-width: 640px) {
-      .lp-shell,
-      .lp-section {
-        padding: 54px 16px;
-      }
+      section { padding: 3.5rem 0; }
 
-      .lp-card,
-      .lp-status-card,
-      .lp-feature-card,
-      .lp-step-card,
-      .lp-cta-box {
-        padding: 22px;
-      }
+      .features-grid,
+      .steps-grid,
+      .form-grid { grid-template-columns: 1fr; }
 
-      .lp-accordion-item summary,
-      .lp-accordion-content {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
+      h1 { font-size: 2.2rem; }
 
-      .lp-actions {
-        flex-direction: column;
-      }
+      .btn { width: 100%; }
+      .hero-actions { flex-direction: column; }
 
-      .lp-btn {
-        width: 100%;
-      }
+      .trust-inner { gap: 1rem; }
 
-      .lp-points,
-      .lp-contact-line {
-        flex-direction: column;
-        align-items: stretch;
-      }
+      .sticky-cta { display: block; }
+    }
 
-      .lp-points span,
-      .lp-contact-line span {
-        text-align: center;
-      }
-
-      .lp-status-card {
-        order: -1;
-      }
-
-      .lp-shell .lp-grid-2 {
-        gap: 18px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      .lp-subheadline,
-      .lp-section-heading p,
-      p {
-        font-size: 1rem;
-      }
-
-      .lp-sticky-mobile-cta {
-        display: block;
-        position: sticky;
-        bottom: 0;
-        z-index: 999;
-        background: rgba(15,17,21,0.96);
-        border-top: 1px solid var(--lp-border);
-        padding: 12px 16px;
-        backdrop-filter: blur(8px);
-      }
-
-      .lp-sticky-mobile-cta .lp-actions {
-        margin: 0;
-        gap: 10px;
-      }
+    /* Nav open state */
+    .site-nav.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      background: rgba(7,13,24,0.98);
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      font-size: 1.25rem;
+      z-index: 300;
     }
   </style>
 
@@ -436,330 +829,377 @@
   <script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq048c677e2940371131fad7a83985adcde9ee85521ed22a78bb23abcd4c44c0cc" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="logo">
-        <a href="/index.html">
-          <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies" />
-        </a>
-      </div>
 
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-
-      <nav class="site-nav">
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="/index.html" class="logo">
+        <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies" />
+      </a>
+      <nav class="site-nav" id="site-nav">
         <a href="/index.html">Home</a>
         <a href="/managed-it-services.html">Managed IT</a>
         <a href="/cybersecurity.html">Cybersecurity</a>
         <a href="/backup.html">Backup</a>
         <a href="/network.html">Network</a>
-		<a href="/blog/index.html" style="color:var(--primary)">Blog</a>
         <a href="/about.html">About</a>
-        <a href="/contact.html" class="cta">Get a Quote</a>
+        <a href="#contact" class="nav-cta">Get a Free Quote</a>
       </nav>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menu-btn">☰</button>
     </div>
   </header>
 
-  <section class="lp-shell">
-    <div class="lp-container">
-      <section class="lp-grid-2">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
         <div>
-          <p class="lp-eyebrow">Business VoIP Systems – Texas Hill Country</p>
-          <h1>Upgrade Your Business Phone System Without the Headaches</h1>
-          <p class="lp-subheadline">Replace outdated office phones with a modern VoIP system that works from anywhere—backed by reliable local support from CAER Technologies.</p>
+          <div class="eyebrow">📍 Texas Hill Country VoIP</div>
+          <h1>Business Phones That Work—<em>Backed by Local Support</em></h1>
+          <p class="hero-lead">Replace your outdated office phone system with a modern VoIP setup. Keep your number, work from anywhere, and get help from a real person in the Hill Country — not a call center.</p>
 
-          <div class="lp-actions">
-            <a href="#contact" class="lp-btn lp-btn-primary">Get a Quote</a>
-            <a href="tel:18305103700" class="lp-btn lp-btn-secondary">Call 830-510-3700</a>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get My Free VoIP Quote →</a>
+            <a href="tel:18305103700" class="btn btn-ghost">📞 Call a Local Expert – 830-510-3700</a>
           </div>
 
-          <div class="lp-points">
-            <span>Keep your existing phone numbers</span>
-            <span>Work from office, home, or mobile</span>
-            <span>Eliminate missed calls and lost business</span>
-            <span>Local support when you need it</span>
-          </div>
+          <ul class="pill-list">
+            <li>Keep your existing numbers</li>
+            <li>Work from office, home, or mobile</li>
+            <li>No call centers — real local support</li>
+            <li>Up and running in days</li>
+          </ul>
         </div>
 
         <div>
-          <div class="lp-status-card">
-            <h2>Upgrade Your Business Phones</h2>
-            <ul class="lp-check-list">
-              <li>Keep your existing phone numbers</li>
-              <li>Work from anywhere</li>
-              <li>Clear, reliable call quality</li>
-              <li>Easy setup with minimal downtime</li>
-              <li>Local support from CAER Technologies</li>
+          <div class="hero-card">
+            <div class="hero-card-label">What you get</div>
+            <ul class="hero-card-list">
+              <li><span class="check-circle">✓</span>Keep your existing phone numbers</li>
+              <li><span class="check-circle">✓</span>Crystal-clear call quality</li>
+              <li><span class="check-circle">✓</span>Work from desk, laptop, or mobile</li>
+              <li><span class="check-circle">✓</span>Smart routing — no missed calls</li>
+              <li><span class="check-circle">✓</span>Easy setup, minimal downtime</li>
+              <li><span class="check-circle">✓</span>Local CAER support team</li>
             </ul>
+            <div class="pricing-badge">
+              <div>
+                <div class="price-label">Starting at</div>
+                <div class="price-value">$20<span class="price-sub">/user/mo</span></div>
+              </div>
+              <a href="#contact" class="btn btn-primary" style="min-height:44px; font-size:0.9rem;">Get a Quote</a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </section>
 
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><span class="dot"></span>Serving the Texas Hill Country</div>
+      <div class="trust-item"><span class="dot"></span>Bandera · Kerrville · Fredericksburg · Boerne</div>
+      <div class="trust-item"><span class="dot"></span>Local support — not a call center</div>
+      <div class="trust-item"><span class="dot"></span>$20–$35 per user/month</div>
+    </div>
+  </div>
+
   <main>
-    <section class="lp-section">
-      <div class="lp-container lp-grid-2">
+
+    <!-- PROBLEM / SOLUTION -->
+    <section>
+      <div class="wrap split">
         <div>
-          <p class="lp-section-tag">The Problem</p>
-          <h2>Tired of Dealing With a Phone System That Slows You Down?</h2>
-          <p>Old phone systems create daily friction. Calls get missed, staff struggle to work remotely, and simple changes turn into a hassle. When communication breaks down, it affects customer experience and your bottom line.</p>
+          <span class="section-tag">The Problem</span>
+          <h2 style="color:#fff; font-size: clamp(1.7rem, 2.5vw, 2.2rem); margin-bottom: 1rem;">Tired of a Phone System That Slows You Down?</h2>
+          <p style="color:#94a3b8; margin-bottom: 1.5rem;">Old phone systems create daily friction. Missed calls, staff stuck at their desks, and changes that take weeks. When communication breaks down, your bottom line feels it.</p>
+          <ul class="item-list">
+            <li><span class="icon-dot red">✕</span>Dropped calls and poor audio quality</li>
+            <li><span class="icon-dot red">✕</span>Phones that only work in the office</li>
+            <li><span class="icon-dot red">✕</span>Missed calls with no routing or visibility</li>
+            <li><span class="icon-dot red">✕</span>Expensive hardware that's hard to change</li>
+          </ul>
         </div>
-        <div class="lp-card">
-          <ul class="lp-check-list">
-            <li>Dropped calls or poor call quality</li>
-            <li>Phones that only work in the office</li>
-            <li>Missed calls with no clear routing or reporting</li>
-            <li>Outdated hardware that is expensive to maintain</li>
+        <div class="card">
+          <h3>The CAER Solution</h3>
+          <p style="color:#94a3b8; margin-bottom: 1.25rem;">A cloud-based VoIP system built for how small businesses actually work — with local setup and support from CAER Technologies.</p>
+          <ul class="item-list">
+            <li><span class="icon-dot green">✓</span>Clear, reliable calls from any device</li>
+            <li><span class="icon-dot green">✓</span>Work from office, home, or mobile</li>
+            <li><span class="icon-dot green">✓</span>Smart routing so every call reaches someone</li>
+            <li><span class="icon-dot green">✓</span>Simple changes — no vendor wait times</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="features" class="lp-section lp-light">
-      <div class="lp-container">
-        <div class="lp-section-heading">
-          <p class="lp-section-tag">The Solution</p>
-          <h2>A Modern Business Phone System Built for How You Actually Work</h2>
-          <p>We provide cloud-based VoIP phone systems that give your business flexibility, reliability, and control—without the complexity of traditional systems.</p>
+    <!-- FEATURES -->
+    <section class="alt" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">What You Get</span>
+          <h2>Everything a Modern Business Phone System Should Do</h2>
+          <p>The features small businesses ask for most — delivered with local setup and support.</p>
         </div>
-
-        <div class="lp-grid-features">
-          <article class="lp-feature-card">
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
             <h3>Work From Anywhere</h3>
-            <p>Make and receive business calls from your desk, computer, or mobile device—whether you're in the office or on the go.</p>
-          </article>
-          <article class="lp-feature-card">
+            <p>Make and receive business calls from desk phones, laptops, or mobile — in the office, at home, or on the road.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📲</div>
+            <h3>Mobile App Access</h3>
+            <p>Use your business number from your smartphone. Staff keep personal numbers private — ideal for remote and field teams.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📞</div>
             <h3>Smart Call Routing</h3>
-            <p>Automatically direct calls to the right person or department so customers always reach who they need.</p>
-          </article>
-          <article class="lp-feature-card">
-            <h3>Simple Management</h3>
-            <p>Add users, change settings, and manage your system quickly without dealing with complicated hardware.</p>
-          </article>
-          <article class="lp-feature-card">
-            <h3>Clear, Reliable Calls</h3>
-            <p>Enjoy consistent, high-quality calls with a system designed for modern business networks.</p>
-          </article>
-          <article class="lp-feature-card">
-            <h3>Scales With Your Business</h3>
-            <p>Easily add or remove users as your team grows—no need to replace your entire system.</p>
-          </article>
-          <article class="lp-feature-card">
-            <h3>Local Support You Can Count On</h3>
-            <p>Get help from a local team in the Texas Hill Country—not a distant call center.</p>
-          </article>
+            <p>Route calls by department, schedule, or user so customers always reach the right person faster.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎙️</div>
+            <h3>Auto-Attendant & Voicemail</h3>
+            <p>Professional greetings, menus, voicemail routing, and after-hours handling — set up once, runs itself.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Easy User Management</h3>
+            <p>Add staff, change extensions, update call flows — without replacing hardware or calling a vendor.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3>Local Support — CAER</h3>
+            <p>When you need help, you work with CAER Technologies. A local team that knows your business, not a generic support line.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-light">
-      <div class="lp-container">
-        <div class="lp-section-heading">
-          <p class="lp-section-tag">Features</p>
-          <h2>See What Your New Phone System Can Do</h2>
-          <p>These are the features businesses ask for most when they are ready to replace an outdated office phone system.</p>
-        </div>
-
-        <div class="lp-accordion">
-          <details class="lp-accordion-item" open>
-            <summary>Work From Anywhere</summary>
-            <div class="lp-accordion-content">
-              <p>Your team can make and receive business calls from desk phones, laptops, or mobile devices so work continues whether they are in the office, at home, or on the road.</p>
-            </div>
-          </details>
-          <details class="lp-accordion-item">
-            <summary>Smart Call Routing</summary>
-            <div class="lp-accordion-content">
-              <p>Route calls by department, schedule, user, or location so customers reach the right person faster and fewer calls fall through the cracks.</p>
-            </div>
-          </details>
-          <details class="lp-accordion-item">
-            <summary>Mobile App Access</summary>
-            <div class="lp-accordion-content">
-              <p>Use your business number from your smartphone without giving out personal cell numbers, which is ideal for remote and field staff.</p>
-            </div>
-          </details>
-          <details class="lp-accordion-item">
-            <summary>Auto-Attendant &amp; Voicemail</summary>
-            <div class="lp-accordion-content">
-              <p>Create a more professional caller experience with greetings, menus, voicemail routing, and after-hours call handling.</p>
-            </div>
-          </details>
-          <details class="lp-accordion-item">
-            <summary>Easy User Changes</summary>
-            <div class="lp-accordion-content">
-              <p>Add new staff, change extensions, update call flows, and adjust settings without replacing hardware or waiting on a legacy phone vendor.</p>
-            </div>
-          </details>
-          <details class="lp-accordion-item">
-            <summary>Local Support</summary>
-            <div class="lp-accordion-content">
-              <p>When you need changes or help, you work with CAER Technologies—not a generic support line that does not know your business.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="lp-section">
-      <div class="lp-container">
-        <div class="lp-section-heading">
-          <p class="lp-section-tag">How It Works</p>
+    <!-- HOW IT WORKS -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">How It Works</span>
           <h2>Simple Setup. No Headaches.</h2>
-          <p>We handle everything from setup to support so you can switch without disruption.</p>
+          <p>We handle everything from day one to ongoing support so you can switch without disruption.</p>
         </div>
-
-        <div class="lp-grid-steps">
-          <div class="lp-step-card">
-            <div class="lp-step-number">1</div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
             <h3>Quick Assessment</h3>
-            <p>We review your current phone system, number needs, and how your team handles calls today.</p>
+            <p>We review your current setup, number needs, and how your team handles calls today.</p>
           </div>
-          <div class="lp-step-card">
-            <div class="lp-step-number">2</div>
-            <h3>Setup &amp; Number Transfer</h3>
-            <p>We configure the new system and coordinate porting your existing numbers.</p>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Setup & Number Transfer</h3>
+            <p>We configure the system and coordinate porting your existing numbers — no guesswork on your end.</p>
           </div>
-          <div class="lp-step-card">
-            <div class="lp-step-number">3</div>
+          <div class="step-card">
+            <div class="step-num">3</div>
             <h3>Go Live</h3>
-            <p>Your new phone system is activated with minimal downtime and a smoother caller experience.</p>
+            <p>Your new system activates with minimal downtime and a cleaner caller experience from day one.</p>
           </div>
-          <div class="lp-step-card">
-            <div class="lp-step-number">4</div>
-            <h3>Ongoing Support</h3>
-            <p>We stay available for user changes, call flow updates, support, and optimization.</p>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <h3>Ongoing Local Support</h3>
+            <p>We stay available for changes, updates, and support — a real local team, not a ticket queue.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="lp-section">
-      <div class="lp-container lp-grid-2">
+    <!-- WHO IT'S FOR -->
+    <section class="alt">
+      <div class="wrap who-grid">
         <div>
-          <p class="lp-section-tag">Who It’s For</p>
-          <h2>Built for Businesses That Rely on Communication</h2>
-          <p>This solution is designed for businesses that cannot afford to miss calls or deal with unreliable systems.</p>
+          <span class="section-tag">Who It's For</span>
+          <h2 style="color:#fff; font-size:clamp(1.7rem, 2.5vw, 2.2rem); margin-bottom: 1rem;">Built for Businesses That Can't Afford to Miss Calls</h2>
+          <p style="color:#94a3b8;">This solution fits businesses with 3–50 employees that need flexible, reliable communication without managing complicated hardware.</p>
+          <div class="who-tags">
+            <span>Offices with 3–50 staff</span>
+            <span>Multi-location businesses</span>
+            <span>Remote & hybrid teams</span>
+            <span>Replacing legacy systems</span>
+            <span>Field service companies</span>
+          </div>
+          <p class="pull-quote">"If your phones are holding you back, it's time to upgrade."</p>
         </div>
-        <div class="lp-card lp-emphasis">
-          <ul class="lp-bullet-list">
-            <li>Offices with 3–50 employees</li>
-            <li>Multi-location businesses</li>
-            <li>Remote or hybrid teams</li>
-            <li>Businesses replacing outdated phone systems</li>
-          </ul>
-          <p class="lp-quote">If your phones are holding you back, it’s time to upgrade.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="lp-section lp-light">
-      <div class="lp-container lp-grid-2">
-        <div>
-          <p class="lp-section-tag">Pricing</p>
-          <h2>Simple, Predictable Pricing</h2>
-          <p>Most small businesses pay between <strong>$20–$35 per user/month</strong> depending on features, hardware, and setup needs.</p>
-          <p>Pricing depends on the number of users, whether you need desk phones, and any advanced call routing or location requirements.</p>
-        </div>
-        <div class="lp-card">
-          <ul class="lp-check-list">
-            <li>Clear monthly pricing</li>
-            <li>Hardware options available</li>
-            <li>Scales as your business grows</li>
-            <li>Quick quotes based on your needs</li>
+        <div class="card" style="border-color: var(--border-warm);">
+          <h3>A 5-person office typically pays</h3>
+          <div style="font-family:'Sora',sans-serif; font-size:2.5rem; font-weight:800; color:#fff; letter-spacing:-0.04em; margin: 0.5rem 0;">$125–$150<span style="font-size:1rem; font-weight:500; color:#94a3b8;">/month</span></div>
+          <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:1.5rem;">All-in. No surprises. Scales as you grow.</p>
+          <ul class="pricing-bullets">
+            <li>Clear monthly pricing, no hidden fees</li>
+            <li>Hardware options available if needed</li>
+            <li>Add or remove users any time</li>
+            <li>Fast quote based on your actual needs</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="lp-section lp-light">
-      <div class="lp-container">
-        <div class="lp-section-heading">
-          <p class="lp-section-tag">Frequently Asked Questions</p>
+    <!-- LOCAL SECTION -->
+    <section class="local-band">
+      <div class="wrap local-grid">
+        <div>
+          <span class="section-tag">Local Support</span>
+          <h2 style="color:#fff; font-size:clamp(1.7rem, 2.5vw, 2.2rem); margin-bottom: 1rem;">Hill Country Businesses Deserve Hill Country Support</h2>
+          <p style="color:#94a3b8; margin-bottom:0.5rem;">CAER Technologies is based right here in the Texas Hill Country. When you need help, you get a local expert who knows your area — not someone reading from a script.</p>
+          <div class="towns-wrap">
+            <span class="town-pill">Bandera</span>
+            <span class="town-pill">Kerrville</span>
+            <span class="town-pill">Fredericksburg</span>
+            <span class="town-pill">Boerne</span>
+            <span class="town-pill">San Antonio area</span>
+            <span class="town-pill">Surrounding Hill Country</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:1.25rem;">Why businesses choose CAER</h3>
+          <ul class="item-list">
+            <li><span class="icon-dot green">✓</span>Local team — we know your community</li>
+            <li><span class="icon-dot green">✓</span>No overseas support lines</li>
+            <li><span class="icon-dot green">✓</span>Fast response, real accountability</li>
+            <li><span class="icon-dot green">✓</span>We handle setup, you stay focused</li>
+            <li><span class="icon-dot green">✓</span>Trusted by Hill Country businesses</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-tag">FAQ</span>
           <h2>Common Questions About Business VoIP</h2>
         </div>
-
-        <div class="lp-accordion">
-          <details class="lp-accordion-item">
+        <div class="faq-list">
+          <details class="faq-item" open>
             <summary>Can I keep my current phone number?</summary>
-            <div class="lp-accordion-content">
-              <p>Yes. We can port your existing numbers to the new system in most cases.</p>
-            </div>
+            <div class="faq-body">Yes. We can port your existing numbers to the new system in most cases. We handle the entire porting process so there's no disruption to your business.</div>
           </details>
-          <details class="lp-accordion-item">
+          <details class="faq-item">
             <summary>How long does setup take?</summary>
-            <div class="lp-accordion-content">
-              <p>Most systems are up and running within a few days, depending on the size of your business and number transfer timing.</p>
-            </div>
+            <div class="faq-body">Most systems are up and running within a few days. The exact timeline depends on your team size and number transfer timing — we'll give you a clear estimate upfront.</div>
           </details>
-          <details class="lp-accordion-item">
-            <summary>Do I need new phones?</summary>
-            <div class="lp-accordion-content">
-              <p>Not always. We can often use compatible existing hardware or provide new desk phones if needed.</p>
-            </div>
+          <details class="faq-item">
+            <summary>Do I need to buy new phones?</summary>
+            <div class="faq-body">Not always. We can often use compatible existing hardware. If new desk phones are needed, we'll recommend the right options and include them in your quote.</div>
           </details>
-          <details class="lp-accordion-item">
+          <details class="faq-item">
             <summary>What happens if the internet goes down?</summary>
-            <div class="lp-accordion-content">
-              <p>Calls can often be routed to mobile devices or backup numbers so you do not lose contact with customers.</p>
-            </div>
+            <div class="faq-body">Calls can be automatically routed to mobile devices or backup numbers so you never lose contact with customers — even during an outage.</div>
           </details>
-          <details class="lp-accordion-item">
-            <summary>Can staff use their cell phones for business calls?</summary>
-            <div class="lp-accordion-content">
-              <p>Yes. Your team can make and receive business calls from mobile devices while keeping their personal numbers private.</p>
-            </div>
+          <details class="faq-item">
+            <summary>Can staff use their personal cell phones for business calls?</summary>
+            <div class="faq-body">Yes. Your team can make and receive business calls from their smartphones while keeping their personal numbers completely private. Great for remote and field staff.</div>
           </details>
-          <details class="lp-accordion-item">
-            <summary>Is VoIP reliable for business use?</summary>
-            <div class="lp-accordion-content">
-              <p>Yes. When properly configured, VoIP is flexible, reliable, and a strong fit for modern businesses.</p>
-            </div>
+          <details class="faq-item">
+            <summary>Is VoIP as reliable as a traditional phone system?</summary>
+            <div class="faq-body">When properly configured on a solid network, VoIP is highly reliable for business use. We assess your network as part of the setup to ensure your system performs the way it should.</div>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="lp-section">
-      <div class="lp-container">
-        <div class="lp-cta-box">
-          <p class="lp-section-tag">Ready to Upgrade?</p>
-          <h2>Get a Business VoIP Quote</h2>
-          <p>Stop fighting your phone system. Let’s build a cleaner, more flexible setup for your business.</p>
-
-          <div class="lp-actions" style="justify-content:center;">
-            <a href="tel:18305103700" class="lp-btn lp-btn-primary">Call 830-510-3700</a>
-            <a href="mailto:support@consultcaer.com?subject=VoIP%20Quote%20Request" class="lp-btn lp-btn-secondary">Email CAER</a>
+    <!-- CTA -->
+    <section id="contact" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="cta-box">
+          <div>
+            <h2>Stop Fighting Your Phone System</h2>
+            <p>Let's build a cleaner, more flexible setup for your business — with local support every step of the way.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:0.85rem;">
+              <a href="tel:18305103700" class="btn btn-white">📞 Call 830-510-3700</a>
+              <a href="mailto:support@consultcaer.com?subject=VoIP%20Quote%20Request" class="btn btn-outline-white">✉ Email CAER</a>
+            </div>
           </div>
-
-			<div class="lp-form-wrap">
-			  <iframe
-				aria-label="Get a Business VoIP Quote"
-				src="https://forms.zohopublic.com/caertechnologies/form/VoIPCTA1/formperma/6wwTmieToL2ci_tE5grrbWy4bD3oqDyoad2wYawIMz0"
-				style="width:100%; min-height:1500px; border:none; border-radius:12px;"
-				loading="lazy">
-			  </iframe>
-			</div>
+          <div class="form-card">
+            <h3>Get a Free VoIP Quote</h3>
+            <p class="sub">We'll respond within one business day.</p>
+            <iframe
+              aria-label="Get a Business VoIP Quote"
+              src="https://forms.zohopublic.com/caertechnologies/form/VoIPCTA1/formperma/6wwTmieToL2ci_tE5grrbWy4bD3oqDyoad2wYawIMz0"
+              style="width:100%; min-height:480px; border:none; border-radius:10px;"
+              loading="lazy">
+            </iframe>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <div class="lp-sticky-mobile-cta">
-    <div class="lp-actions">
-      <a href="#contact" class="lp-btn lp-btn-primary">Get a Quote</a>
-      <a href="tel:18305103700" class="lp-btn lp-btn-secondary">Call Now</a>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <img src="/assets/logo/CAER-PON.gif" alt="CAER Technologies" style="height:44px; border-radius:50%; margin-bottom:0.75rem;" />
+          <p style="color:#64748b; font-size:0.9rem; max-width:32ch;">Managed IT and VoIP solutions for small businesses in the Texas Hill Country.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="/managed-it-services.html">Managed IT</a>
+          <a href="/cybersecurity.html">Cybersecurity</a>
+          <a href="/backup.html">Backup</a>
+          <a href="/network.html">Networking</a>
+          <a href="/VoIPAD">Business VoIP</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="tel:18305103700">830-510-3700</a>
+          <a href="mailto:support@consultcaer.com">support@consultcaer.com</a>
+          <a href="/contact.html">Get a Quote</a>
+          <a href="/about.html">About CAER</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CAER Technologies. All rights reserved.</span>
+        <span>Serving Bandera, Kerrville, Fredericksburg &amp; the Texas Hill Country</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA -->
+  <div class="sticky-cta">
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="tel:18305103700" class="btn btn-ghost">Call Now</a>
     </div>
   </div>
 
   <script>
-    document.querySelectorAll('.menu-toggle').forEach(function(button) {
-      button.addEventListener('click', function() {
-        const nav = document.querySelector('.site-nav');
-        const isOpen = nav.classList.toggle('open');
-        button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const btn = document.getElementById('menu-btn');
+    const nav = document.getElementById('site-nav');
+    if (btn && nav) {
+      btn.addEventListener('click', function() {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? '✕' : '☰';
+      });
+      document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = '☰';
+        }
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
   </script>
+
 </body>
 </html>

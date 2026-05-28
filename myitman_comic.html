@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY IT MAN – The Mightiest Tech Hero!</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFE600;
+    --red: #E8001D;
+    --blue: #0057D9;
+    --darkblue: #002278;
+    --black: #0a0a0a;
+    --white: #FFFEF0;
+    --panel-bg: #FFFEF0;
+    --ink: #0a0a0a;
+    --dot-size: 3px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #1a0a00;
+    background-image:
+      radial-gradient(circle, #3a1a00 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--yellow);
+    border-bottom: 6px solid var(--black);
+    text-align: center;
+    padding: 18px 12px 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,.08) var(--dot-size), transparent var(--dot-size));
+    background-size: 10px 10px;
+  }
+  .site-header .tagline {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--red);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .site-header h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: var(--darkblue);
+    letter-spacing: 6px;
+    line-height: 1;
+    text-shadow:
+      4px 4px 0 var(--black),
+      -2px -2px 0 var(--black),
+      2px -2px 0 var(--black),
+      -2px 2px 0 var(--black);
+    position: relative;
+  }
+  .pronoun-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: clamp(.75rem, 2vw, 1rem);
+    letter-spacing: 2px;
+    padding: 3px 14px;
+    border: 3px solid var(--black);
+    border-radius: 4px;
+    position: relative;
+    margin-top: 4px;
+    box-shadow: 3px 3px 0 var(--black);
+  }
+  .issue-info {
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    color: var(--black);
+    margin-top: 8px;
+    letter-spacing: 2px;
+    position: relative;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .comic-page {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ── PANEL GRID ── */
+  .panel-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* layout overrides */
+  .panel-grid .panel:nth-child(1) { grid-column: 1 / -1; }   /* full width – splash */
+  .panel-grid .panel:nth-child(6) { grid-column: 1 / -1; }   /* full width – off/on */
+  .panel-grid .panel:nth-child(9) { grid-column: 1 / -1; }   /* full width – finale */
+
+  /* ── SINGLE PANEL ── */
+  .panel {
+    background: var(--panel-bg);
+    border: 5px solid var(--black);
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 0 var(--black);
+    animation: fadeIn .6s ease both;
+  }
+  .panel::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,.05) var(--dot-size), transparent var(--dot-size));
+    background-size: 8px 8px;
+    pointer-events: none;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+  /* stagger panels */
+  .panel:nth-child(1)  { animation-delay:.05s; }
+  .panel:nth-child(2)  { animation-delay:.15s; }
+  .panel:nth-child(3)  { animation-delay:.25s; }
+  .panel:nth-child(4)  { animation-delay:.35s; }
+  .panel:nth-child(5)  { animation-delay:.45s; }
+  .panel:nth-child(6)  { animation-delay:.55s; }
+  .panel:nth-child(7)  { animation-delay:.65s; }
+  .panel:nth-child(8)  { animation-delay:.75s; }
+  .panel:nth-child(9)  { animation-delay:.85s; }
+
+  /* ── SCENE (SVG art area) ── */
+  .scene {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+  }
+  .scene svg { max-width: 100%; height: auto; display: block; }
+
+  /* ── CAPTION BOX ── */
+  .caption {
+    background: var(--yellow);
+    border-top: 4px solid var(--black);
+    font-family: 'Bangers', cursive;
+    font-size: clamp(.85rem, 2.5vw, 1.05rem);
+    letter-spacing: 1px;
+    color: var(--black);
+    padding: 6px 10px;
+    text-align: center;
+  }
+  .caption.blue {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .caption.red {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  /* ── SPEECH BUBBLES (positioned inside SVG via foreignObject or as overlay) ── */
+  .bubble-wrap {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+
+  /* ── SOUND FX ── */
+  .sfx {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+    color: var(--yellow);
+    text-shadow:
+      3px 3px 0 var(--black),
+      -2px -2px 0 var(--black),
+      2px -2px 0 var(--black),
+      -2px 2px 0 var(--black);
+    letter-spacing: 4px;
+    display: block;
+    text-align: center;
+    transform: rotate(-6deg);
+    line-height: 1;
+    padding: 8px;
+  }
+  .sfx.red  { color: var(--red); }
+  .sfx.blue { color: var(--blue); }
+
+  /* ── PANEL NUMBER ── */
+  .panel-num {
+    position: absolute;
+    top: 6px; left: 8px;
+    font-family: 'Bangers', cursive;
+    font-size: .85rem;
+    color: rgba(0,0,0,.25);
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+
+  /* ── BURST / STARBURST ── */
+  .burst {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    letter-spacing: 2px;
+    background: var(--red);
+    color: var(--white);
+    border: 4px solid var(--black);
+    padding: 8px 16px;
+    position: relative;
+    clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+    display: flex; align-items: center; justify-content: center;
+    width: 120px; height: 120px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    color: var(--yellow);
+    letter-spacing: 3px;
+    padding: 20px;
+    opacity: .7;
+  }
+
+  /* ── WIGGLE ANIMATION for finale ── */
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-2deg) scale(1); }
+    50% { transform: rotate(2deg) scale(1.04); }
+  }
+  .panel:last-child { animation: fadeIn .6s .85s ease both, wiggle 2s 1.5s ease-in-out infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 560px) {
+    .panel-grid { grid-template-columns: 1fr; }
+    .panel-grid .panel:nth-child(1),
+    .panel-grid .panel:nth-child(6),
+    .panel-grid .panel:nth-child(9) { grid-column: 1; }
+    .panel { min-height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="site-header">
+  <div class="tagline">★ The World's Mightiest Tech Support Hero ★</div>
+  <h1>MY IT MAN</h1>
+  <div class="pronoun-badge">pronounced: MIGHTY MAN</div>
+  <div class="issue-info">ISSUE #404 &nbsp;·&nbsp; "HAVE YOU TRIED TURNING IT OFF AND BACK ON?"</div>
+</header>
+
+<!-- ══════════ COMIC PAGE ══════════ -->
+<main class="comic-page">
+<div class="panel-grid">
+
+  <!-- ── PANEL 1 – SPLASH: Hero at desk ── -->
+  <div class="panel">
+    <span class="panel-num">1</span>
+    <div class="scene">
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- background city window -->
+        <rect width="760" height="320" fill="#b8d4f5"/>
+        <!-- city buildings silhouette -->
+        <rect x="0" y="180" width="760" height="140" fill="#0a1a3a"/>
+        <rect x="30" y="130" width="60" height="190" fill="#0a1a3a"/>
+        <rect x="110" y="100" width="80" height="220" fill="#0a1a3a"/>
+        <rect x="210" y="150" width="50" height="170" fill="#0a1a3a"/>
+        <rect x="580" y="110" width="90" height="210" fill="#0a1a3a"/>
+        <rect x="690" y="140" width="70" height="180" fill="#0a1a3a"/>
+        <!-- window lights -->
+        <rect x="50" y="145" width="10" height="10" fill="#FFE600" opacity=".9"/>
+        <rect x="68" y="145" width="10" height="10" fill="#FFE600" opacity=".9"/>
+        <rect x="120" y="115" width="12" height="10" fill="#FFE600" opacity=".9"/>
+        <rect x="140" y="130" width="12" height="10" fill="#FFE600" opacity=".5"/>
+        <rect x="600" y="125" width="12" height="10" fill="#FFE600" opacity=".9"/>
+        <rect x="620" y="140" width="12" height="10" fill="#FFE600" opacity=".6"/>
+        <!-- desk surface -->
+        <rect x="250" y="210" width="510" height="30" fill="#6b3a1f" stroke="#0a0a0a" stroke-width="3"/>
+        <!-- computer monitor -->
+        <rect x="480" y="120" width="160" height="100" rx="6" fill="#1a1a2e" stroke="#0a0a0a" stroke-width="3"/>
+        <rect x="490" y="128" width="140" height="82" rx="3" fill="#0057D9" opacity=".8"/>
+        <!-- code lines on screen -->
+        <rect x="498" y="138" width="80" height="5" rx="2" fill="#00ff88" opacity=".7"/>
+        <rect x="498" y="150" width="110" height="5" rx="2" fill="#FFE600" opacity=".7"/>
+        <rect x="498" y="162" width="60" height="5" rx="2" fill="#ff6b6b" opacity=".7"/>
+        <rect x="498" y="174" width="95" height="5" rx="2" fill="#fff" opacity=".5"/>
+        <rect x="498" y="186" width="70" height="5" rx="2" fill="#00ff88" opacity=".7"/>
+        <rect x="540" y="218" width="40" height="8" rx="2" fill="#4a2a10" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- keyboard -->
+        <rect x="470" y="226" width="180" height="18" rx="4" fill="#ccc" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- phone (old school handset) -->
+        <rect x="300" y="200" width="60" height="16" rx="8" fill="#222" stroke="#0a0a0a" stroke-width="2" transform="rotate(-15 330 208)"/>
+        <!-- coffee mug -->
+        <rect x="410" y="196" width="30" height="28" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M440 206 Q455 206 455 214 Q455 222 440 222" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+        <text x="418" y="213" font-size="10" fill="#6b3a1f" font-family="Comic Neue, cursive">☕</text>
+        <!-- MY IT MAN hero character -->
+        <!-- cape -->
+        <path d="M340 160 Q310 200 300 260 L360 240 L380 260 L400 240 L430 260 Q420 200 390 160 Z" fill="#E8001D" stroke="#0a0a0a" stroke-width="3"/>
+        <!-- body / suit -->
+        <rect x="340" y="155" width="60" height="80" rx="8" fill="#0057D9" stroke="#0a0a0a" stroke-width="3"/>
+        <!-- chest logo -->
+        <circle cx="370" cy="185" r="18" fill="#FFE600" stroke="#0a0a0a" stroke-width="2"/>
+        <text x="370" y="191" text-anchor="middle" font-family="Bangers, cursive" font-size="14" fill="#0a0a0a">MIM</text>
+        <!-- head -->
+        <circle cx="370" cy="140" r="32" fill="#f5c5a0" stroke="#0a0a0a" stroke-width="3"/>
+        <!-- mask -->
+        <path d="M338 132 Q370 118 402 132 L400 145 Q370 135 340 145 Z" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- eyes -->
+        <ellipse cx="358" cy="140" rx="7" ry="6" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="382" cy="140" rx="7" ry="6" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="360" cy="141" r="3" fill="#0a0a0a"/>
+        <circle cx="384" cy="141" r="3" fill="#0a0a0a"/>
+        <!-- confident smirk -->
+        <path d="M358 155 Q370 163 382 155" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- hair -->
+        <path d="M340 128 Q355 110 370 108 Q385 110 400 128 Q395 115 370 112 Q345 115 340 128Z" fill="#1a0a00"/>
+        <!-- arms -->
+        <rect x="305" y="158" width="38" height="14" rx="7" fill="#0057D9" stroke="#0a0a0a" stroke-width="2" transform="rotate(30 324 165)"/>
+        <rect x="397" y="158" width="38" height="14" rx="7" fill="#0057D9" stroke="#0a0a0a" stroke-width="2" transform="rotate(-30 416 165)"/>
+        <!-- fists -->
+        <rect x="295" y="183" width="22" height="18" rx="5" fill="#f5c5a0" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="423" y="183" width="22" height="18" rx="5" fill="#f5c5a0" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- legs -->
+        <rect x="348" y="232" width="22" height="50" rx="6" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="375" y="232" width="22" height="50" rx="6" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- boots -->
+        <rect x="342" y="274" width="34" height="16" rx="6" fill="#E8001D" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="369" y="274" width="34" height="16" rx="6" fill="#E8001D" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- title text in panel -->
+        <text x="140" y="90" font-family="Bangers, cursive" font-size="48" fill="#FFE600" stroke="#0a0a0a" stroke-width="3" paint-order="stroke">MY IT MAN</text>
+        <text x="148" y="115" font-family="Bangers, cursive" font-size="18" fill="#fff" stroke="#0a0a0a" stroke-width="2" paint-order="stroke">IS ON THE CASE!</text>
+        <!-- stars decorative -->
+        <text x="90" y="60" font-size="22" fill="#FFE600">★</text>
+        <text x="260" y="50" font-size="16" fill="#E8001D">★</text>
+        <text x="600" y="80" font-size="18" fill="#FFE600">★</text>
+      </svg>
+    </div>
+    <div class="caption blue">SOMEWHERE IN THE CITY… THE GREATEST TECH SUPPORT HERO AWAITS HIS NEXT CALL…</div>
+  </div>
+
+  <!-- ── PANEL 2 – Phone rings ── -->
+  <div class="panel">
+    <span class="panel-num">2</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="260" fill="#fff9e6"/>
+        <!-- desk corner -->
+        <rect x="0" y="185" width="360" height="75" fill="#7a4a20" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- ringing phone with vibration lines -->
+        <rect x="100" y="145" width="140" height="55" rx="20" fill="#222" stroke="#0a0a0a" stroke-width="3"/>
+        <ellipse cx="134" cy="162" rx="14" ry="12" fill="#444"/>
+        <ellipse cx="226" cy="162" rx="14" ry="12" fill="#444"/>
+        <rect x="148" y="154" width="44" height="16" rx="3" fill="#555"/>
+        <!-- vibration lines -->
+        <path d="M60 155 Q70 145 60 135" fill="none" stroke="#E8001D" stroke-width="3" stroke-linecap="round"/>
+        <path d="M45 160 Q55 145 45 130" fill="none" stroke="#E8001D" stroke-width="3" stroke-linecap="round"/>
+        <path d="M270 155 Q260 145 270 135" fill="none" stroke="#E8001D" stroke-width="3" stroke-linecap="round"/>
+        <path d="M285 160 Q275 145 285 130" fill="none" stroke="#E8001D" stroke-width="3" stroke-linecap="round"/>
+        <!-- RING RING text -->
+        <text x="180" y="110" text-anchor="middle" font-family="Bangers, cursive" font-size="34" fill="#E8001D" stroke="#0a0a0a" stroke-width="2" paint-order="stroke" transform="rotate(-5 180 110)">RING RING!</text>
+        <!-- Hero head peeking from corner -->
+        <circle cx="310" cy="230" r="40" fill="#f5c5a0" stroke="#0a0a0a" stroke-width="3"/>
+        <path d="M278 218 Q310 204 342 218 L340 228 Q310 220 280 228 Z" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="300" cy="225" rx="6" ry="5" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="320" cy="225" rx="6" ry="5" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="302" cy="226" r="2.5" fill="#0a0a0a"/>
+        <circle cx="322" cy="226" r="2.5" fill="#0a0a0a"/>
+        <!-- alert eyebrows -->
+        <path d="M293 216 L307 219" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M313 219 L327 216" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="caption">SUDDENLY — THE DISTRESS SIGNAL!</div>
+  </div>
+
+  <!-- ── PANEL 3 – User frantic (split screen call) ── -->
+  <div class="panel">
+    <span class="panel-num">3</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- split screen divider -->
+        <rect x="0" y="0" width="178" height="260" fill="#ffe8e8"/>
+        <rect x="182" y="0" width="178" height="260" fill="#e8f0ff"/>
+        <rect x="177" y="0" width="6" height="260" fill="#0a0a0a"/>
+        <!-- left: distressed user -->
+        <!-- user body -->
+        <rect x="30" y="130" width="110" height="80" rx="8" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- user head -->
+        <circle cx="85" cy="110" r="35" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2.5"/>
+        <!-- user hair messy -->
+        <path d="M52 95 Q62 68 85 65 Q108 68 118 95" fill="#8B4513" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M52 95 Q46 80 50 72" fill="#8B4513" stroke="#0a0a0a" stroke-width="1.5"/>
+        <path d="M118 95 Q124 80 120 72" fill="#8B4513" stroke="#0a0a0a" stroke-width="1.5"/>
+        <!-- user panic eyes (wide) -->
+        <ellipse cx="73" cy="108" rx="9" ry="10" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="97" cy="108" rx="9" ry="10" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="73" cy="109" r="4" fill="#0a0a0a"/>
+        <circle cx="97" cy="109" r="4" fill="#0a0a0a"/>
+        <!-- panic pupils tiny -->
+        <circle cx="74" cy="108" r="1.5" fill="white"/>
+        <circle cx="98" cy="108" r="1.5" fill="white"/>
+        <!-- sweat drops -->
+        <path d="M55 88 Q52 80 56 76" fill="#6af" stroke="#0a0a0a" stroke-width="1"/>
+        <path d="M116 84 Q119 76 115 72" fill="#6af" stroke="#0a0a0a" stroke-width="1"/>
+        <!-- open mouth screaming -->
+        <path d="M70 122 Q85 134 100 122" fill="#8B2020" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="85" cy="127" rx="10" ry="6" fill="#8B2020"/>
+        <!-- user arms flailing -->
+        <rect x="8" y="138" width="30" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(-40 23 144)"/>
+        <rect x="128" y="138" width="30" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(40 143 144)"/>
+        <!-- phone in hand -->
+        <rect x="8" y="98" width="22" height="40" rx="4" fill="#333" stroke="#0a0a0a" stroke-width="2" transform="rotate(-20 19 118)"/>
+        <!-- USER label -->
+        <text x="85" y="224" text-anchor="middle" font-family="Bangers, cursive" font-size="16" fill="#E8001D">😱 USER</text>
+        <!-- right: MY IT MAN calm -->
+        <rect x="244" y="130" width="90" height="80" rx="8" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="289" cy="110" r="32" fill="#f5c5a0" stroke="#0a0a0a" stroke-width="2.5"/>
+        <path d="M260 100 Q289 87 318 100 L316 110 Q289 102 262 110 Z" fill="#0057D9" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="279" cy="108" rx="6" ry="5" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="299" cy="108" rx="6" ry="5" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="280" cy="109" r="2.5" fill="#0a0a0a"/>
+        <circle cx="300" cy="109" r="2.5" fill="#0a0a0a"/>
+        <!-- calm eyebrows -->
+        <path d="M273 99 L285 101" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M293 101 L305 99" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
+        <!-- calm smirk -->
+        <path d="M278 119 Q289 126 300 119" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
+        <!-- phone at ear -->
+        <rect x="248" y="95" width="18" height="32" rx="4" fill="#333" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- MIM chest logo -->
+        <circle cx="289" cy="163" r="15" fill="#FFE600" stroke="#0a0a0a" stroke-width="2"/>
+        <text x="289" y="169" text-anchor="middle" font-family="Bangers, cursive" font-size="11" fill="#0a0a0a">MIM</text>
+        <text x="289" y="224" text-anchor="middle" font-family="Bangers, cursive" font-size="14" fill="#0057D9">MY IT MAN</text>
+        <!-- speech bubble from user side -->
+        <path d="M145 60 L170 75 L150 75 Z" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="50" y="28" width="130" height="44" rx="10" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <text x="115" y="47" text-anchor="middle" font-family="Comic Neue, cursive" font-weight="700" font-size="10.5" fill="#0a0a0a">IT'S A DISASTER!!</text>
+        <text x="115" y="63" text-anchor="middle" font-family="Comic Neue, cursive" font-size="10" fill="#0a0a0a">NOTHING WORKS!!</text>
+      </svg>
+    </div>
+    <div class="caption red">THE CALL COMES IN…</div>
+  </div>
+
+  <!-- ── PANEL 4 – User babbles about internet ── -->
+  <div class="panel">
+    <span class="panel-num">4</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="260" fill="#fff0f0"/>
+        <!-- user character again, gesturing wildly -->
+        <rect x="130" y="150" width="100" height="80" rx="8" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="180" cy="128" r="36" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2.5"/>
+        <!-- hair up -->
+        <path d="M146 112 Q160 85 180 82 Q200 85 214 112" fill="#8B4513" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M160 86 L155 70 M175 82 L173 66 M195 84 L198 68" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+        <!-- panic eyes -->
+        <ellipse cx="167" cy="126" rx="9" ry="9" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="193" cy="126" rx="9" ry="9" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="169" cy="128" r="4" fill="#0a0a0a"/>
+        <circle cx="195" cy="128" r="4" fill="#0a0a0a"/>
+        <!-- mouth open talking -->
+        <path d="M165 140 Q180 150 195 140" fill="#a0202a" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- broken wifi symbol above -->
+        <path d="M180 50 Q210 30 240 50" fill="none" stroke="#E8001D" stroke-width="4" stroke-linecap="round" opacity=".4"/>
+        <path d="M180 63 Q205 48 230 63" fill="none" stroke="#E8001D" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+        <path d="M180 76 Q200 65 220 76" fill="none" stroke="#E8001D" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+        <circle cx="200" cy="88" r="5" fill="#E8001D"/>
+        <!-- big red X over wifi -->
+        <line x1="155" y1="30" x2="245" y2="100" stroke="#E8001D" stroke-width="5" stroke-linecap="round"/>
+        <line x1="245" y1="30" x2="155" y2="100" stroke="#E8001D" stroke-width="5" stroke-linecap="round"/>
+        <!-- speech bubble -->
+        <path d="M230 155 L255 130 L248 150 Z" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="210" y="100" width="145" height="58" rx="10" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
+        <text x="282" y="118" text-anchor="middle" font-family="Comic Neue, cursive" font-weight="700" font-size="10" fill="#0a0a0a">THE INTERNET IS GONE!</text>
+        <text x="282" y="132" text-anchor="middle" font-family="Comic Neue, cursive" font-size="9.5" fill="#0a0a0a">PAGES WON'T LOAD!</text>
+        <text x="282" y="146" text-anchor="middle" font-family="Comic Neue, cursive" font-size="9.5" fill="#0a0a0a">EMAILS DISAPPEARED!</text>
+        <!-- arms pointing up/out -->
+        <rect x="88" y="156" width="45" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(-50 110 162)"/>
+        <rect x="218" y="156" width="45" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(50 241 162)"/>
+      </svg>
+    </div>
+    <div class="caption">"THE INTERNET HAS VANISHED! EVERYTHING IS GONE!"</div>
+  </div>
+
+  <!-- ── PANEL 5 – User babbles about CD tray / coffee cup holder ── -->
+  <div class="panel">
+    <span class="panel-num">5</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="260" fill="#f0f4ff"/>
+        <!-- old desktop PC tower -->
+        <rect x="20" y="80" width="90" height="140" rx="6" fill="#ccc" stroke="#0a0a0a" stroke-width="3"/>
+        <rect x="30" y="95" width="70" height="45" rx="3" fill="#1a1a2e"/>
+        <!-- power button -->
+        <circle cx="55" cy="158" r="10" fill="#444" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="55" cy="158" r="6" fill="#E8001D"/>
+        <!-- CD tray extended with coffee cup on it! -->
+        <rect x="28" y="170" width="74" height="14" rx="3" fill="#bbb" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="28" y="178" width="120" height="20" rx="3" fill="#999" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- coffee cup ON the tray -->
+        <rect x="100" y="166" width="28" height="36" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M128 174 Q142 174 142 182 Q142 190 128 190" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="102" y="168" width="24" height="8" rx="2" fill="#7a3e00"/>
+        <text x="114" y="195" text-anchor="middle" font-family="Comic Neue, cursive" font-size="9" fill="#7a3e00">☕</text>
+        <!-- label on tray -->
+        <text x="80" y="192" text-anchor="middle" font-family="Bangers, cursive" font-size="9" fill="#0a0a0a">CUP HOLDER!</text>
+        <!-- user character smaller, pointing at it -->
+        <rect x="200" y="155" width="90" height="80" rx="8" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="245" cy="135" r="32" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2.5"/>
+        <path d="M215 118 Q245 105 275 118 L273 128 Q245 120 217 128 Z" fill="#333" stroke="#0a0a0a" stroke-width="1.5"/>
+        <ellipse cx="234" cy="133" rx="8" ry="7" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="256" cy="133" rx="8" ry="7" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="236" cy="134" r="3.5" fill="#0a0a0a"/>
+        <circle cx="258" cy="134" r="3.5" fill="#0a0a0a"/>
+        <!-- speech bubble, finger pointing at tray -->
+        <path d="M185 130 L200 145 L195 138 Z" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="115" y="90" width="180" height="55" rx="10" fill="#FFE600" stroke="#0a0a0a" stroke-width="2.5"/>
+        <text x="205" y="108" text-anchor="middle" font-family="Comic Neue, cursive" font-weight="700" font-size="10" fill="#0a0a0a">AND MY CUP HOLDER</text>
+        <text x="205" y="122" text-anchor="middle" font-family="Comic Neue, cursive" font-size="10" fill="#0a0a0a">IS BROKEN!! IT WON'T</text>
+        <text x="205" y="136" text-anchor="middle" font-family="Comic Neue, cursive" font-size="10" fill="#0a0a0a">HOLD MY MUG RIGHT!!</text>
+        <!-- pointing arm -->
+        <rect x="168" y="165" width="38" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(150 187 171)"/>
+      </svg>
+    </div>
+    <div class="caption">"AND THE CUP HOLDER IS COMPLETELY BROKEN!!"</div>
+  </div>
+
+  <!-- ── PANEL 6 – MY IT MAN's legendary question (full width) ── -->
+  <div class="panel">
+    <span class="panel-num">6</span>
+    <div class="scene" style="background:#002278; min-height:220px;">
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="760" height="260" fill="#001a5c"/>
+        <!-- halftone dot pattern -->
+        <pattern id="dots" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+          <circle cx="6" cy="6" r="2" fill="#0057D9" opacity=".3"/>
+        </pattern>
+        <rect width="760" height="260" fill="url(#dots)"/>
+        <!-- MY IT MAN full pose, confident -->
+        <!-- cape -->
+        <path d="M330 60 Q300 130 285 220 L355 195 L380 215 L405 195 L475 220 Q460 130 430 60 Z" fill="#E8001D" stroke="#FFE600" stroke-width="3"/>
+        <!-- body -->
+        <rect x="332" y="58" width="96" height="120" rx="10" fill="#0057D9" stroke="#FFE600" stroke-width="3"/>
+        <!-- chest logo big -->
+        <circle cx="380" cy="105" r="28" fill="#FFE600" stroke="#FFE600" stroke-width="2"/>
+        <text x="380" y="113" text-anchor="middle" font-family="Bangers, cursive" font-size="20" fill="#001a5c">MIM</text>
+        <!-- head -->
+        <circle cx="380" cy="40" r="38" fill="#f5c5a0" stroke="#FFE600" stroke-width="3"/>
+        <!-- mask -->
+        <path d="M344 28 Q380 12 416 28 L414 43 Q380 31 346 43 Z" fill="#0057D9" stroke="#FFE600" stroke-width="2"/>
+        <!-- eyes with glow -->
+        <ellipse cx="368" cy="38" rx="8" ry="7" fill="white" stroke="#FFE600" stroke-width="2"/>
+        <ellipse cx="392" cy="38" rx="8" ry="7" fill="white" stroke="#FFE600" stroke-width="2"/>
+        <circle cx="370" cy="39" r="3.5" fill="#001a5c"/>
+        <circle cx="394" cy="39" r="3.5" fill="#001a5c"/>
+        <!-- raised single eyebrow (knowing look) -->
+        <path d="M362 26 L376 30" stroke="#1a0a00" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M384 28 Q394 22 404 28" stroke="#1a0a00" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- smirk -->
+        <path d="M367 52 Q382 61 394 54" fill="none" stroke="#1a0a00" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- arms: one holding phone, one raised -->
+        <rect x="290" y="68" width="45" height="14" rx="7" fill="#0057D9" stroke="#FFE600" stroke-width="2" transform="rotate(25 312 75)"/>
+        <rect x="280" y="88" width="22" height="36" rx="4" fill="#333" stroke="#FFE600" stroke-width="2" transform="rotate(10 291 106)"/>
+        <!-- phone receiver lines -->
+        <rect x="425" y="62" width="45" height="14" rx="7" fill="#0057D9" stroke="#FFE600" stroke-width="2" transform="rotate(-25 448 69)"/>
+        <rect x="454" y="78" width="22" height="18" rx="5" fill="#f5c5a0" stroke="#FFE600" stroke-width="2"/>
+        <!-- legs -->
+        <rect x="350" y="175" width="26" height="55" rx="8" fill="#001a5c" stroke="#FFE600" stroke-width="2"/>
+        <rect x="384" y="175" width="26" height="55" rx="8" fill="#001a5c" stroke="#FFE600" stroke-width="2"/>
+        <!-- boots -->
+        <rect x="342" y="220" width="42" height="20" rx="8" fill="#E8001D" stroke="#FFE600" stroke-width="2"/>
+        <rect x="376" y="220" width="42" height="20" rx="8" fill="#E8001D" stroke="#FFE600" stroke-width="2"/>
+        <!-- THE BIG SPEECH BUBBLE -->
+        <path d="M320 115 Q295 155 280 170 L315 158 Z" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+        <rect x="40" y="40" width="280" height="130" rx="18" fill="#fff" stroke="#0a0a0a" stroke-width="4"/>
+        <!-- dotted inner border -->
+        <rect x="48" y="48" width="264" height="114" rx="14" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="180" y="82" text-anchor="middle" font-family="Bangers, cursive" font-size="18" fill="#0a0a0a">HAVE YOU TRIED…</text>
+        <text x="180" y="108" text-anchor="middle" font-family="Bangers, cursive" font-size="22" fill="#E8001D">TURNING IT OFF</text>
+        <text x="180" y="135" text-anchor="middle" font-family="Bangers, cursive" font-size="22" fill="#E8001D">AND BACK ON?</text>
+        <!-- glow effect around bubble -->
+        <rect x="35" y="35" width="290" height="140" rx="20" fill="none" stroke="#FFE600" stroke-width="2" opacity=".4"/>
+        <!-- lightning bolts decoration -->
+        <text x="510" y="80" font-family="Bangers, cursive" font-size="55" fill="#FFE600" opacity=".8">⚡</text>
+        <text x="600" y="150" font-family="Bangers, cursive" font-size="36" fill="#FFE600" opacity=".5">⚡</text>
+        <text x="530" y="200" font-family="Bangers, cursive" font-size="28" fill="#FFE600" opacity=".4">⚡</text>
+      </svg>
+    </div>
+    <div class="caption blue">★ THE LEGENDARY QUESTION THAT ECHOES THROUGH THE AGES ★</div>
+  </div>
+
+  <!-- ── PANEL 7 – User pauses ("……") ── -->
+  <div class="panel">
+    <span class="panel-num">7</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="260" fill="#f8f8f8"/>
+        <!-- dead silence visual: very still user -->
+        <rect x="115" y="150" width="100" height="80" rx="8" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="165" cy="128" r="36" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2.5"/>
+        <!-- hair down, calmer -->
+        <path d="M131 112 Q165 95 199 112" fill="#8B4513" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- eyes: blank stare -->
+        <ellipse cx="152" cy="125" rx="10" ry="10" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <ellipse cx="178" cy="125" rx="10" ry="10" fill="white" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="152" cy="127" r="5" fill="#0a0a0a"/>
+        <circle cx="178" cy="127" r="5" fill="#0a0a0a"/>
+        <!-- tiny reflect dots -->
+        <circle cx="154" cy="125" r="2" fill="white"/>
+        <circle cx="180" cy="125" r="2" fill="white"/>
+        <!-- flat line mouth -->
+        <line x1="150" y1="143" x2="180" y2="143" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- arms limp at sides -->
+        <rect x="90" y="155" width="30" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(15 105 161)"/>
+        <rect x="210" y="155" width="30" height="12" rx="6" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(-15 225 161)"/>
+        <!-- thought bubble -->
+        <circle cx="220" cy="105" r="6" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="233" cy="90" r="9" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <circle cx="252" cy="73" r="14" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="215" y="28" width="130" height="50" rx="12" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
+        <text x="280" y="50" text-anchor="middle" font-family="Bangers, cursive" font-size="28" fill="#0a0a0a" letter-spacing="6">…</text>
+        <text x="280" y="70" text-anchor="middle" font-family="Comic Neue, cursive" font-size="10" fill="#555">processing…</text>
+        <!-- sweat drop from forehead -->
+        <path d="M200 98 Q197 88 201 84" fill="#6af" stroke="#0a0a0a" stroke-width="1.2"/>
+        <!-- background grid lines for tension -->
+        <line x1="0" y1="0" x2="0" y2="260" stroke="#eee" stroke-width="1"/>
+        <line x1="60" y1="0" x2="60" y2="260" stroke="#eee" stroke-width="1"/>
+        <line x1="120" y1="0" x2="120" y2="260" stroke="#eee" stroke-width="1"/>
+        <line x1="300" y1="0" x2="300" y2="260" stroke="#eee" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="caption">THE SILENCE WAS DEAFENING…</div>
+  </div>
+
+  <!-- ── PANEL 8 – "No…" + CLICK + Windows sound ── -->
+  <div class="panel">
+    <span class="panel-num">8</span>
+    <div class="scene">
+      <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="260" fill="#1a0a00"/>
+        <!-- dramatic dark bg -->
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#3a1a00"/>
+          <stop offset="100%" stop-color="#0a0500"/>
+        </radialGradient>
+        <rect width="360" height="260" fill="url(#glow)"/>
+        <!-- computer screen glowing -->
+        <rect x="20" y="60" width="200" height="140" rx="6" fill="#0a0a20" stroke="#FFE600" stroke-width="3"/>
+        <rect x="28" y="68" width="184" height="120" fill="#000010"/>
+        <!-- shutdown screen: black with white text -->
+        <text x="120" y="118" text-anchor="middle" font-family="Bangers, cursive" font-size="14" fill="#fff">SHUTTING DOWN...</text>
+        <!-- loading dots -->
+        <circle cx="105" cy="135" r="4" fill="#fff" opacity=".5"/>
+        <circle cx="120" cy="135" r="4" fill="#fff" opacity=".7"/>
+        <circle cx="135" cy="135" r="4" fill="#fff"/>
+        <!-- power button glow -->
+        <circle cx="120" cy="195" r="10" fill="#E8001D" stroke="#FFE600" stroke-width="2"/>
+        <text x="120" y="200" text-anchor="middle" font-family="Bangers, cursive" font-size="10" fill="#fff">⏻</text>
+        <!-- NO speech bubble (top left) -->
+        <path d="M60 95 L48 112 L62 105 Z" fill="#FFE600" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="4" y="38" width="80" height="62" rx="10" fill="#FFE600" stroke="#0a0a0a" stroke-width="3"/>
+        <text x="44" y="65" text-anchor="middle" font-family="Bangers, cursive" font-size="28" fill="#E8001D">No...</text>
+        <text x="44" y="85" text-anchor="middle" font-family="Comic Neue, cursive" font-size="10" fill="#0a0a0a">*click*</text>
+        <!-- CLICK SFX big -->
+        <text x="290" y="100" text-anchor="middle" font-family="Bangers, cursive" font-size="38" fill="#FFE600" stroke="#E8001D" stroke-width="2" paint-order="stroke" transform="rotate(-10 290 100)">CLICK!</text>
+        <!-- Windows startup color bars (rainbow) -->
+        <rect x="230" y="145" width="18" height="80" rx="3" fill="#E8001D" opacity=".9"/>
+        <rect x="252" y="145" width="18" height="80" rx="3" fill="#00a000" opacity=".9"/>
+        <rect x="274" y="145" width="18" height="80" rx="3" fill="#0057D9" opacity=".9"/>
+        <rect x="296" y="145" width="18" height="80" rx="3" fill="#FFE600" opacity=".9"/>
+        <!-- Windows logo -->
+        <text x="275" y="140" text-anchor="middle" font-family="Bangers, cursive" font-size="13" fill="#fff">🪟 DA-DUNN!</text>
+        <!-- sparkles -->
+        <text x="250" y="60" font-size="20" fill="#FFE600">✦</text>
+        <text x="310" y="40" font-size="16" fill="#FFE600">✦</text>
+        <text x="330" y="80" font-size="12" fill="#FFE600">✦</text>
+      </svg>
+    </div>
+    <div class="caption red">*CLICK* … *DA-DUNN* 🎵</div>
+  </div>
+
+  <!-- ── PANEL 9 – FINALE: user ecstatic, hero triumphant (full width) ── -->
+  <div class="panel">
+    <span class="panel-num">9</span>
+    <div class="scene" style="min-height:320px;">
+      <svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- explosion background -->
+        <polygon points="380,10 420,140 560,60 460,170 580,200 440,210 480,340 380,240 280,340 320,210 180,200 300,170 200,60 340,140" fill="#FFE600" stroke="#E8001D" stroke-width="4"/>
+        <polygon points="380,30 415,145 540,72 448,168 558,194 432,206 464,324 380,230 296,324 328,206 202,194 312,168 220,72 345,145" fill="#fff" opacity=".5"/>
+        <!-- confetti -->
+        <rect x="50" y="20" width="18" height="8" rx="2" fill="#E8001D" transform="rotate(25 59 24)"/>
+        <rect x="670" y="30" width="14" height="7" rx="2" fill="#0057D9" transform="rotate(-15 677 33)"/>
+        <rect x="100" y="280" width="16" height="7" rx="2" fill="#FFE600" transform="rotate(40 108 283)"/>
+        <rect x="620" y="260" width="18" height="8" rx="2" fill="#E8001D" transform="rotate(-30 629 264)"/>
+        <rect x="30" y="150" width="12" height="6" rx="2" fill="#0057D9" transform="rotate(60 36 153)"/>
+        <rect x="710" y="160" width="14" height="6" rx="2" fill="#E8001D" transform="rotate(-45 717 163)"/>
+        <circle cx="80" cy="80" r="8" fill="#E8001D" opacity=".6"/>
+        <circle cx="680" cy="90" r="6" fill="#0057D9" opacity=".6"/>
+        <circle cx="60" cy="220" r="5" fill="#FFE600" opacity=".8"/>
+        <circle cx="700" cy="230" r="7" fill="#E8001D" opacity=".5"/>
+        <!-- Stars scattered -->
+        <text x="40" y="70" font-size="24" fill="#E8001D">★</text>
+        <text x="700" y="80" font-size="20" fill="#0057D9">★</text>
+        <text x="90" y="300" font-size="16" fill="#E8001D">★</text>
+        <text x="660" y="295" font-size="18" fill="#0057D9">★</text>
+        <!-- ecstatic user LEFT -->
+        <rect x="60" y="210" width="100" height="100" rx="8" fill="#9b59b6" stroke="#0a0a0a" stroke-width="3"/>
+        <circle cx="110" cy="188" r="42" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="3"/>
+        <!-- joy hair -->
+        <path d="M70 172 Q110 152 150 172" fill="#8B4513" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M72 168 Q68 150 72 140" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+        <path d="M148 168 Q152 150 148 140" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+        <!-- big joyful eyes -->
+        <ellipse cx="97" cy="186" rx="11" ry="12" fill="white" stroke="#0a0a0a" stroke-width="2.5"/>
+        <ellipse cx="123" cy="186" rx="11" ry="12" fill="white" stroke="#0a0a0a" stroke-width="2.5"/>
+        <!-- stars in eyes -->
+        <text x="97" y="192" text-anchor="middle" font-size="14">⭐</text>
+        <text x="123" y="192" text-anchor="middle" font-size="14">⭐</text>
+        <!-- huge smile -->
+        <path d="M88 202 Q110 222 132 202" fill="#a02030" stroke="#0a0a0a" stroke-width="2.5"/>
+        <ellipse cx="110" cy="210" rx="17" ry="9" fill="#a02030"/>
+        <!-- arms raised in victory -->
+        <rect x="18" y="218" width="50" height="14" rx="7" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(-60 43 225)"/>
+        <rect x="152" y="218" width="50" height="14" rx="7" fill="#9b59b6" stroke="#0a0a0a" stroke-width="2" transform="rotate(60 177 225)"/>
+        <!-- fists raised -->
+        <rect x="10" y="158" width="24" height="20" rx="5" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="186" y="158" width="24" height="20" rx="5" fill="#f9d5a0" stroke="#0a0a0a" stroke-width="2"/>
+        <!-- user speech bubble -->
+        <path d="M155 195 L185 210 L170 206 Z" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="165" y="155" width="200" height="58" rx="14" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+        <text x="265" y="178" text-anchor="middle" font-family="Bangers, cursive" font-size="17" fill="#0a0a0a">IT WORKS!! IT ALL</text>
+        <text x="265" y="198" text-anchor="middle" font-family="Bangers, cursive" font-size="17" fill="#E8001D">WORKS AGAIN!!</text>
+        <!-- HERO right side -->
+        <!-- cape -->
+        <path d="M580 80 Q550 160 535 290 L600 265 L625 285 L650 265 L700 290 Q685 160 655 80 Z" fill="#E8001D" stroke="#FFE600" stroke-width="3"/>
+        <!-- body -->
+        <rect x="578" y="75" width="100" height="130" rx="10" fill="#0057D9" stroke="#FFE600" stroke-width="3"/>
+        <!-- chest logo GIANT -->
+        <circle cx="628" cy="128" r="35" fill="#FFE600" stroke="#FFE600" stroke-width="2"/>
+        <text x="628" y="138" text-anchor="middle" font-family="Bangers, cursive" font-size="24" fill="#001a5c">MIM</text>
+        <!-- head -->
+        <circle cx="628" cy="52" r="44" fill="#f5c5a0" stroke="#FFE600" stroke-width="3"/>
+        <!-- mask -->
+        <path d="M586 37 Q628 18 670 37 L668 55 Q628 40 590 55 Z" fill="#0057D9" stroke="#FFE600" stroke-width="2"/>
+        <!-- confident eyes -->
+        <ellipse cx="614" cy="50" rx="9" ry="8" fill="white" stroke="#FFE600" stroke-width="2"/>
+        <ellipse cx="642" cy="50" rx="9" ry="8" fill="white" stroke="#FFE600" stroke-width="2"/>
+        <circle cx="616" cy="51" r="4" fill="#001a5c"/>
+        <circle cx="644" cy="51" r="4" fill="#001a5c"/>
+        <!-- wink / confident eyebrow -->
+        <path d="M607 38 Q614 32 621 38" stroke="#1a0a00" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M634 36 Q643 30 652 36" stroke="#1a0a00" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- big grin -->
+        <path d="M610 66 Q628 78 646 66" fill="none" stroke="#1a0a00" stroke-width="3" stroke-linecap="round"/>
+        <!-- thumbs up arm -->
+        <rect x="665" y="90" width="52" height="16" rx="8" fill="#0057D9" stroke="#FFE600" stroke-width="2" transform="rotate(-30 691 98)"/>
+        <rect x="692" y="72" width="26" height="22" rx="5" fill="#f5c5a0" stroke="#FFE600" stroke-width="2"/>
+        <!-- thumb -->
+        <rect x="696" y="56" width="14" height="22" rx="6" fill="#f5c5a0" stroke="#FFE600" stroke-width="2"/>
+        <!-- other arm with phone -->
+        <rect x="530" y="90" width="52" height="14" rx="7" fill="#0057D9" stroke="#FFE600" stroke-width="2" transform="rotate(20 556 97)"/>
+        <rect x="510" y="100" width="20" height="38" rx="4" fill="#333" stroke="#FFE600" stroke-width="2" transform="rotate(5 520 119)"/>
+        <!-- legs heroic stance -->
+        <rect x="592" y="200" width="30" height="68" rx="8" fill="#001a5c" stroke="#FFE600" stroke-width="2" transform="rotate(-5 607 234)"/>
+        <rect x="630" y="200" width="30" height="68" rx="8" fill="#001a5c" stroke="#FFE600" stroke-width="2" transform="rotate(5 645 234)"/>
+        <!-- boots -->
+        <rect x="578" y="256" width="50" height="22" rx="9" fill="#E8001D" stroke="#FFE600" stroke-width="2"/>
+        <rect x="628" y="256" width="50" height="22" rx="9" fill="#E8001D" stroke="#FFE600" stroke-width="2"/>
+        <!-- hero speech bubble -->
+        <path d="M548 128 L520 150 L536 144 Z" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
+        <rect x="380" y="82" width="175" height="72" rx="14" fill="#fff" stroke="#0a0a0a" stroke-width="3"/>
+        <rect x="388" y="90" width="159" height="56" rx="10" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="467" y="114" text-anchor="middle" font-family="Bangers, cursive" font-size="15" fill="#0a0a0a">ALL IN A DAY'S</text>
+        <text x="467" y="133" text-anchor="middle" font-family="Bangers, cursive" font-size="15" fill="#0a0a0a">WORK FOR…</text>
+        <text x="467" y="147" text-anchor="middle" font-family="Bangers, cursive" font-size="12" fill="#0057D9">MY IT MAN! ★</text>
+        <!-- BOOM text -->
+        <text x="380" y="310" text-anchor="middle" font-family="Bangers, cursive" font-size="56" fill="#E8001D" stroke="#0a0a0a" stroke-width="4" paint-order="stroke" transform="rotate(-3 380 310)">IT'S FIXED!!</text>
+      </svg>
+    </div>
+    <div class="caption blue">★ ONCE AGAIN, MY IT MAN SAVES THE DAY! ★ TO BE CONTINUED… ★</div>
+  </div>
+
+</div><!-- end panel-grid -->
+</main>
+
+<footer>© MY IT MAN COMICS — "HAVE YOU TRIED TURNING IT OFF AND BACK ON?" — ISSUE #404</footer>
+
+</body>
+</html>

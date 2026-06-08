@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethan — Actor & Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --gray-dark: #1a1a1a;
+    --gray-mid: #3a3a3a;
+    --gray-light: #888;
+    --accent: #c8b89a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Courier Prime', monospace;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.98), transparent);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    color: var(--gray-light); text-decoration: none; font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 0 4rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, rgba(60,50,40,0.3) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.01) 80px, rgba(255,255,255,0.01) 81px);
+  }
+  .hero-filmstrip {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+    display: flex; flex-direction: column;
+    border-left: 3px solid var(--gray-dark);
+    overflow: hidden;
+  }
+  .filmstrip-hole-row {
+    display: flex; justify-content: space-between;
+    padding: 0 12px; position: absolute; left: 0; right: 0;
+  }
+  .filmstrip-hole-row.top { top: 20px; }
+  .filmstrip-hole-row.bottom { bottom: 20px; }
+  .hole {
+    width: 14px; height: 18px;
+    border: 2px solid var(--gray-mid);
+    border-radius: 3px;
+  }
+  .hero-photo-slot {
+    position: absolute; inset: 60px 30px;
+    border: 1px solid var(--gray-mid);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    background: var(--gray-dark);
+    overflow: hidden;
+  }
+  .photo-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .photo-icon {
+    width: 80px; height: 80px; border: 2px dashed var(--gray-mid);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; color: var(--gray-mid);
+  }
+  .photo-label {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gray-light); text-align: center;
+  }
+  .add-photo-btn {
+    background: transparent; border: 1px solid var(--accent);
+    color: var(--accent); padding: 0.5rem 1.5rem;
+    font-family: 'Courier Prime', monospace; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .add-photo-btn:hover { background: var(--accent); color: var(--black); }
+
+  .hero-content { position: relative; z-index: 1; max-width: 55%; }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 900; line-height: 0.9;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em {
+    font-style: italic; display: block;
+    color: var(--accent);
+  }
+  .hero-tagline {
+    font-size: 0.85rem; line-height: 1.9;
+    color: var(--gray-light); max-width: 420px;
+    margin-bottom: 3rem;
+  }
+  .hero-ctas { display: flex; gap: 1.5rem; align-items: center; }
+  .cta-primary {
+    background: var(--white); color: var(--black);
+    border: none; padding: 1rem 2.5rem;
+    font-family: 'Courier Prime', monospace; font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none;
+  }
+  .cta-primary:hover { background: var(--accent); }
+  .cta-secondary {
+    color: var(--gray-light); font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-decoration: none; border-bottom: 1px solid var(--gray-mid);
+    padding-bottom: 2px; transition: all 0.3s;
+  }
+  .cta-secondary:hover { color: var(--white); border-color: var(--white); }
+
+  /* DIVIDER */
+  .section-divider {
+    display: flex; align-items: center; gap: 2rem;
+    padding: 0 4rem; margin: 4rem 0;
+  }
+  .divider-line { flex: 1; height: 1px; background: var(--gray-dark); }
+  .divider-text {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700;
+    margin-bottom: 3rem; line-height: 1.1;
+  }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .stat-item { border-left: 2px solid var(--accent); padding-left: 1.5rem; }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900;
+    color: var(--white); display: block;
+  }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); }
+  .about-bio { font-size: 0.95rem; line-height: 2; color: var(--gray-light); }
+  .about-bio strong { color: var(--white); font-weight: 700; }
+  .about-amda {
+    margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--gray-dark);
+    background: var(--gray-dark);
+  }
+  .about-amda-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .about-amda-text { font-size: 0.85rem; color: var(--gray-light); }
+
+  /* HEADSHOTS GALLERY */
+  .gallery-section { background: var(--gray-dark); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    margin-top: 3rem;
+  }
+  .gallery-item {
+    aspect-ratio: 3/4;
+    background: var(--gray-mid);
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.75rem;
+    transition: filter 0.3s;
+  }
+  .gallery-item:hover { filter: brightness(1.2); }
+  .gallery-item.featured { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 400px; }
+  .gallery-add-icon { font-size: 2rem; color: var(--gray-light); }
+  .gallery-add-text { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); }
+  .gallery-item input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; align-items: flex-end; padding: 1.5rem;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay-text { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+
+  /* CREDITS */
+  .credits-list { margin-top: 2rem; }
+  .credit-item {
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: baseline; gap: 1.5rem;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--gray-dark);
+  }
+  .credit-num {
+    font-family: 'Playfair Display', serif; font-size: 0.85rem;
+    color: var(--gray-mid); font-style: italic;
+  }
+  .credit-info {}
+  .credit-role { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+  .credit-project { font-size: 0.8rem; color: var(--gray-light); font-style: italic; }
+  .credit-tags { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+  .credit-tag {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent);
+    padding: 0.2rem 0.6rem;
+  }
+  .credit-year { font-size: 0.8rem; color: var(--gray-mid); }
+  .add-credit-btn {
+    margin-top: 2rem; background: transparent; border: 1px dashed var(--gray-mid);
+    color: var(--gray-light); padding: 1rem 2rem; width: 100%;
+    font-family: 'Courier Prime', monospace; font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .add-credit-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* SCRIPTS */
+  .scripts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  .script-card {
+    border: 1px solid var(--gray-dark); padding: 2rem;
+    position: relative; transition: border-color 0.3s;
+    cursor: pointer;
+  }
+  .script-card:hover { border-color: var(--accent); }
+  .script-card::before {
+    content: attr(data-num);
+    position: absolute; top: -1px; right: 2rem;
+    background: var(--accent); color: var(--black);
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    font-family: 'Courier Prime', monospace;
+  }
+  .script-genre { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 1rem; }
+  .script-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .script-logline { font-size: 0.8rem; line-height: 1.8; color: var(--gray-light); }
+  .script-meta { margin-top: 1.5rem; display: flex; gap: 1rem; }
+  .script-meta-item { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-mid); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--white); color: var(--black);
+    text-align: center;
+  }
+  .contact-section .section-title { color: var(--black); }
+  .contact-section .section-label { color: var(--gray-mid); }
+  .contact-sub { font-size: 0.9rem; color: var(--gray-mid); max-width: 500px; margin: 0 auto 3rem; line-height: 1.9; }
+  .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form input, .contact-form textarea {
+    background: transparent; border: none; border-bottom: 1px solid var(--gray-mid);
+    padding: 1rem 0; font-family: 'Courier Prime', monospace; font-size: 0.9rem;
+    color: var(--black); outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--gray-light); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--black); }
+  .contact-form textarea { min-height: 100px; resize: none; }
+  .submit-btn {
+    background: var(--black); color: var(--white);
+    border: none; padding: 1rem 3rem;
+    font-family: 'Courier Prime', monospace; font-size: 0.75rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; align-self: center; margin-top: 1rem;
+  }
+  .submit-btn:hover { background: var(--gray-mid); }
+  .social-links { display: flex; gap: 2rem; justify-content: center; margin-top: 4rem; }
+  .social-link {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gray-mid); text-decoration: none; border-bottom: 1px solid transparent;
+    padding-bottom: 2px; transition: all 0.3s;
+  }
+  .social-link:hover { color: var(--black); border-color: var(--black); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--gray-dark);
+  }
+  .footer-name { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--accent); }
+  .footer-copy { font-size: 0.65rem; letter-spacing: 0.15em; color: var(--gray-mid); }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.95); z-index: 1000;
+    align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.5rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: var(--gray-dark); border: 1px solid var(--gray-mid);
+    padding: 3rem; width: 90%; max-width: 500px;
+  }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 2rem; }
+  .modal-field { margin-bottom: 1.5rem; }
+  .modal-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; display: block; }
+  .modal-input, .modal-select, .modal-textarea {
+    width: 100%; background: var(--black); border: 1px solid var(--gray-mid);
+    color: var(--white); padding: 0.75rem 1rem;
+    font-family: 'Courier Prime', monospace; font-size: 0.85rem;
+    outline: none; transition: border-color 0.3s;
+  }
+  .modal-input:focus, .modal-select:focus, .modal-textarea:focus { border-color: var(--accent); }
+  .modal-textarea { min-height: 80px; resize: none; }
+  .modal-select option { background: var(--gray-dark); }
+  .modal-actions { display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; }
+  .modal-cancel {
+    background: transparent; border: 1px solid var(--gray-mid);
+    color: var(--gray-light); padding: 0.75rem 1.5rem;
+    font-family: 'Courier Prime', monospace; font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer;
+  }
+  .modal-save {
+    background: var(--accent); border: none; color: var(--black);
+    padding: 0.75rem 1.5rem; font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .hero { padding: 8rem 2rem 4rem; flex-direction: column; }
+    .hero-content { max-width: 100%; }
+    .hero-filmstrip { display: none; }
+    section { padding: 4rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.featured { grid-column: span 1; grid-row: span 1; }
+    .scripts-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.8s ease both; }
+  .hero-name { animation: fadeUp 0.8s ease 0.15s both; }
+  .hero-tagline { animation: fadeUp 0.8s ease 0.3s both; }
+  .hero-ctas { animation: fadeUp 0.8s ease 0.45s both; }
+
+  /* REEL TICKER */
+  .reel-ticker {
+    background: var(--accent); padding: 0.6rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .reel-ticker-inner {
+    display: inline-block; animation: ticker 20s linear infinite;
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--black);
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker-sep { margin: 0 2rem; opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ethan</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#headshots">Gallery</a>
+    <a href="#credits">Credits</a>
+    <a href="#scripts">Scripts</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">AMDA Los Angeles · Actor · Screenwriter</div>
+    <h1 class="hero-name">
+      ETHAN
+      <em>Molnar</em>
+    </h1>
+    <p class="hero-tagline">
+      A performer and storyteller trained at the American Musical and Dramatic Academy,
+      bringing characters to life on screen and on the page.
+      Based in Los Angeles, CA.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="cta-primary">Book / Inquire</a>
+      <a href="#credits" class="cta-secondary">View Credits</a>
+    </div>
+  </div>
+  <div class="hero-filmstrip">
+    <div class="filmstrip-hole-row top">
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+    <div class="hero-photo-slot" id="heroPhotoSlot">
+      <div class="photo-placeholder" id="heroPlaceholder">
+        <div class="photo-icon">⬡</div>
+        <div class="photo-label">Primary Headshot</div>
+        <button class="add-photo-btn" onclick="document.getElementById('heroFileInput').click()">Upload Photo</button>
+        <input type="file" id="heroFileInput" accept="image/*" style="display:none" onchange="loadHeroPhoto(this)">
+      </div>
+      <img id="heroImg" src="" alt="Headshot" style="display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div class="filmstrip-hole-row bottom">
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+  </div>
+</section>
+
+<div class="reel-ticker">
+  <span class="reel-ticker-inner">
+    Actor &nbsp;·&nbsp; Screenwriter &nbsp;·&nbsp; AMDA Graduate &nbsp;·&nbsp; Los Angeles &nbsp;·&nbsp; Available for Roles &nbsp;·&nbsp; Film &nbsp;·&nbsp; Television &nbsp;·&nbsp; Stage &nbsp;·&nbsp; Original Scripts &nbsp;·&nbsp;
+    Actor &nbsp;·&nbsp; Screenwriter &nbsp;·&nbsp; AMDA Graduate &nbsp;·&nbsp; Los Angeles &nbsp;·&nbsp; Available for Roles &nbsp;·&nbsp; Film &nbsp;·&nbsp; Television &nbsp;·&nbsp; Stage &nbsp;·&nbsp; Original Scripts &nbsp;·&nbsp;
+  </span>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About</div>
+      <h2 class="section-title">The Art of<br><em style="font-family:'Playfair Display',serif; font-style:italic;">Telling Stories</em></h2>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num" id="statCredits">0</span>
+          <span class="stat-label">Screen Credits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="statScripts">0</span>
+          <span class="stat-label">Original Scripts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Disciplines</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">LA</span>
+          <span class="stat-label">Based In</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="about-bio">
+        <strong>Ethan</strong> is a Los Angeles-based actor and screenwriter who graduated from 
+        <strong>AMDA — the American Musical and Dramatic Academy</strong> with dual training in 
+        Acting and Screenwriting.
+        <br><br>
+        His work spans dramatic performance and original narrative writing, drawing on a rigorous 
+        conservatory education to deliver compelling characters both in front of the camera and on the page.
+        <br><br>
+        He is actively seeking roles and collaborative opportunities in film and television,
+        while developing his slate of original screenplays.
+      </p>
+      <div class="about-amda">
+        <div class="about-amda-label">Education</div>
+        <div class="about-amda-text">American Musical and Dramatic Academy (AMDA) · Los Angeles, CA<br>Bachelor of Fine Arts — Acting &amp; Screenwriting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEADSHOTS GALLERY -->
+<section class="gallery-section" id="headshots">
+  <div class="section-label">Gallery</div>
+  <h2 class="section-title">Headshots &amp;<br>Media</h2>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item featured" onclick="triggerGalleryUpload(0)">
+      <img id="gimg0" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,0)" style="display:none" id="gfile0">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">Primary Headshot<br><span style="font-size:0.6rem; color:#555">Click to Upload</span></div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">Primary Headshot</span></div>
+    </div>
+    <div class="gallery-item" onclick="triggerGalleryUpload(1)">
+      <img id="gimg1" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,1)" style="display:none" id="gfile1">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">Commercial</div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">Commercial Look</span></div>
+    </div>
+    <div class="gallery-item" onclick="triggerGalleryUpload(2)">
+      <img id="gimg2" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,2)" style="display:none" id="gfile2">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">Dramatic</div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">Dramatic Look</span></div>
+    </div>
+    <div class="gallery-item" onclick="triggerGalleryUpload(3)">
+      <img id="gimg3" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,3)" style="display:none" id="gfile3">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">On Set</div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">On Set / Candid</span></div>
+    </div>
+    <div class="gallery-item" onclick="triggerGalleryUpload(4)">
+      <img id="gimg4" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,4)" style="display:none" id="gfile4">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">Character</div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">Character Look</span></div>
+    </div>
+    <div class="gallery-item" onclick="triggerGalleryUpload(5)">
+      <img id="gimg5" src="" alt="" style="display:none">
+      <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,5)" style="display:none" id="gfile5">
+      <div class="gallery-add-icon">＋</div>
+      <div class="gallery-add-text">Additional</div>
+      <div class="gallery-overlay"><span class="gallery-overlay-text">Additional Photo</span></div>
+    </div>
+  </div>
+  <button class="add-credit-btn" style="margin-top:2px" onclick="addGallerySlot()">+ Add More Photos</button>
+</section>
+
+<!-- CREDITS -->
+<section id="credits">
+  <div class="section-label">Acting</div>
+  <h2 class="section-title">Credits</h2>
+  <div class="credits-list" id="creditsList">
+    <div class="credit-item">
+      <span class="credit-num">01</span>
+      <div class="credit-info">
+        <div class="credit-role" style="color:var(--gray-mid); font-style:italic;">Add your first credit below</div>
+        <div class="credit-project">Your credits will appear here</div>
+        <div class="credit-tags"><span class="credit-tag">Film / TV / Stage</span></div>
+      </div>
+      <span class="credit-year">—</span>
+    </div>
+  </div>
+  <button class="add-credit-btn" id="addCreditBtn" onclick="openCreditModal()">+ Add Acting Credit</button>
+</section>
+
+<!-- SCRIPTS -->
+<section id="scripts" style="background: var(--gray-dark);">
+  <div class="section-label">Writing</div>
+  <h2 class="section-title">Original Scripts</h2>
+  <div class="scripts-grid" id="scriptsGrid">
+    <div class="script-card" data-num="SCRIPT 01" onclick="openScriptModal()">
+      <div class="script-genre">Click to Add</div>
+      <div class="script-title" style="color:var(--gray-mid); font-style:italic;">Your First Script</div>
+      <div class="script-logline">Add your original screenplays, teleplays, and short film scripts here. Include a logline and genre to give casting directors and producers a quick overview.</div>
+      <div class="script-meta">
+        <span class="script-meta-item">— pages</span>
+        <span class="script-meta-item">— format</span>
+      </div>
+    </div>
+    <div class="script-card" data-num="ADD" onclick="openScriptModal()" style="display:flex; flex-direction:column; align-items:center; justify-content:center; border-style:dashed; min-height:200px;">
+      <div style="font-size:2rem; color:var(--gray-mid);">＋</div>
+      <div class="script-genre" style="margin-top:1rem; margin-bottom:0;">Add Script</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label" style="color:var(--gray-mid);">Get In Touch</div>
+  <h2 class="section-title" style="font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:1rem;">Ready to Work</h2>
+  <p class="contact-sub">For casting inquiries, collaboration opportunities, or to request the full script slate — reach out directly.</p>
+  <div class="contact-form">
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email Address">
+    <input type="text" placeholder="Subject / Production">
+    <textarea placeholder="Your message..."></textarea>
+    <button class="submit-btn" onclick="alert('Contact form live when deployed!')">Send Message</button>
+  </div>
+  <div class="social-links">
+    <a href="#" class="social-link">IMDb</a>
+    <a href="#" class="social-link">Instagram</a>
+    <a href="#" class="social-link">LinkedIn</a>
+    <a href="#" class="social-link">Actor's Access</a>
+    <a href="#" class="social-link">Download Résumé</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Ethan — Actor &amp; Screenwriter</div>
+  <div class="footer-copy">© 2025 · Los Angeles, CA · AMDA Graduate</div>
+</footer>
+
+<!-- CREDIT MODAL -->
+<div class="modal-overlay" id="creditModal">
+  <div class="modal-box">
+    <div class="modal-title">Add Acting Credit</div>
+    <div class="modal-field">
+      <label class="modal-label">Role / Character</label>
+      <input class="modal-input" id="creditRole" placeholder="e.g. Detective Harris">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Project Title</label>
+      <input class="modal-input" id="creditProject" placeholder="e.g. The Long Way Home">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Type</label>
+      <select class="modal-select" id="creditType">
+        <option>Film</option><option>Television</option><option>Short Film</option>
+        <option>Stage</option><option>Commercial</option><option>Web Series</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Year</label>
+      <input class="modal-input" id="creditYear" placeholder="2024">
+    </div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeCreditModal()">Cancel</button>
+      <button class="modal-save" onclick="saveCredit()">Add Credit</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT MODAL -->
+<div class="modal-overlay" id="scriptModal">
+  <div class="modal-box">
+    <div class="modal-title">Add Script</div>
+    <div class="modal-field">
+      <label class="modal-label">Script Title</label>
+      <input class="modal-input" id="scriptTitle" placeholder="e.g. The Last Signal">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Genre</label>
+      <input class="modal-input" id="scriptGenre" placeholder="e.g. Sci-Fi Thriller">
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Logline</label>
+      <textarea class="modal-textarea" id="scriptLogline" placeholder="A one or two sentence description of your story..."></textarea>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Format</label>
+      <select class="modal-select" id="scriptFormat">
+        <option>Feature Film</option><option>Short Film</option><option>TV Pilot</option>
+        <option>Web Series</option><option>Teleplay</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label class="modal-label">Page Count</label>
+      <input class="modal-input" id="scriptPages" placeholder="e.g. 105">
+    </div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeScriptModal()">Cancel</button>
+      <button class="modal-save" onclick="saveScript()">Add Script</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let credits = [];
+let scripts = [];
+let galleryCount = 6;
+
+function loadHeroPhoto(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('heroImg').src = e.target.result;
+    document.getElementById('heroImg').style.display = 'block';
+    document.getElementById('heroPlaceholder').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function triggerGalleryUpload(idx) {
+  document.getElementById('gfile' + idx).click();
+}
+
+function loadGalleryPhoto(input, idx) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById('gimg' + idx);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    const parent = img.parentElement;
+    parent.querySelectorAll('.gallery-add-icon, .gallery-add-text').forEach(el => el.style.display = 'none');
+  };
+  reader.readAsDataURL(file);
+}
+
+function addGallerySlot() {
+  const grid = document.getElementById('galleryGrid');
+  const idx = galleryCount++;
+  const div = document.createElement('div');
+  div.className = 'gallery-item';
+  div.innerHTML = `
+    <img id="gimg${idx}" src="" alt="" style="display:none">
+    <input type="file" accept="image/*" onchange="loadGalleryPhoto(this,${idx})" style="display:none" id="gfile${idx}">
+    <div class="gallery-add-icon">＋</div>
+    <div class="gallery-add-text">Photo ${idx + 1}</div>
+    <div class="gallery-overlay"><span class="gallery-overlay-text">Photo ${idx + 1}</span></div>
+  `;
+  div.onclick = () => triggerGalleryUpload(idx);
+  grid.insertBefore(div, grid.lastElementChild);
+}
+
+function openCreditModal() { document.getElementById('creditModal').classList.add('active'); }
+function closeCreditModal() { document.getElementById('creditModal').classList.remove('active'); }
+
+function saveCredit() {
+  const role = document.getElementById('creditRole').value.trim();
+  const project = document.getElementById('creditProject').value.trim();
+  const type = document.getElementById('creditType').value;
+  const year = document.getElementById('creditYear').value.trim();
+  if (!role || !project) return;
+  credits.push({ role, project, type, year });
+  renderCredits();
+  closeCreditModal();
+  ['creditRole','creditProject','creditYear'].forEach(id => document.getElementById(id).value = '');
+}
+
+function renderCredits() {
+  const list = document.getElementById('creditsList');
+  list.innerHTML = credits.map((c, i) => `
+    <div class="credit-item">
+      <span class="credit-num">0${i+1}</span>
+      <div class="credit-info">
+        <div class="credit-role">${c.role}</div>
+        <div class="credit-project">${c.project}</div>
+        <div class="credit-tags"><span class="credit-tag">${c.type}</span></div>
+      </div>
+      <span class="credit-year">${c.year}</span>
+    </div>
+  `).join('');
+  document.getElementById('statCredits').textContent = credits.length;
+  animateCounter('statCredits', credits.length);
+}
+
+function openScriptModal() { document.getElementById('scriptModal').classList.add('active'); }
+function closeScriptModal() { document.getElementById('scriptModal').classList.remove('active'); }
+
+function saveScript() {
+  const title = document.getElementById('scriptTitle').value.trim();
+  const genre = document.getElementById('scriptGenre').value.trim();
+  const logline = document.getElementById('scriptLogline').value.trim();
+  const format = document.getElementById('scriptFormat').value;
+  const pages = document.getElementById('scriptPages').value.trim();
+  if (!title) return;
+  scripts.push({ title, genre, logline, format, pages });
+  renderScripts();
+  closeScriptModal();
+  ['scriptTitle','scriptGenre','scriptLogline','scriptPages'].forEach(id => document.getElementById(id).value = '');
+}
+
+function renderScripts() {
+  const grid = document.getElementById('scriptsGrid');
+  const addCard = `<div class="script-card" data-num="ADD" onclick="openScriptModal()" style="display:flex;flex-direction:column;align-items:center;justify-content:center;border-style:dashed;min-height:200px;"><div style="font-size:2rem;color:var(--gray-mid)">＋</div><div class="script-genre" style="margin-top:1rem;margin-bottom:0">Add Script</div></div>`;
+  grid.innerHTML = scripts.map((s, i) => `
+    <div class="script-card" data-num="SCRIPT 0${i+1}">
+      <div class="script-genre">${s.genre || 'Drama'}</div>
+      <div class="script-title">${s.title}</div>
+      <div class="script-logline">${s.logline || 'No logline added.'}</div>
+      <div class="script-meta">
+        <span class="script-meta-item">${s.pages ? s.pages + ' pages' : '— pages'}</span>
+        <span class="script-meta-item">${s.format}</span>
+      </div>
+    </div>
+  `).join('') + addCard;
+  document.getElementById('statScripts').textContent = scripts.length;
+}
+
+function animateCounter(id, target) {
+  const el = document.getElementById(id);
+  let count = 0;
+  const step = () => { count++; el.textContent = count; if (count < target) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+</script>
+</body>
+</html>

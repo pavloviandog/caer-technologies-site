@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>CAER Technologies – Master Security Services Agreement 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #162d52;
+    --accent: #1e6fa8;
+    --accent-light: #2d8fd4;
+    --gold: #b8903a;
+    --gold-light: #d4a84c;
+    --text: #1a1a2e;
+    --text-muted: #4a5568;
+    --border: #d0dae8;
+    --bg-light: #f4f7fb;
+    --bg-section: #fafcff;
+    --white: #ffffff;
+    --warning-bg: #fff8e6;
+    --warning-border: #e6a817;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg-light);
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 40px 0 32px;
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,.018) 60px,
+      rgba(255,255,255,.018) 61px
+    );
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid var(--gold);
+    padding: 4px 12px;
+    margin-bottom: 14px;
+    border-radius: 2px;
+  }
+  .header-title {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.62);
+    margin-bottom: 22px;
+    letter-spacing: .02em;
+  }
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .04em;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 6px; }
+  .header-meta span::before { content: '◆'; color: var(--gold); font-size: 8px; }
+
+  /* ── NAV SIDEBAR ── */
+  .layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    padding: 0;
+    align-items: start;
+  }
+  .sidebar {
+    position: sticky;
+    top: 20px;
+    padding: 28px 0 28px 24px;
+    font-size: 13px;
+  }
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .sidebar nav a {
+    display: block;
+    padding: 6px 10px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid var(--border);
+    margin-bottom: 2px;
+    transition: all .2s;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(30,111,168,.06);
+    padding-left: 14px;
+  }
+  .sidebar nav a.doc-link {
+    font-weight: 600;
+    color: var(--navy);
+    border-left-color: var(--navy-mid);
+    margin-top: 6px;
+    font-size: 13px;
+  }
+  .sidebar nav a.doc-link:hover { border-left-color: var(--gold); color: var(--gold); }
+
+  /* ── MAIN CONTENT ── */
+  .main-content {
+    padding: 40px 40px 80px 32px;
+    min-width: 0;
+  }
+
+  /* ── DOCUMENT SECTIONS ── */
+  .doc-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .doc-section-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .doc-section-header:hover { background: var(--navy-mid); }
+  .doc-section-header h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .01em;
+  }
+  .doc-section-header .doc-id {
+    font-size: 11px;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .toggle-icon {
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-left: 16px;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform .3s;
+  }
+  .doc-section.collapsed .toggle-icon { transform: rotate(-90deg); }
+  .doc-body {
+    padding: 32px 36px 36px;
+    transition: none;
+  }
+  .doc-section.collapsed .doc-body { display: none; }
+
+  /* ── INTRO BLOCK ── */
+  .intro-block {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .intro-block strong { color: var(--text); }
+
+  /* ── TYPOGRAPHY ── */
+  .doc-body h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: .01em;
+  }
+  .doc-body h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .doc-body h5 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 16px 0 6px;
+  }
+  .doc-body p {
+    margin-bottom: 14px;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .doc-body ul, .doc-body ol {
+    margin: 8px 0 16px 0;
+    padding-left: 22px;
+  }
+  .doc-body li {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .clause-number {
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 28px;
+    display: inline-block;
+  }
+  .section-block {
+    margin-bottom: 22px;
+    padding: 18px 20px;
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .section-block > .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* ── TABLES ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 13.5px;
+  }
+  .styled-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .styled-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .styled-table tr:nth-child(even) td { background: var(--bg-section); }
+  .styled-table tr:last-child td { border-bottom: none; }
+
+  /* ── TIER BADGES ── */
+  .tier { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin: 1px; }
+  .tier-core { background: #e8f4fd; color: #1565c0; }
+  .tier-manage { background: #e8f5e9; color: #2e7d32; }
+  .tier-secure { background: #fce4ec; color: #c62828; }
+  .tier-exec { background: #ede7f6; color: #4527a0; }
+
+  /* ── WARNING BOXES ── */
+  .warn-box {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-left: 4px solid var(--warning-border);
+    border-radius: 0 3px 3px 0;
+    padding: 12px 16px;
+    margin: 12px 0 18px;
+    font-size: 13.5px;
+    color: #7a4900;
+  }
+  .warn-box strong { color: #5a3300; }
+
+  /* ── ALL-CAPS DISCLAIMER ── */
+  .legal-caps {
+    background: #f8f9fa;
+    border: 1px solid #d8dde6;
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* ── SIG BLOCK ── */
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .sig-box {
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 4px;
+  }
+  .sig-box h5 {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .sig-line {
+    border-bottom: 1px solid var(--text);
+    margin: 24px 0 6px;
+    height: 1px;
+  }
+  .sig-label { font-size: 11.5px; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    max-width: 960px;
+    margin: 40px auto 0;
+    padding: 24px 32px;
+    border-top: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .doc-footer strong { color: var(--navy); }
+  .doc-footer a { color: var(--accent); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main-content { padding: 20px 16px 60px; }
+    .sig-grid { grid-template-columns: 1fr; }
+    .doc-body { padding: 20px 18px 24px; }
+  }
+
+  /* Print */
+  @media print {
+    .sidebar { display: none; }
+    .layout { grid-template-columns: 1fr; }
+    .doc-section.collapsed .doc-body { display: block !important; }
+    .doc-section-header { background: #eee !important; color: #000 !important; cursor: default; }
+    .toggle-icon { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════  HEADER  ═══════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-badge">Contractual Reference Document</div>
+    <h1 class="header-title">Master Security Services Agreement</h1>
+    <p class="header-sub">CAER Technologies, LLC &nbsp;·&nbsp; This document is incorporated by reference in all executed service agreements.</p>
+    <div class="header-meta">
+      <span>Document ID: MSSA2026</span>
+      <span>Version 1.3</span>
+      <span>Effective: 2026</span>
+      <span>Governing Law: State of Texas</span>
+      <span>© 2026 CAER Technologies</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════  LAYOUT  ═══════════════════ -->
+<div style="background:var(--bg-light); padding: 0 12px;">
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Documents</div>
+    <nav>
+      <a href="#mssa" class="doc-link">MSSA – Main Agreement</a>
+      <a href="#sec1">§1 Definitions</a>
+      <a href="#sec2">§2 Services</a>
+      <a href="#sec3">§3 Compensation</a>
+      <a href="#sec4">§4 Confidentiality</a>
+      <a href="#sec5">§5 Intellectual Property</a>
+      <a href="#sec6">§6 Warranties</a>
+      <a href="#sec7">§7 Deliverables</a>
+      <a href="#sec8">§8 Unmanaged Devices</a>
+      <a href="#sec10">§10 Force Majeure</a>
+      <a href="#sec11">§11 Indemnity</a>
+      <a href="#sec12">§12 Liability Limits</a>
+      <a href="#sec13">§13 Term &amp; Termination</a>
+      <a href="#sig">Signatures</a>
+
+      <a href="#appendix-a" class="doc-link" style="margin-top:14px;">Appendix A – Scope</a>
+      <a href="#appa-1">1. Service Overview</a>
+      <a href="#appa-2">2. Service Categories</a>
+      <a href="#appa-3">3. Exclusions</a>
+
+      <a href="#appendix-b" class="doc-link" style="margin-top:14px;">Appendix B – SLA</a>
+      <a href="#appb-1">1. Service Hours</a>
+      <a href="#appb-3">3. Priority Definitions</a>
+      <a href="#appb-4">4. Response Times</a>
+
+      <a href="#appendix-c" class="doc-link" style="margin-top:14px;">Appendix C – SOW</a>
+      <a href="#appc-2">2. Service Selection</a>
+      <a href="#appc-8">8. Pricing &amp; Billing</a>
+
+      <a href="#appendix-d" class="doc-link" style="margin-top:14px;">Appendix D – Security</a>
+      <a href="#appd-2">2. Shared Responsibility</a>
+      <a href="#appd-3">3. Security Tiers</a>
+      <a href="#appd-4">4. Minimum Standards</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <div class="intro-block">
+      <strong>Notice:</strong> This page is not listed in any public website menus. It exists solely for contractual reference — to be cited in agreements, supersede notices, and related documents. The content below constitutes the complete Master Security Services Agreement between CAER Technologies, LLC and its Clients, including all incorporated Appendices.
+    </div>
+
+    <!-- ═══════════  MSSA  ═══════════ -->
+    <div class="doc-section" id="mssa">
+      <div class="doc-section-header" onclick="toggleSection(this)">
+        <div>
+          <h2>Master Security Services Agreement (MSSA)</h2>
+          <div class="doc-id">MSSA2026 &nbsp;·&nbsp; Version 1.3 &nbsp;·&nbsp; © 2026 CAER Technologies</div>
+        </div>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="doc-body">
+
+        <p>This Managed Security Services Agreement (<strong>"MSSA"</strong>) is made and entered into on the Effective Date by and between the Client and <strong>CAER Technologies, LLC</strong>, a limited liability company existing under the laws of Texas (<strong>"Service Provider"</strong>). Client and Service Provider are each individually referred to as a <strong>"Party"</strong> and collectively as the <strong>"Parties."</strong></p>
+        <p>Client and Service Provider desire for Service Provider to provide certain Services as defined herein and further described in Appendix A and B; in consideration of the mutual promises set forth herein and other good and valuable consideration, the receipt and adequacy of which are hereby acknowledged, the Parties agree as follows:</p>
+
+        <!-- §1 Definitions -->
+        <h3 id="sec1"><span class="clause-number">1.</span> Definitions</h3>
+        <p>The capitalized terms used in this MSSA have the meanings set forth below, or if not defined below, the meanings set forth elsewhere in this MSSA.</p>
+
+        <ul>
+          <li><strong>"Administrative Data"</strong> – Data concerning registration, use, and administration of Third-Party Products, including telemetry and access logs. Does not include Client Content itself.</li>
+          <li><strong>"Applicable Law"</strong> – All laws, statutes, ordinances, regulations, rules, orders, and decrees that apply to or govern the performance of a Party's rights or obligations under this MSSA.</li>
+          <li><strong>"Client Systems, Content, and Materials"</strong> – All sites, information systems, databases, servers, software, applications, licensed third-party systems granted to Service Provider, and all documents, data, and materials necessary for Service Provider to perform the Services.</li>
+          <li><strong>"Confidential Information"</strong> – All information of any nature and in any form furnished by the Disclosing Party, including customer information, financial data, technical know-how, and systems documentation, excluding information (1) already known to the Receiving Party, (2) publicly available without breach, (3) rightfully obtained from a third party without restriction, or (4) independently developed by the Receiving Party.</li>
+          <li><strong>"Client IP"</strong> – Any Intellectual Property Rights owned by or licensed to Client which Client makes available to Service Provider to perform Services.</li>
+          <li><strong>"Damages"</strong> – All losses, claims, obligations, demands, assessments, penalties, liabilities, damages, costs, and expenses (including reasonable attorneys' and consulting fees).</li>
+          <li><strong>"Deliverables"</strong> – Any tangible work product furnished by Service Provider to Client as part of the Services, as set forth in Appendix A.</li>
+          <li><strong>"Disclosing Party"</strong> – The Party who furnishes Confidential Information to the other Party.</li>
+          <li><strong>"Dispute"</strong> – Any controversy, disagreement, claim, or dispute between the Parties arising out of or relating to this MSSA.</li>
+          <li><strong>"Fees"</strong> – Service Provider's compensation for performance of the Services (exclusive of reimbursable expenses or applicable taxes), as set forth in Appendix A and B.</li>
+          <li><strong>"Force Majeure"</strong> – Any event or circumstance that adversely affects, prevents, or delays performance of obligations, and is beyond the reasonable control of the affected Party.</li>
+          <li><strong>"Intellectual Property Rights" / "IPR"</strong> – All rights in relation to inventions and designs, including patent, copyright, trademarks, trade secrets, and know-how.</li>
+          <li><strong>"Personal Data"</strong> – Any information that can, directly or indirectly, identify a natural person as defined by Applicable Law.</li>
+          <li><strong>"Prudent Industry Practices"</strong> – Practices generally observed by managed IT- and cybersecurity-services providers as of the Effective Date.</li>
+          <li><strong>"Service Provider IP"</strong> – Any IPR owned by or licensed to Service Provider or its subcontractors or Third-Party Suppliers, including all materials, tools, methods, and technologies used or created in performing Services.</li>
+          <li><strong>"Service Provider Materials"</strong> – All materials, tools, methods, processes, technology, algorithms, software, data sources, and proprietary information used or created by Service Provider in performance of Services or development of Deliverables.</li>
+          <li><strong>"Receiving Party"</strong> – The Party who receives Confidential Information from the Disclosing Party.</li>
+          <li><strong>"Statement of Work" / "SOW"</strong> – A document setting forth a description of Services, Deliverables, Fees, and other requirements as mutually executed by the Parties.</li>
+          <li><strong>"Services"</strong> – The services Service Provider provides to Client as further described in Appendix A and Appendix B, including associated Deliverables.</li>
+          <li><strong>"Third-Party Products"</strong> – Third-party hardware or software products incorporated into the Services or procured by Service Provider on behalf of Client.</li>
+          <li><strong>"Third-Party Services"</strong> – Services provided to Client by a Third-Party Supplier, directly or indirectly, as part of the Services.</li>
+          <li><strong>"Third-Party Supplier"</strong> – Any third party providing Third-Party Products or Third-Party Services as part of the Services.</li>
+          <li><strong>"Unmanaged Devices"</strong> – Any computing devices (laptops, desktops, servers, or mobile devices) not actively enrolled in or protected by the Service Provider's Managed Services, whether due to the Client's decision or use of third-party contractor-owned devices.</li>
+        </ul>
+
+        <!-- §2 Services -->
+        <h3 id="sec2"><span class="clause-number">2.</span> Services</h3>
+        <div class="section-block">
+          <p><strong>2.1</strong> Service Provider will provide the Services described in Appendix A and Appendix B, which are hereby incorporated by reference.</p>
+          <p><strong>2.2</strong> Client agrees to provide access to and make available all Client Systems, Content, and Materials as Service Provider may need to provide the Services, including all necessary consents, permissions, and authorizations. If the Services require installation and use of hardware and/or software, Client will facilitate installation and provide physical space, electrical power, internet connection, and physical access as communicated by Service Provider. Service Provider shall not be responsible for delayed or suspended Services caused by delays or failures in Client's access or use.</p>
+          <p><strong>2.3</strong> Client acknowledges and agrees that the provision of Services may include Third-Party Products or Services, and Client will comply with such Third-Party Supplier's terms and conditions, including end user license agreements, policies, and terms of use.</p>
+          <p><strong>2.4</strong> Service Provider may subcontract any of its obligations under this MSSA in its sole discretion, provided Service Provider remains liable for performance of its obligations.</p>
+          <p><strong>2.5</strong> Services are delivered according to the Client's selected Service Tier:</p>
+          <ul>
+            <li><span class="tier tier-core">CoreCAER</span> – Associate, Associate+ &nbsp;(Monitoring &amp; Entry Level)</li>
+            <li><span class="tier tier-manage">ManageCAER</span> – Manager &nbsp;(Fully Managed IT)</li>
+            <li><span class="tier tier-secure">SecureCAER</span> – Professional, Executive &nbsp;(Security &amp; Compliance)</li>
+          </ul>
+          <p>Each tier defines scope, response, and security controls. Services not explicitly included are out-of-scope and billable. Lower-tier services (CoreCAER) are limited in scope and do not include full management or remediation.</p>
+        </div>
+
+        <!-- §3 Compensation -->
+        <h3 id="sec3"><span class="clause-number">3.</span> Compensation and Payment</h3>
+        <p><strong>3.1</strong> In consideration of Service Provider's performance of Services, Client will pay Service Provider those Fees and Hourly Rates as provided in Appendix A and Appendix B.</p>
+        <p><strong>3.2</strong> Invoices will be issued in advance for recurring services and in arrears for additional services or reimbursable expenses.</p>
+        <p><strong>3.3</strong> Service Provider shall be reimbursed out-of-pocket costs and expenses incurred in the performance of Services (e.g., travel and living expenses) as agreed in Appendix A and B.</p>
+        <p><strong>3.4</strong> Unless otherwise agreed, Service Provider shall invoice Client monthly in advance for Fees and in arrears for reimbursable expenses for the prior month.</p>
+        <p><strong>3.5</strong> Unless otherwise provided in Appendix A, Client shall pay all invoiced amounts within <strong>15 calendar days</strong> of the invoice date. All payments shall be made in United States Dollars. If Client disputes any portion of an invoice in good faith, Client shall pay the undisputed portion and promptly advise Service Provider in writing of the disputed portion. Client shall not set off any amounts due under this MSSA.</p>
+        <p><strong>3.6</strong> If payment is not received within <strong>30 days</strong> of the invoice due date, Service Provider reserves the right to suspend or terminate services. Upon termination, Client remains liable for all outstanding balances, including late fees. Service Provider may retain Client data for up to 30 days after termination, during which Client may retrieve data upon full payment. Failure to pay within this period may result in data deletion and additional fees for reactivation.</p>
+        <p><strong>3.7</strong> Service Provider shall be entitled to interest on late payments at the lesser of (i) 1.5% per month or (ii) the maximum rate permitted by Applicable Law. If Client does not pay all amounts due under an undisputed invoice, Service Provider shall be entitled, at Client's cost, to suspend performance and repossess affected Third-Party Products upon written notice.</p>
+        <p><strong>3.8</strong> Upon the end of the Initial Term, Service Provider shall have the right to adjust its Fees and Hourly Rates applicable to any Renewal Term in its sole discretion.</p>
+
+        <!-- §4 Confidentiality -->
+        <h3 id="sec4"><span class="clause-number">4.</span> Confidentiality</h3>
+        <p><strong>4.1</strong> All Confidential Information shall be maintained in confidence by the Receiving Party, using no less than a reasonable degree of care consistent with how it handles its own confidential information. The Receiving Party shall restrict dissemination within its organization to only those employees having a need to know. The Receiving Party shall not disclose, nor permit disclosure of, the Disclosing Party's Confidential Information to any other person or party without prior written authorization of the Disclosing Party.</p>
+        <p><strong>4.2</strong> All Confidential Information disclosed pursuant to this MSSA, including copies thereof, shall remain the exclusive property of the Disclosing Party. The Parties agree (i) that Confidential Information shall be used solely for the Services and to fulfill obligations under this MSSA, and (ii) not to copy, reverse engineer, disassemble, or decompile any items that embody the other Party's Confidential Information.</p>
+        <p><strong>4.3</strong> If a court or governmental authority requires disclosure, the Receiving Party shall, where practicable, notify the Disclosing Party prior to disclosure and cooperate in contesting such requirement. The Receiving Party shall not be in breach of this MSSA for responding to any such governmental request.</p>
+        <p><strong>4.4</strong> Within 30 calendar days of (a) a written request by the Disclosing Party or (b) termination or expiration of this MSSA, the Receiving Party shall cease use of Confidential Information and, at the Disclosing Party's sole discretion, return or delete it. The Receiving Party shall provide written certification of compliance. The Receiving Party may retain one archival copy for legal files or as required by Applicable Law.</p>
+
+        <!-- §5 Intellectual Property -->
+        <h3 id="sec5"><span class="clause-number">5.</span> Intellectual Property</h3>
+        <p><strong>5.1</strong> Service Provider exclusively owns and retains all right, title, and interest in and to Service Provider IP and Service Provider Materials. Client shall not reverse engineer, reverse assemble, or reverse compile, or otherwise attempt to discover or derive Service Provider IP or Materials. Client shall not resell, redistribute, or make available Services, Service Provider IP, or Third-Party Products to any third party. Subject to Client's compliance with this MSSA, Service Provider grants Client a worldwide, nonexclusive, nontransferable, non-sublicensable, revocable license to use Service Provider IP and Materials for its internal business purposes only.</p>
+        <p><strong>5.2</strong> Client exclusively owns and retains all right, title, and interest in and to Client IP and Client Systems, Content, and Materials. Service Provider shall not reverse engineer or discover Client IP. Subject to Service Provider's compliance with this MSSA, Client grants Service Provider a worldwide, nonexclusive, nontransferable, sublicensable, fully paid-up, royalty-free license to use Client IP and Client Systems, Content, and Materials for purposes of providing the Services.</p>
+        <p><strong>5.3 Aggregate Data.</strong> Service Provider and Third-Party Suppliers may evaluate and process data relating to Client's use of the Services in an aggregated and anonymous manner (<strong>"Aggregate Data"</strong>). Service Provider and its Third-Party Suppliers may use Aggregate Data to improve Services, develop new products, analyze usage trends, and publish reports. Service Provider and its Third-Party Suppliers retain all IPR in Aggregate Data. Aggregate Data does not include Personal Data.</p>
+
+        <!-- §6 Warranties -->
+        <h3 id="sec6"><span class="clause-number">6.</span> Warranties</h3>
+        <p><strong>6.1 Mutual Warranties.</strong> Each party represents and warrants that (i) it is duly organized, validly existing, and in good standing under Applicable Law; (ii) it has the authority to enter into this MSSA, to perform its obligations, and to grant the rights and licenses provided herein; and (iii) by entering into this MSSA, it is not in violation of any other agreement.</p>
+        <p><strong>6.2</strong> Service Provider shall perform the Services in accordance with the requirements stated in Appendix A and Appendix B in all material respects. Service Provider shall pass through all warranties provided by its Third-Party Suppliers.</p>
+        <div class="legal-caps">
+          <strong>6.3 DISCLAIMER.</strong> SERVICE PROVIDER SHALL BE ENTITLED TO RELY UPON THE ACCURACY OF CLIENT-FURNISHED INFORMATION WITHOUT INDEPENDENT VERIFICATION. CLIENT AND SERVICE PROVIDER AGREE THAT EXCEPT AS PROVIDED IN SECTION 6.2: (i) ALL SERVICES AND THIRD-PARTY PRODUCTS AND SERVICES ARE PROVIDED "AS IS", (ii) CLIENT'S USE OF OR RELIANCE UPON THE SERVICES AND THIRD-PARTY PRODUCTS AND SERVICES IS ENTIRELY AT CLIENT'S OWN RISK, AND (iii) SERVICE PROVIDER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS, WHETHER EXPRESS OR IMPLIED (INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND NON-INFRINGEMENT) WITH RESPECT TO SERVICES, THIRD-PARTY PRODUCTS AND SERVICES, SYSTEM INTEGRATION, DATA ACCURACY, DATA SECURITY, OR ANY WARRANTIES ARISING OUT OF ANY COURSE OF DEALING, COURSE OF PERFORMANCE, OR USAGE OF TRADE. SERVICE PROVIDER DOES NOT PROVIDE ANY ASSURANCE OR WARRANTY THAT THE SERVICES OR THIRD-PARTY PRODUCTS OR SERVICES WILL BE ACCURATE, ERROR-FREE, UNINTERRUPTED, FREE OF HARMFUL COMPONENTS, OR COMPLETE, THAT ALL ERRORS WILL BE CORRECTED, OR THAT CLIENT'S SYSTEMS, CONTENT, AND MATERIALS WILL BE ADEQUATELY PROTECTED FROM CYBER ATTACK OR SATISFY ANY APPLICABLE REGULATORY REQUIREMENTS. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NO THIRD-PARTY SUPPLIERS WILL BE LIABLE FOR ANY DAMAGES WHATSOEVER.
+        </div>
+        <p><strong>6.4</strong> Client shall have <strong>10 days</strong> from the earlier of (i) delivery of Services or (ii) Client's first use to notify Service Provider in writing of any non-conformance with the warranty in Section 6.2. Service Provider will promptly investigate and, if validated, re-perform the Services to make them conform. The foregoing constitutes Service Provider's complete fulfillment of, and Client's sole and exclusive remedy for, any defect or non-conforming Services.</p>
+
+        <!-- §7 Deliverables -->
+        <h3 id="sec7"><span class="clause-number">7.</span> Deliverables</h3>
+        <p><strong>7.1</strong> Subject to Section 5.1, all Deliverables issued to Client by Service Provider will become the property of the Client upon payment in full.</p>
+        <p><strong>7.2</strong> Client acknowledges that Service Provider will perform Services exclusively for the use and benefit of Client. Service Provider shall be entitled to state in any Deliverables such assumptions, disclaimers, qualifications, or limitations as it deems appropriate. Client agrees that Deliverables shall not be disclosed in whole or in part to any third party without first identifying the recipients and obtaining Service Provider's prior written consent.</p>
+        <p><strong>7.3</strong> Client shall ensure that no person or entity other than Client relies upon the results of the Services or any Deliverable. Service Provider will have no liability to any other person or entity who relies on any Deliverable, and accordingly, Client shall defend, indemnify, and hold harmless Service Provider from and against any such liability.</p>
+
+        <!-- §8 Unmanaged Devices -->
+        <h3 id="sec8"><span class="clause-number">8.</span> Unmanaged Devices and Non-Compliant Systems</h3>
+        <div class="section-block">
+          <div class="section-label">Service Provider Limitations</div>
+          <ul>
+            <li>Service Provider will not be responsible for monitoring, managing, or securing any Unmanaged Devices unless otherwise agreed in writing.</li>
+            <li>Service Provider disclaims all liability for any breaches, security incidents, or data loss originating from Unmanaged Devices, including those used by the Client's contractors, employees, or other third parties.</li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <div class="section-label">Security Breach Liability &amp; Costs</div>
+          <p>In the event that an Unmanaged Device is determined to be the attack vector for a cybersecurity breach:</p>
+          <ul>
+            <li>Client will bear all costs associated with containment, remediation, forensic investigation, and restoration of affected systems.</li>
+            <li>Client agrees to pay Service Provider at the Standard Hourly Rate of <strong>$99 per hour</strong> or any higher rate specified for after-hours or emergency services, as outlined in Appendix A, Section 11.3.</li>
+            <li>Service Provider reserves the right to charge additional fees for engaging third-party forensic experts, advanced threat analysis, or other necessary services.</li>
+          </ul>
+        </div>
+        <div class="section-block">
+          <div class="section-label">Cybersecurity Policy Violations</div>
+          <p>Any unauthorized or unmanaged device that causes a violation of the Client's or Service Provider's cybersecurity policies will be reported as a breach of this Agreement. Such violations may result in immediate suspension of services, and Service Provider reserves the right to terminate this Agreement if necessary.</p>
+        </div>
+        <div class="section-block">
+          <div class="section-label">Indemnity for Third-Party Devices</div>
+          <p>Client agrees to indemnify, defend, and hold harmless Service Provider from any damages, claims, or liabilities arising from the use of Unmanaged Devices, including those owned or operated by contractors or third parties.</p>
+        </div>
+
+        <!-- §9 Client Systems -->
+        <h3 id="sec9"><span class="clause-number">9.</span> Client Systems, Content, and Materials</h3>
+        <p><strong>9.1</strong> Client hereby represents and warrants that: (i) it has sufficient rights, and all required third-party consents, permissions, or licenses in and to Client Systems, Content, and Materials for use by Service Provider and its subcontractors; (ii) Client authorizes Service Provider and its subcontractors and Third-Party Suppliers to process Client Content; and (iii) Client grants Service Provider and its subcontractors a limited, worldwide, royalty-free, non-exclusive, assignable license to copy, host, record, view, reformat, disclose, transmit, display, and otherwise use the Client Content and Materials solely for the purposes of providing the Services. Client is responsible for the collection, accuracy, quality, completeness, and legality of the Client Content and Materials.</p>
+        <p><strong>9.2</strong> Except for the limited license granted hereunder, Client retains all existing rights in and to Client Systems, Content, and Materials.</p>
+
+        <!-- §10 Force Majeure -->
+        <h3 id="sec10"><span class="clause-number">10.</span> Force Majeure and Changes</h3>
+        <p><strong>10.1</strong> Neither Party shall be in default of its obligations under this MSSA, except any obligation to make payment, to the extent that performance is prevented or delayed by a Force Majeure event. Upon written notice of a Force Majeure event, the Parties shall agree what steps should be taken to mitigate the impact.</p>
+        <p><strong>10.2</strong> Service Provider shall be entitled to a change order equitably adjusting its compensation, time, or other affected obligations if any Force Majeure event impacts the cost, timing, or manner of performing the Services. Client shall either sign the change order or notify Service Provider in writing of any good faith disagreement. The Parties agree to act in good faith in resolving all such disagreements.</p>
+        <p><strong>10.3</strong> Either Party may request a change in scope of the Services by written request. The Parties shall promptly endeavor to agree upon the scope and details of a corresponding change order, including an equitable adjustment to Service Provider's compensation. Service Provider shall not be required to perform any changes to the scope of Services without its express written agreement.</p>
+
+        <!-- §11 Indemnity -->
+        <h3 id="sec11"><span class="clause-number">11.</span> Indemnity</h3>
+        <p><strong>11.1</strong> Service Provider agrees to indemnify, defend, and hold harmless Client and its directors, officers, employees, and representatives from and against all Damages arising from third-party claims alleging unauthorized disclosure, use, infringement, or misappropriation of any Intellectual Property Rights due to Service Provider's performance of Services (<strong>"IPR Claim"</strong>). Service Provider's indemnification obligations will not apply to any Claim to the extent it arises from <strong>Excluded Claims</strong>: (i) Client's combination of Services with other products; (ii) modifications to Services not made by Service Provider; (iii) Client's material breach of this MSSA; (iv) use of Services other than in conformance with its documentation; or (v) Service Provider following Client-provided instructions.</p>
+        <p><strong>11.2</strong> If Service Provider determines that Services may be subject to an IPR Claim, Service Provider may, in its sole discretion and expense, (i) procure for Client the right to continue to use the Services, (ii) replace or modify the Services so the Service is no longer infringing but provides similar functionality, or (iii) terminate that portion of the Services and refund a pro rata portion of prepaid fees.</p>
+        <p><strong>11.3</strong> Client agrees to indemnify, defend, and hold harmless Service Provider and its directors, officers, employees, and representatives from and against all Damages arising from or related to Excluded Claims or Client Systems, Content, or Materials.</p>
+        <p><strong>11.4</strong> In the event of a potential indemnity obligation, the indemnified Party shall: (i) promptly notify the indemnifying Party in writing; (ii) allow the indemnifying Party the right to control the investigation, defense, and settlement at the indemnifying Party's sole cost; and (iii) provide all necessary cooperation at the indemnifying Party's expense. The indemnifying Party may not settle any Damages that require obligation or admission of fault by the indemnified Party without the indemnified Party's prior written consent.</p>
+
+        <!-- §12 Liability Limitations -->
+        <h3 id="sec12"><span class="clause-number">12.</span> Liability Limitations</h3>
+        <div class="legal-caps">
+          <strong>12.1 EXCLUSION OF DAMAGES.</strong> TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NEITHER PARTY SHALL HAVE ANY LIABILITY TO THE OTHER PARTY FOR ANY OF THE FOLLOWING: LOSS OF PROFIT, LOSS OF REVENUE OR INCOME, LOSS OF BUSINESS, LOSS OF FUNDING, LOSS OF GOODWILL, LOSS OF OPPORTUNITY, LOSS OF USE, LOSS OF DATA, LOSS OF ACCESS TO DATA, LOSS OF OPERATIONS, LOSS CAUSED BY A VIRUS OR OTHER MALWARE, LOSS ARISING FROM NETWORK INTRUSION, DENIAL OF SERVICE OR OTHER TYPE OF CYBER-ATTACK, LOSS ARISING FROM DATA EXTORTION OR RANSOMWARE, LOSS OF HARDWARE OR OTHER SYSTEMS, LOSS OF OPERABILITY, COSTS ASSOCIATED WITH INCREASED CLOUD SERVICE OR DATA HOSTING SERVICES, COSTS OF EQUIVALENT OR SUBSTITUTE HARDWARE OR SYSTEMS, NOTIFICATION COSTS, REMEDIATION OR REPAIR COSTS, DOWN TIME COSTS, COST OF UTILITIES, GOVERNMENTAL PENALTIES OR SANCTIONS, AND/OR CLAIMS OF CUSTOMERS OF CLIENT FOR SUCH LOSSES OR DAMAGES, BUSINESS INTERRUPTION COSTS OR FINANCING COSTS (IN ALL CASES WHETHER DIRECT, INDIRECT, INCIDENTAL, ANCILLARY, CONSEQUENTIAL, SPECIAL, EXEMPLARY, AGGRAVATED OR PUNITIVE), OR INDIRECT, INCIDENTAL, ANCILLARY, CONSEQUENTIAL, SPECIAL, EXEMPLARY, AGGRAVATED, OR PUNITIVE DAMAGES OF WHATSOEVER NATURE INCURRED IN CONNECTION WITH OR ARISING OUT OF THIS MSSA OR THE PERFORMANCE OF SERVICES OR THIRD-PARTY PRODUCTS OR SERVICES, AND EACH PARTY HEREBY EXPRESSLY WAIVES AND RELEASES THE OTHER FROM ANY SUCH LIABILITY.
+        </div>
+        <div class="legal-caps">
+          <strong>12.2 AGGREGATE CAP.</strong> TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SERVICE PROVIDER'S MAXIMUM TOTAL LIABILITY IN THE AGGREGATE ARISING OUT OF AND/OR IN CONNECTION WITH SERVICES PERFORMED UNDER THE MSSA, HOWEVER CAUSED, SHALL BE LIMITED TO THE TOTAL AMOUNT PAID BY THE CLIENT TO THE SERVICE PROVIDER UNDER THIS MSSA DURING THE TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO THE LIABILITY. CLIENT HEREBY WAIVES AND RELEASES SERVICE PROVIDER FROM ANY LIABILITY OR DAMAGES IN EXCESS THEREOF.
+        </div>
+        <div class="legal-caps">
+          <strong>12.3 PROPERTY RISK.</strong> CLIENT SHALL ALWAYS HAVE RISK OF LOSS FOR, AND HEREBY RELEASES SERVICE PROVIDER FROM, ALL LIABILITY AND DAMAGES, HOWSOEVER ARISING, TO CLIENT'S PROPERTY OR PROPERTY IN THE CUSTODY OF CLIENT, INCLUDING CLIENT SYSTEMS, CONTENT, AND MATERIALS. THE CLIENT ACKNOWLEDGES THAT IT IS RESPONSIBLE FOR BACKING UP ALL SOFTWARE AND DATA STORED ON ITS DEVICES AND SYSTEMS UNLESS SUCH BACK-UP SERVICES ARE SPECIFICALLY INCLUDED IN APPENDIX A. THE SERVICE PROVIDER SHALL NOT BE RESPONSIBLE FOR ANY LOSS, ALTERATION, OR CORRUPTION OF ANY SOFTWARE, HARDWARE, DATA, OR FILES.
+        </div>
+        <p><strong>12.4</strong> The disclaimers, exclusions, and limitations of liability set forth herein form an essential basis of this MSSA and have been relied upon by both Parties. Absent such disclaimers, exclusions, and limitations, the Services provided, or the Fees and Hourly Rates charged, would be substantially different.</p>
+
+        <!-- §13 Term & Termination -->
+        <h3 id="sec13"><span class="clause-number">13.</span> Term and Termination</h3>
+        <p><strong>13.1 Term.</strong> The term of this MSSA will commence on the Effective Date and continue for <strong>36 months</strong> (the <strong>"Initial Term"</strong>), unless terminated earlier pursuant to Section 13.2, and shall automatically renew for subsequent <strong>12-month terms</strong> (each a <strong>"Renewal Term"</strong>) unless either Party gives the other Party <strong>90 days'</strong> prior written notice of its intent not to renew.</p>
+        <p><strong>13.2 Termination.</strong> A Party may terminate this MSSA if the other Party materially breaches this MSSA and fails to cure such breach within <strong>30 calendar days</strong> from receiving notice of such breach, or with immediate effect upon notice if the breach is not subject to cure. Service Provider may terminate this MSSA upon notice if Client fails to pay any amounts due for 30 days, or if Service Provider reasonably believes Client is violating Applicable Law or using the Services in a way that damages or could cause damage to Service Provider, its subcontractors, or Third-Party Suppliers.</p>
+        <p><strong>13.3 Effect of Termination or Expiration.</strong> Upon any termination or expiration of this MSSA, Client shall immediately stop using all Services and Third-Party Products and Services, and each Party shall return or destroy all Confidential Information of the other Party in its possession.</p>
+
+        <!-- §14 Governing Law -->
+        <h3 id="sec14"><span class="clause-number">14.</span> Governing Law and Disputes</h3>
+        <p>This MSSA will be governed solely by the internal laws of the <strong>State of Texas</strong>, including applicable federal law, without reference to any conflicts of law principle. The Parties consent to the personal and exclusive jurisdiction of the federal and state courts of <strong>Houston, Harris County, Texas</strong>, and waive their right to a trial by jury. This Section governs all claims arising out of or related to this Agreement, including tort claims.</p>
+
+        <!-- §15 Miscellaneous -->
+        <h3 id="sec15"><span class="clause-number">15.</span> Miscellaneous</h3>
+        <p><strong>15.1 Independent Contractors.</strong> The parties are independent contractors. Service Provider reserves the right to determine the method, manner, and means by which Services will be performed. Client shall have no right to control or direct the details or means by which Service Provider accomplishes the Services. Service Provider is free to provide Services to other clients and is not required to devote its full time and attention to this MSSA.</p>
+        <p><strong>15.2 Non-Solicitation.</strong> During the term of this MSSA and for a period of <strong>12 months</strong> thereafter, Client agrees not to solicit, recruit, or employ any employee of the Service Provider without the prior written consent of the Service Provider.</p>
+        <p><strong>15.3 No Third-Party Rights.</strong> Except as otherwise expressly stated in this MSSA, nothing in this MSSA shall create or give to third parties any claim or right of action against Client or Service Provider.</p>
+        <p><strong>15.4 Notices.</strong> Notices pursuant to this MSSA shall be sent to the addresses below, or to such others as either Party may provide in writing. Such notices will be deemed received upon (i) actual receipt, (ii) delivery in person, or (iii) the date of the return receipt if sent by certified mail return receipt requested.</p>
+        <table class="styled-table">
+          <tr><th>Service Provider</th><th>Client</th></tr>
+          <tr>
+            <td>CAER Technologies<br>156 Glenvalley Circle<br>Bandera, Texas 78003<br><a href="mailto:clmolnar@consultcaer.com">clmolnar@consultcaer.com</a></td>
+            <td><em>As set forth in Appendix C / SOW</em></td>
+          </tr>
+        </table>
+        <p><strong>15.5 Severability &amp; Waiver.</strong> If a provision of this MSSA is held to be invalid or otherwise unenforceable, such provision will be interpreted to fulfill its intended purpose to the maximum extent permitted by Applicable Law, and the remaining provisions will continue in full force and effect. No waiver of a breach of this MSSA will constitute a waiver of any other breach of this MSSA.</p>
+        <p><strong>15.6 Assignment.</strong> Client may not assign this MSSA or any rights or obligations hereunder without Service Provider's express written consent, which consent shall not be unreasonably withheld, conditioned, or delayed. Any purported assignment or transfer in violation of the foregoing will be null and void. Service Provider may assign this MSSA in whole or in part or in any merger or acquisition of Service Provider's assets.</p>
+        <p><strong>15.7 Construction &amp; Entire Agreement.</strong> This MSSA sets forth the entire agreement of the Parties and supersedes all prior or contemporaneous writings, negotiations, and discussions with respect to its subject matter. This MSSA may not be amended except through a written agreement executed by each Party. This MSSA may be executed in one or more counterparts, each of which will be an original, but all such counterparts will constitute a single instrument.</p>
+        <p><strong>15.8 Survival.</strong> Any provisions of this MSSA which must survive to give effect to their meaning shall survive the termination or expiration of this MSSA.</p>
+
+        <!-- Signatures -->
+        <h3 id="sig"><span class="clause-number">IN WITNESS WHEREOF</span>, the Parties have executed this MSSA as of the Effective Date.</h3>
+        <div class="sig-grid">
+          <div class="sig-box">
+            <h5>Client</h5>
+            <div class="sig-line"></div>
+            <div class="sig-label">By (Signature)</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Name (Print)</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Title</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+          <div class="sig-box">
+            <h5>CAER Technologies, LLC (Service Provider)</h5>
+            <div class="sig-line"></div>
+            <div class="sig-label">By (Signature)</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Name (Print)</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Title</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+        </div>
+
+      </div><!-- end doc-body -->
+    </div><!-- end mssa -->
+
+
+    <!-- ═══════════  APPENDIX A  ═══════════ -->
+    <div class="doc-section" id="appendix-a">
+      <div class="doc-section-header" onclick="toggleSection(this)">
+        <div>
+          <h2>Appendix A – Scope of Services</h2>
+          <div class="doc-id">MSSA Appx A &nbsp;·&nbsp; Version 1.3 &nbsp;·&nbsp; © 2026 CAER Technologies</div>
+        </div>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="doc-body">
+
+        <h3 id="appa-1"><span class="clause-number">1.</span> Overview of Services</h3>
+        <p>Service Provider agrees to deliver Services to Client based on the selected Service Tier as defined in the applicable Statement of Work (SOW). Services are organized into the following Service Families:</p>
+        <table class="styled-table">
+          <thead><tr><th>Service Family</th><th>Service Tiers</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Associate, Associate+</td><td>Monitoring &amp; Entry Level</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Manager</td><td>Fully Managed IT</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>Professional, Executive</td><td>Security &amp; Compliance</td></tr>
+          </tbody>
+        </table>
+        <p>The Client's selected Service Tier determines the scope of included Services, response expectations, security controls, and support levels.</p>
+
+        <h3 id="appa-2"><span class="clause-number">2.</span> General Service Categories</h3>
+        <p>The following categories describe the types of Services that may be provided, depending on the selected Service Tier.</p>
+
+        <h4>2.1 Network Monitoring &amp; Management</h4>
+        <ul>
+          <li>Monitoring of network devices (firewalls, switches, access points)</li>
+          <li>Performance tracking and alerting</li>
+          <li>Firmware and configuration management</li>
+          <li>Security monitoring of network infrastructure</li>
+        </ul>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Basic monitoring and alerting only</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Proactive management and maintenance</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER Professional</span></td><td>Advanced monitoring, logging, and threat detection</td></tr>
+            <tr><td><span class="tier tier-exec">SecureCAER Executive</span></td><td>Enhanced security governance, reporting, and strategic oversight</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.2 Endpoint Management</h4>
+        <ul>
+          <li>Device monitoring and health checks</li>
+          <li>Operating system patching and updates</li>
+          <li>Third-party software patching (where supported)</li>
+          <li>Remote troubleshooting and remediation</li>
+        </ul>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Monitoring with limited remediation</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Full endpoint management and patching</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>Hardened endpoint security with advanced controls</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.3 Cybersecurity Services</h4>
+        <p>May include: Antivirus / Endpoint Protection, Endpoint Detection &amp; Response (EDR), Email security and filtering, DNS / web content filtering, Disk encryption enforcement, Vulnerability scanning, Threat detection and response, Security awareness training, Password management.</p>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Basic protections only</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Standard business-grade security stack</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER Professional</span></td><td>Advanced security stack with monitoring, response, and policy enforcement</td></tr>
+            <tr><td><span class="tier tier-exec">SecureCAER Executive</span></td><td>Advanced security governance, executive reporting, and compliance-focused oversight</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.4 Backup &amp; Disaster Recovery</h4>
+        <ul>
+          <li>Backup configuration and monitoring</li>
+          <li>Data recovery assistance</li>
+          <li>Backup testing</li>
+          <li>Disaster recovery planning</li>
+        </ul>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Backup monitoring only (if included in SOW)</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Managed backup and recovery support</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER Professional</span></td><td>Managed disaster recovery planning and backup validation</td></tr>
+            <tr><td><span class="tier tier-exec">SecureCAER Executive</span></td><td>Full disaster recovery governance, testing, and defined RTO/RPO objectives</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.5 Helpdesk &amp; Support</h4>
+        <ul>
+          <li>Remote technical support</li>
+          <li>Incident response and troubleshooting</li>
+          <li>User support for supported systems</li>
+        </ul>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Limited support (time-restricted, reactive only)</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Full remote support during standard service hours</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>Priority support with enhanced response expectations</td></tr>
+          </tbody>
+        </table>
+        <p>All response times are defined in Appendix B (SLA).</p>
+
+        <h4>2.6 Mobile Device Management (MDM)</h4>
+        <ul>
+          <li>Device enrollment and configuration</li>
+          <li>Security policy enforcement</li>
+          <li>Remote lock and wipe capabilities</li>
+          <li>Application management</li>
+        </ul>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Service Level</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Basic enrollment and security controls</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Full device management</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>Advanced mobile security and compliance enforcement</td></tr>
+          </tbody>
+        </table>
+
+        <h4>2.7 Line of Business (LOB) Application Support</h4>
+        <ul>
+          <li>Support for business-critical applications (e.g., EMR, accounting, CRM systems)</li>
+          <li>Vendor coordination (if applicable)</li>
+        </ul>
+        <p><strong>Limitations:</strong> Provided on a best-effort basis; dependent on vendor support availability.</p>
+
+        <h3 id="appa-3"><span class="clause-number">3.</span> Service Limitations &amp; Exclusions</h3>
+        <p>The following services are <strong>not included</strong> unless explicitly defined in the Client's SOW:</p>
+        <ul>
+          <li>Project work or major system deployments</li>
+          <li>Onsite support (unless specified)</li>
+          <li>Hardware repair or replacement</li>
+          <li>Network cabling or physical infrastructure work</li>
+          <li>Custom software development</li>
+          <li>Third-party vendor management (beyond reasonable coordination)</li>
+          <li>Compliance audits or certification efforts</li>
+          <li>Cybersecurity incident response beyond standard remediation</li>
+          <li>Forensic investigations or legal reporting</li>
+          <li>Support for personal, unmanaged, or non-enrolled devices</li>
+          <li>Training beyond initial onboarding</li>
+          <li>Licensing costs for third-party software or services</li>
+        </ul>
+
+        <h3><span class="clause-number">4.</span> Unmanaged Devices &amp; Non-Standard Environments</h3>
+        <p>Devices not enrolled in Service Provider's management systems are considered <strong>Unmanaged Devices</strong>.</p>
+        <ul>
+          <li>No monitoring, security, or support is provided for Unmanaged Devices.</li>
+          <li>These devices are excluded from all service guarantees.</li>
+          <li>Incidents originating from such devices are billable.</li>
+        </ul>
+
+      </div>
+    </div><!-- end appendix-a -->
+
+
+    <!-- ═══════════  APPENDIX B  ═══════════ -->
+    <div class="doc-section" id="appendix-b">
+      <div class="doc-section-header" onclick="toggleSection(this)">
+        <div>
+          <h2>Appendix B – Support &amp; Service Level Agreement</h2>
+          <div class="doc-id">MSSA Appx B &nbsp;·&nbsp; Version 1.3 &nbsp;·&nbsp; © 2026 CAER Technologies</div>
+        </div>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="doc-body">
+
+        <h3 id="appb-1"><span class="clause-number">1.</span> Service Hours</h3>
+        <h5>1.1 Standard Service Hours</h5>
+        <p>Service Provider standard operating hours: <strong>Monday – Friday: 9:00 AM – 5:00 PM CST</strong>, excluding recognized holidays listed in Section 9. All Services performed during Standard Service Hours are delivered at the standard service rate.</p>
+
+        <h5>1.2 Extended Service Hours</h5>
+        <p>Extended Service Hours include evenings (after 5:00 PM CST), weekends, and holidays. Services during Extended Hours are not guaranteed for all Service Tiers and may be billed at the Extended Rate unless included in the Client's Service Tier.</p>
+
+        <h5>1.3 After-Hours Availability by Tier</h5>
+        <table class="styled-table">
+          <thead><tr><th>Service Family</th><th>After-Hours Support</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span> (Associate / Associate+)</td><td>Not included (best-effort only)</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span> (Manager)</td><td>Available for critical issues</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span> (Professional)</td><td>Priority 24/7 support</td></tr>
+            <tr><td><span class="tier tier-exec">SecureCAER</span> (Executive)</td><td>Priority 24/7 response with executive escalation and governance coordination</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="appb-2"><span class="clause-number">2.</span> Support Channels</h3>
+        <p>Approved support methods:</p>
+        <ul>
+          <li><strong>Phone:</strong> 830.510.3700</li>
+          <li><strong>Support Portal / Ticketing System</strong></li>
+          <li><strong>Email:</strong> <a href="mailto:support@consultcaer.com">support@consultcaer.com</a></li>
+        </ul>
+        <p>Requests made outside these channels (text, personal email, etc.) are not guaranteed to be tracked or responded to.</p>
+
+        <h3 id="appb-3"><span class="clause-number">3.</span> Incident Priority Definitions</h3>
+        <table class="styled-table">
+          <thead><tr><th>Priority</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td><strong>P1 – Critical</strong></td><td>Complete outage, security incident, or business-critical system unavailable</td></tr>
+            <tr><td><strong>P2 – High</strong></td><td>Major functionality impaired, significant user impact</td></tr>
+            <tr><td><strong>P3 – Medium</strong></td><td>Partial issue, limited business impact</td></tr>
+            <tr><td><strong>P4 – Low</strong></td><td>General request, minor issue, or informational</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="appb-4"><span class="clause-number">4.</span> Response Time Objectives (Not Resolution Guarantees)</h3>
+        <p>Response times are <strong>targets, not guarantees</strong>, and apply only during covered service hours.</p>
+
+        <h5>4.1 CoreCAER (Associate / Associate+)</h5>
+        <table class="styled-table">
+          <thead><tr><th>Priority</th><th>Response Time</th></tr></thead>
+          <tbody>
+            <tr><td>P1 – Critical</td><td>Next business day</td></tr>
+            <tr><td>P2 – High</td><td>Within 8 business hours</td></tr>
+            <tr><td>P3 – Medium</td><td>Within 24 business hours</td></tr>
+            <tr><td>P4 – Low</td><td>Within 2 business days</td></tr>
+          </tbody>
+        </table>
+
+        <h5>4.2 ManageCAER (Manager)</h5>
+        <table class="styled-table">
+          <thead><tr><th>Priority</th><th>Response Time</th></tr></thead>
+          <tbody>
+            <tr><td>P1 – Critical</td><td>Within 4 hours</td></tr>
+            <tr><td>P2 – High</td><td>Within 8 hours</td></tr>
+            <tr><td>P3 – Medium</td><td>Within 1 business day</td></tr>
+            <tr><td>P4 – Low</td><td>Within 2 business days</td></tr>
+          </tbody>
+        </table>
+
+        <h5>4.3 SecureCAER (Professional / Executive)</h5>
+        <table class="styled-table">
+          <thead><tr><th>Priority</th><th>Response Time</th></tr></thead>
+          <tbody>
+            <tr><td>P1 – Critical</td><td><strong>Within 1 hour (24/7)</strong></td></tr>
+            <tr><td>P2 – High</td><td>Within 4 hours</td></tr>
+            <tr><td>P3 – Medium</td><td>Within 8 hours</td></tr>
+            <tr><td>P4 – Low</td><td>Within 1 business day</td></tr>
+          </tbody>
+        </table>
+
+        <h3><span class="clause-number">5.</span> Service Scope Limitations</h3>
+        <p>Response times apply only when devices are actively managed and enrolled, systems are supported and up to date, and the issue falls within the Client's Service Tier scope. Response times do <strong>NOT</strong> apply to unmanaged devices, third-party vendor outages, Internet service provider issues, or force majeure events.</p>
+
+        <h3><span class="clause-number">6.</span> Resolution Time Disclaimer</h3>
+        <p>Service Provider does not guarantee resolution times. Resolution depends on issue complexity, third-party vendor involvement, Client responsiveness, and system condition and compliance.</p>
+
+        <h3><span class="clause-number">7.</span> Client Responsibilities</h3>
+        <p>To receive SLA benefits, Client must maintain supported systems and software, follow security recommendations, maintain valid licensing for required tools, and provide timely access to systems and personnel. Failure to meet these requirements may delay response or resolution and void SLA expectations.</p>
+
+        <h3><span class="clause-number">8.</span> Escalation Procedure</h3>
+        <p>If a client believes a request is not handled appropriately: submit escalation via support system, contact Service Provider by phone, or request a priority review. Service Provider will review and reclassify if appropriate.</p>
+
+        <h3><span class="clause-number">9.</span> Observed Holidays</h3>
+        <p>New Year's Day &nbsp;·&nbsp; Memorial Day &nbsp;·&nbsp; Independence Day &nbsp;·&nbsp; Labor Day &nbsp;·&nbsp; Thanksgiving Day (+ Friday) &nbsp;·&nbsp; Christmas Eve &nbsp;·&nbsp; Christmas Day &nbsp;·&nbsp; New Year's Eve</p>
+
+        <h3><span class="clause-number">10.</span> Fair Use &amp; Support Boundaries</h3>
+        <p>To maintain service quality, CoreCAER tiers include limited support time as defined in the SOW. Excessive or repeated requests may be billed separately or require upgrade to a higher tier.</p>
+
+        <h3><span class="clause-number">11.</span> Right to Adjust Service Levels</h3>
+        <p>Service Provider reserves the right to adjust response targets based on operational needs and to recommend Service Tier upgrades for high-demand environments.</p>
+
+      </div>
+    </div><!-- end appendix-b -->
+
+
+    <!-- ═══════════  APPENDIX C  ═══════════ -->
+    <div class="doc-section" id="appendix-c">
+      <div class="doc-section-header" onclick="toggleSection(this)">
+        <div>
+          <h2>Appendix C – Statement of Work (SOW)</h2>
+          <div class="doc-id">MSSA Appx C &nbsp;·&nbsp; Version 1.3 &nbsp;·&nbsp; © 2026 CAER Technologies</div>
+        </div>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="doc-body">
+
+        <p>This Statement of Work (<strong>"SOW"</strong>) is entered into under the Master Services Agreement (<strong>"MSSA"</strong>) between CAER Technologies (<strong>"Service Provider"</strong>) and the Client.</p>
+
+        <h3><span class="clause-number">1.</span> Client Information</h3>
+        <table class="styled-table">
+          <thead><tr><th>Field</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>Client Name</td><td>&nbsp;</td></tr>
+            <tr><td>Primary Contact</td><td>&nbsp;</td></tr>
+            <tr><td>Email</td><td>&nbsp;</td></tr>
+            <tr><td>Phone</td><td>&nbsp;</td></tr>
+            <tr><td>Service Address</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="appc-2"><span class="clause-number">2.</span> Service Selection</h3>
+        <p>The Client has selected the following Service Tier:</p>
+        <table class="styled-table">
+          <thead><tr><th>Service Family</th><th>Selected Tier</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>☐ Associate &nbsp; ☐ Associate+</td><td>Monitoring &amp; Entry Level</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>☐ Manager</td><td>Fully Managed IT</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>☐ Professional &nbsp; ☐ Executive</td><td>Security &amp; Compliance</td></tr>
+          </tbody>
+        </table>
+        <p>The selected Service Tier determines the scope of Services as defined in Appendix A – Scope of Services and Appendix B – Support &amp; SLA. Services not explicitly included are considered <strong>out-of-scope and billable</strong>.</p>
+
+        <h3><span class="clause-number">3.</span> Covered Assets</h3>
+        <p>Only the following assets are covered under this Agreement:</p>
+        <ul>
+          <li><strong>Total Users:</strong> ______</li>
+          <li><strong>Total Workstations / Endpoints:</strong> ______</li>
+          <li><strong>Total Servers (if applicable):</strong> ______</li>
+        </ul>
+
+        <h3><span class="clause-number">4.</span> Network Management (NetCAER)</h3>
+        <h5>4.1 Covered Network Devices</h5>
+        <ul>
+          <li>Firewalls: ______</li>
+          <li>Switches: ______</li>
+          <li>Access Points: ______</li>
+        </ul>
+        <p>Only listed and managed devices are covered under NetCAER.</p>
+
+        <h5>4.2 NetCAER Service Levels</h5>
+        <table class="styled-table">
+          <thead><tr><th>Level</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier tier-core">CoreCAER</span></td><td>Monitoring and alerting only (no proactive configuration or remediation)</td></tr>
+            <tr><td><span class="tier tier-manage">ManageCAER</span></td><td>Proactive network management including updates, configuration, and performance tuning</td></tr>
+            <tr><td><span class="tier tier-secure">SecureCAER</span></td><td>Advanced network security including firewall hardening, logging, threat monitoring, and policy enforcement</td></tr>
+          </tbody>
+        </table>
+
+        <h5>4.3 Firewall Management Levels</h5>
+        <table class="styled-table">
+          <thead><tr><th>Level</th><th>Included</th></tr></thead>
+          <tbody>
+            <tr><td>Basic Firewall Support</td><td>Monitoring, alerting, uptime tracking</td></tr>
+            <tr><td>Managed Firewall</td><td>Configuration changes, firmware updates, rule management</td></tr>
+            <tr><td>Secure Firewall</td><td>Advanced rules, logging, threat monitoring, VPN/security policy enforcement</td></tr>
+          </tbody>
+        </table>
+
+        <h5>4.4 NetCAER Pricing Model</h5>
+        <table class="styled-table">
+          <thead><tr><th>Tier</th><th>Coverage</th><th>Monthly Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Base Network</td><td>Up to ______ devices</td><td>$______</td></tr>
+            <tr><td>Additional Devices</td><td>Per device over base</td><td>$______</td></tr>
+          </tbody>
+        </table>
+
+        <h5>4.5 Network Limitations</h5>
+        <ul>
+          <li>Network performance depends on ISP services</li>
+          <li>Third-party outages are outside Service Provider control</li>
+          <li>Unauthorized changes may impact service</li>
+        </ul>
+
+        <h3><span class="clause-number">5.</span> Included Services</h3>
+        <p>Services are provided in accordance with the selected Service Tier and governed by Appendix A.</p>
+
+        <h3><span class="clause-number">6.</span> Support Limitations (CoreCAER Only)</h3>
+        <ul>
+          <li><strong>Associate:</strong> Up to 30 minutes/month remote support</li>
+          <li><strong>Associate+:</strong> Up to 1 hour/month remote support</li>
+        </ul>
+        <p>Additional time is billed at standard rates.</p>
+
+        <h3><span class="clause-number">7.</span> Excluded Services</h3>
+        <p>Unless explicitly defined, the following are not included: project work, onsite support, hardware repair or replacement, cabling or infrastructure work, compliance audits or certification, cybersecurity incident response beyond standard remediation, and support for unmanaged devices.</p>
+
+        <h3 id="appc-8"><span class="clause-number">8.</span> Pricing &amp; Billing</h3>
+        <h5>8.1 Recurring Services</h5>
+        <table class="styled-table">
+          <thead><tr><th>Category</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Users</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Devices</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Servers</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Network (NetCAER)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td colspan="3"><strong>Monthly Total</strong></td><td><strong>$________</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h5>8.2 Billing Terms</h5>
+        <ul>
+          <li><strong>Billing Cycle:</strong> ☐ Monthly &nbsp; ☐ Quarterly</li>
+          <li><strong>Payment Terms:</strong> Net ___ days</li>
+        </ul>
+
+        <h5>8.3 Additional Services</h5>
+        <table class="styled-table">
+          <thead><tr><th>Service Type</th><th>Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Standard Hourly</td><td>$______</td></tr>
+            <tr><td>Non-Agreement Work</td><td>$______</td></tr>
+            <tr><td>After Hours</td><td>$______</td></tr>
+          </tbody>
+        </table>
+
+        <h3><span class="clause-number">9.</span> Onboarding &amp; Implementation</h3>
+        <h5>9.1 Onboarding &amp; Initial Services</h5>
+        <p>Initial onboarding includes: device enrollment into management systems, deployment of monitoring and security tools, network discovery and documentation, baseline configuration of systems, and initial security hardening (based on selected Service Tier).</p>
+
+        <h5>9.2 One-Time Service Fee (Required)</h5>
+        <p>A one-time onboarding fee is required for all new clients. This fee is calculated as: <strong>One (1) full month of recurring service fees + upfront payment for the selected billing cycle.</strong></p>
+
+        <h5>9.3 Upfront Billing Structure</h5>
+        <ul>
+          <li><strong>Monthly Billing Clients:</strong> First Month Service Fee (Due at signing)</li>
+          <li><strong>Quarterly Billing Clients:</strong> First Month Service Fee + 90 days prepaid service (3 months total)</li>
+        </ul>
+
+        <h5>9.6 Migration Pricing Model</h5>
+        <table class="styled-table">
+          <thead><tr><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Per User</td><td>Email and account-based migrations</td></tr>
+            <tr><td>Per Device</td><td>Workstation or endpoint transitions</td></tr>
+            <tr><td>Per GB / TB</td><td>Data migrations</td></tr>
+            <tr><td>Project-Based</td><td>Larger or complex migrations</td></tr>
+            <tr><td>Hourly</td><td>Undefined or variable scope work</td></tr>
+          </tbody>
+        </table>
+
+        <h5>9.7 Migration Scope &amp; Limitations</h5>
+        <ul>
+          <li>All migrations are dependent on source system condition, data integrity, and third-party system performance.</li>
+          <li>Timelines are estimates only and not guaranteed.</li>
+          <li>Additional work outside defined scope will be billed separately.</li>
+          <li>All migration work must be defined and approved in writing prior to execution.</li>
+        </ul>
+
+        <h5>9.8 Client Responsibilities for Migration</h5>
+        <p>The Client agrees to provide administrative access to all systems, ensure valid licensing is in place, confirm data locations and ownership, and approve migration timing and downtime windows. Failure to meet these requirements may delay migration and increase costs.</p>
+
+        <h3><span class="clause-number">10.</span> Client Responsibilities</h3>
+        <p>Client agrees to: provide administrative access as required, maintain supported systems, maintain required licensing, and follow security recommendations. Failure to meet these responsibilities may impact service delivery.</p>
+
+        <h3><span class="clause-number">11.</span> Compliance &amp; Security Acknowledgment</h3>
+        <p>Client acknowledges that compliance (HIPAA, NIST, etc.) is only included in SecureCAER tiers unless otherwise agreed; declining recommended controls increases risk; and no system can be made completely secure.</p>
+
+        <h3><span class="clause-number">12.</span> Term &amp; Termination</h3>
+        <ul>
+          <li><strong>Initial Term:</strong> ______ months</li>
+          <li><strong>Renewal:</strong> ☐ Auto-renew &nbsp; ☐ Manual</li>
+          <li><strong>Termination Notice:</strong> ______ days</li>
+        </ul>
+
+        <h3><span class="clause-number">13.</span> Acceptance</h3>
+        <p>By signing below, both parties agree to this Statement of Work and all referenced appendices.</p>
+        <div class="sig-grid">
+          <div class="sig-box">
+            <h5>Client</h5>
+            <div class="sig-line"></div>
+            <div class="sig-label">Name</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Signature</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+          <div class="sig-box">
+            <h5>CAER Technologies</h5>
+            <div class="sig-line"></div>
+            <div class="sig-label">Name</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Signature</div>
+            <div class="sig-line" style="margin-top:28px;"></div>
+            <div class="sig-label">Date</div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end appendix-c -->
+
+
+    <!-- ═══════════  APPENDIX D  ═══════════ -->
+    <div class="doc-section" id="appendix-d">
+      <div class="doc-section-header" onclick="toggleSection(this)">
+        <div>
+          <h2>Appendix D – Security &amp; Compliance Standards</h2>
+          <div class="doc-id">MSSA Appx D &nbsp;·&nbsp; Version 1.3 &nbsp;·&nbsp; © 2026 CAER Technologies</div>
+        </div>
+        <span class="toggle-icon">−</span>
+      </div>
+      <div class="doc-body">
+
+        <h3><span class="clause-number">1.</span> Purpose</h3>
+        <p>This Appendix defines the minimum security standards, risk expectations, and compliance alignment associated with Services provided by CAER Technologies. These standards are designed to reduce cybersecurity risk, establish baseline protections, align with industry frameworks (e.g., NIST, HIPAA), and define responsibilities between Service Provider and Client.</p>
+
+        <h3 id="appd-2"><span class="clause-number">2.</span> Shared Responsibility Model</h3>
+        <p>Cybersecurity is a shared responsibility between the Service Provider and the Client.</p>
+        <table class="styled-table">
+          <thead><tr><th>Area</th><th>Responsibility</th></tr></thead>
+          <tbody>
+            <tr><td>Infrastructure Security</td><td>Shared</td></tr>
+            <tr><td>Endpoint Protection</td><td>Service Provider (if enrolled)</td></tr>
+            <tr><td>User Behavior</td><td>Client</td></tr>
+            <tr><td>Access Control</td><td>Shared</td></tr>
+            <tr><td>Compliance</td><td>Client unless SecureCAER tier</td></tr>
+          </tbody>
+        </table>
+        <p>Client acknowledges that failure to follow security recommendations increases risk exposure.</p>
+
+        <h3 id="appd-3"><span class="clause-number">3.</span> Security Tiers &amp; Expectations</h3>
+
+        <div class="section-block">
+          <div class="section-label">3.1 CoreCAER (Associate / Associate+)</div>
+          <p>Designed for <strong>foundational monitoring and visibility only</strong>. Advanced EDR/MDR services such as Huntress are not included unless separately added.</p>
+          <p><strong>Includes:</strong> Endpoint protection (basic), Monitoring and alerting, Limited security controls, Basic visibility into system health.</p>
+          <p><strong>Does NOT include:</strong> Active threat response, Compliance alignment, Advanced security controls EDR/MDR, Formal governance controls, Advanced logging or SIEM.</p>
+          <div class="warn-box"><strong>⚠ Risk Level: HIGH</strong> — CoreCAER is not suitable for regulated environments or high-risk organizations/environments.</div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-label">3.2 ManageCAER (Manager)</div>
+          <p>Designed for <strong>business-grade security and IT operational stability</strong>.</p>
+          <p><strong>Includes:</strong> Managed endpoint protection, Patch management, Managed entry-level firewall administration, Standard security stack, Backup management, Limited incident response.</p>
+          <p><strong>Limitations:</strong> Limited compliance alignment, No formal governance framework, Advanced reporting may require additional services.</p>
+          <div class="warn-box"><strong>⚠ Risk Level: MODERATE</strong></div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-label">3.3 SecureCAER (Professional / Executive)</div>
+          <p>Designed for <strong>security-first and compliance-aligned environments</strong>.</p>
+          <p><strong>Includes:</strong> Endpoint detection &amp; response (EDR), Managed email security and threat protection, Security monitoring and response, MFA enforcement guidance, Vulnerability scanning, Policy enforcement and hardening, Backup strategy and validation, Compliance-aligned controls (HIPAA/NIST where applicable).</p>
+          <div class="warn-box"><strong>⚠ Risk Level: LOWER</strong> (not eliminated)</div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-label">3.4 SecureCAER Executive</div>
+          <p>Designed for organizations requiring governance, risk management, compliance alignment, and business continuity planning.</p>
+          <p><strong>Includes (in addition to Professional):</strong> Quarterly security reviews, Executive security reporting, Security policy review assistance, Vendor coordination, Advanced backup validation, Governance-focused planning.</p>
+          <div class="warn-box"><strong>⚠ Risk Level: REDUCED</strong> (not eliminated)</div>
+        </div>
+
+        <h3 id="appd-4"><span class="clause-number">4.</span> Minimum Security Standards</h3>
+        <p>The following controls are recommended as baseline security standards:</p>
+
+        <h5>4.1 Identity &amp; Access</h5>
+        <ul>
+          <li>Multi-Factor Authentication (MFA)</li>
+          <li>Strong password policies</li>
+          <li>Role-based access control</li>
+        </ul>
+
+        <h5>4.2 Endpoint Security</h5>
+        <ul>
+          <li>Antivirus / EDR protection</li>
+          <li>Disk encryption (where applicable)</li>
+          <li>Device compliance enforcement</li>
+        </ul>
+
+        <h5>4.3 Network Security</h5>
+        <ul>
+          <li>Managed firewall</li>
+          <li>Secure remote access (VPN or equivalent)</li>
+          <li>Network segmentation (recommended for larger environments)</li>
+        </ul>
+
+        <h5>4.4 Data Protection</h5>
+        <ul>
+          <li>Regular backups</li>
+          <li>Backup monitoring</li>
+          <li>Periodic restore validation (SecureCAER recommended)</li>
+        </ul>
+
+        <h5>4.5 User Awareness</h5>
+        <ul>
+          <li>Security awareness training (recommended)</li>
+          <li>Phishing awareness</li>
+        </ul>
+
+        <h3><span class="clause-number">5.</span> Optional Security Enhancements</h3>
+        <p>The following services may be added to lower-tier plans to improve security posture:</p>
+        <table class="styled-table">
+          <thead><tr><th>Enhancement</th><th>Benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Managed Email Security</td><td>Phishing and spam reduction</td></tr>
+            <tr><td>Huntress EDR</td><td>Advanced threat detection and response</td></tr>
+            <tr><td>Managed Backup</td><td>Business continuity and recovery</td></tr>
+            <tr><td>MFA Enforcement</td><td>Identity and account protection</td></tr>
+            <tr><td>Security Awareness Training</td><td>User-risk reduction</td></tr>
+            <tr><td>Advanced Firewall Management</td><td>Enhanced network protection and visibility</td></tr>
+          </tbody>
+        </table>
+        <p>Certain environments may require these enhancements to satisfy insurance, contractual, operational, or regulatory requirements.</p>
+
+      </div>
+    </div><!-- end appendix-d -->
+
+  </main><!-- end main-content -->
+</div><!-- end layout -->
+</div><!-- end bg wrapper -->
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <div><strong>CAER Technologies, LLC</strong> &nbsp;·&nbsp; 156 Glenvalley Circle, Bandera, Texas 78003 &nbsp;·&nbsp; <a href="mailto:clmolnar@consultcaer.com">clmolnar@consultcaer.com</a> &nbsp;·&nbsp; 830.510.3700</div>
+  <div>MSSA2026 v1.3 &nbsp;·&nbsp; Copyright © 2026 CAER Technologies &nbsp;·&nbsp; Governed by Texas Law</div>
+</footer>
+
+<script>
+  function toggleSection(header) {
+    const section = header.closest('.doc-section');
+    section.classList.toggle('collapsed');
+  }
+
+  // Active sidebar link on scroll
+  const anchors = document.querySelectorAll('[id]');
+  const links = document.querySelectorAll('.sidebar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('.sidebar nav a[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+
+  anchors.forEach(a => observer.observe(a));
+</script>
+</body>
+</html>

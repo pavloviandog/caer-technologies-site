@@ -133,4 +133,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   });
 
+  // Testimonial flip cards — click/tap or Enter/Space to flip
+  document.querySelectorAll(".flip-card").forEach(function (card) {
+    card.addEventListener("click", function () {
+      card.classList.toggle("is-flipped");
+    });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.classList.toggle("is-flipped");
+      }
+    });
+  });
+
 });

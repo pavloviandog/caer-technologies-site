@@ -1,0 +1,154 @@
+/* ============================================================
+   TX AI & CYBERSECURITY TRAINING PAGE — additions
+   Append this block to the end of /css/styles.css.
+   Reuses existing tokens (--navy, --gold, --card-bg, --card-border,
+   .risk-check / .risk-tier, .service-grid / .card, .contact-form,
+   .compliance-notice) — nothing here redefines an existing rule.
+   ============================================================ */
+
+/* ── Requirement timeline strip ── */
+.req-timeline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 36px 0 8px;
+}
+
+.req-node {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 22px;
+}
+
+.req-node .req-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .5px;
+  color: var(--gold-light);
+}
+
+.req-node .req-label {
+  font-size: .85rem;
+  color: var(--text-soft);
+}
+
+.req-bar {
+  flex: 1 1 100px;
+  min-width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), rgba(200,146,42,0.15));
+  margin: 0 8px 20px;
+}
+
+/* ── Scope checklist ── */
+.scope-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 24px;
+  margin-top: 26px;
+  text-align: left;
+}
+
+.scope-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text-soft);
+  font-size: .92rem;
+}
+
+.scope-item svg { flex: none; margin-top: 3px; color: var(--gold-light); }
+
+/* ── Service-area county grid ── */
+.county-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.county-pill {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.county-pill .county-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: .5px;
+  font-size: .95rem;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.county-pill .county-towns {
+  display: block;
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ── "Does this apply to my business?" eligibility quiz ──
+   Structural container reuses .risk-check / .risk-check-inner /
+   .risk-check-card / .risk-tier as-is. Only the interactive
+   question/option/result pieces are new. */
+.apply-q {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: .3px;
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.apply-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0 26px;
+}
+
+.apply-opt {
+  text-align: left;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--white);
+  cursor: pointer;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,146,42,0.25);
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+
+.apply-opt:hover {
+  border-color: var(--gold-light);
+  background: rgba(200,146,42,0.08);
+  transform: translateY(-1px);
+}
+
+.apply-opt:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+.apply-result .risk-tier { margin-bottom: 14px; display: inline-block; }
+
+.apply-restart {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  font-size: .85rem;
+  margin-left: 16px;
+}
+
+.apply-restart:hover { color: var(--gold-light); }

@@ -1,0 +1,776 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>CAER Small Business Cybersecurity Assessment</title>
+<style>
+/* Layout: matches consultcaer.com's own system — navy/gold, Barlow Condensed headings,
+   gold hairline section dividers, star-field hero. The network-graph motif (recolored into
+   that palette) replaces a stock hero image and carries the "what's on your network" thesis. */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root{
+  --navy:#0a1628;
+  --navy-mid:#0d1e38;
+  --blue:#10284c;
+  --accent:#1b4f93;
+  --gold:#c8922a;
+  --gold-light:#e8b84b;
+  --gold-pale:#f5dfa0;
+  --tx-red:#bf1a2f;
+  --risk-high:#eb5757;
+  --risk-high-bg:rgba(235,87,87,0.12);
+  --risk-high-bd:rgba(235,87,87,0.3);
+  --white:#ffffff;
+  --gray:#a0aec0;
+  --text-soft:rgba(255,255,255,0.65);
+  --text-muted:rgba(255,255,255,0.4);
+  --card-bg:rgba(255,255,255,0.04);
+  --card-border:rgba(200,146,42,0.15);
+  --radius:10px;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+  --shadow-hover:0 20px 50px rgba(0,0,0,0.55);
+  --max-width:1200px;
+  color-scheme:dark;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:'Barlow',sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+  padding-inline:0;
+  font-size:16px;
+}
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.container{width:min(90%,var(--max-width));margin:0 auto}
+section{position:relative;padding:72px 0}
+section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(200,146,42,0.18),transparent)}
+@media (max-width:700px){section{padding:48px 0}}
+
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(200,146,42,0.12);border:1px solid rgba(200,146,42,0.35);
+  padding:6px 18px;border-radius:20px;margin-bottom:20px;
+  font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold-light);text-transform:uppercase;
+}
+.section-head{max-width:680px;margin:0 auto 20px;text-align:center}
+.section-head h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:0}
+.section-head h2::after{content:'';display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:14px auto 0;border-radius:2px}
+.section-intro{max-width:680px;margin:18px auto 0;color:var(--text-soft);text-align:center}
+
+/* buttons */
+.btn-primary,.btn-secondary{
+  display:inline-block;padding:13px 28px;border-radius:4px;
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;transition:all .2s ease;position:relative;overflow:hidden;border:none;cursor:pointer;
+}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);transition:left .45s ease}
+.btn-primary:hover{background:var(--gold-light);color:var(--navy);transform:translateY(-1px)}
+.btn-primary:hover::after{left:100%}
+.btn-secondary{background:transparent;color:var(--white);border:1.5px solid rgba(200,146,42,0.5)}
+.btn-secondary:hover{border-color:var(--gold-light);color:var(--gold-light);transform:translateY(-1px)}
+.btn-block{width:100%;text-align:center}
+
+/* header / nav */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:1000;background:rgba(10,22,40,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,146,42,.2)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:10px 0;position:relative}
+.logo{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.nav-orb{width:40px;height:40px;background:radial-gradient(circle at 32% 32%,var(--gold-pale),var(--gold) 55%,var(--navy) 100%);border-radius:50%;border:1.5px solid rgba(200,146,42,.6);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.4);flex-shrink:0}
+.nav-orb span{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--navy)}
+.logo-img{height:48px;width:auto;display:block;flex-shrink:0}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;line-height:1.2}
+.logo-text small{display:block;font-family:'Barlow',sans-serif;font-weight:400;text-transform:none;letter-spacing:0;font-size:11.5px;color:var(--text-soft)}
+.menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:28px;cursor:pointer;line-height:1}
+.site-nav{display:flex;align-items:center;gap:1.5rem;margin-left:auto}
+.site-nav>a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);display:inline-flex;align-items:center;min-height:42px;transition:color .2s}
+.site-nav>a:hover{color:var(--gold-light)}
+.site-nav .cta{background:var(--gold);color:var(--navy)!important;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;min-height:unset;transition:background .2s,transform .15s}
+.site-nav .cta:hover{background:var(--gold-light);color:var(--navy)!important;transform:translateY(-1px)}
+@media (max-width:860px){
+  .menu-toggle{display:block}
+  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(200,146,42,.15);padding:20px;flex-direction:column;align-items:flex-start;gap:10px}
+  .site-nav.open{display:flex}
+  .site-nav>a{width:100%;min-height:auto;padding:8px 0}
+  .site-nav .cta{width:100%;text-align:center;margin-top:8px;border-radius:8px}
+}
+
+/* hero */
+.hero{position:relative;padding:110px 0 90px;text-align:center;background:var(--navy);overflow:hidden}
+#hero-stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(160deg,rgba(200,146,42,.14) 0%,rgba(27,79,147,.12) 100%);clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);border-left:1px solid rgba(200,146,42,.12)}
+.hero::after{content:'';position:absolute;left:0;top:15%;bottom:15%;width:4px;background:linear-gradient(180deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);border-radius:2px}
+.hero-content{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.hero h1{font-size:clamp(2.2rem,4.8vw,3.5rem);font-weight:800;line-height:1.12;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;text-wrap:balance}
+.hero p.lede{max-width:640px;margin:0 auto 30px;color:var(--text-soft);font-size:1.05rem;line-height:1.75}
+.hero-divider{width:64px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto 28px}
+.hero-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.hero-fine{color:var(--text-muted);font-size:13.5px}
+.hero-fine b{color:var(--gold-light);font-family:'Barlow Condensed',sans-serif;font-size:15px}
+.star-dot{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--dur,3s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+@keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.7;transform:scale(1.4)}}
+@keyframes pulse-star{0%,100%{opacity:.04}50%{opacity:.07}}
+
+/* trust bar */
+.trust-bar{background:var(--navy-mid);border-top:1px solid rgba(200,146,42,.15);border-bottom:1px solid rgba(200,146,42,.15);padding:20px 0}
+.trust-row{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:center;align-items:center;color:var(--text-soft);font-family:'Barlow Condensed',sans-serif;font-size:12.5px;letter-spacing:1.3px;text-transform:uppercase}
+.trust-row .item{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.trust-row svg{width:14px;height:14px;color:var(--gold-light);flex:none}
+
+/* problem */
+.problem{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:900px){.problem{grid-template-columns:1fr;gap:32px}}
+.problem h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:18px;line-height:1.2}
+.problem p{color:var(--text-soft);font-size:1rem;margin-bottom:14px}
+.devicelist{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+@media (max-width:420px){.devicelist{grid-template-columns:1fr}}
+.devicechip{display:flex;align-items:center;gap:10px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--text-soft)}
+.devicechip svg{width:16px;height:16px;color:var(--gold-light);flex:none}
+
+.netgraph-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:16px}
+.netgraph svg{width:100%;height:auto;display:block}
+.netgraph .node{fill:rgba(255,255,255,.05);stroke:rgba(200,146,42,.5);stroke-width:1.4}
+.netgraph .node-flag{fill:var(--risk-high-bg);stroke:var(--risk-high)}
+.netgraph .edge{stroke:rgba(200,146,42,.35);stroke-width:1.2}
+.netgraph .dot{fill:var(--gold-light)}
+.netgraph .cap{font-family:'Barlow Condensed',sans-serif;font-size:10.5px;fill:var(--text-muted);letter-spacing:.5px}
+@media (prefers-reduced-motion:no-preference){
+  .netgraph .pulse{animation:pulse 2.6s ease-in-out infinite}
+  .netgraph .pulse2{animation:pulse 2.6s ease-in-out infinite;animation-delay:.9s}
+  .netgraph .pulse3{animation:pulse 2.6s ease-in-out infinite;animation-delay:1.7s}
+  @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+}
+
+.benefit-item{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;text-align:left}
+.benefit-item + .benefit-item{margin-top:14px}
+.benefit-item h3{font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.benefit-item p{color:var(--text-soft);margin:0}
+.mini-list{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.mini-list li{color:var(--text-soft);font-size:13.5px;padding-left:16px;position:relative}
+.mini-list li::before{content:"—";color:var(--gold);position:absolute;left:0}
+
+/* process cards reuse service-grid/.card */
+.service-grid,.benefits-grid,.footer-grid,.discover-grid{display:grid;gap:22px}
+.service-grid{grid-template-columns:repeat(4,1fr);margin-top:40px}
+.benefits-grid{grid-template-columns:repeat(4,1fr);margin-top:40px}
+.discover-grid{grid-template-columns:repeat(3,1fr);margin-top:40px}
+@media (max-width:900px){.service-grid,.benefits-grid{grid-template-columns:repeat(2,1fr)}.discover-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.service-grid,.benefits-grid,.discover-grid{grid-template-columns:1fr}}
+
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;position:relative;overflow:hidden;transition:all .25s ease;display:flex;flex-direction:column}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(200,146,42,.07),transparent);opacity:0;transition:opacity .25s ease}
+.card:hover{transform:translateY(-6px);border-color:rgba(200,146,42,.45);box-shadow:var(--shadow-hover)}
+.card:hover::before{opacity:1}
+.card h3{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.card p{color:var(--text-soft);margin:0}
+.step-num{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;color:var(--navy);background:var(--gold);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+
+.about{padding:90px 0;background:var(--navy-mid);text-align:center}
+.services{padding:90px 0;background:var(--navy-mid);text-align:center}
+.discover{padding:90px 0;background:var(--navy);text-align:center}
+
+/* discover items */
+.discover-item{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);padding:16px 18px;font-size:13.5px;color:var(--text-soft);display:flex;gap:11px;align-items:flex-start;text-align:left}
+.discover-item svg{width:16px;height:16px;color:var(--gold);flex:none;margin-top:2px}
+
+/* pricing */
+.pricing{padding:90px 0;background:var(--navy-mid);text-align:center}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;text-align:left}
+@media (max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+.pricing-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;position:relative;display:flex;flex-direction:column;transition:all .25s ease}
+.pricing-card:hover{transform:translateY(-4px);border-color:rgba(200,146,42,.4);box-shadow:var(--shadow-hover)}
+.featured-plan{border:1px solid var(--gold);box-shadow:0 0 0 1px rgba(200,146,42,.2),var(--shadow)}
+.pricing-badge{position:absolute;top:-12px;right:20px;background:var(--gold);color:var(--navy);padding:5px 14px;border-radius:999px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.pricing-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px}
+.pricing-subtitle{color:var(--text-soft);margin-bottom:20px;font-size:.9rem}
+.price{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;margin-bottom:20px;color:var(--white)}
+.price span{font-size:14px;font-weight:400;color:var(--text-soft);font-family:'Barlow',sans-serif}
+.pricing-features{list-style:none;padding-left:0;margin-bottom:25px}
+.pricing-features li{padding:10px 0;border-bottom:1px solid rgba(200,146,42,.1);color:rgba(255,255,255,.75);font-size:.9rem}
+.pricing-features li::before{content:'✓  ';color:var(--gold);font-weight:700}
+.pricing-features li.inherit{color:var(--text-muted);font-style:italic}
+.pricing-features li.inherit::before{color:var(--gold-light)}
+.pricing-btn{margin-top:auto;text-align:center}
+.pricing-foot{text-align:center;color:var(--text-soft);font-size:14px;margin-top:30px}
+
+/* positioning / cta-band */
+.cta-band{background:linear-gradient(135deg,var(--blue) 0%,var(--navy-mid) 100%);border-top:1px solid rgba(200,146,42,.15);border-bottom:1px solid rgba(200,146,42,.15);padding:64px 0;text-align:center}
+.cta-band h2{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;max-width:46ch;margin-inline:auto}
+.cta-band p{color:var(--text-soft);max-width:600px;margin:0 auto}
+.cta-band .pull{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(1.15rem,2.2vw,1.4rem);color:var(--gold-light);margin:22px auto 0;max-width:46ch}
+
+/* service area / geo */
+.service-area{padding:90px 0;background:var(--blue);text-align:center}
+.service-area h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:0}
+.service-area h2::after{content:'';display:block;width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:12px auto 0;border-radius:2px}
+.service-area p{color:var(--text-soft);margin-top:14px}
+.service-area .towns{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;margin-top:12px}
+
+/* faq */
+.faq-list{max-width:800px;margin:40px auto 0;text-align:left}
+.faq-list details{border-bottom:1px solid rgba(200,146,42,.15);padding:18px 0}
+.faq-list details:first-child{border-top:1px solid rgba(200,146,42,.15)}
+.faq-list summary{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:.3px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary .ic{color:var(--gold-light);flex:none;font-size:20px;width:20px;text-align:center;transition:transform .15s ease}
+.faq-list details[open] summary .ic{transform:rotate(45deg)}
+.faq-list p{color:var(--text-soft);font-size:.95rem;margin-top:12px;max-width:68ch}
+
+/* contact / form */
+.contact-section{padding:90px 0;background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:540px){.form-row{grid-template-columns:1fr}}
+.contact-form label{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold-light)}
+.contact-form input,.contact-form select{padding:14px;border-radius:8px;border:1px solid rgba(200,146,42,.2);background:rgba(255,255,255,.04);color:var(--white);font:inherit;width:100%;transition:border-color .2s,box-shadow .2s}
+.contact-form input::placeholder{color:var(--text-muted)}
+.contact-form input:focus,.contact-form select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,146,42,.15)}
+.field{display:flex;flex-direction:column;gap:6px}
+.contact-info{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+.contact-info h3{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:var(--gold-light)}
+.contact-info p{color:var(--text-soft);margin-bottom:14px}
+.reassure{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px}
+.reassure li{display:flex;gap:10px;color:var(--text-soft);font-size:.92rem}
+.reassure li::before{content:"✓";color:var(--gold);font-weight:700;flex:none}
+.chip-copy{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.5px;color:var(--white);background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.2);border-radius:7px;padding:9px 13px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;margin-top:6px}
+.chip-copy small{color:var(--text-muted);font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0}
+
+.success-panel{display:none;text-align:center;padding:30px 10px}
+.success-panel.show{display:block}
+.success-panel .check-ring{width:56px;height:56px;border-radius:50%;background:rgba(200,146,42,.12);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.success-panel h3{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.success-panel p{color:var(--text-soft);font-size:.95rem;max-width:44ch;margin:0 auto 22px}
+.contact-grid.submitted .contact-form{display:none}
+.contact-grid.submitted .success-panel{display:block}
+
+/* footer */
+footer.site{padding:60px 0;background:#06101e;border-top:1px solid rgba(200,146,42,.15)}
+.footer-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid rgba(200,146,42,.1);padding-top:40px;margin-bottom:40px}
+footer.site h3,footer.site h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px}
+footer.site ul{list-style:none}
+footer.site li{margin-bottom:10px}
+footer.site a{font-size:.9rem;color:var(--text-soft);transition:color .2s}
+footer.site a:hover{color:var(--gold-light)}
+footer.site p{color:var(--text-soft);font-size:.9rem}
+.footer-bottom{border-top:1px solid rgba(200,146,42,.1);padding-top:24px;text-align:center;font-size:.8rem;color:var(--text-muted)}
+.footer-bottom a{color:var(--text-muted)}
+.footer-bottom a:hover{color:var(--gold-light)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CAER Technologies",
+  "description": "Managed IT and cybersecurity provider offering small business cybersecurity assessments across the Texas Hill Country.",
+  "areaServed": ["Bandera, TX","Kerrville, TX","Boerne, TX","Fredericksburg, TX"],
+  "makesOffer": [
+    {"@type":"Offer","name":"Essential Assessment","price":"299","priceCurrency":"USD"},
+    {"@type":"Offer","name":"Complete Assessment","price":"499","priceCurrency":"USD"},
+    {"@type":"Offer","name":"Comprehensive Assessment","priceSpecification":{"@type":"PriceSpecification","minPrice":"795","priceCurrency":"USD"}}
+  ]
+}
+</script>
+
+<!--
+  DEPLOYMENT NOTES FOR CAER TEAM (this page mirrors consultcaer.com's navy/gold/Barlow design
+  system, pulled from your real index.html + styles.css. Remove this comment when porting):
+  - Restyled to match your site: --navy/--navy-mid/--blue/--gold/--gold-light tokens, Oswald +
+    Barlow + Barlow Condensed, .card / .pricing-card / .featured-plan / .service-area /
+    .cta-band / .contact-grid / footer-grid patterns — all lifted straight from your styles.css.
+  - This is a Claude Artifact preview: it can't load your real header.html/footer.html includes,
+    the Zoho SalesIQ widget, or the Google tag (gtag) — those scripts aren't on the artifact
+    sandbox's allowed list. Port the HTML into your site template and those will work normally.
+  - The lead form has no live backend here (the sandbox blocks outbound form submissions) — wire
+    it to your CRM/webhook once this is on consultcaer.com, and fire your Ads conversion tag on
+    the Thank-You page.
+  - Swap the placeholder phone/email in the trust strip, form and footer for CAER's real contact
+    details. The header logo is your real CAER-PON.gif, embedded here as a resized base64 PNG
+    (the artifact sandbox can't load it from consultcaer.com directly). When you port this HTML
+    to your real site, swap that data: URI back for a normal <img src="/assets/logo/CAER-PON.gif">
+    so the page uses the shared file instead of carrying its own copy.
+  - The footer brand link currently points to the absolute https://consultcaer.com so it actually
+    works from this artifact preview. Once this page lives at consultcaer.com, swap it back to a
+    relative home link (href="." or href="/") to match the rest of your site's internal links.
+-->
+
+<header class="site-header">
+  <div class="container nav">
+    <div class="logo">
+      <img class="logo-img" src="data:image/png;base64,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" alt="CAER Technologies">
+      <span class="logo-text">CAER Technologies<small>Small Business Cybersecurity Assessment</small></span>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://consultcaer.com" target="_blank" rel="noopener">consultcaer.com</a>
+      <a class="cta" href="#assessment-form">Schedule My Assessment</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div id="hero-stars"></div>
+  <div class="container hero-content">
+    <span class="eyebrow">Texas Hill Country · Bandera · Kerrville · Boerne · Fredericksburg</span>
+    <h1>Do You Know Everything Connected To Your Business Network?</h1>
+    <p class="lede">Your computers aren't the only devices that can create risk. CAER's Small Business Cybersecurity Assessment finds what's actually connected, flags the vulnerabilities that matter, and gives you a clear plan for what to fix first.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="#assessment-form">Schedule My Assessment</a>
+      <a class="btn-secondary" href="#contact">Talk to CAER First</a>
+    </div>
+    <p class="hero-fine">Starting at <b>$299</b>. No long-term contract. No obligation to buy remediation — just a clear picture of your current cybersecurity posture.</p>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container trust-row">
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-7-10a7 7 0 0114 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>Local &amp; Owner-Operated</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg>No Disruption To Your Workday</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5.5-3.8 9-8 11-4.2-2-8-5.5-8-11V5l8-3z"/></svg>Not a Penetration Test</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No Long-Term Contract</span>
+  </div>
+</div>
+
+<section class="container">
+  <div class="problem">
+    <div>
+      <h2>You Can't Protect What You Don't Know Is There.</h2>
+      <p>Most small businesses we meet have an ISP-provided router, a handful of Windows or Mac computers, and a flat network where everything can talk to everything else. Along the way, printers, cameras, a NAS, old wireless equipment and other devices get added — often with no one tracking what's connected or whether it's secure.</p>
+      <p>CAER temporarily connects a security assessment system to your network to identify devices, services, and vulnerabilities. We don't test for weaknesses by trying to break in — we look for what's exposed and explain it in plain English.</p>
+      <div class="devicelist">
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="12" rx="1.5"/><path d="M2 20h20"/></svg>Workstations</span>
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="18" r="1"/></svg>Routers &amp; firewalls</span>
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="8" width="16" height="10" rx="1.5"/><path d="M8 8V5h8v3"/></svg>Printers</span>
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="5" width="10" height="7" rx="2"/><path d="M12 12v4M9 20h6"/></svg>Cameras &amp; NAS</span>
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M4 6h16M4 18h16"/></svg>IoT &amp; smart devices</span>
+        <span class="devicechip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>Cloud accounts</span>
+      </div>
+    </div>
+    <div>
+      <div class="netgraph-card">
+        <div class="netgraph" aria-hidden="true">
+          <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg">
+            <line class="edge" x1="260" y1="190" x2="110" y2="80"/>
+            <line class="edge" x1="260" y1="190" x2="400" y2="70"/>
+            <line class="edge" x1="260" y1="190" x2="90" y2="230"/>
+            <line class="edge" x1="260" y1="190" x2="200" y2="310"/>
+            <line class="edge" x1="260" y1="190" x2="420" y2="270"/>
+            <line class="edge" x1="110" y1="80" x2="60" y2="155"/>
+            <line class="edge" x1="400" y1="70" x2="460" y2="155"/>
+            <line class="edge" x1="420" y1="270" x2="340" y2="335"/>
+            <circle class="node pulse" cx="260" cy="190" r="22"/>
+            <circle class="dot" cx="260" cy="190" r="4"/>
+            <circle class="node" cx="110" cy="80" r="15"/>
+            <circle class="node" cx="400" cy="70" r="15"/>
+            <circle class="node pulse2" cx="90" cy="230" r="15"/>
+            <circle class="node" cx="200" cy="310" r="13"/>
+            <circle class="node node-flag pulse3" cx="420" cy="270" r="17"/>
+            <circle class="node" cx="60" cy="155" r="10"/>
+            <circle class="node" cx="460" cy="155" r="10"/>
+            <circle class="node" cx="340" cy="335" r="10"/>
+            <text class="cap" x="260" y="224" text-anchor="middle">YOUR NETWORK</text>
+            <text class="cap" x="110" y="58" text-anchor="middle">LAPTOP</text>
+            <text class="cap" x="400" y="48" text-anchor="middle">M365 / WORKSPACE</text>
+            <text class="cap" x="90" y="256" text-anchor="middle">PRINTER</text>
+            <text class="cap" x="200" y="334" text-anchor="middle">ROUTER</text>
+            <text class="cap" x="420" y="300" text-anchor="middle" fill="#eb5757">UNKNOWN DEVICE</text>
+            <text class="cap" x="60" y="181" text-anchor="middle">DESKTOP</text>
+            <text class="cap" x="460" y="181" text-anchor="middle">NAS</text>
+            <text class="cap" x="340" y="361" text-anchor="middle">CAMERA</text>
+          </svg>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <h3>Designed to find risk — not disrupt your business</h3>
+        <p>The assessment runs quietly in the background. There's no downtime, no interruption to your team, and nothing is changed on your systems during the process.</p>
+      </div>
+      <div class="benefit-item">
+        <h3>Not a penetration test</h3>
+        <p>We identify vulnerabilities and security weaknesses. We do not attempt to exploit them. A deeper, authorized test is a separate conversation and a separate agreement.</p>
+        <ul class="mini-list">
+          <li>Network discovery, not network disruption</li>
+          <li>Findings explained in plain English, not jargon</li>
+          <li>A report you can act on — with or without CAER</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="process">
+  <div class="container">
+    <span class="eyebrow">How It Works</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px">Four Steps, Start to Finish</h2>
+    <p class="section-intro">No changes are made to your systems automatically at any stage. You decide what happens after the report.</p>
+    <div class="service-grid">
+      <div class="card">
+        <span class="step-num">01</span>
+        <h3>Connect</h3>
+        <p>CAER connects a temporary assessment device to your business network — nothing permanent, nothing disruptive.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">02</span>
+        <h3>Discover</h3>
+        <p>The system identifies the devices, services, and potential vulnerabilities actually present on your network.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">03</span>
+        <h3>Analyze</h3>
+        <p>CAER reviews the automated findings and validates which risks actually matter for a business your size.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">04</span>
+        <h3>Report</h3>
+        <p>You receive an understandable report: what we found, what matters, and what we recommend doing next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <span class="eyebrow">Assessment Levels</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px">Choose the Depth That Fits Your Business</h2>
+    <p class="section-intro">Every level includes a plain-English report and a review meeting with CAER. There is no obligation to hire CAER to fix what we find.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-label">Essential</div>
+        <div class="pricing-subtitle">For very small businesses, roughly 1–10 computers</div>
+        <div class="price">$299</div>
+        <ul class="pricing-features">
+          <li>Network discovery</li>
+          <li>Identification of connected devices</li>
+          <li>Router &amp; firewall review</li>
+          <li>External internet exposure review</li>
+          <li>Basic vulnerability discovery</li>
+          <li>Business cybersecurity interview</li>
+          <li>Top risks identified</li>
+          <li>Executive-friendly findings report</li>
+          <li>Review meeting with CAER</li>
+        </ul>
+        <div class="pricing-btn"><a class="btn-secondary btn-block" href="#assessment-form">Choose Essential</a></div>
+      </div>
+
+      <div class="pricing-card featured-plan">
+        <span class="pricing-badge">Most Popular</span>
+        <div class="pricing-label">Complete</div>
+        <div class="pricing-subtitle">For businesses that rely on email, cloud apps &amp; endpoints</div>
+        <div class="price">$499</div>
+        <ul class="pricing-features">
+          <li class="inherit">Everything in Essential, plus:</li>
+          <li>Endpoint security review</li>
+          <li>OS &amp; patch status</li>
+          <li>Antivirus / security software status</li>
+          <li>Local administrator review</li>
+          <li>Outdated or vulnerable software ID</li>
+          <li>Microsoft 365 security review</li>
+          <li>MFA &amp; admin account review</li>
+          <li>Email / cloud security observations</li>
+          <li>Expanded remediation recommendations</li>
+        </ul>
+        <div class="pricing-btn"><a class="btn-primary btn-block" href="#assessment-form">Choose Complete</a></div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-label">Comprehensive</div>
+        <div class="pricing-subtitle">For businesses with more complex networks</div>
+        <div class="price">$795<span> starting at</span></div>
+        <ul class="pricing-features">
+          <li class="inherit">Everything in Complete, plus:</li>
+          <li>Deeper internal vulnerability assessment</li>
+          <li>Authenticated scanning, where authorized</li>
+          <li>CVE &amp; vulnerability analysis</li>
+          <li>Network configuration review</li>
+          <li>Backup &amp; recovery review</li>
+          <li>Security hardening recommendations</li>
+          <li>Prioritized remediation roadmap</li>
+          <li>Estimated remediation project scope</li>
+          <li>Follow-up verification option</li>
+        </ul>
+        <div class="pricing-btn"><a class="btn-secondary btn-block" href="#assessment-form">Choose Comprehensive</a></div>
+      </div>
+    </div>
+    <p class="pricing-foot">Not sure which level fits? Tell us a little about your business in the form below and we'll recommend one.</p>
+  </div>
+</section>
+
+<section class="discover">
+  <div class="container">
+    <span class="eyebrow">What We May Discover</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px">Understandable Findings, Not Scare Tactics</h2>
+    <p class="section-intro">Here's the kind of thing a Small Business Cybersecurity Assessment typically turns up — explained the way we'd explain it to you, not a security vendor.</p>
+    <div class="discover-grid">
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Computers missing important security updates</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Unsupported software or operating systems</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Employees with unnecessary administrator access</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Weak or missing multi-factor authentication</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Unknown devices connected to the network</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Printers, cameras &amp; IoT equipment with security gaps</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Internet-facing services that shouldn't be exposed</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Inadequate or unverified backups</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>A flat network where everything can reach everything</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Poorly configured Microsoft 365 security settings</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Aging routers, switches or wireless equipment</div>
+      <div class="discover-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.5 17a2 2 0 001.7 3h15.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>Security software that's installed but not actually working</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>A Real Professional Service — Not a Disguised Sales Pitch</h2>
+    <p>The Small Business Cybersecurity Assessment stands on its own. You receive a clear report of what we found and what we recommend, whether you choose to fix it yourself, bring in another provider, or have CAER handle the work.</p>
+    <p class="pull">"There is no obligation to hire CAER to fix what we find."</p>
+  </div>
+</div>
+
+<section class="service-area">
+  <div class="container">
+    <h2>Serving the Texas Hill Country</h2>
+    <p>CAER Technologies is local and owner-operated, working with accountants, tax preparers, bookkeepers, law offices, medical and chiropractic offices, contractors and small retail and service businesses throughout the region.</p>
+    <p class="towns">Bandera • Kerrville • Fredericksburg • Boerne • Surrounding Communities</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <span class="eyebrow">Why CAER</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px">Practical Cybersecurity, Not Alarmist Sales Talk</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item"><h3>Local &amp; owner-operated</h3><p>Based in the Texas Hill Country, working face to face with the businesses we serve.</p></div>
+      <div class="benefit-item"><h3>Experienced with M365 &amp; cloud</h3><p>We review the systems small businesses actually run on — M365, Google Workspace, networks, endpoints and backups.</p></div>
+      <div class="benefit-item"><h3>Practical, not alarmist</h3><p>We explain risk in plain English and let you decide what to do about it — no scare tactics.</p></div>
+      <div class="benefit-item"><h3>Focused on small business</h3><p>We work with 1–10 person offices every day — not enterprise networks we're trying to shrink down.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="faq">
+  <span class="eyebrow" style="display:flex;justify-content:center;margin-left:auto;margin-right:auto;width:fit-content">Questions</span>
+  <h2 class="section-head" style="margin-bottom:0">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Will the assessment disrupt my business?<span class="ic">+</span></summary>
+      <p>No. It's designed to run in the background without interrupting your normal workday. We schedule it for a time that works for you and your team.</p>
+    </details>
+    <details>
+      <summary>Do you need my passwords?<span class="ic">+</span></summary>
+      <p>Not for the Essential or Complete assessments. Any step that would require elevated access — like an authenticated scan in the Comprehensive Assessment — is explained up front and only done with your authorization.</p>
+    </details>
+    <details>
+      <summary>Do you install software on my computers?<span class="ic">+</span></summary>
+      <p>The assessment works primarily through a temporary device connected to your network, not permanent software installed on every computer. Anything beyond that is explained before it happens.</p>
+    </details>
+    <details>
+      <summary>What happens after the assessment?<span class="ic">+</span></summary>
+      <p>You receive an executive-friendly report and a review meeting where we walk through what we found, what matters most, and what we recommend. What you do with that report is entirely up to you.</p>
+    </details>
+    <details>
+      <summary>How long does the assessment take?<span class="ic">+</span></summary>
+      <p>Most Essential and Complete assessments are completed within a few business days from connection to report. Comprehensive assessments vary with network size and complexity.</p>
+    </details>
+    <details>
+      <summary>Do I have to become a managed IT client?<span class="ic">+</span></summary>
+      <p>No. There is no obligation to hire CAER for remediation or managed services. You get the findings and recommendations whether you fix them yourself, use another provider, or have CAER handle the work.</p>
+    </details>
+    <details>
+      <summary>Can you fix the problems you find?<span class="ic">+</span></summary>
+      <p>Yes, if you'd like us to — but it's never required. The assessment is a complete, standalone deliverable on its own.</p>
+    </details>
+    <details>
+      <summary>What if I only have one or two computers?<span class="ic">+</span></summary>
+      <p>The Essential Assessment is built for businesses this size — accountants, solo attorneys, small clinics and similar offices. You still have a router, a network, cloud accounts and devices worth checking.</p>
+    </details>
+    <details>
+      <summary>Can you review Microsoft 365 security?<span class="ic">+</span></summary>
+      <p>Yes. The Complete and Comprehensive Assessments include a Microsoft 365 security review covering MFA, administrative accounts, and general email and cloud security configuration.</p>
+    </details>
+    <details>
+      <summary>Is this a penetration test?<span class="ic">+</span></summary>
+      <p>No. This is a cybersecurity and vulnerability assessment, not a penetration test. CAER identifies vulnerabilities and security weaknesses but does not attempt to exploit systems, unless separately contracted and specifically authorized for that purpose.</p>
+    </details>
+  </div>
+</section>
+
+<section class="contact-section" id="assessment-form">
+  <div class="container">
+    <span class="eyebrow" style="display:flex;justify-content:center;margin-left:auto;margin-right:auto;width:fit-content">Find Out What's Really On Your Network</span>
+    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:800;text-transform:uppercase;letter-spacing:1px;text-align:center">Schedule Your Small Business Cybersecurity Assessment</h2>
+    <p class="section-intro">Tell us a bit about your business and preferred assessment level. We'll follow up to confirm your date and answer any questions first.</p>
+
+    <div class="contact-grid" id="form-card">
+      <form class="contact-form" id="lead-form" novalidate>
+        <div class="form-row">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required placeholder="Jane Alvarez"></div>
+          <div class="field"><label for="f-business">Business Name</label><input id="f-business" name="business" type="text" required placeholder="Alvarez Tax &amp; Bookkeeping"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="jane@yourbusiness.com"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" required placeholder="(830) 555-0100"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-employees">Number of Employees</label><input id="f-employees" name="employees" type="text" required placeholder="e.g. 3"></div>
+          <div class="field"><label for="f-computers">Approx. Number of Computers</label><input id="f-computers" name="computers" type="text" required placeholder="e.g. 4"></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-platform">Microsoft 365 / Google Workspace / Other</label>
+            <select id="f-platform" name="platform" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Microsoft 365</option>
+              <option>Google Workspace</option>
+              <option>Other / not sure</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-city">City</label><input id="f-city" name="city" type="text" required placeholder="Kerrville"></div>
+        </div>
+        <div class="field">
+          <label for="f-level">Preferred Assessment Level</label>
+          <select id="f-level" name="level" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Essential Assessment — $299</option>
+            <option>Complete Assessment — $499</option>
+            <option>Comprehensive Assessment — starting at $795</option>
+            <option>Not sure yet — recommend one for me</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary btn-block" style="margin-top:8px">Schedule My Cybersecurity Assessment</button>
+        <p style="color:var(--text-muted);font-size:12.5px;text-align:center;margin-top:4px">No long-term contract. No obligation to purchase remediation. We'll confirm your date before anything is connected to your network.</p>
+      </form>
+
+      <div class="contact-info">
+        <h3>Why businesses choose CAER</h3>
+        <ul class="reassure">
+          <li>Local, owner-operated and focused on small businesses</li>
+          <li>Not a penetration test — nothing is exploited</li>
+          <li>No disruption to your normal workday</li>
+          <li>There is no obligation to hire CAER to fix what we find</li>
+        </ul>
+        <h3>Prefer to talk first?</h3>
+        <p>Tap a chip to copy, then reach out directly.</p>
+        <div class="chip-copy" data-copy="(830) 555-0147" role="button" tabindex="0">(830) 555‑0147 <small>— tap to copy</small></div><br>
+        <div class="chip-copy" data-copy="hello@consultcaer.com" role="button" tabindex="0">hello@consultcaer.com <small>— tap to copy</small></div>
+      </div>
+
+      <div class="success-panel" id="success-panel">
+        <div class="check-ring">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="#e8b84b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Thanks — We've Got Your Request</h3>
+        <p>A member of the CAER team will reach out within one business day to confirm your date and answer any questions.</p>
+        <a class="btn-primary" id="continue-link" href="https://claude.ai/artifact/MwwnVQW7T5FfhXsLvdYcPC" target="_blank" rel="noopener">Continue to confirmation details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="container">
+    <div class="footer-grid" style="display:grid">
+      <div>
+        <h3><a href="https://consultcaer.com" target="_blank" rel="noopener">CAER Technologies</a></h3>
+        <p>Managed IT &amp; cybersecurity for small businesses across the Texas Hill Country.</p>
+        <div class="chip-copy" data-copy="hello@consultcaer.com" role="button" tabindex="0">hello@consultcaer.com <small>— tap to copy</small></div><br>
+        <div class="chip-copy" data-copy="(830) 510-3700" role="button" tabindex="0">(830) 510-3700 <small>— tap to copy</small></div>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <p>Bandera, Kerrville, Boerne, Fredericksburg and surrounding Texas Hill Country communities.</p>
+      </div>
+      <div>
+        <h4>About This Assessment</h4>
+        <p>A cybersecurity and vulnerability assessment — not a penetration test. No obligation to hire CAER for remediation or managed services.</p>
+      </div>
+      <div>
+        <h4>Explore CAER</h4>
+        <ul>
+          <li><a href="https://consultcaer.com" target="_blank" rel="noopener">consultcaer.com</a></li>
+          <li><a href="https://consultcaer.com/cybersec.html" target="_blank" rel="noopener">Cybersecurity Protection</a></li>
+          <li><a href="https://consultcaer.com/managed-it-services.html" target="_blank" rel="noopener">Managed IT Services</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 CAER Technologies. Phone and email shown above are placeholders — replace with CAER's real contact details before sharing this page publicly.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // mobile nav toggle
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.querySelector('.site-nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', function(){
+      nav.classList.toggle('open');
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+  }
+
+  // star field (mirrors consultcaer.com's own fallback generator)
+  var hero = document.getElementById('hero-stars');
+  if(hero){
+    var starCount = 70;
+    for(var i=0;i<starCount;i++){
+      var dot = document.createElement('div');
+      var size = Math.random()*2.2+0.6;
+      var dur = (2.5+Math.random()*4).toFixed(2);
+      var delay = (Math.random()*5).toFixed(2);
+      var isGold = Math.random() < 0.15;
+      dot.className = 'star-dot';
+      dot.style.cssText = 'width:'+size+'px;height:'+size+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;background:'+(isGold?'#e8b84b':'#ffffff')+';--dur:'+dur+'s;--delay:'+delay+'s;opacity:.1;';
+      hero.appendChild(dot);
+    }
+    var lone = document.createElement('div');
+    lone.textContent = '★';
+    lone.style.cssText = 'position:absolute;right:6%;top:50%;transform:translateY(-50%);font-size:280px;color:#c8922a;opacity:.045;line-height:1;pointer-events:none;animation:pulse-star 6s ease-in-out infinite;user-select:none;';
+    hero.appendChild(lone);
+  }
+
+  // lead form submit
+  var form = document.getElementById('lead-form');
+  var grid = document.getElementById('form-card');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      grid.classList.add('submitted');
+      var panel = document.getElementById('success-panel');
+      panel.classList.add('show');
+      if(panel.scrollIntoView) panel.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  }
+
+  // copy chips
+  document.querySelectorAll('.chip-copy[data-copy]').forEach(function(chip){
+    function doCopy(){
+      var text = chip.getAttribute('data-copy');
+      var label = chip.querySelector('small');
+      var original = label ? label.textContent : '';
+      function flash(ok){
+        if(!label) return;
+        label.textContent = ok ? '— copied' : '— copy failed';
+        setTimeout(function(){ label.textContent = original; }, 1500);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){flash(true)}).catch(function(){flash(false)});
+      } else { flash(false); }
+    }
+    chip.addEventListener('click', doCopy);
+    chip.addEventListener('keypress', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); doCopy(); } });
+  });
+})();
+</script>
+
+</body></html>

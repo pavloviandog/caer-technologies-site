@@ -1,0 +1,203 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>CAER Assessment Confirmation</title>
+<style>
+/* Layout: same confirmation-card pattern as the landing page's success panel, scaled up to a
+   full page — matches consultcaer.com's navy/gold design system (styles.css tokens + fonts). */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root{
+  --navy:#0a1628;
+  --navy-mid:#0d1e38;
+  --blue:#10284c;
+  --gold:#c8922a;
+  --gold-light:#e8b84b;
+  --text-soft:rgba(255,255,255,0.65);
+  --text-muted:rgba(255,255,255,0.4);
+  --card-bg:rgba(255,255,255,0.04);
+  --card-border:rgba(200,146,42,0.15);
+  --radius:10px;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+  color-scheme:dark;
+}
+body{
+  background:var(--navy);
+  color:#fff;
+  font-family:'Barlow',sans-serif;
+  line-height:1.6;
+  padding-inline:20px;
+}
+a{color:var(--gold-light)}
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif}
+.wrap{max-width:640px;margin:0 auto;padding-block:48px 64px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.35);border-radius:999px;padding:6px 16px}
+.check-badge{width:64px;height:64px;border-radius:50%;background:rgba(200,146,42,.12);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:24px 0}
+h1{font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.1;letter-spacing:.5px;text-transform:uppercase;margin:0 0 14px;text-wrap:balance}
+.lede{color:var(--text-soft);font-size:18px;margin:0 0 36px;max-width:52ch}
+.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;margin-bottom:24px}
+.card h2{font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;color:var(--gold-light)}
+.steps{display:flex;flex-direction:column;gap:16px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step .n{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;color:var(--navy);background:var(--gold);width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step p{margin:0;color:var(--text-soft)}
+.step strong{color:#fff;font-weight:700}
+.reassure{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.reassure li{display:flex;gap:10px;color:var(--text-soft)}
+.reassure li::before{content:"✓";color:var(--gold);font-weight:700;flex:none}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.chip{font-family:'Barlow Condensed',sans-serif;font-size:13.5px;letter-spacing:.3px;color:#fff;background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.2);border-radius:8px;padding:10px 14px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:text}
+.chip svg{width:14px;height:14px;flex:none;color:var(--text-soft)}
+.chip small{color:var(--text-muted);font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0}
+.faq-mini details{border-bottom:1px solid rgba(200,146,42,.15);padding:14px 0}
+.faq-mini details:last-child{border-bottom:none}
+.faq-mini summary{font-family:'Barlow Condensed',sans-serif;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq-mini summary::-webkit-details-marker{display:none}
+.faq-mini summary::after{content:"+";color:var(--gold-light)}
+.faq-mini details[open] summary::after{content:"–"}
+.faq-mini p{color:var(--text-soft);margin:10px 0 0}
+footer{margin-top:40px;padding-top:24px;border-top:1px solid rgba(200,146,42,.15);color:var(--text-soft);font-size:13px}
+footer .brand{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#fff;margin-bottom:6px}
+@media (prefers-reduced-motion:no-preference){
+  .card{animation:rise .5s ease both}
+  .card:nth-of-type(2){animation-delay:.05s}
+  .card:nth-of-type(3){animation-delay:.1s}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CAER Technologies",
+  "description": "Managed IT and cybersecurity provider serving small businesses across the Texas Hill Country.",
+  "areaServed": ["Bandera, TX","Kerrville, TX","Boerne, TX","Fredericksburg, TX"],
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Small Business Cybersecurity Assessment",
+    "priceSpecification": {"@type":"PriceSpecification","minPrice":"299","priceCurrency":"USD"}
+  }
+}
+</script>
+
+<div class="wrap">
+  <span class="eyebrow">Request Received</span>
+
+  <div class="check-badge">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12.5L9.5 18L20 6" stroke="#e8b84b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <h1>Thanks — Your Assessment Request Is In</h1>
+  <p class="lede">A member of the CAER Technologies team will reach out within one business day to confirm your preferred date and time for your Small Business Cybersecurity Assessment.</p>
+
+  <div class="card">
+    <h2>What Happens Next</h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><p><strong>We review what you sent us.</strong> A quick look at your business size, systems and the assessment level you selected.</p></div>
+      <div class="step"><span class="n">2</span><p><strong>We call or email to confirm a time.</strong> We'll also answer any questions before anything is connected to your network.</p></div>
+      <div class="step"><span class="n">3</span><p><strong>We run the assessment on the scheduled day.</strong> It runs quietly in the background — no disruption to your normal workday.</p></div>
+      <div class="step"><span class="n">4</span><p><strong>You get a plain-English report</strong> showing what we found, what matters most, and what we recommend doing about it — with no obligation to hire CAER for the fix.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>A Quick Reminder of How This Works</h2>
+    <ul class="reassure">
+      <li>This is a cybersecurity and vulnerability assessment — not a penetration test. Nothing is exploited.</li>
+      <li>Normal business operations continue as usual during the assessment.</li>
+      <li>We don't make changes to your systems without talking to you first.</li>
+      <li>There is no obligation to hire CAER to fix what we find.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Need to Reach Us Sooner?</h2>
+    <p style="color:var(--text-soft);margin:0 0 12px">Tap a chip below to copy it.</p>
+    <div class="contact">
+      <span class="chip" data-copy="(830) 555-0147" role="button" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        (830) 555‑0147 <small>— replace with CAER's number</small>
+      </span>
+      <span class="chip" data-copy="hello@consultcaer.com" role="button" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        hello@consultcaer.com <small>— replace with CAER's inbox</small>
+      </span>
+    </div>
+  </div>
+
+  <div class="card faq-mini">
+    <h2>While You Wait</h2>
+    <details>
+      <summary>Will this disrupt my business?</summary>
+      <p>No. The assessment is designed to run in the background without interrupting normal work. We schedule it for a time that's convenient for you.</p>
+    </details>
+    <details>
+      <summary>Do you need my passwords?</summary>
+      <p>Not for the Essential or Complete assessments. Anything that requires elevated access, like an authenticated scan, is explained and authorized by you in advance — never assumed.</p>
+    </details>
+    <details>
+      <summary>Do I have to hire CAER afterward?</summary>
+      <p>No. You keep the findings and recommendations whether you fix them yourself, bring in another provider, or ask CAER to help. There's no obligation either way.</p>
+    </details>
+  </div>
+
+<footer class="site" id="contact">
+  <div class="container">
+    <div class="footer-grid" style="display:grid">
+      <div>
+        <h3><a href="https://consultcaer.com" target="_blank" rel="noopener">CAER Technologies</a></h3>
+        <p>Managed IT &amp; cybersecurity for small businesses across the Texas Hill Country.</p>
+        <div class="chip-copy" data-copy="hello@consultcaer.com" role="button" tabindex="0">hello@consultcaer.com </div><br>
+        <div class="chip-copy" data-copy="(830) 510-3700" role="button" tabindex="0">(830) 510-3700 </div>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <p>Bandera, Kerrville, Boerne, Fredericksburg and surrounding Texas Hill Country communities.</p>
+      </div>
+      <div>
+        <h4>About This Assessment</h4>
+        <p>A cybersecurity and vulnerability assessment — not a penetration test. No obligation to hire CAER for remediation or managed services.</p>
+      </div>
+      <div>
+        <h4>Explore CAER</h4>
+        <ul>
+          <li><a href="https://consultcaer.com" target="_blank" rel="noopener">consultcaer.com</a></li>
+          <li><a href="https://consultcaer.com/cybersec.html" target="_blank" rel="noopener">Cybersecurity Protection</a></li>
+          <li><a href="https://consultcaer.com/managed-it-services.html" target="_blank" rel="noopener">Managed IT Services</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 CAER Technologies. Phone and email shown above are placeholders — replace with CAER's real contact details before sharing this page publicly.</p>
+  </div>
+</footer>
+
+<!--  <footer>
+    <div class="brand">CAER Technologies</div>
+    <p>Managed IT &amp; cybersecurity for small businesses across the Texas Hill Country — Bandera, Kerrville, Boerne, Fredericksburg and surrounding communities.</p>
+  </footer> -->
+</div>
+
+<script>
+document.querySelectorAll('.chip[data-copy]').forEach(function(chip){
+  function doCopy(){
+    var text = chip.getAttribute('data-copy');
+    var label = chip.querySelector('small');
+    var original = label ? label.textContent : '';
+    function flash(ok){
+      if(!label) return;
+      label.textContent = ok ? '— copied' : '— copy failed, select manually';
+      setTimeout(function(){ label.textContent = original; }, 1600);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){flash(true)}).catch(function(){flash(false)});
+    } else {
+      flash(false);
+    }
+  }
+  chip.addEventListener('click', doCopy);
+  chip.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); doCopy(); } });
+});
+</script>
+
+</body></html>

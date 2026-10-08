@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CAER prospect planning, service coverage and device verification.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>CAER Technologies · Service Tier Planner</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to planner</a>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="CAER planner home"><img src="/assets/logo/CAER-PON.gif" alt="" width="48" height="48"><span>CAER<span class="brand-sub">Technologies</span></span></a>
+      <div class="workspace-label">INTERNAL WORKSPACE <span class="private-dot"></span></div>
+      <div class="workspace-name">Service tier planner</div>
+      <nav aria-label="Planner views">
+        <button data-tab="plan" class="nav-item active"><span class="nav-symbol">◈</span>Plan & compare</button>
+        <button data-tab="coverage" class="nav-item"><span class="nav-symbol">▦</span>Service coverage</button>
+        <button data-tab="devices" class="nav-item"><span class="nav-symbol">▤</span>Device inventory</button>
+        <button data-tab="catalog" class="nav-item"><span class="nav-symbol">⚙</span>Catalog & rates</button>
+      </nav>
+      <div class="sidebar-bottom"><span class="owner-pill">★ Browser-local drafts</span><p>Prospect drafts stay in this browser. Export a plan to keep a portable copy.</p><a class="site-link" href="/">← consultcaer.com</a><span class="version">PLANNER v1.1</span></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="breadcrumb">CAER workspace <span>/</span> <strong id="view-label">Plan & compare</strong></div><div class="save-state" id="save-state" role="status">Browser draft</div></header>
+      <main id="main" tabindex="-1">
+        <div class="page-heading"><div><div class="eyebrow">★ Client planning</div><h1 id="heading">Build the right service plan.</h1><p id="subheading">Match the prospect’s needs to your scope, then close the gaps.</p></div><div class="toolbar"><button class="button secondary" data-action="new">New prospect</button><button class="button secondary" data-action="example">Load example</button><button class="button primary" data-action="summary">Export configuration <span aria-hidden="true">↗</span></button></div></div>
+        <div id="example-banner" class="example-banner" hidden>ILLUSTRATIVE EXAMPLE <span>Try changing a requirement or a tier. Choose “New prospect” to start your own plan.</span></div>
+        <div id="errors" role="alert"></div>
+        <div id="stats" class="stats"></div>
+        <section id="view" aria-label="Planner content"></section>
+        <footer class="footer"><span>CAER Technologies <span class="footer-dot">★</span> Service planning workspace</span><span>Scope first. Verify before signing.</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="summary-dialog" aria-labelledby="summary-heading"><div class="dialog-head"><div><div class="eyebrow">Configuration draft</div><h2 id="summary-heading">Your recommended configuration</h2></div><button class="icon-button" data-action="close-summary" aria-label="Close configuration">×</button></div><pre id="summary-content"></pre><div class="dialog-actions"><button class="button secondary" data-action="print">Print / save PDF</button><button class="button primary" data-action="download-summary">Download text</button></div></dialog>
+  <input type="file" id="import-file" accept=".json,application/json" hidden>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
